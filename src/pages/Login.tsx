@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import Button from '@/components/ui/Button';
+import Button from '@/components/ui/CustomButton';
 import { adminLogin } from '@/services/api';
 import { toast } from "sonner";
 

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { ArrowRight, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import Button from '@/components/ui/Button';
+import Button from '@/components/ui/CustomButton';
 import { fetchNewsEvents } from '@/services/api';
 
 interface NewsEvent {

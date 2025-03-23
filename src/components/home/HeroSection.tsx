@@ -1,8 +1,7 @@
-
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import Button from '@/components/ui/Button';
+import Button from '@/components/ui/CustomButton';
 
 const HeroSection = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();

@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import Button from '@/components/ui/Button';
+import Button from '@/components/ui/CustomButton';
 import { Phone, Mail } from 'lucide-react';
 
 const ContactCTA = () => {
