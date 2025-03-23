@@ -26,11 +26,13 @@ const NavDropdown = ({
   const [isOpen, setIsOpen] = useState(false);
   
   return (
-    <div className="relative group" onMouseLeave={() => setIsOpen(false)}>
+    <div 
+      className="relative group" 
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+    >
       <button
         className="flex items-center px-4 py-2 text-sm font-medium text-skitm-navy hover:text-skitm-blue transition-colors duration-200"
-        onClick={() => setIsOpen(!isOpen)}
-        onMouseEnter={() => setIsOpen(true)}
       >
         {title}
         <ChevronDown size={16} className="ml-1" />
