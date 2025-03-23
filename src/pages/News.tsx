@@ -1,10 +1,10 @@
 
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import { useScrollAnimationDiv } from '@/hooks/useScrollAnimationDiv';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const News = () => {
-  const { ref: headingRef, isVisible: headingVisible } = useScrollAnimationDiv();
+  const { ref: headingRef, isVisible: headingVisible } = useScrollAnimation();
   
   return (
     <div className="min-h-screen flex flex-col">
