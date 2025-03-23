@@ -1,11 +1,11 @@
-
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Button from '@/components/ui/CustomButton';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useScrollAnimationDiv } from '@/hooks/useScrollAnimationDiv';
+import { Link } from 'react-router-dom';
 
 const Departments = () => {
-  const { ref: headingRef, isVisible: headingVisible } = useScrollAnimation();
+  const { ref: headingRef, isVisible: headingVisible } = useScrollAnimationDiv();
   
   const departments = [
     {

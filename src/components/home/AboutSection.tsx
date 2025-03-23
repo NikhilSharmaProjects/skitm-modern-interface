@@ -1,7 +1,7 @@
 
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Link } from 'react-router-dom';
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 
 const AboutSection = () => {
   const { ref: textRef, isVisible: textVisible } = useScrollAnimation();
