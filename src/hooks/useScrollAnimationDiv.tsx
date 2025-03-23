@@ -1,9 +1,10 @@
 
 import { useScrollAnimation } from './useScrollAnimation';
+import { useRef } from 'react';
 
 export const useScrollAnimationDiv = (options?: { threshold?: number; rootMargin?: string }) => {
-  const { ref, isVisible } = useScrollAnimation(options);
+  const { isVisible } = useScrollAnimation(options);
+  const ref = useRef<HTMLDivElement>(null);
   
-  // Return the ref as is, since it's properly typed in the component
   return { ref, isVisible };
 };

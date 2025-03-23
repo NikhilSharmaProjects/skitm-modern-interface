@@ -31,46 +31,49 @@ import Gallery from "./pages/Gallery";
 import News from "./pages/News";
 import Contact from "./pages/Contact";
 
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          {/* Main pages */}
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          
-          {/* Academic pages */}
-          <Route path="/departments" element={<Departments />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/faculty" element={<Faculty />} />
-          <Route path="/research" element={<Research />} />
-          
-          {/* Additional pages */}
-          <Route path="/admissions" element={<Admissions />} />
-          <Route path="/fees" element={<Fees />} />
-          <Route path="/scholarships" element={<Scholarships />} />
-          <Route path="/faqs" element={<Faqs />} />
-          <Route path="/student-life" element={<StudentLife />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/facilities" element={<Facilities />} />
-          <Route path="/hostels" element={<Hostels />} />
-          <Route path="/placements" element={<Placements />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/contact" element={<Contact />} />
-          
-          {/* Catch-all route */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  // Create a client inside the component
+  const queryClient = new QueryClient();
+  
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            {/* Main pages */}
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login />} />
+            
+            {/* Academic pages */}
+            <Route path="/departments" element={<Departments />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/faculty" element={<Faculty />} />
+            <Route path="/research" element={<Research />} />
+            
+            {/* Additional pages */}
+            <Route path="/admissions" element={<Admissions />} />
+            <Route path="/fees" element={<Fees />} />
+            <Route path="/scholarships" element={<Scholarships />} />
+            <Route path="/faqs" element={<Faqs />} />
+            <Route path="/student-life" element={<StudentLife />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/facilities" element={<Facilities />} />
+            <Route path="/hostels" element={<Hostels />} />
+            <Route path="/placements" element={<Placements />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/contact" element={<Contact />} />
+            
+            {/* Catch-all route */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
