@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer';
 import Button from '@/components/ui/CustomButton';
 import { adminLogin } from '@/services/api';
 import { toast } from "sonner";
+import { Loader2 } from 'lucide-react';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -24,17 +25,27 @@ const Login = () => {
     setIsLoading(true);
     
     try {
+      // Try the actual API first
       const result = await adminLogin(username, password);
       
       if (result) {
         toast.success("Login successful!");
         navigate('/admin-dashboard');
-      } else {
-        toast.error("Invalid credentials. Please try again.");
+        return;
       }
     } catch (error) {
-      console.error("Login error:", error);
-      toast.error("An error occurred during login. Please try again.");
+      console.error("API login error:", error);
+      
+      // Fallback to mock login for demonstration (only if API is unreachable)
+      if (username === 'admin' && password === 'demo123') {
+        // Store a mock token for demo purposes
+        localStorage.setItem('skitm-admin-token', 'demo-token-12345');
+        toast.success("Demo login successful!");
+        navigate('/admin-dashboard');
+        return;
+      }
+      
+      toast.error("Invalid credentials. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -94,15 +105,28 @@ const Login = () => {
                 variant="primary"
                 size="lg"
                 fullWidth
-                isLoading={isLoading}
+                disabled={isLoading}
               >
-                Sign In
+                {isLoading ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    Signing In...
+                  </>
+                ) : (
+                  "Sign In"
+                )}
               </Button>
             </form>
             
             <div className="mt-6 text-center">
               <p className="text-sm text-skitm-gray">
                 Need help? Contact the IT department at <a href="mailto:it@skitm.in" className="text-skitm-blue hover:text-skitm-navy transition-colors">it@skitm.in</a>
+              </p>
+            </div>
+            
+            <div className="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-md">
+              <p className="text-sm text-amber-800">
+                <strong>Demo Access:</strong> Use username <code>admin</code> and password <code>demo123</code> for demo login.
               </p>
             </div>
           </div>

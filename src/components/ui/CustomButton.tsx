@@ -11,6 +11,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
   fullWidth?: boolean;
   asChild?: boolean;
+  isLoading?: boolean;
 }
 
 const Button = ({ 
@@ -19,6 +20,7 @@ const Button = ({
   variant = 'default', 
   size = 'default', 
   fullWidth = false,
+  disabled,
   ...props 
 }: ButtonProps) => {
   const baseClasses = "font-medium rounded-md transition-colors duration-200 inline-flex items-center justify-center";
@@ -41,6 +43,7 @@ const Button = ({
   };
   
   const widthClass = fullWidth ? "w-full" : "";
+  const disabledClass = disabled ? "opacity-50 cursor-not-allowed" : "";
   
   return (
     <button
@@ -49,8 +52,10 @@ const Button = ({
         variantClasses[variant],
         sizeClasses[size],
         widthClass,
+        disabledClass,
         className
       )}
+      disabled={disabled}
       {...props}
     >
       {children}
