@@ -25,7 +25,7 @@ const NavDropdown = ({ title, items }: NavDropdownProps) => {
       </button>
       
       {isOpen && (
-        <div className="absolute left-0 mt-2 w-48 p-2 glassmorphism rounded-lg shadow-lg z-50 transform origin-top-left animate-scale-in">
+        <div className="absolute left-0 mt-0 w-48 p-2 glassmorphism rounded-lg shadow-lg z-50 transform origin-top-left animate-scale-in">
           <div className="py-1 flex flex-col gap-1">
             {items.map((item) => (
               <Link
