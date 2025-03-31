@@ -4,6 +4,7 @@ export const academicLinks = [
   { name: "Courses", href: "/courses" },
   { name: "Faculty", href: "/faculty" },
   { name: "Research", href: "/research" },
+  { name: "Library", href: "/library" },
 ];
 
 export const admissionLinks = [
@@ -14,7 +15,7 @@ export const admissionLinks = [
 ];
 
 export const campusLifeLinks = [
-  { name: "Clubs & Activities", href: "/student-life" },
+  { name: "Student Life", href: "/student-life" },
   { name: "Events", href: "/events" },
   { name: "Facilities", href: "/facilities" },
   { name: "Hostels", href: "/hostels" },

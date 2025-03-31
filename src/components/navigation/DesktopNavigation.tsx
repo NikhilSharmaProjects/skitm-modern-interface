@@ -24,14 +24,8 @@ const DesktopNavigation = ({
       <NavButton href="/placements">Placements</NavButton>
       <NavButton href="/gallery">Gallery</NavButton>
       <NavButton href="/news">News & Events</NavButton>
+      <NavButton href="/blogs">Blogs</NavButton>
       <NavButton href="/contact">Contact</NavButton>
-      
-      <Link 
-        to="/login" 
-        className="ml-4 px-5 py-2 text-sm font-medium text-white bg-skitm-blue rounded-md hover:bg-skitm-lightBlue transition-colors duration-200"
-      >
-        Admin Login
-      </Link>
     </nav>
   );
 };
