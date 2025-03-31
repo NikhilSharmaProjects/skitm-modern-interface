@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Button from '@/components/ui/CustomButton';
-import { adminLogin } from '@/services/api';
 import { toast } from "sonner";
 import { Loader2 } from 'lucide-react';
 import { useAuth } from '@/App';
@@ -26,32 +25,20 @@ const Login = () => {
     
     setIsLoading(true);
     
-    // Check for demo credentials first for a better user experience
+    // Simple credential check
     if (username === 'admin' && password === 'demo123') {
-      // Use setTimeout to simulate API request time for a smoother experience
+      // Use setTimeout to simulate login time for a smoother experience
       setTimeout(() => {
-        login('demo-token-12345');
-        toast.success("Demo login successful!");
+        login('admin-token-12345');
+        toast.success("Login successful!");
         navigate('/admin-dashboard');
         setIsLoading(false);
       }, 800);
-      return;
-    }
-    
-    try {
-      // Only attempt API login if not using demo credentials
-      const result = await adminLogin(username, password);
-      
-      if (result) {
-        login(result.token);
-        toast.success("Login successful!");
-        navigate('/admin-dashboard');
-      }
-    } catch (error) {
-      console.error("API login error:", error);
-      toast.error("Login failed. The API server appears to be unavailable.");
-    } finally {
-      setIsLoading(false);
+    } else {
+      setTimeout(() => {
+        toast.error("Invalid credentials. Please try again.");
+        setIsLoading(false);
+      }, 800);
     }
   };
   
@@ -130,7 +117,7 @@ const Login = () => {
             
             <div className="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-md">
               <p className="text-sm text-amber-800">
-                <strong>Demo Access:</strong> Use username <code>admin</code> and password <code>demo123</code> for demo login.
+                <strong>Login Access:</strong> Use username <code>admin</code> and password <code>demo123</code> to login.
               </p>
             </div>
           </div>
