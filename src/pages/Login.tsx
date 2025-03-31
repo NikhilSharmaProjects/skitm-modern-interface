@@ -26,29 +26,30 @@ const Login = () => {
     
     setIsLoading(true);
     
+    // Check for demo credentials first for a better user experience
+    if (username === 'admin' && password === 'demo123') {
+      // Use setTimeout to simulate API request time for a smoother experience
+      setTimeout(() => {
+        login('demo-token-12345');
+        toast.success("Demo login successful!");
+        navigate('/admin-dashboard');
+        setIsLoading(false);
+      }, 800);
+      return;
+    }
+    
     try {
-      // Try the actual API first
+      // Only attempt API login if not using demo credentials
       const result = await adminLogin(username, password);
       
       if (result) {
         login(result.token);
         toast.success("Login successful!");
         navigate('/admin-dashboard');
-        return;
       }
     } catch (error) {
       console.error("API login error:", error);
-      
-      // Fallback to mock login for demonstration (only if API is unreachable)
-      if (username === 'admin' && password === 'demo123') {
-        // Store a mock token via the auth context
-        login('demo-token-12345');
-        toast.success("Demo login successful!");
-        navigate('/admin-dashboard');
-        return;
-      }
-      
-      toast.error("Invalid credentials. Please try again.");
+      toast.error("Login failed. The API server appears to be unavailable.");
     } finally {
       setIsLoading(false);
     }
