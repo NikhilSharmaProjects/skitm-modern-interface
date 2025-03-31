@@ -7,12 +7,14 @@ import Button from '@/components/ui/CustomButton';
 import { adminLogin } from '@/services/api';
 import { toast } from "sonner";
 import { Loader2 } from 'lucide-react';
+import { useAuth } from '@/App';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,6 +31,7 @@ const Login = () => {
       const result = await adminLogin(username, password);
       
       if (result) {
+        login(result.token);
         toast.success("Login successful!");
         navigate('/admin-dashboard');
         return;
@@ -38,8 +41,8 @@ const Login = () => {
       
       // Fallback to mock login for demonstration (only if API is unreachable)
       if (username === 'admin' && password === 'demo123') {
-        // Store a mock token for demo purposes
-        localStorage.setItem('skitm-admin-token', 'demo-token-12345');
+        // Store a mock token via the auth context
+        login('demo-token-12345');
         toast.success("Demo login successful!");
         navigate('/admin-dashboard');
         return;
