@@ -22,6 +22,7 @@ interface Event {
   time?: string;
   location?: string;
   image?: string;
+  category?: string; // Added category property to Event interface
 }
 
 const NewsEventsSection = () => {
@@ -73,7 +74,7 @@ const NewsEventsSection = () => {
       const formattedEvents = eventData.map((event: Event) => ({
         ...event,
         imageUrl: event.image,
-        category: 'event'
+        category: event.category || 'event' // Set default category for events if not present
       }));
       
       setNewsItems(newsData);
@@ -120,8 +121,9 @@ const NewsEventsSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {combinedItems.map((item, index) => {
-            const isEvent = 'location' in item || item.category === 'event';
+            const isEvent = 'location' in item || (item.category === 'event');
             const itemImage = isEvent ? (item as Event).image : (item as NewsEvent).imageUrl;
+            const category = item.category || 'uncategorized'; // Provide default category if missing
             
             return (
               <div 
@@ -143,13 +145,13 @@ const NewsEventsSection = () => {
                 <div className="p-6">
                   <div className="flex items-center space-x-3 mb-3">
                     <span className={`px-2 py-1 text-xs font-medium rounded ${
-                      item.category === 'event' 
+                      category === 'event' 
                         ? 'bg-yellow-500/20 text-yellow-200' 
-                        : item.category === 'news' 
+                        : category === 'news' 
                           ? 'bg-blue-500/20 text-blue-200' 
                           : 'bg-green-500/20 text-green-200'
                     }`}>
-                      {item.category.charAt(0).toUpperCase() + item.category.slice(1)}
+                      {category.charAt(0).toUpperCase() + category.slice(1)}
                     </span>
                     <span className="flex items-center text-xs text-blue-200">
                       <Calendar size={14} className="mr-1" />
