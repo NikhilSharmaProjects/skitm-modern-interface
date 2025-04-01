@@ -53,7 +53,7 @@ const Departments = () => {
         <div className="container mx-auto px-4">
           <div 
             ref={headingRef}
-            className={`text-center mb-16 ${headingVisible ? 'animate-fade-in' : 'opacity-0'}`}
+            className={`text-center mb-16 ${headingVisible ? 'animate-fade-in' : 'opacity-1'}`}
           >
             <div className="inline-block px-4 py-1.5 mb-4 text-sm font-medium bg-skitm-blue/10 rounded-full text-skitm-blue">
               Our Academic Departments
