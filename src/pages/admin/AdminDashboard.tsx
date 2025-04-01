@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/App';
 import { 
@@ -10,11 +10,26 @@ import { toast } from 'sonner';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import AdminBlogEditor from '@/components/admin/AdminBlogEditor';
 import AdminEventEditor from '@/components/admin/AdminEventEditor';
+import AdminGalleryEditor from '@/components/admin/AdminGalleryEditor';
 
 const AdminDashboard = () => {
   const { logout } = useAuth();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('overview');
+  const [blogCount, setBlogCount] = useState(0);
+  const [eventCount, setEventCount] = useState(0);
+  const [galleryCount, setGalleryCount] = useState(0);
+  
+  // Load counts from localStorage
+  useEffect(() => {
+    const savedBlogs = localStorage.getItem('skitm-blogs');
+    const savedEvents = localStorage.getItem('skitm-events');
+    const savedGallery = localStorage.getItem('skitm-gallery');
+    
+    setBlogCount(savedBlogs ? JSON.parse(savedBlogs).length : 0);
+    setEventCount(savedEvents ? JSON.parse(savedEvents).length : 0);
+    setGalleryCount(savedGallery ? JSON.parse(savedGallery).length : 0);
+  }, []);
   
   const handleLogout = () => {
     logout();
@@ -150,7 +165,7 @@ const AdminDashboard = () => {
                     <div className="border border-gray-200 rounded-lg p-4 hover:border-skitm-blue/50 hover:shadow-sm transition-all">
                       <div className="flex justify-between items-start mb-3">
                         <FileText className="text-skitm-blue" />
-                        <span className="text-xs bg-gray-100 rounded px-2 py-0.5">0 items</span>
+                        <span className="text-xs bg-gray-100 rounded px-2 py-0.5">{blogCount} items</span>
                       </div>
                       <h3 className="text-sm font-medium mb-1">Manage Blogs</h3>
                       <p className="text-xs text-gray-500 mb-3">Create and edit blog posts</p>
@@ -165,7 +180,7 @@ const AdminDashboard = () => {
                     <div className="border border-gray-200 rounded-lg p-4 hover:border-skitm-blue/50 hover:shadow-sm transition-all">
                       <div className="flex justify-between items-start mb-3">
                         <Calendar className="text-skitm-blue" />
-                        <span className="text-xs bg-gray-100 rounded px-2 py-0.5">0 items</span>
+                        <span className="text-xs bg-gray-100 rounded px-2 py-0.5">{eventCount} items</span>
                       </div>
                       <h3 className="text-sm font-medium mb-1">Manage Events</h3>
                       <p className="text-xs text-gray-500 mb-3">Add and update campus events</p>
@@ -180,7 +195,7 @@ const AdminDashboard = () => {
                     <div className="border border-gray-200 rounded-lg p-4 hover:border-skitm-blue/50 hover:shadow-sm transition-all">
                       <div className="flex justify-between items-start mb-3">
                         <Image className="text-skitm-blue" />
-                        <span className="text-xs bg-gray-100 rounded px-2 py-0.5">0 items</span>
+                        <span className="text-xs bg-gray-100 rounded px-2 py-0.5">{galleryCount} items</span>
                       </div>
                       <h3 className="text-sm font-medium mb-1">Manage Gallery</h3>
                       <p className="text-xs text-gray-500 mb-3">Upload and organize images</p>
@@ -204,14 +219,7 @@ const AdminDashboard = () => {
               </TabsContent>
               
               <TabsContent value="gallery" className="space-y-6">
-                <div className="bg-white rounded-lg shadow-sm p-6">
-                  <h2 className="text-xl font-display font-bold text-skitm-navy mb-4">
-                    Gallery Management
-                  </h2>
-                  <p className="text-gray-500">
-                    This feature is coming soon. You'll be able to upload and manage gallery images here.
-                  </p>
-                </div>
+                <AdminGalleryEditor />
               </TabsContent>
               
               <TabsContent value="settings" className="space-y-6">

@@ -1,49 +1,118 @@
 
+import { useState, useEffect } from 'react';
+import { useScrollAnimationDiv } from '@/hooks/useScrollAnimationDiv';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import { useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Camera, X } from 'lucide-react';
+import { X } from 'lucide-react';
 
-// Gallery image categories and data
-const categories = ["All", "Campus", "Events", "Academic", "Sports", "Cultural", "Infrastructure"];
+// Define GalleryItem type
+interface GalleryItem {
+  id: string;
+  title: string;
+  imageUrl: string;
+  category: string;
+  date: string;
+}
 
-const galleryImages = [
-  { id: 1, src: "/placeholder.svg", alt: "Main Building", category: "Campus" },
-  { id: 2, src: "/placeholder.svg", alt: "Library", category: "Infrastructure" },
-  { id: 3, src: "/placeholder.svg", alt: "Computer Lab", category: "Academic" },
-  { id: 4, src: "/placeholder.svg", alt: "Sports Day", category: "Sports" },
-  { id: 5, src: "/placeholder.svg", alt: "Cultural Performance", category: "Cultural" },
-  { id: 6, src: "/placeholder.svg", alt: "Technical Fest", category: "Events" },
-  { id: 7, src: "/placeholder.svg", alt: "Classroom", category: "Academic" },
-  { id: 8, src: "/placeholder.svg", alt: "Campus Garden", category: "Campus" },
-  { id: 9, src: "/placeholder.svg", alt: "Auditorium", category: "Infrastructure" },
-  { id: 10, src: "/placeholder.svg", alt: "Basketball Court", category: "Sports" },
-  { id: 11, src: "/placeholder.svg", alt: "Dance Performance", category: "Cultural" },
-  { id: 12, src: "/placeholder.svg", alt: "Workshop", category: "Events" },
-  { id: 13, src: "/placeholder.svg", alt: "Science Lab", category: "Academic" },
-  { id: 14, src: "/placeholder.svg", alt: "Cafeteria", category: "Campus" },
-  { id: 15, src: "/placeholder.svg", alt: "Hostels", category: "Infrastructure" },
-  { id: 16, src: "/placeholder.svg", alt: "Cricket Match", category: "Sports" },
-  { id: 17, src: "/placeholder.svg", alt: "Music Concert", category: "Cultural" },
-  { id: 18, src: "/placeholder.svg", alt: "Graduation Ceremony", category: "Events" },
+// Default gallery items if none in localStorage
+const defaultGalleryItems: GalleryItem[] = [
+  {
+    id: '1',
+    title: 'Campus Building',
+    imageUrl: 'https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80',
+    category: 'Campus',
+    date: '2023-01-15'
+  },
+  {
+    id: '2',
+    title: 'Graduation Ceremony',
+    imageUrl: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80',
+    category: 'Events',
+    date: '2023-06-22'
+  },
+  {
+    id: '3',
+    title: 'Technical Workshop',
+    imageUrl: 'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80',
+    category: 'Workshops',
+    date: '2023-03-10'
+  },
+  {
+    id: '4',
+    title: 'Sports Event',
+    imageUrl: 'https://images.unsplash.com/photo-1588072432174-7f828b7ddd75?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80',
+    category: 'Sports',
+    date: '2023-02-05'
+  },
+  {
+    id: '5',
+    title: 'Cultural Festival',
+    imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80',
+    category: 'Cultural',
+    date: '2023-04-18'
+  },
+  {
+    id: '6',
+    title: 'Research Exhibition',
+    imageUrl: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f8e7a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80',
+    category: 'Research',
+    date: '2023-05-30'
+  },
 ];
 
+// Gallery categories
+const categories = ["All", "Campus", "Events", "Workshops", "Sports", "Cultural", "Research"];
+
 const Gallery = () => {
-  const headingRef = useRef<HTMLDivElement>(null);
+  const { ref, isVisible } = useScrollAnimationDiv();
   const [activeCategory, setActiveCategory] = useState("All");
-  const [selectedImage, setSelectedImage] = useState<typeof galleryImages[0] | null>(null);
+  const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
+  const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
   
-  const filteredImages = activeCategory === "All" 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === activeCategory);
+  useEffect(() => {
+    // Load gallery items from localStorage or use defaults
+    const savedGallery = localStorage.getItem('skitm-gallery');
+    if (savedGallery) {
+      setGalleryItems(JSON.parse(savedGallery));
+    } else {
+      setGalleryItems(defaultGalleryItems);
+    }
+  }, []);
+  
+  const filteredItems = activeCategory === "All" 
+    ? galleryItems 
+    : galleryItems.filter(item => item.category === activeCategory);
+  
+  const openLightbox = (item: GalleryItem) => {
+    setSelectedItem(item);
+    document.body.style.overflow = 'hidden';
+  };
+  
+  const closeLightbox = () => {
+    setSelectedItem(null);
+    document.body.style.overflow = 'auto';
+  };
+  
+  // Format date
+  const formatDate = (dateString: string) => {
+    const options: Intl.DateTimeFormatOptions = { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    };
+    return new Date(dateString).toLocaleDateString('en-US', options);
+  };
   
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
         <title>Gallery - SKITM</title>
-        <meta name="description" content="Browse through SKITM's image gallery showcasing our campus, events, academic activities, sports, and cultural programs. Get a visual tour of our college life and facilities." />
-        <meta name="keywords" content="SKITM gallery, college photos, campus images, college events, student activities, college facilities" />
+        <meta name="description" content="Browse through images of SKITM campus, events, workshops, and student activities. See what life at SKITM is all about." />
+        <meta property="og:title" content="Gallery - SKITM" />
+        <meta property="og:description" content="Browse through images of SKITM campus, events, workshops, and student activities." />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://skitm.edu/gallery" />
       </Helmet>
       
       <Navbar />
@@ -51,17 +120,17 @@ const Gallery = () => {
       <main className="flex-grow pt-24 pb-16">
         <div className="container mx-auto px-4">
           <div 
-            ref={headingRef}
-            className="text-center mb-12 animate-fade-in"
+            ref={ref as React.RefObject<HTMLDivElement>}
+            className={`text-center mb-12 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
           >
             <div className="inline-block px-4 py-1.5 mb-4 text-sm font-medium bg-skitm-blue/10 rounded-full text-skitm-blue">
               Visual Tour
             </div>
             <h1 className="text-4xl md:text-5xl font-display font-bold text-skitm-navy mb-6">
-              Gallery
+              SKITM Gallery
             </h1>
             <p className="text-lg text-skitm-gray max-w-2xl mx-auto">
-              Explore campus life through our collection of photos and videos.
+              Explore images from our campus, events, and student activities
             </p>
           </div>
           
@@ -83,120 +152,59 @@ const Gallery = () => {
           </div>
           
           {/* Gallery Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {filteredImages.map(image => (
-              <div 
-                key={image.id} 
-                className="aspect-square overflow-hidden rounded-lg cursor-pointer transition-transform hover:scale-[1.02]"
-                onClick={() => setSelectedImage(image)}
-              >
-                <img 
-                  src={image.src} 
-                  alt={image.alt} 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
-          
-          {/* No results message */}
-          {filteredImages.length === 0 && (
-            <div className="text-center py-12">
-              <Camera className="mx-auto text-skitm-gray mb-4" size={48} />
-              <h3 className="text-xl font-semibold text-skitm-navy mb-2">No images found</h3>
-              <p className="text-skitm-gray">No images available for the selected category.</p>
+          {filteredItems.length === 0 ? (
+            <div className="text-center py-16">
+              <p className="text-skitm-gray">No images found in this category.</p>
             </div>
-          )}
-          
-          {/* Image Modal */}
-          {selectedImage && (
-            <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-              <div className="relative max-w-4xl w-full">
-                <button 
-                  className="absolute -top-12 right-0 text-white hover:text-gray-300 focus:outline-none"
-                  onClick={() => setSelectedImage(null)}
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {filteredItems.map((item) => (
+                <div 
+                  key={item.id}
+                  className="relative overflow-hidden rounded-lg shadow-md cursor-pointer group"
+                  onClick={() => openLightbox(item)}
                 >
-                  <X size={24} />
-                </button>
-                
-                <div className="bg-white rounded-lg overflow-hidden">
-                  <div className="aspect-video">
-                    <img 
-                      src={selectedImage.src} 
-                      alt={selectedImage.alt} 
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-lg font-semibold text-skitm-navy">{selectedImage.alt}</h3>
-                    <p className="text-sm text-skitm-gray">Category: {selectedImage.category}</p>
+                  <img 
+                    src={item.imageUrl} 
+                    alt={item.title} 
+                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <h3 className="text-white font-medium mb-1">{item.title}</h3>
+                    <p className="text-white/80 text-sm">{formatDate(item.date)}</p>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
           )}
-          
-          {/* Video Gallery Section */}
-          <div className="mt-20">
-            <h2 className="text-2xl font-display font-bold text-skitm-navy mb-8 text-center">
-              Video Gallery
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="glassmorphism rounded-xl overflow-hidden">
-                <div className="aspect-video bg-gray-200">
-                  <div className="w-full h-full flex items-center justify-center">
-                    <span className="text-skitm-gray text-sm">Video Placeholder</span>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <h3 className="font-semibold text-skitm-navy mb-1">Campus Tour</h3>
-                  <p className="text-sm text-skitm-gray">A virtual tour of our beautiful campus and facilities.</p>
-                </div>
-              </div>
-              
-              <div className="glassmorphism rounded-xl overflow-hidden">
-                <div className="aspect-video bg-gray-200">
-                  <div className="w-full h-full flex items-center justify-center">
-                    <span className="text-skitm-gray text-sm">Video Placeholder</span>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <h3 className="font-semibold text-skitm-navy mb-1">Annual Day Highlights</h3>
-                  <p className="text-sm text-skitm-gray">Highlights from our last Annual Day celebration.</p>
-                </div>
-              </div>
-              
-              <div className="glassmorphism rounded-xl overflow-hidden">
-                <div className="aspect-video bg-gray-200">
-                  <div className="w-full h-full flex items-center justify-center">
-                    <span className="text-skitm-gray text-sm">Video Placeholder</span>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <h3 className="font-semibold text-skitm-navy mb-1">TechFest 2023</h3>
-                  <p className="text-sm text-skitm-gray">Exciting moments from our biggest technical festival.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Virtual Tour CTA */}
-          <div className="mt-20 glassmorphism rounded-xl p-8 text-center">
-            <h2 className="text-2xl font-display font-bold text-skitm-navy mb-4">Virtual Campus Tour</h2>
-            <p className="text-skitm-gray mb-6 max-w-2xl mx-auto">
-              Can't visit us in person? Take a virtual tour of our campus to explore our facilities, 
-              classrooms, labs, hostels, and more from anywhere.
-            </p>
-            <a 
-              href="#"
-              className="bg-skitm-blue text-white px-6 py-3 rounded-md hover:bg-skitm-lightBlue transition-colors inline-block font-medium"
-            >
-              Launch Virtual Tour
-            </a>
-          </div>
         </div>
       </main>
+      
+      {/* Lightbox */}
+      {selectedItem && (
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
+          <button 
+            onClick={closeLightbox}
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+          >
+            <X size={32} />
+          </button>
+          
+          <div className="max-w-5xl max-h-[90vh] w-full">
+            <img 
+              src={selectedItem.imageUrl} 
+              alt={selectedItem.title}
+              className="w-full h-auto max-h-[80vh] object-contain mx-auto"
+            />
+            
+            <div className="text-center mt-4">
+              <h3 className="text-white text-lg font-medium">{selectedItem.title}</h3>
+              <p className="text-gray-300 text-sm mt-1">{formatDate(selectedItem.date)} • {selectedItem.category}</p>
+            </div>
+          </div>
+        </div>
+      )}
       
       <Footer />
     </div>

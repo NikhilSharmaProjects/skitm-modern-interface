@@ -16,15 +16,39 @@ interface Event {
   image?: string;
 }
 
+// Default events if none in localStorage
+const defaultEvents = [
+  {
+    id: "1",
+    title: "Orientation Day for New Students",
+    description: "Welcome ceremony for all new students with campus tour, introduction to faculty and student activities.",
+    date: "2023-07-15",
+    time: "09:00",
+    location: "Main Auditorium",
+    image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80"
+  },
+  {
+    id: "2",
+    title: "Annual Technical Symposium",
+    description: "A platform for students to showcase their technical innovations and compete in various technical events.",
+    date: "2023-08-20",
+    time: "10:00",
+    location: "Engineering Block",
+    image: "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80"
+  }
+];
+
 const Events = () => {
   const { ref: headingRef, isVisible: headingVisible } = useScrollAnimationDiv();
   const [events, setEvents] = useState<Event[]>([]);
   
   useEffect(() => {
-    // Load events from localStorage
+    // Load events from localStorage or use defaults
     const savedEvents = localStorage.getItem('skitm-events');
     if (savedEvents) {
       setEvents(JSON.parse(savedEvents));
+    } else {
+      setEvents(defaultEvents);
     }
   }, []);
   
@@ -38,6 +62,23 @@ const Events = () => {
     return new Date(dateString).toLocaleDateString('en-US', options);
   };
   
+  // Format time (e.g., 14:30 to 2:30 PM)
+  const formatTime = (timeString: string) => {
+    try {
+      const [hours, minutes] = timeString.split(':');
+      const date = new Date();
+      date.setHours(parseInt(hours || "0", 10));
+      date.setMinutes(parseInt(minutes || "0", 10));
+      return date.toLocaleTimeString('en-US', { 
+        hour: 'numeric', 
+        minute: '2-digit', 
+        hour12: true 
+      });
+    } catch (e) {
+      return timeString;
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -45,7 +86,7 @@ const Events = () => {
       <main className="flex-grow pt-24 pb-16">
         <div className="container mx-auto px-4">
           <div 
-            ref={headingRef}
+            ref={headingRef as React.RefObject<HTMLDivElement>}
             className={`text-center mb-16 ${headingVisible ? 'animate-fade-in' : 'opacity-0'}`}
           >
             <div className="inline-block px-4 py-1.5 mb-4 text-sm font-medium bg-skitm-blue/10 rounded-full text-skitm-blue">
@@ -97,7 +138,7 @@ const Events = () => {
                         
                         <div className="flex items-center text-sm text-skitm-gray">
                           <Clock size={16} className="mr-2 text-skitm-blue" />
-                          <span>{event.time}</span>
+                          <span>{formatTime(event.time)}</span>
                         </div>
                         
                         <div className="flex items-center text-sm text-skitm-gray">
