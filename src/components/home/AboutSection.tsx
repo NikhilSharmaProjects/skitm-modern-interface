@@ -118,7 +118,7 @@ const AboutSection = () => {
             </div>
             
             <Link to="/about">
-              <Button variant="primary">
+              <Button variant="default" className="text-white bg-skitm-blue hover:bg-skitm-lightBlue">
                 Learn More About SKITM
               </Button>
             </Link>

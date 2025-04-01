@@ -1,7 +1,8 @@
+
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import Button from '@/components/ui/CustomButton';
+import { Button } from '@/components/ui/button';
 
 const HeroSection = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
@@ -62,13 +63,11 @@ const HeroSection = () => {
             style={{ transitionDelay: '0.8s' }}
           >
             <Link to="/admissions">
-              <Button
-                variant="primary"
-                size="lg"
-                rightIcon={<ArrowRight size={18} />}
+              <Button 
+                size="lg" 
                 className="bg-white text-skitm-navy hover:bg-blue-50"
               >
-                Apply Now
+                Apply Now <ArrowRight className="ml-2" size={18} />
               </Button>
             </Link>
             <Link to="/about">

@@ -14,7 +14,7 @@ const Contact = () => {
       <main className="flex-grow pt-24 pb-16">
         <div className="container mx-auto px-4">
           <div 
-            ref={headingRef}
+            ref={headingRef as React.RefObject<HTMLDivElement>}
             className={`text-center mb-16 ${headingVisible ? 'animate-fade-in' : 'opacity-0'}`}
           >
             <div className="inline-block px-4 py-1.5 mb-4 text-sm font-medium bg-skitm-blue/10 rounded-full text-skitm-blue">
