@@ -2,7 +2,7 @@
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { useScrollAnimationDiv } from '@/hooks/useScrollAnimationDiv';
-import { BookOpen, Cpu, Dumbbell, Flask, Utensils, Wifi, Library, PenTool, Bus } from 'lucide-react';
+import { BookOpen, Cpu, Dumbbell, Beaker, Utensils, Wifi, Library, PenTool, Bus } from 'lucide-react';
 
 const Facilities = () => {
   const { ref: headingRef, isVisible: headingVisible } = useScrollAnimationDiv();
@@ -20,7 +20,7 @@ const Facilities = () => {
       description: "Well-stocked library with thousands of books, journals, and digital resources across various disciplines."
     },
     {
-      icon: <Flask className="h-10 w-10 text-skitm-blue" />,
+      icon: <Beaker className="h-10 w-10 text-skitm-blue" />,
       title: "Research Labs",
       description: "Specialized laboratories for scientific research and experimentation in various engineering disciplines."
     },
