@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -18,47 +19,47 @@ const FeaturedCourses = () => {
         {
             id: "1",
             name: "Computer Science & Engineering",
-            code: "CSE",
+            code: "B.Tech",
             duration: "4 Years",
             description:
-                "Comprehensive curriculum covering programming, algorithms, data structures, and modern computing paradigms.",
+                "Advanced curriculum covering AI, ML, Cybersecurity, programming, algorithms, and modern computing paradigms.",
             icon: "💻",
         },
         {
             id: "2",
-            name: "Artificial Intelligence & Machine Learning",
-            code: "AIML",
+            name: "Electronics & Communication",
+            code: "B.Tech",
             duration: "4 Years",
             description:
-                "Cutting-edge program focused on AI algorithms, neural networks, deep learning, and data science applications.",
-            icon: "🤖",
+                "Comprehensive study of communication systems, signal processing, embedded systems, and VLSI design.",
+            icon: "📱",
         },
         {
             id: "3",
-            name: "Civil Engineering",
-            code: "CE",
-            duration: "4 Years",
-            description:
-                "Focused on structural design, construction management, environmental engineering, and infrastructure development.",
-            icon: "🏗️",
-        },
-        {
-            id: "4",
-            name: "Mechanical Engineering",
-            code: "ME",
-            duration: "4 Years",
-            description:
-                "Comprehensive study of thermodynamics, manufacturing processes, machine design, and automation technologies.",
-            icon: "⚙️",
-        },
-        {
-            id: "5",
             name: "Master of Business Administration",
             code: "MBA",
             duration: "2 Years",
             description:
-                "Business management program with specializations in marketing, finance, HR, operations, and entrepreneurship.",
+                "Industry-specific MBA program with specializations in various domains and strong corporate connections.",
             icon: "📊",
+        },
+        {
+            id: "4",
+            name: "Bachelor of Pharmacy",
+            code: "B.Pharm",
+            duration: "4 Years",
+            description:
+                "Comprehensive pharmacy education focusing on pharmaceutical sciences, drug development, and healthcare.",
+            icon: "💊",
+        },
+        {
+            id: "5",
+            name: "Bachelor of Business Administration",
+            code: "BBA",
+            duration: "3 Years",
+            description:
+                "Foundation in business management principles, entrepreneurship, and professional business skills.",
+            icon: "🏢",
         },
     ]);
 
@@ -72,7 +73,7 @@ const FeaturedCourses = () => {
             >
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-display font-bold text-skitm-navy mb-4">
-                        Our Featured Programs
+                        Our Academic Programs
                     </h2>
                     <p className="text-lg text-skitm-gray max-w-2xl mx-auto">
                         Explore our diverse range of undergraduate and

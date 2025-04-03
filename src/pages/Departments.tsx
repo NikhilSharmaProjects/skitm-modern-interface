@@ -1,3 +1,4 @@
+
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Button from '@/components/ui/CustomButton';
@@ -11,37 +12,44 @@ const Departments = () => {
     {
       id: 1,
       name: "Computer Science & Engineering",
-      description: "Our CSE department offers cutting-edge education in algorithms, programming, software development, and more.",
+      description: "Our CSE department offers specialized programs in AI, ML, and Cybersecurity, along with cutting-edge education in algorithms, programming, and software development.",
       icon: "💻",
-      courses: ["B.Tech in CSE", "M.Tech in CSE", "PhD in CSE"]
+      courses: ["B.Tech in CSE", "B.Tech in CSE (AI & ML)", "B.Tech in CSE (Cybersecurity)"]
     },
     {
       id: 2,
       name: "Electronics & Communication",
-      description: "The ECE department provides comprehensive knowledge in communication systems, embedded systems, and signal processing.",
+      description: "The ECE department provides comprehensive knowledge in communication systems, embedded systems, and signal processing with a focus on practical applications.",
       icon: "📱",
-      courses: ["B.Tech in ECE", "M.Tech in ECE", "PhD in ECE"]
+      courses: ["B.Tech in ECE", "M.Tech in ECE", "Ph.D. in ECE"]
     },
     {
       id: 3,
       name: "Mechanical Engineering",
-      description: "Our Mechanical Engineering department covers thermodynamics, robotics, manufacturing, and structural analysis.",
+      description: "Our Mechanical Engineering department covers thermodynamics, robotics, manufacturing, and structural analysis with state-of-the-art laboratories for practical learning.",
       icon: "⚙️",
-      courses: ["B.Tech in ME", "M.Tech in ME", "PhD in ME"]
+      courses: ["B.Tech in ME", "M.Tech in ME", "Ph.D. in ME"]
     },
     {
       id: 4,
       name: "Civil Engineering",
-      description: "The Civil Engineering department focuses on structural engineering, transportation, environmental systems, and more.",
+      description: "The Civil Engineering department focuses on structural engineering, transportation, environmental systems, and sustainable infrastructure development.",
       icon: "🏗️",
-      courses: ["B.Tech in CE", "M.Tech in CE", "PhD in CE"]
+      courses: ["B.Tech in CE", "M.Tech in CE", "Ph.D. in CE"]
     },
     {
       id: 5,
-      name: "Electrical Engineering",
-      description: "Our EE department provides education in power systems, control theory, and electrical machinery design.",
-      icon: "⚡",
-      courses: ["B.Tech in EE", "M.Tech in EE", "PhD in EE"]
+      name: "Management Studies",
+      description: "Our Management department offers comprehensive business education with industry collaborations, case studies, and hands-on business projects.",
+      icon: "📊",
+      courses: ["MBA", "Integrated MBA (BBA + MBA)", "MBA Plus (Industry-specific)"]
+    },
+    {
+      id: 6,
+      name: "Pharmacy",
+      description: "The Pharmacy department provides education in pharmaceutical sciences, drug development, and healthcare with well-equipped laboratories and research facilities.",
+      icon: "💊",
+      courses: ["B.Pharm (Bachelor of Pharmacy)", "D.Pharm (Diploma in Pharmacy)"]
     },
   ];
   
@@ -62,7 +70,7 @@ const Departments = () => {
               Academic Departments
             </h1>
             <p className="text-lg text-skitm-gray max-w-2xl mx-auto">
-              Explore our diverse range of departments offering cutting-edge education and research opportunities.
+              Explore our diverse range of departments offering cutting-edge education and research opportunities with industry-aligned curriculum.
             </p>
           </div>
           

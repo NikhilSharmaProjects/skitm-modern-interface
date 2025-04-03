@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { useScrollAnimationDiv } from "@/hooks/useScrollAnimationDiv";
@@ -9,7 +10,7 @@ import {
     Utensils,
     Wifi,
     Library,
-    PenTool,
+    Home,
     Bus,
 } from "lucide-react";
 
@@ -21,57 +22,57 @@ const Facilities = () => {
     const facilities = [
         {
             icon: <Cpu className="h-10 w-10 text-skitm-blue" />,
-            title: "Computer Labs",
+            title: "Smart Classrooms",
             description:
-                "State-of-the-art computer labs equipped with the latest hardware and software for practical training and research.",
+                "Digital learning environment with interactive teaching tools, projectors, and audio-visual systems for enhanced learning experiences.",
         },
         {
             icon: <Library className="h-10 w-10 text-skitm-blue" />,
-            title: "Library",
+            title: "Central Library",
             description:
-                "Well-stocked library with thousands of books, journals, and digital resources across various disciplines.",
+                "Well-stocked library with over 24,615 books, journals, research materials, and digital resources across various disciplines.",
         },
         {
             icon: <Beaker className="h-10 w-10 text-skitm-blue" />,
-            title: "Research Labs",
+            title: "Research & Innovation Labs",
             description:
-                "Specialized laboratories for scientific research and experimentation in various engineering disciplines.",
+                "Specialized laboratories for research and experimentation in AI, Machine Learning, and Robotics with modern equipment.",
+        },
+        {
+            icon: <Home className="h-10 w-10 text-skitm-blue" />,
+            title: "Hostel Accommodation",
+            description:
+                "Comfortable and secure lodging for students with well-furnished rooms, recreation areas, and necessary amenities.",
         },
         {
             icon: <Dumbbell className="h-10 w-10 text-skitm-blue" />,
-            title: "Sports Complex",
+            title: "Sports & Recreation",
             description:
-                "Comprehensive sports facilities including indoor games, outdoor fields, gymnasium, and fitness center.",
+                "Comprehensive sports facilities including football ground, basketball court, gymnasium, and indoor games for physical fitness.",
         },
         {
             icon: <Utensils className="h-10 w-10 text-skitm-blue" />,
-            title: "Cafeteria",
+            title: "Cafeteria & Food Courts",
             description:
-                "Modern cafeteria serving nutritious and diverse food options in a comfortable dining environment.",
+                "Hygienic and diverse meal options available in multiple cafeterias and food courts located around the campus.",
         },
         {
             icon: <Wifi className="h-10 w-10 text-skitm-blue" />,
-            title: "Wi-Fi Campus",
+            title: "WiFi & IT Support",
             description:
-                "High-speed internet connectivity throughout the campus for seamless learning and communication.",
-        },
-        {
-            icon: <PenTool className="h-10 w-10 text-skitm-blue" />,
-            title: "Design Studios",
-            description:
-                "Creative spaces equipped with design software and tools for architecture and design students.",
+                "High-speed internet connectivity throughout the campus with dedicated technical infrastructure and IT support.",
         },
         {
             icon: <Bus className="h-10 w-10 text-skitm-blue" />,
             title: "Transportation",
             description:
-                "Regular shuttle services connecting the campus to major locations in and around the city.",
+                "Regular shuttle services connecting the campus to major locations in and around Indore for commuting students.",
         },
         {
             icon: <BookOpen className="h-10 w-10 text-skitm-blue" />,
             title: "Seminar Halls",
             description:
-                "Spacious seminar and conference halls for academic events, workshops, and guest lectures.",
+                "Spacious seminar and conference halls for academic events, workshops, guest lectures, and student activities.",
         },
     ];
 
@@ -91,11 +92,11 @@ const Facilities = () => {
                             Campus Infrastructure
                         </div>
                         <h1 className="text-4xl md:text-5xl font-display font-bold text-skitm-navy mb-6">
-                            Facilities
+                            Campus Facilities
                         </h1>
                         <p className="text-lg text-skitm-gray max-w-2xl mx-auto">
                             Explore the state-of-the-art facilities available to
-                            students at SKITM.
+                            students at SKITM designed to enhance learning and campus life.
                         </p>
                     </div>
 
@@ -124,7 +125,7 @@ const Facilities = () => {
                         <div className="aspect-w-16 aspect-h-9">
                             <div className="w-full h-full flex items-center justify-center bg-gray-100 rounded-lg">
                                 <p className="text-skitm-gray">
-                                    Virtual tour will be available soon
+                                    Virtual tour will be available soon. Visit our campus near Ralamandal Sanctuary to experience our facilities in person.
                                 </p>
                             </div>
                         </div>

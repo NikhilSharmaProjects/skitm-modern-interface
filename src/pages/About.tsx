@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -34,9 +35,8 @@ const About = () => {
                                 About SKITM
                             </h1>
                             <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-                                A leading institute committed to excellence in
-                                technical education and holistic development of
-                                students.
+                                One of the leading educational institutions in Indore, committed 
+                                to excellence in technical education and holistic student development.
                             </p>
                         </div>
                     </div>
@@ -74,21 +74,17 @@ const About = () => {
                                     Our Vision
                                 </div>
                                 <h2 className="text-3xl font-display font-bold text-skitm-navy mb-6">
-                                    Empowering Through Education
+                                    Excellence, Innovation & Development
                                 </h2>
                                 <p className="text-skitm-gray mb-4">
-                                    SKITM envisions becoming a premier technical
-                                    institution that nurtures innovative minds
-                                    and creates leaders who can make significant
-                                    contributions to society and the global
-                                    technology landscape.
+                                    "To be a center of excellence in education, fostering innovation, 
+                                    research, and holistic development of students to contribute 
+                                    effectively to society and industry."
                                 </p>
                                 <p className="text-skitm-gray">
-                                    We strive to be recognized for excellence in
-                                    education, research, and innovation, and to
-                                    produce graduates who are not only
-                                    technically competent but also socially
-                                    responsible.
+                                    At SKITM, we strive to be recognized for educational excellence, 
+                                    cutting-edge research, and producing graduates who are not only 
+                                    technically competent but also socially responsible.
                                 </p>
                             </div>
 
@@ -130,83 +126,8 @@ const About = () => {
                                                 Quality Education
                                             </h4>
                                             <p className="text-sm text-skitm-gray">
-                                                Provide top-notch technical
-                                                education with a focus on
-                                                practical learning and industry
-                                                relevance.
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <div className="mr-3 bg-skitm-blue/10 p-2 rounded-full text-skitm-blue">
-                                            <svg
-                                                width="20"
-                                                height="20"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                                <path
-                                                    d="M9 11L12 14L22 4"
-                                                    stroke="currentColor"
-                                                    strokeWidth="2"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16"
-                                                    stroke="currentColor"
-                                                    strokeWidth="2"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                            </svg>
-                                        </div>
-                                        <div>
-                                            <h4 className="text-lg font-semibold text-skitm-navy mb-1">
-                                                Innovation & Research
-                                            </h4>
-                                            <p className="text-sm text-skitm-gray">
-                                                Foster a culture of innovation,
-                                                creativity, and research among
-                                                students and faculty.
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <div className="mr-3 bg-skitm-blue/10 p-2 rounded-full text-skitm-blue">
-                                            <svg
-                                                width="20"
-                                                height="20"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                                <path
-                                                    d="M9 11L12 14L22 4"
-                                                    stroke="currentColor"
-                                                    strokeWidth="2"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16"
-                                                    stroke="currentColor"
-                                                    strokeWidth="2"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                            </svg>
-                                        </div>
-                                        <div>
-                                            <h4 className="text-lg font-semibold text-skitm-navy mb-1">
-                                                Holistic Development
-                                            </h4>
-                                            <p className="text-sm text-skitm-gray">
-                                                Focus on the overall development
-                                                of students, including
-                                                technical, professional, and
-                                                personal aspects.
+                                                Provide quality education with a focus on technical 
+                                                expertise, professional ethics, and leadership skills.
                                             </p>
                                         </div>
                                     </li>
@@ -240,10 +161,78 @@ const About = () => {
                                                 Industry Collaboration
                                             </h4>
                                             <p className="text-sm text-skitm-gray">
-                                                Build and maintain strong ties
-                                                with industry for placements,
-                                                internships, and curriculum
-                                                development.
+                                                Promote industry-academia collaboration for 
+                                                practical learning and innovation.
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li className="flex items-start">
+                                        <div className="mr-3 bg-skitm-blue/10 p-2 rounded-full text-skitm-blue">
+                                            <svg
+                                                width="20"
+                                                height="20"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M9 11L12 14L22 4"
+                                                    stroke="currentColor"
+                                                    strokeWidth="2"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                />
+                                                <path
+                                                    d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16"
+                                                    stroke="currentColor"
+                                                    strokeWidth="2"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-lg font-semibold text-skitm-navy mb-1">
+                                                Entrepreneurship
+                                            </h4>
+                                            <p className="text-sm text-skitm-gray">
+                                                Encourage entrepreneurship and research-driven 
+                                                development among students.
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li className="flex items-start">
+                                        <div className="mr-3 bg-skitm-blue/10 p-2 rounded-full text-skitm-blue">
+                                            <svg
+                                                width="20"
+                                                height="20"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M9 11L12 14L22 4"
+                                                    stroke="currentColor"
+                                                    strokeWidth="2"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                />
+                                                <path
+                                                    d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16"
+                                                    stroke="currentColor"
+                                                    strokeWidth="2"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-lg font-semibold text-skitm-navy mb-1">
+                                                Global Competence
+                                            </h4>
+                                            <p className="text-sm text-skitm-gray">
+                                                Develop globally competent graduates equipped with 
+                                                problem-solving abilities and ethical values.
                                             </p>
                                         </div>
                                     </li>
@@ -282,9 +271,8 @@ const About = () => {
                                             </h3>
                                         </div>
                                         <p className="text-skitm-gray">
-                                            SKITM was established in 2008 with a
-                                            vision to provide quality technical
-                                            education in Madhya Pradesh.
+                                            SKITM was established with a vision to provide quality technical 
+                                            education in Madhya Pradesh, situated near the beautiful Ralamandal Hills.
                                         </p>
                                     </div>
 
@@ -298,10 +286,8 @@ const About = () => {
                                             </h3>
                                         </div>
                                         <p className="text-skitm-gray">
-                                            Over the years, SKITM has expanded
-                                            its academic programs and
-                                            infrastructure to accommodate
-                                            growing student needs.
+                                            Over the years, SKITM has expanded its academic programs to include 
+                                            engineering, management, pharmacy, and professional studies.
                                         </p>
                                     </div>
 
@@ -315,10 +301,8 @@ const About = () => {
                                             </h3>
                                         </div>
                                         <p className="text-skitm-gray">
-                                            SKITM has earned various
-                                            recognitions and achievements for
-                                            its academic excellence and student
-                                            accomplishments.
+                                            Today, SKITM is recognized for its innovative approach to 
+                                            education, strong industry connections, and excellent placement record.
                                         </p>
                                     </div>
                                 </div>
@@ -336,21 +320,20 @@ const About = () => {
                                     <div className="flex items-start glassmorphism p-6 rounded-xl">
                                         <div className="w-20 h-20 bg-skitm-navy/10 rounded-lg flex items-center justify-center mr-4">
                                             <span className="text-3xl font-bold text-skitm-navy">
-                                                PV
+                                                SK
                                             </span>
                                         </div>
                                         <div>
                                             <h3 className="text-xl font-semibold text-skitm-navy mb-1">
-                                                Prof. Vijay Kumar
+                                                Dr. Shivajirao Kadam
                                             </h3>
                                             <p className="text-skitm-blue mb-2 text-sm">
                                                 Chairman
                                             </p>
                                             <p className="text-skitm-gray text-sm">
-                                                With over 25 years of experience
-                                                in academia and administration,
-                                                Prof. Kumar provides strategic
-                                                leadership to SKITM.
+                                                With over 25 years of experience in academia and 
+                                                administration, Dr. Kadam provides strategic vision 
+                                                and leadership to SKITM.
                                             </p>
                                         </div>
                                     </div>
@@ -358,21 +341,20 @@ const About = () => {
                                     <div className="flex items-start glassmorphism p-6 rounded-xl">
                                         <div className="w-20 h-20 bg-skitm-navy/10 rounded-lg flex items-center justify-center mr-4">
                                             <span className="text-3xl font-bold text-skitm-navy">
-                                                DS
+                                                MJ
                                             </span>
                                         </div>
                                         <div>
                                             <h3 className="text-xl font-semibold text-skitm-navy mb-1">
-                                                Dr. Suresh Patel
+                                                Dr. Mohan Joshi
                                             </h3>
                                             <p className="text-skitm-blue mb-2 text-sm">
                                                 Director
                                             </p>
                                             <p className="text-skitm-gray text-sm">
-                                                Dr. Patel, a Ph.D. in Computer
-                                                Science, oversees the academic
-                                                and administrative operations of
-                                                the institute.
+                                                Dr. Joshi, a Ph.D. in Engineering, oversees the academic 
+                                                and administrative operations of the institute with 
+                                                a focus on excellence.
                                             </p>
                                         </div>
                                     </div>
@@ -380,21 +362,19 @@ const About = () => {
                                     <div className="flex items-start glassmorphism p-6 rounded-xl">
                                         <div className="w-20 h-20 bg-skitm-navy/10 rounded-lg flex items-center justify-center mr-4">
                                             <span className="text-3xl font-bold text-skitm-navy">
-                                                RS
+                                                AP
                                             </span>
                                         </div>
                                         <div>
                                             <h3 className="text-xl font-semibold text-skitm-navy mb-1">
-                                                Prof. Rashmi Singh
+                                                Prof. Anjali Patel
                                             </h3>
                                             <p className="text-skitm-blue mb-2 text-sm">
                                                 Dean of Academics
                                             </p>
                                             <p className="text-skitm-gray text-sm">
-                                                Prof. Singh leads the academic
-                                                initiatives and ensures the
-                                                delivery of quality education at
-                                                SKITM.
+                                                Prof. Patel leads the academic initiatives and ensures 
+                                                the delivery of quality education and research at SKITM.
                                             </p>
                                         </div>
                                     </div>
