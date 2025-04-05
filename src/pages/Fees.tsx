@@ -286,7 +286,7 @@ const Fees = () => {
                                         </svg>
                                         <span>
                                             Demand Draft in favor of "SKITM"
-                                            payable at Delhi
+                                            payable at Indore
                                         </span>
                                     </li>
                                     <li className="flex items-start">

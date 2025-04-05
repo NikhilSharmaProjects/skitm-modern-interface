@@ -136,7 +136,7 @@ const Contact = () => {
                                             </h3>
                                             <p className="text-skitm-gray">
                                                 SKITM Campus, NH-48,
-                                                Delhi-Jaipur Highway
+                                                Indore-Jaipur Highway
                                                 <br />
                                                 Gurugram, Haryana - 122001,
                                                 India
