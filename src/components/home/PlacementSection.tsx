@@ -7,16 +7,16 @@ import Button from "@/components/ui/CustomButton";
 const PlacementSection = () => {
     const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation();
 
-    // Real company logos with image URLs
+    // Real company logos
     const companyLogos = [
-        { id: 1, name: "Hotwax Systems", logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80" },
-        { id: 2, name: "Webkorps Services", logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80" },
-        { id: 3, name: "Tech Mahindra", logo: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80" },
-        { id: 4, name: "Accenture India", logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80" },
-        { id: 5, name: "MPSeDC Ltd.", logo: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80" },
-        { id: 6, name: "Bajaj Allianz", logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80&v=2" },
-        { id: 7, name: "VectEd Technologies", logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80&v=2" },
-        { id: 8, name: "Magpie Engineering", logo: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80&v=2" },
+        { id: 1, name: "Hotwax Systems", color: "#fff" },
+        { id: 2, name: "Webkorps Services", color: "#fff" },
+        { id: 3, name: "Tech Mahindra", color: "#fff" },
+        { id: 4, name: "Accenture India", color: "#fff" },
+        { id: 5, name: "MPSeDC Ltd.", color: "#fff" },
+        { id: 6, name: "Bajaj Allianz", color: "#fff" },
+        { id: 7, name: "VectEd Technologies", color: "#fff" },
+        { id: 8, name: "Magpie Engineering", color: "#fff" },
     ];
 
     return (
@@ -179,14 +179,11 @@ const PlacementSection = () => {
                             {companyLogos.map((company) => (
                                 <div
                                     key={company.id}
-                                    className="h-20 glassmorphism rounded-lg flex items-center justify-center p-2 overflow-hidden"
+                                    className="h-20 glassmorphism rounded-lg flex items-center justify-center"
                                 >
-                                    <img 
-                                        src={company.logo} 
-                                        alt={`${company.name} logo`} 
-                                        className="max-h-full max-w-full object-contain"
-                                        loading="lazy"
-                                    />
+                                    <div className="text-xl font-bold text-skitm-navy">
+                                        {company.name}
+                                    </div>
                                 </div>
                             ))}
                         </div>

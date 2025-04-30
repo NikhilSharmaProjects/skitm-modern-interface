@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Button from "@/components/ui/CustomButton";
@@ -16,26 +17,26 @@ const Placements = () => {
         { label: "Companies Visited", value: "18+", icon: "🏢" },
     ];
 
-    // Real top recruiters with logos
+    // Real top recruiters
     const topRecruiters = [
-        { name: "Hotwax Systems", logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80" },
-        { name: "Webkorps Services India", logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80" },
-        { name: "VectEd Technologies", logo: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80" },
-        { name: "Magpie Engineering", logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80" },
-        { name: "Hitech Digital Solutions", logo: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80" },
-        { name: "Venture Fincorp", logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80&v=2" },
-        { name: "Fleeca India Pvt. Ltd.", logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80&v=2" },
-        { name: "MPSeDC Ltd.", logo: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80&v=2" },
-        { name: "Tech Mahindra", logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80&v=2" },
-        { name: "ZF Steering Gear (India) Ltd.", logo: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80&v=2" },
-        { name: "Geek of Gurukul", logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80&v=3" },
-        { name: "Workpulse Software", logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80&v=3" },
-        { name: "Map Quality Solutions", logo: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80&v=3" },
-        { name: "MavenMagnet", logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80&v=3" },
-        { name: "Saif Design Studios", logo: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80&v=3" },
-        { name: "Bajaj Allianz Life Insurance Co. Ltd.", logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80&v=4" },
-        { name: "Victory Terminal Financial Services", logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80&v=4" },
-        { name: "Accenture India", logo: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80&v=4" },
+        "Hotwax Systems",
+        "Webkorps Services India",
+        "VectEd Technologies",
+        "Magpie Engineering",
+        "Hitech Digital Solutions",
+        "Venture Fincorp",
+        "Fleeca India Pvt. Ltd.",
+        "MPSeDC Ltd.",
+        "Tech Mahindra",
+        "ZF Steering Gear (India) Ltd.",
+        "Geek of Gurukul",
+        "Workpulse Software",
+        "Map Quality Solutions",
+        "MavenMagnet",
+        "Saif Design Studios",
+        "Bajaj Allianz Life Insurance Co. Ltd.",
+        "Victory Terminal Financial Services",
+        "Accenture India",
     ];
 
     // Real success stories based on the provided student data
@@ -239,15 +240,11 @@ const Placements = () => {
                             {topRecruiters.map((company, index) => (
                                 <div
                                     key={index}
-                                    className="h-20 glassmorphism rounded-lg flex items-center justify-center p-2 overflow-hidden"
+                                    className="h-20 glassmorphism rounded-lg flex items-center justify-center p-2"
                                 >
-                                    <img 
-                                        src={company.logo} 
-                                        alt={`${company.name} logo`}
-                                        className="max-h-full max-w-full object-contain" 
-                                        loading="lazy"
-                                    />
-                                    <span className="sr-only">{company.name}</span>
+                                    <div className="text-sm font-bold text-skitm-navy text-center">
+                                        {company}
+                                    </div>
                                 </div>
                             ))}
                         </div>
