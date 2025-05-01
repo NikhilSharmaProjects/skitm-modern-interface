@@ -1,3 +1,4 @@
+
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -79,21 +80,14 @@ const AboutSection = () => {
                             Dedicated to Academic Excellence & Innovation
                         </h2>
                         <p className="text-skitm-gray mb-4">
-                            SKITM was established with a vision to provide
-                            world-class technical education and to nurture
-                            students into responsible professionals and
-                            citizens. Our institution is committed to academic
-                            excellence, innovation, and the holistic development
-                            of our students.
+                            Shivajirao Kadam Institute of Technology and Management (SKITM) is one of the leading 
+                            educational institutions in Indore, Madhya Pradesh. The institute is known for 
+                            its innovative academic programs, industry-focused training, and strong placement support.
                         </p>
                         <p className="text-skitm-gray mb-6">
-                            With state-of-the-art infrastructure, experienced
-                            faculty, and strong industry connections, we offer a
-                            conducive environment for learning and growth. Our
-                            focus on practical learning, research, and
-                            extra-curricular activities ensures that our
-                            students are well-prepared for the challenges of the
-                            professional world.
+                            With state-of-the-art infrastructure, experienced faculty, and strong 
+                            industry connections, we offer engineering, management, and pharmacy programs 
+                            designed to foster innovation, critical thinking, and leadership among students.
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -161,7 +155,7 @@ const AboutSection = () => {
                                         Modern Infrastructure
                                     </h4>
                                     <p className="text-sm text-skitm-gray">
-                                        State-of-the-art labs and facilities
+                                        Smart classrooms and research labs
                                     </p>
                                 </div>
                             </div>
@@ -226,10 +220,10 @@ const AboutSection = () => {
                                 </div>
                                 <div>
                                     <h4 className="text-lg font-semibold text-skitm-navy mb-1">
-                                        Student Development
+                                        Holistic Development
                                     </h4>
                                     <p className="text-sm text-skitm-gray">
-                                        Focus on holistic growth
+                                        Focus on technical expertise and ethics
                                     </p>
                                 </div>
                             </div>

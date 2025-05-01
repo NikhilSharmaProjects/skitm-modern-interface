@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -6,16 +7,16 @@ import Button from "@/components/ui/CustomButton";
 const PlacementSection = () => {
     const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation();
 
-    // Placeholder company logos
+    // Real company logos
     const companyLogos = [
-        { id: 1, name: "TCS", color: "#fff" },
-        { id: 2, name: "Infosys", color: "#fff" },
-        { id: 3, name: "Wipro", color: "#fff" },
-        { id: 4, name: "IBM", color: "#fff" },
-        { id: 5, name: "Accenture", color: "#fff" },
-        { id: 6, name: "Cognizant", color: "#fff" },
-        { id: 7, name: "Tech Mahindra", color: "#fff" },
-        { id: 8, name: "HCL", color: "#fff" },
+        { id: 1, name: "Hotwax Systems", color: "#fff" },
+        { id: 2, name: "Webkorps Services", color: "#fff" },
+        { id: 3, name: "Tech Mahindra", color: "#fff" },
+        { id: 4, name: "Accenture India", color: "#fff" },
+        { id: 5, name: "MPSeDC Ltd.", color: "#fff" },
+        { id: 6, name: "Bajaj Allianz", color: "#fff" },
+        { id: 7, name: "VectEd Technologies", color: "#fff" },
+        { id: 8, name: "Magpie Engineering", color: "#fff" },
     ];
 
     return (
@@ -51,12 +52,12 @@ const PlacementSection = () => {
                                     95%
                                 </div>
                                 <p className="text-sm text-skitm-gray">
-                                    Placement Rate
+                                    Placement Assistance
                                 </p>
                             </div>
                             <div className="text-center">
                                 <div className="text-4xl font-display font-bold text-skitm-blue mb-2">
-                                    12 LPA
+                                    ₹6.5 LPA
                                 </div>
                                 <p className="text-sm text-skitm-gray">
                                     Highest Package
@@ -64,7 +65,7 @@ const PlacementSection = () => {
                             </div>
                             <div className="text-center">
                                 <div className="text-4xl font-display font-bold text-skitm-blue mb-2">
-                                    5.8 LPA
+                                    ₹3.5-4.5 LPA
                                 </div>
                                 <p className="text-sm text-skitm-gray">
                                     Average Package
@@ -72,7 +73,7 @@ const PlacementSection = () => {
                             </div>
                             <div className="text-center">
                                 <div className="text-4xl font-display font-bold text-skitm-blue mb-2">
-                                    120+
+                                    18+
                                 </div>
                                 <p className="text-sm text-skitm-gray">
                                     Recruiting Companies
@@ -171,7 +172,7 @@ const PlacementSection = () => {
 
                     <div>
                         <h3 className="text-2xl font-display font-semibold text-skitm-navy mb-6">
-                            Our Recruiters
+                            Our Top Recruiters
                         </h3>
 
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
@@ -200,15 +201,14 @@ const PlacementSection = () => {
                             </p>
                             <div className="flex items-center">
                                 <div className="w-10 h-10 rounded-full bg-skitm-blue/20 flex items-center justify-center text-skitm-blue font-bold mr-3">
-                                    RS
+                                    HS
                                 </div>
                                 <div>
                                     <div className="text-sm font-semibold text-skitm-navy">
-                                        Rahul Sharma
+                                        Harshita Shinde
                                     </div>
                                     <div className="text-xs text-skitm-gray">
-                                        CSE Batch of 2022, Software Engineer at
-                                        TCS
+                                        CSE Batch of 2025, Software Engineer at Hotwax Systems
                                     </div>
                                 </div>
                             </div>

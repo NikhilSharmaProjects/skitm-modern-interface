@@ -1,7 +1,8 @@
+
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import Button from "@/components/ui/CustomButton";
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 const ContactCTA = () => {
     const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation();
@@ -29,7 +30,7 @@ const ContactCTA = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                         <div className="bg-white bg-opacity-50 backdrop-blur-sm rounded-lg p-6 text-center">
                             <Phone
                                 size={28}
@@ -42,10 +43,16 @@ const ContactCTA = () => {
                                 Have a quick question? Give us a call.
                             </p>
                             <a
-                                href="tel:+917314013344"
+                                href="tel:+919770907113"
+                                className="text-skitm-blue hover:text-skitm-navy transition-colors font-medium block"
+                            >
+                                +91 9770907113
+                            </a>
+                            <a
+                                href="tel:+919713434971"
                                 className="text-skitm-blue hover:text-skitm-navy transition-colors font-medium"
                             >
-                                +91 731 401 3344
+                                +91 9713434971
                             </a>
                         </div>
 
@@ -66,6 +73,22 @@ const ContactCTA = () => {
                             >
                                 info@skitm.in
                             </a>
+                        </div>
+                        
+                        <div className="bg-white bg-opacity-50 backdrop-blur-sm rounded-lg p-6 text-center">
+                            <MapPin
+                                size={28}
+                                className="mx-auto mb-4 text-skitm-blue"
+                            />
+                            <h3 className="text-xl font-semibold text-skitm-navy mb-2">
+                                Visit Us
+                            </h3>
+                            <p className="text-skitm-gray mb-4">
+                                Our campus is located in Indore.
+                            </p>
+                            <p className="text-skitm-blue hover:text-skitm-navy transition-colors font-medium text-sm">
+                                Near Ralamandal Sanctuary, Tillore Khurd, Indore - 452020
+                            </p>
                         </div>
                     </div>
 

@@ -1,3 +1,4 @@
+
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -63,9 +64,8 @@ const HeroSection = () => {
                         }`}
                         style={{ transitionDelay: "0.6s" }}
                     >
-                        Empowering students with cutting-edge technical
-                        education, industry connections, and a vibrant campus
-                        life in the heart of Madhya Pradesh.
+                        Empowering students with cutting-edge technical education, industry connections, 
+                        and a vibrant campus life near the Ralamandal Hills of Indore.
                     </p>
 
                     <div

@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Button from "@/components/ui/CustomButton";
@@ -11,13 +12,13 @@ const Courses = () => {
     const courses = [
         {
             id: 1,
-            name: "B.Tech in Computer Science",
+            name: "B.Tech in Computer Science & Engineering",
             duration: "4 years",
-            eligibility: "10+2 with PCM",
+            eligibility: "10+2 with PCM + JEE Main (preferred)",
             description:
-                "A comprehensive program covering programming, algorithms, databases, and software engineering.",
+                "A comprehensive program covering programming, algorithms, databases, AI, ML, cybersecurity and software engineering with industry-aligned projects.",
             highlights: [
-                "Modern curriculum",
+                "Specializations in AI, ML, and Cybersecurity",
                 "Industry-aligned projects",
                 "Internship opportunities",
                 "State-of-the-art labs",
@@ -27,9 +28,9 @@ const Courses = () => {
             id: 2,
             name: "B.Tech in Electronics & Communication",
             duration: "4 years",
-            eligibility: "10+2 with PCM",
+            eligibility: "10+2 with PCM + JEE Main (preferred)",
             description:
-                "Study communication systems, signal processing, embedded systems, and VLSI design.",
+                "Study communication systems, signal processing, embedded systems, and VLSI design with practical lab work and industry projects.",
             highlights: [
                 "Hands-on lab work",
                 "Industry-sponsored projects",
@@ -39,44 +40,44 @@ const Courses = () => {
         },
         {
             id: 3,
-            name: "M.Tech in Computer Science",
+            name: "Master of Business Administration (MBA)",
             duration: "2 years",
-            eligibility: "B.Tech/B.E in relevant discipline",
+            eligibility: "Graduation + CAT/MAT/XAT (preferred)",
             description:
-                "Advanced study in machine learning, AI, cloud computing, and software architecture.",
+                "Industry-specific MBA program with specializations and strong corporate connections for practical business learning.",
             highlights: [
-                "Research-focused",
-                "Specialization tracks",
-                "Industry connections",
-                "Publication opportunities",
+                "Multiple specialization options",
+                "Industry mentorship",
+                "Case-based learning",
+                "Corporate exposure",
             ],
         },
         {
             id: 4,
-            name: "MBA in Technology Management",
-            duration: "2 years",
-            eligibility: "Bachelor's degree with minimum 50% marks",
+            name: "Bachelor of Pharmacy (B.Pharm)",
+            duration: "4 years",
+            eligibility: "10+2 with PCB",
             description:
-                "Blend of business acumen and technology expertise for leadership roles.",
+                "Comprehensive pharmacy education focusing on pharmaceutical sciences, drug development, and healthcare with well-equipped laboratories.",
             highlights: [
-                "Dual specialization",
-                "Industry mentorship",
-                "Case-based learning",
-                "International exposure",
+                "Modern pharmacy laboratories",
+                "Industry internships",
+                "Research projects",
+                "Healthcare exposure",
             ],
         },
         {
             id: 5,
-            name: "PhD Program",
-            duration: "3-5 years",
-            eligibility: "Master's degree in relevant discipline",
+            name: "Bachelor of Business Administration (BBA)",
+            duration: "3 years",
+            eligibility: "10+2 from a recognized board",
             description:
-                "Research-intensive program with focus on innovation and scholarly contributions.",
+                "Foundation in business management principles, entrepreneurship, and professional business skills for future business leaders.",
             highlights: [
-                "Funded research",
-                "Publication support",
-                "Conference grants",
-                "Industry collaborations",
+                "Business case studies",
+                "Entrepreneurship projects",
+                "Corporate internships",
+                "Soft skills development",
             ],
         },
     ];
@@ -101,8 +102,7 @@ const Courses = () => {
                         </h1>
                         <p className="text-lg text-skitm-gray max-w-2xl mx-auto">
                             Discover our diverse range of undergraduate,
-                            postgraduate, and doctoral programs designed to
-                            prepare you for success.
+                            postgraduate, and professional programs designed to prepare you for success.
                         </p>
                     </div>
 
@@ -167,8 +167,7 @@ const Courses = () => {
                                             Admission Open
                                         </h3>
                                         <p className="text-sm text-skitm-gray mb-4">
-                                            Next batch starting July 2023.
-                                            Limited seats available.
+                                            Apply online at skitm.in. Limited seats available.
                                         </p>
                                         <Link to="/admissions">
                                             <Button variant="primary" fullWidth>
