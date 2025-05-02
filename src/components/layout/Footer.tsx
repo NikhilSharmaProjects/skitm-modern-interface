@@ -195,9 +195,8 @@ const Footer = () => {
                                     className="text-skitm-blue mt-1 mr-3 flex-shrink-0"
                                 />
                                 <p className="text-gray-300">
-                                    Near Rau Industrial Area, Indore - Ujjain
-                                    Highway, Indore, Madhya Pradesh, India -
-                                    453331
+                                    Near Ralamandal Sanctuary, Tillore Khurd,
+                                    Indore - 452020
                                 </p>
                             </div>
                             <div className="flex items-center">
