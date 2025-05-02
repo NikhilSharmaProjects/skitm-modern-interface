@@ -1,4 +1,3 @@
-
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -48,13 +47,13 @@ const HeroSection = () => {
                         }`}
                         style={{ transitionDelay: "0.4s" }}
                     >
-                        Building Future{" "}
+                        Shivajirao Kadam{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200">
-                            Innovators
+                            Institute Of
                         </span>{" "}
-                        &{" "}
+                        of{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200">
-                            Leaders
+                            Technology and Management
                         </span>
                     </h1>
 
@@ -64,8 +63,7 @@ const HeroSection = () => {
                         }`}
                         style={{ transitionDelay: "0.6s" }}
                     >
-                        Empowering students with cutting-edge technical education, industry connections, 
-                        and a vibrant campus life near the Ralamandal Hills of Indore.
+                        A UGC Autonomous - NAAC Accredited "A" Grade Institute
                     </p>
 
                     <div
