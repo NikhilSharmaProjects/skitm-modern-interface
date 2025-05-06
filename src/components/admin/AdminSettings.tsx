@@ -46,10 +46,10 @@ interface SiteSettings {
 
 const defaultSettings: SiteSettings = {
   siteTitle: 'SKITM',
-  tagline: 'Shri Krishan Institute of Technology & Management',
+  tagline: 'ShivajiRao Kadam Institute of Technology & Management',
   contactEmail: 'info@skitm.in',
   contactPhone: '+91 1234567890',
-  address: '123 Education Street, Knowledge City, 123456',
+  address: 'Near ralamandal Indore ',
   socialLinks: {
     facebook: 'https://facebook.com/skitm',
     twitter: 'https://twitter.com/skitm',
