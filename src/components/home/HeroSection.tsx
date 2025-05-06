@@ -49,7 +49,7 @@ const HeroSection = () => {
                     >
                         Shivajirao Kadam{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200">
-                            Institute Of
+                            Institute
                         </span>{" "}
                         of{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200">

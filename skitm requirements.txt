@@ -1,30 +1,5 @@
-Main Tagline
-secondary tagline
-About Us (Paragraph)
-Our Featured Programs, Courses
-Lates News and Events
-Old News and Events (Not Mandatory)
-Gallery Photos and events
-Placements & Recruiters
-History and Leadership
-Academic Departments
-Our Courses
-Faculty Members, Include All details to be mentioned
-Research at SKITM
-Recent Publications
-Research Opportunities, (If any)
-Library & Resource Center, Including Facilities, Timings, Policies.
-Admission Process, Including How to Apply, Eligibility Criteria, Required Documents, Important Dates, Application Fee
-Fee Structure
-Scholarships
-Our Scholarship Programs, How to Apply
-Frequently Asked Questions
-Student Life, Including Clubs, Festivals, Sports, Images
-Student Leadership & Governance (If any)
+Photos
+Academic Programs
+News 
 Events
-Facilities
-Hostels
-Placements & Career Services
-News & Announcements
-Blogs
-Contact
+History Of college(Sthapana)
