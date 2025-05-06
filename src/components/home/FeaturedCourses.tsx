@@ -22,7 +22,7 @@ const FeaturedCourses = () => {
             code: "B.Tech",
             duration: "4 Years",
             description:
-                "Advanced curriculum covering AI, ML, Cybersecurity, programming, algorithms, and modern computing paradigms.",
+                "Specialized programs in AI & ML, IT, Data Science with advanced curriculum covering modern computing paradigms.",
             icon: "💻",
         },
         {
@@ -54,12 +54,12 @@ const FeaturedCourses = () => {
         },
         {
             id: "5",
-            name: "Bachelor of Business Administration",
-            code: "BBA",
-            duration: "3 Years",
+            name: "Law Programs",
+            code: "B.A./B.B.A. LL.B",
+            duration: "5 Years",
             description:
-                "Foundation in business management principles, entrepreneurship, and professional business skills.",
-            icon: "🏢",
+                "Prestigious law programs including B.A. LL.B. (Hons.), B.B.A. LL.B. (Hons.), and LL.B. (Hons.).",
+            icon: "⚖️",
         },
     ]);
 
