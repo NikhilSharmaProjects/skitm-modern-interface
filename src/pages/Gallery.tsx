@@ -19,48 +19,42 @@ const defaultGalleryItems: GalleryItem[] = [
     {
         id: "1",
         title: "Campus Building",
-        imageUrl:
-            "https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",
+        imageUrl: "Gallery/GalleryImage (1).png",
         category: "Campus",
         date: "2023-01-15",
     },
     {
         id: "2",
         title: "Graduation Ceremony",
-        imageUrl:
-            "https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",
+        imageUrl: "Gallery/GalleryImage (2).png",
         category: "Events",
         date: "2023-06-22",
     },
     {
         id: "3",
         title: "Technical Workshop",
-        imageUrl:
-            "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",
+        imageUrl: "Gallery/GalleryImage (3).png",
         category: "Workshops",
         date: "2023-03-10",
     },
     {
         id: "4",
         title: "Sports Event",
-        imageUrl:
-            "https://images.unsplash.com/photo-1588072432174-7f828b7ddd75?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",
+        imageUrl: "Gallery/GalleryImage (4).png",
         category: "Sports",
         date: "2023-02-05",
     },
     {
         id: "5",
         title: "Cultural Festival",
-        imageUrl:
-            "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",
+        imageUrl: "Gallery/GalleryImage (5).png",
         category: "Cultural",
         date: "2023-04-18",
     },
     {
         id: "6",
         title: "Research Exhibition",
-        imageUrl:
-            "https://images.unsplash.com/photo-1517486808906-6ca8b3f8e7a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",
+        imageUrl: "Gallery/GalleryImage (5).png",
         category: "Research",
         date: "2023-05-30",
     },

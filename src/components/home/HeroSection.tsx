@@ -18,7 +18,7 @@ const HeroSection = () => {
     });
 
     return (
-        <section className="hero-section relative overflow-hidden min-h-[80vh] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: "url('/campus_image.jpg')" }}>
+        <section className="hero-section relative overflow-hidden min-h-[80vh] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: "url('/Background.png')" }}>
             {/* Background overlay for better text visibility */}
             <div className="absolute inset-0 bg-black/40 z-10"></div>
             
