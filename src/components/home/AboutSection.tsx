@@ -17,7 +17,7 @@ const AboutSection = () => {
                     <div className="relative">
                         <div className="rounded-xl overflow-hidden shadow-2xl">
                             <img
-                                src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80"
+                                src="Gallery/GalleryImage (19).png"
                                 alt="SKITM Campus"
                                 className="w-full h-[500px] object-cover"
                             />
