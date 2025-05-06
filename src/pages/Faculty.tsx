@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -8,83 +9,162 @@ const Faculty = () => {
     const facultyMembers = [
         {
             id: 1,
-            name: "Dr. Rajesh Kumar",
-            position: "Professor & HOD, Computer Science",
-            education: "Ph.D in Computer Science, IIT Indore",
-            specialization: "Artificial Intelligence, Machine Learning",
+            name: "Dr. Dharmendra Choukse",
+            position: "Professor & Head, ASH and CS",
+            education: "Ph.D, Network Security, ICS, Vikram University Ujjain",
+            experience: "16+ years",
             image: "https://placehold.co/200x200",
-            publications: 45,
-            experience: "15+ years",
+            publications: 16,
         },
         {
             id: 2,
-            name: "Dr. Priya Sharma",
-            position: "Associate Professor, Electronics",
-            education: "Ph.D in Electronics, IIT Bombay",
-            specialization: "VLSI Design, Embedded Systems",
+            name: "Prof.(Dr.) Preetesh Purohit",
+            position: "Professor CSE and Dean Academics",
+            education: "Ph.D. Computer Engineering, IET DAVV Indore",
+            specialization: "Software Engineering, Artificial Intelligence",
             image: "https://placehold.co/200x200",
-            publications: 32,
-            experience: "12+ years",
+            publications: 10,
+            experience: "27+ years",
         },
         {
             id: 3,
-            name: "Dr. Anil Verma",
-            position: "Professor, Mechanical Engineering",
-            education: "Ph.D in Mechanical Engineering, IIT Madras",
-            specialization: "Thermodynamics, Fluid Mechanics",
+            name: "Dr. Ankur Geete",
+            position: "Associate Professor, Mechanical Engineering",
+            education: "Ph.D in Thermal Engineering, Bhagwant University",
+            specialization: "Thermal Engineering",
             image: "https://placehold.co/200x200",
-            publications: 28,
+            publications: 60,
             experience: "14+ years",
         },
         {
             id: 4,
-            name: "Dr. Meena Gupta",
-            position: "Assistant Professor, Mathematics",
-            education: "Ph.D in Applied Mathematics, Indore University",
-            specialization: "Numerical Analysis, Differential Equations",
+            name: "Dr. Amit Udawat",
+            position: "Associate Professor, Electronics and Communication",
+            education: "PhD in Smart Antenna Systems, DAVV",
+            specialization: "Wireless Communication, Neuromorphic Computing",
             image: "https://placehold.co/200x200",
-            publications: 18,
-            experience: "8+ years",
+            publications: 19,
+            experience: "24+ years",
         },
         {
             id: 5,
-            name: "Dr. Suresh Patel",
-            position: "Professor, Civil Engineering",
-            education: "Ph.D in Structural Engineering, IIT Kanpur",
-            specialization: "Earthquake Engineering, Structural Analysis",
+            name: "Dr. Mamta Punjabi Anand",
+            position: "Associate Professor, CSE and AI & ML",
+            education: "PhD in Machine Learning & DBMS, IET DAVV Indore",
+            specialization: "Machine Learning, Classification, Feature Selection",
             image: "https://placehold.co/200x200",
-            publications: 37,
-            experience: "16+ years",
+            publications: 5,
+            experience: "15+ years",
         },
         {
             id: 6,
-            name: "Dr. Neha Singh",
-            position: "Associate Professor, Chemistry",
-            education: "Ph.D in Organic Chemistry, BHU",
-            specialization: "Polymer Chemistry, Green Chemistry",
+            name: "Dr. Moumita Das",
+            position: "Associate Professor, ECE",
+            education: "PhD in AstroParticle Physics, Physical Research Laboratory",
+            specialization: "AI, Machine Learning, High Energy Physics",
             image: "https://placehold.co/200x200",
-            publications: 25,
-            experience: "11+ years",
+            publications: 8,
+            experience: "7+ years",
         },
         {
             id: 7,
-            name: "Dr. Vikram Malhotra",
-            position: "Professor, Electrical Engineering",
-            education: "Ph.D in Electrical Engineering, IIT Roorkee",
-            specialization: "Power Systems, High Voltage Engineering",
+            name: "Dr. Ratnalata Gupta",
+            position: "HOD, CSIT and IT",
+            education: "Ph.D in Computer Science, Oriental University Indore",
+            specialization: "Image Preprocessing, AI, Machine Learning",
             image: "https://placehold.co/200x200",
-            publications: 42,
+            publications: 35,
             experience: "18+ years",
         },
         {
             id: 8,
-            name: "Dr. Anjali Desai",
-            position: "Assistant Professor, Physics",
-            education: "Ph.D in Theoretical Physics, TIFR",
-            specialization: "Quantum Mechanics, Solid State Physics",
+            name: "Dr. Mohammad Rizwan Khan",
+            position: "Principal, Pharmacy",
+            education: "PhD in Pharmaceutical Chemistry, D.A.V.V. Indore",
+            specialization: "Pharmaceutical Chemistry",
             image: "https://placehold.co/200x200",
-            publications: 21,
+            publications: 30,
+            experience: "20+ years",
+        },
+        {
+            id: 9,
+            name: "Dr. Shikha Agrawal",
+            position: "Professor, Pharmacy",
+            education: "PhD in Pharmaceutics, Dr. H.S. Gour University Sagar",
+            specialization: "Pharmaceutics",
+            image: "https://placehold.co/200x200",
+            publications: 50,
+            experience: "22+ years",
+        },
+        {
+            id: 10,
+            name: "Vishal Mehta",
+            position: "Principal, College of Professional Studies - ATC",
+            education: "Ph.D in Accounts and Taxation, DAVV Indore",
+            specialization: "Varied fields",
+            image: "https://placehold.co/200x200",
+            publications: 50,
+            experience: "26+ years",
+        },
+        {
+            id: 11,
+            name: "Prof. Ritu Birla",
+            position: "Assistant Professor, ECE",
+            education: "MTech in Mobile Computing, DAVV",
+            specialization: "Neuromorphic Computing, Wireless Communication",
+            image: "https://placehold.co/200x200",
+            publications: 5,
             experience: "9+ years",
+        },
+        {
+            id: 12,
+            name: "Vishal Pawar",
+            position: "Assistant Professor, ECE",
+            education: "M.E. in Embedded System & VLSI Design, RGPV",
+            specialization: "WSN",
+            image: "https://placehold.co/200x200",
+            publications: 0,
+            experience: "20+ years",
+        },
+        {
+            id: 13,
+            name: "Khushboo Nagar",
+            position: "Assistant Professor, CSE",
+            education: "M.Tech in Computer Science, RGPV",
+            specialization: "Artificial Intelligence, Image Processing",
+            image: "https://placehold.co/200x200",
+            publications: 3,
+            experience: "5+ years",
+        },
+        {
+            id: 14,
+            name: "Ayesha Mandloi",
+            position: "Assistant Professor, CSE",
+            education: "M.Tech, RGPV/Mahakal Institute of Technology Ujjain",
+            specialization: "Software Engineering, AI, Machine Learning",
+            image: "https://placehold.co/200x200",
+            publications: 0,
+            experience: "4+ years",
+        },
+        {
+            id: 15,
+            name: "Mrs. Madhuri Hardia",
+            position: "Assistant Professor, Law",
+            education: "LLM in Criminology, Renaissance University Indore",
+            specialization: "Criminal Law",
+            image: "https://placehold.co/200x200",
+            publications: 2,
+            experience: "2+ years",
+        },
+        {
+            id: 16,
+            name: "Ms. Shradha Borwal",
+            position: "Assistant Professor, Pharmacy",
+            education: "M.Pharm in Medicinal & Pharmaceutical Chemistry, SGSITS",
+            specialization: "Synthesis & Computational Added Drug Design",
+            image: "https://placehold.co/200x200",
+            publications: 1,
+            experience: "5+ years",
         },
     ];
 
@@ -124,6 +204,7 @@ const Faculty = () => {
                                         src={faculty.image}
                                         alt={faculty.name}
                                         className="w-32 h-32 object-cover rounded-full border-4 border-white shadow-md"
+                                        loading="lazy"
                                     />
                                 </div>
                                 <h2 className="text-xl font-display font-bold text-skitm-navy mb-1 text-center">
@@ -152,25 +233,27 @@ const Faculty = () => {
                                             {faculty.education}
                                         </span>
                                     </div>
-                                    <div className="flex items-center mb-2">
-                                        <svg
-                                            className="w-4 h-4 text-skitm-blue flex-shrink-0 mr-2"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                                            />
-                                        </svg>
-                                        <span className="text-sm text-skitm-gray">
-                                            {faculty.specialization}
-                                        </span>
-                                    </div>
+                                    {faculty.specialization && (
+                                        <div className="flex items-center mb-2">
+                                            <svg
+                                                className="w-4 h-4 text-skitm-blue flex-shrink-0 mr-2"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={2}
+                                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                                                />
+                                            </svg>
+                                            <span className="text-sm text-skitm-gray">
+                                                {faculty.specialization}
+                                            </span>
+                                        </div>
+                                    )}
                                     <div className="flex items-center mb-2">
                                         <svg
                                             className="w-4 h-4 text-skitm-blue flex-shrink-0 mr-2"
