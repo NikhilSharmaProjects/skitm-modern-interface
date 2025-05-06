@@ -1,3 +1,4 @@
+
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -17,18 +18,21 @@ const HeroSection = () => {
     });
 
     return (
-        <section className="hero-section overflow-hidden">
-            {/* Background overlay with pattern */}
-            <div className="absolute inset-0 bg-grid-white/[0.05] z-10"></div>
+        <section className="hero-section relative overflow-hidden min-h-[80vh] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: "url('/campus_image.jpg')" }}>
+            {/* Background overlay for better text visibility */}
+            <div className="absolute inset-0 bg-black/40 z-10"></div>
+            
+            {/* Background grid pattern overlay */}
+            <div className="absolute inset-0 bg-grid-white/[0.05] z-20"></div>
 
             {/* Background blur elements - floating shapes */}
-            <div className="absolute -top-24 -left-24 w-96 h-96 bg-skitm-blue/30 rounded-full filter blur-3xl opacity-30 animate-float"></div>
+            <div className="absolute -top-24 -left-24 w-96 h-96 bg-skitm-blue/30 rounded-full filter blur-3xl opacity-30 animate-float z-10"></div>
             <div
-                className="absolute -bottom-32 -right-32 w-80 h-80 bg-skitm-navy/40 rounded-full filter blur-3xl opacity-30 animate-float"
+                className="absolute -bottom-32 -right-32 w-80 h-80 bg-skitm-navy/40 rounded-full filter blur-3xl opacity-30 animate-float z-10"
                 style={{ animationDelay: "2s" }}
             ></div>
 
-            <div className="container mx-auto px-4 z-20 relative">
+            <div className="container mx-auto px-4 relative z-30">
                 <div className="max-w-3xl mx-auto text-center text-white">
                     <span
                         ref={titleRef as React.RefObject<HTMLHeadingElement>}
@@ -96,7 +100,7 @@ const HeroSection = () => {
             </div>
 
             {/* Wave SVG at bottom */}
-            <div className="absolute bottom-0 left-0 right-0 z-10">
+            <div className="absolute bottom-0 left-0 right-0 z-30">
                 <svg
                     viewBox="0 0 1440 120"
                     fill="none"

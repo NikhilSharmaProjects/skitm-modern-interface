@@ -1,6 +1,10 @@
 
 export const academicLinks = [
-  { name: "Departments", href: "/departments" },
+  { name: "Engineering", href: "/departments" },
+  { name: "Management", href: "/management" },
+  { name: "Pharmacy", href: "/pharmacy" },
+  { name: "Law", href: "/law" },
+  { name: "Professional Studies", href: "/professional-studies" },
   { name: "Courses", href: "/courses" },
   { name: "Faculty", href: "/faculty" },
   { name: "Research", href: "/research" },
