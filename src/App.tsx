@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -13,6 +14,10 @@ import NotFound from "./pages/NotFound";
 
 // Academic pages
 import Departments from "./pages/Departments";
+import Management from "./pages/Management";
+import Pharmacy from "./pages/Pharmacy";
+import Law from "./pages/Law";
+import ProfessionalStudies from "./pages/ProfessionalStudies";
 import Courses from "./pages/Courses";
 import Faculty from "./pages/Faculty";
 import Research from "./pages/Research";
@@ -123,6 +128,10 @@ const App = () => {
                 
                 {/* Academic pages */}
                 <Route path="/departments" element={<Departments />} />
+                <Route path="/management" element={<Management />} />
+                <Route path="/pharmacy" element={<Pharmacy />} />
+                <Route path="/law" element={<Law />} />
+                <Route path="/professional-studies" element={<ProfessionalStudies />} />
                 <Route path="/courses" element={<Courses />} />
                 <Route path="/faculty" element={<Faculty />} />
                 <Route path="/research" element={<Research />} />
