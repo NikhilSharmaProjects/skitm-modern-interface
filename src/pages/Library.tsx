@@ -1,8 +1,7 @@
-
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { useScrollAnimationDiv } from "@/hooks/useScrollAnimationDiv";
-import { Book, BookOpen, Printer, FileScanned, Wifi, Cctv, Clock, Calendar } from "lucide-react";
+import { Book, BookOpen, Printer, FileScan, Wifi, Cctv, Clock, Calendar } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
 
@@ -154,7 +153,7 @@ const Library = () => {
                                 </li>
                                 <li className="flex items-center">
                                     <div className="bg-skitm-blue/10 p-2 rounded-full mr-3">
-                                        <FileScanned className="text-skitm-blue" size={20} />
+                                        <FileScan className="text-skitm-blue" size={20} />
                                     </div>
                                     <span className="text-skitm-gray">Scanner availability</span>
                                 </li>
