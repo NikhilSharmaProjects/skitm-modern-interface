@@ -20,7 +20,7 @@ const Footer = () => {
                             SKITM
                         </h3>
                         <p className="text-gray-300 mb-4">
-                            Shivaji Rao Kadam Institute of Technology and
+                            ShivajiRao Kadam Institute of Technology and
                             Management, established with the vision of providing
                             quality technical education to empower students with
                             knowledge, skills, and values.
