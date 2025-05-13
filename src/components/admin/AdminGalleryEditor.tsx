@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { 
   PlusCircle, Save, Trash2, 
-  Calendar, FileText, Image
+  Calendar, FileText, Image, Loader2, UploadCloud
 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import Button from '@/components/ui/CustomButton';
@@ -22,12 +22,14 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { supabase } from '@/lib/supabase';
+import { v4 as uuidv4 } from 'uuid';
 
 // Types for gallery management
 interface GalleryItem {
   id: string;
   title: string;
-  imageUrl: string;
+  image_url: string;
   category: string;
   date: string;
 }
@@ -35,76 +37,196 @@ interface GalleryItem {
 const categories = ["Campus", "Events", "Workshops", "Sports", "Cultural", "Research"];
 
 const AdminGalleryEditor = () => {
-  const [galleryItems, setGalleryItems] = useState<GalleryItem[]>(() => {
-    const savedGallery = localStorage.getItem('skitm-gallery');
-    return savedGallery ? JSON.parse(savedGallery) : [];
-  });
+  const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isUploading, setIsUploading] = useState(false);
   
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [currentItem, setCurrentItem] = useState<GalleryItem | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   
   const form = useForm<Omit<GalleryItem, 'id'>>({
     defaultValues: {
       title: '',
-      imageUrl: '',
+      image_url: '',
       category: 'Campus',
       date: new Date().toISOString().split('T')[0]
     }
   });
   
+  // Fetch gallery items from Supabase
+  useEffect(() => {
+    fetchGalleryItems();
+  }, []);
+  
+  const fetchGalleryItems = async () => {
+    setIsLoading(true);
+    try {
+      const { data, error } = await supabase
+        .from('gallery')
+        .select('*')
+        .order('date', { ascending: false });
+      
+      if (error) throw error;
+      
+      setGalleryItems(data || []);
+    } catch (error) {
+      console.error('Error fetching gallery items:', error);
+      toast.error("Failed to load gallery items");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  
   const openNewItemDialog = () => {
     form.reset({
       title: '',
-      imageUrl: '',
+      image_url: '',
       category: 'Campus',
       date: new Date().toISOString().split('T')[0]
     });
     setCurrentItem(null);
+    setPreviewUrl(null);
     setIsDialogOpen(true);
   };
   
   const openEditItemDialog = (item: GalleryItem) => {
     form.reset({
       title: item.title,
-      imageUrl: item.imageUrl,
+      image_url: item.image_url,
       category: item.category,
       date: item.date
     });
     setCurrentItem(item);
+    setPreviewUrl(item.image_url);
     setIsDialogOpen(true);
   };
   
-  const onSubmit = (data: Omit<GalleryItem, 'id'>) => {
-    if (currentItem) {
-      // Edit existing item
-      const updatedItems = galleryItems.map(item => 
-        item.id === currentItem.id 
-          ? { ...item, ...data } 
-          : item
-      );
-      setGalleryItems(updatedItems);
-      localStorage.setItem('skitm-gallery', JSON.stringify(updatedItems));
-      toast.success("Gallery item updated successfully");
-    } else {
-      // Create new item
-      const newItem: GalleryItem = {
-        id: Date.now().toString(),
-        ...data
-      };
-      const updatedItems = [...galleryItems, newItem];
-      setGalleryItems(updatedItems);
-      localStorage.setItem('skitm-gallery', JSON.stringify(updatedItems));
-      toast.success("Gallery item added successfully");
+  const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    
+    // Check file type
+    if (!file.type.includes('image')) {
+      toast.error('Please upload an image file');
+      return;
     }
-    setIsDialogOpen(false);
+    
+    // Check file size (max 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      toast.error('File size exceeds 5MB limit');
+      return;
+    }
+    
+    setIsUploading(true);
+    
+    try {
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${uuidv4()}.${fileExt}`;
+      const filePath = `gallery/${fileName}`;
+      
+      // Upload to Supabase Storage
+      const { error: uploadError } = await supabase
+        .storage
+        .from('images')
+        .upload(filePath, file);
+      
+      if (uploadError) throw uploadError;
+      
+      // Get public URL
+      const { data: urlData } = supabase
+        .storage
+        .from('images')
+        .getPublicUrl(filePath);
+      
+      // Update form with image URL
+      form.setValue('image_url', urlData.publicUrl);
+      setPreviewUrl(urlData.publicUrl);
+      toast.success('Image uploaded successfully');
+      
+    } catch (error: any) {
+      console.error('Error uploading image:', error);
+      toast.error('Failed to upload image: ' + (error.message || 'Unknown error'));
+    } finally {
+      setIsUploading(false);
+    }
   };
   
-  const deleteItem = (id: string) => {
+  const onSubmit = async (data: Omit<GalleryItem, 'id'>) => {
+    try {
+      if (currentItem) {
+        // Edit existing item
+        const { error } = await supabase
+          .from('gallery')
+          .update({
+            title: data.title,
+            image_url: data.image_url,
+            category: data.category,
+            date: data.date
+          })
+          .eq('id', currentItem.id);
+        
+        if (error) throw error;
+        toast.success("Gallery item updated successfully");
+      } else {
+        // Create new item
+        const { error } = await supabase
+          .from('gallery')
+          .insert([{
+            title: data.title,
+            image_url: data.image_url,
+            category: data.category,
+            date: data.date
+          }]);
+        
+        if (error) throw error;
+        toast.success("Gallery item added successfully");
+      }
+      
+      setIsDialogOpen(false);
+      fetchGalleryItems();
+      
+    } catch (error: any) {
+      console.error('Error saving gallery item:', error);
+      toast.error('Failed to save gallery item: ' + (error.message || 'Unknown error'));
+    }
+  };
+  
+  const deleteItem = async (id: string) => {
     if (confirm("Are you sure you want to delete this gallery item?")) {
-      const updatedItems = galleryItems.filter(item => item.id !== id);
-      setGalleryItems(updatedItems);
-      localStorage.setItem('skitm-gallery', JSON.stringify(updatedItems));
-      toast.success("Gallery item deleted successfully");
+      try {
+        // Get the item to delete its image from storage
+        const { data: item } = await supabase
+          .from('gallery')
+          .select('image_url')
+          .eq('id', id)
+          .single();
+        
+        // Delete the database entry
+        const { error } = await supabase
+          .from('gallery')
+          .delete()
+          .eq('id', id);
+        
+        if (error) throw error;
+        
+        // Attempt to delete image from storage if it's in our storage
+        if (item && item.image_url && item.image_url.includes('storage')) {
+          const imagePath = item.image_url.split('images/')[1];
+          if (imagePath) {
+            await supabase
+              .storage
+              .from('images')
+              .remove([`gallery/${imagePath}`]);
+          }
+        }
+        
+        toast.success("Gallery item deleted successfully");
+        fetchGalleryItems();
+      } catch (error: any) {
+        console.error('Error deleting gallery item:', error);
+        toast.error('Failed to delete gallery item: ' + (error.message || 'Unknown error'));
+      }
     }
   };
   
@@ -123,7 +245,12 @@ const AdminGalleryEditor = () => {
           </Button>
         </div>
         
-        {galleryItems.length === 0 ? (
+        {isLoading ? (
+          <div className="text-center py-12 border border-dashed border-gray-200 rounded-lg">
+            <Loader2 size={32} className="mx-auto text-gray-300 mb-2 animate-spin" />
+            <h3 className="text-sm font-medium text-gray-700 mb-1">Loading gallery items...</h3>
+          </div>
+        ) : galleryItems.length === 0 ? (
           <div className="text-center py-12 border border-dashed border-gray-200 rounded-lg">
             <Image size={32} className="mx-auto text-gray-300 mb-2" />
             <h3 className="text-sm font-medium text-gray-700 mb-1">No gallery items found</h3>
@@ -143,9 +270,12 @@ const AdminGalleryEditor = () => {
               <div key={item.id} className="border border-gray-200 rounded-lg overflow-hidden hover:border-skitm-blue/50 hover:shadow-sm transition-all">
                 <div className="h-32 overflow-hidden">
                   <img 
-                    src={item.imageUrl} 
+                    src={item.image_url} 
                     alt={item.title}
                     className="w-full h-full object-cover"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'https://via.placeholder.com/300x200?text=Image+Not+Found';
+                    }}
                   />
                 </div>
                 <div className="p-3">
@@ -205,24 +335,47 @@ const AdminGalleryEditor = () => {
               
               <FormField
                 control={form.control}
-                name="imageUrl"
+                name="image_url"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Image URL</FormLabel>
+                    <FormLabel>Image</FormLabel>
                     <FormControl>
-                      <div className="flex">
-                        <input
-                          {...field}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-skitm-blue/50"
-                          placeholder="Enter image URL"
-                          required
-                        />
-                        <button
-                          type="button"
-                          className="bg-gray-100 border border-gray-300 border-l-0 rounded-r-md px-3"
-                        >
-                          <Image size={16} />
-                        </button>
+                      <div className="space-y-3">
+                        <div className="flex">
+                          <input
+                            {...field}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-skitm-blue/50"
+                            placeholder="Image URL or upload"
+                            required
+                          />
+                          <label 
+                            className={`bg-gray-100 border border-gray-300 border-l-0 rounded-r-md px-3 py-2 cursor-pointer ${isUploading ? 'opacity-50' : ''}`}
+                            htmlFor="image-upload"
+                          >
+                            {isUploading ? <Loader2 size={16} className="animate-spin" /> : <UploadCloud size={16} />}
+                          </label>
+                          <input 
+                            type="file" 
+                            id="image-upload" 
+                            className="hidden"
+                            accept="image/*"
+                            onChange={handleImageUpload}
+                            disabled={isUploading}
+                          />
+                        </div>
+                        
+                        {previewUrl && (
+                          <div className="relative mt-2 h-40 bg-gray-100 rounded-md overflow-hidden">
+                            <img 
+                              src={previewUrl} 
+                              alt="Preview" 
+                              className="w-full h-full object-contain"
+                              onError={(e) => {
+                                (e.target as HTMLImageElement).src = 'https://via.placeholder.com/300x200?text=Invalid+Image+URL';
+                              }}
+                            />
+                          </div>
+                        )}
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -280,9 +433,22 @@ const AdminGalleryEditor = () => {
                 >
                   Cancel
                 </Button>
-                <Button type="submit" variant="primary">
-                  <Save size={16} className="mr-1" />
-                  {currentItem ? 'Save Changes' : 'Add Image'}
+                <Button 
+                  type="submit" 
+                  variant="primary"
+                  disabled={isUploading}
+                >
+                  {isUploading ? (
+                    <>
+                      <Loader2 size={16} className="mr-1 animate-spin" />
+                      Uploading...
+                    </>
+                  ) : (
+                    <>
+                      <Save size={16} className="mr-1" />
+                      {currentItem ? 'Save Changes' : 'Add Image'}
+                    </>
+                  )}
                 </Button>
               </DialogFooter>
             </form>
