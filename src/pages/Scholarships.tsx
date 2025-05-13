@@ -2,7 +2,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Award, Users, User, Calendar, CheckCircle, Download, BookOpen, Landmark, Building, Graduation, BadgeDollarSign } from 'lucide-react';
+import { Award, Users, User, Calendar, CheckCircle, Download, BookOpen, Landmark, Building, GraduationCap, BadgeDollarSign } from 'lucide-react';
 
 const Scholarships = () => {
   const headingRef = useRef<HTMLDivElement>(null);
@@ -200,7 +200,7 @@ const Scholarships = () => {
             {/* Other Programs */}
             <div className="glassmorphism rounded-xl p-8 mb-8">
               <div className="flex items-center mb-6">
-                <Graduation className="text-skitm-blue mr-3" size={28} />
+                <GraduationCap className="text-skitm-blue mr-3" size={28} />
                 <h3 className="text-xl font-bold text-skitm-navy">Professional Programs Fee Structure (in ₹)</h3>
               </div>
               
