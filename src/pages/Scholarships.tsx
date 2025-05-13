@@ -1,9 +1,8 @@
-
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Award, Users, User, Calendar, CheckCircle, Download } from 'lucide-react';
+import { Award, Users, User, Calendar, CheckCircle, Download, BookOpen, Landmark, Building, Graduation, BadgeDollarSign } from 'lucide-react';
 
 const Scholarships = () => {
   const headingRef = useRef<HTMLDivElement>(null);
@@ -11,9 +10,9 @@ const Scholarships = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Scholarships - SKITM</title>
-        <meta name="description" content="Explore the range of merit-based and need-based scholarships available at SKITM. Find information about eligibility criteria, application process, and deadlines." />
-        <meta name="keywords" content="SKITM scholarships, engineering scholarships, merit scholarships, need-based scholarships, financial aid, education funding, scholarship application" />
+        <title>Scholarships & Fee Structure - SKITM</title>
+        <meta name="description" content="Explore scholarships and fee structure at SKITM. Find information about merit-based scholarships, fees for different programs, and eligibility criteria." />
+        <meta name="keywords" content="SKITM scholarships, fee structure, engineering scholarships, merit scholarships, JEE scholarships, SKITM fees" />
       </Helmet>
       
       <Navbar />
@@ -28,382 +27,450 @@ const Scholarships = () => {
               Financial Assistance
             </div>
             <h1 className="text-4xl md:text-5xl font-display font-bold text-skitm-navy mb-6">
-              Scholarships
+              Scholarships & Fee Structure
             </h1>
             <p className="text-lg text-skitm-gray max-w-2xl mx-auto">
-              Supporting talented students through merit and need-based scholarships.
+              Supporting talented students through merit-based scholarships for AY 2025-26.
             </p>
           </div>
           
           {/* Introduction Section */}
           <div className="glassmorphism rounded-xl p-8 mb-16">
             <div className="max-w-3xl mx-auto">
-              <p className="text-skitm-gray mb-6">
-                At SKITM, we believe that financial constraints should not be a barrier to quality education. 
-                We offer a range of scholarships to recognize academic excellence, encourage talent, and support 
-                students with financial needs. Our scholarship programs are designed to reward merit and provide 
-                financial assistance to deserving students, helping them pursue their educational goals without 
-                financial burden.
-              </p>
+              <h2 className="text-2xl font-display font-bold text-skitm-navy mb-4 text-center">
+                Shivajirao Kadam Group of Institutions
+              </h2>
+              <ul className="space-y-2 mb-6 text-center">
+                <li className="font-semibold text-skitm-navy">SHIVAJIRAO KADAM INSTITUTE OF TECHNOLOGY & MANAGEMENT</li>
+                <li className="text-green-600 font-medium">(NAAC A Grade | An UGC Autonomous Institute)</li>
+                <li className="font-semibold text-skitm-navy">SHIVAJIRAO KADAM INSTITUTE OF PHARMACEUTICAL EDU. & RESEARCH</li>
+                <li className="font-semibold text-skitm-navy">COLLEGE OF PROFESSIONAL STUDIES-ATC</li>
+                <li className="font-semibold text-skitm-navy">TRANSNATIONAL SCHOOL OF LAW</li>
+              </ul>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                 <div className="flex flex-col items-center text-center">
                   <Award className="text-skitm-blue mb-4" size={32} />
                   <h3 className="text-lg font-semibold text-skitm-navy mb-2">Merit-Based</h3>
-                  <p className="text-sm text-skitm-gray">Scholarships awarded based on academic performance and achievements</p>
+                  <p className="text-sm text-skitm-gray">Scholarships based on JEE Percentile and academic performance</p>
                 </div>
                 
                 <div className="flex flex-col items-center text-center">
                   <Users className="text-skitm-blue mb-4" size={32} />
-                  <h3 className="text-lg font-semibold text-skitm-navy mb-2">Need-Based</h3>
-                  <p className="text-sm text-skitm-gray">Financial support for students from economically disadvantaged backgrounds</p>
+                  <h3 className="text-lg font-semibold text-skitm-navy mb-2">Institute Level</h3>
+                  <p className="text-sm text-skitm-gray">Special scholarships for sports, single parents, girls, and more</p>
                 </div>
                 
                 <div className="flex flex-col items-center text-center">
-                  <User className="text-skitm-blue mb-4" size={32} />
-                  <h3 className="text-lg font-semibold text-skitm-navy mb-2">Special Category</h3>
-                  <p className="text-sm text-skitm-gray">Scholarships for women, differently-abled, and other special categories</p>
+                  <Building className="text-skitm-blue mb-4" size={32} />
+                  <h3 className="text-lg font-semibold text-skitm-navy mb-2">Hostel Facility</h3>
+                  <p className="text-sm text-skitm-gray">Accommodation available for both boys and girls</p>
                 </div>
               </div>
             </div>
           </div>
           
-          {/* Scholarship Categories */}
+          {/* Merit-Based Scholarship Section */}
           <div className="mb-16">
             <h2 className="text-2xl font-display font-bold text-skitm-navy mb-8 text-center">
-              Our Scholarship Programs
+              Merit Scholarship cum Fees Structure for AY 2025-26
             </h2>
+            <p className="text-center text-skitm-navy font-medium mb-4">(For MP Domicile Only)</p>
             
-            {/* Merit-Based Scholarships */}
+            {/* Engineering Programs */}
             <div className="glassmorphism rounded-xl p-8 mb-8">
               <div className="flex items-center mb-6">
-                <Award className="text-skitm-blue mr-3" size={28} />
-                <h3 className="text-xl font-bold text-skitm-navy">Merit-Based Scholarships</h3>
+                <BookOpen className="text-skitm-blue mr-3" size={28} />
+                <h3 className="text-xl font-bold text-skitm-navy">Engineering Programs Fee Structure (in ₹)</h3>
               </div>
               
-              <div className="space-y-8">
-                <div className="bg-white/50 rounded-lg p-6">
-                  <h4 className="text-lg font-semibold text-skitm-navy mb-3">SKITM Academic Excellence Scholarship</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <p className="text-skitm-gray mb-4">
-                        Awarded to students with outstanding performance in JEE Main/State-level entrance exams.
-                      </p>
-                      <ul className="space-y-2">
-                        <li className="flex items-start">
-                          <CheckCircle size={18} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
-                          <span className="text-skitm-gray">Up to 100% tuition fee waiver</span>
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle size={18} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
-                          <span className="text-skitm-gray">JEE Main rank within top 10,000 or equivalent in state-level exams</span>
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle size={18} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
-                          <span className="text-skitm-gray">Renewable annually based on academic performance</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <div className="bg-skitm-blue/5 p-4 rounded-lg">
-                        <div className="flex items-center mb-3">
-                          <Calendar size={16} className="text-skitm-blue mr-2" />
-                          <h5 className="font-medium text-skitm-navy">Key Dates</h5>
-                        </div>
-                        <ul className="space-y-2 text-sm">
-                          <li className="flex justify-between">
-                            <span className="text-skitm-gray">Application Opens:</span>
-                            <span className="text-skitm-navy font-medium">June 1, 2023</span>
-                          </li>
-                          <li className="flex justify-between">
-                            <span className="text-skitm-gray">Application Deadline:</span>
-                            <span className="text-skitm-navy font-medium">July 15, 2023</span>
-                          </li>
-                          <li className="flex justify-between">
-                            <span className="text-skitm-gray">Results Announcement:</span>
-                            <span className="text-skitm-navy font-medium">July 31, 2023</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="bg-white/50 rounded-lg p-6">
-                  <h4 className="text-lg font-semibold text-skitm-navy mb-3">SKITM Merit Scholarship</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <p className="text-skitm-gray mb-4">
-                        For students who excel in their academic performance during their studies at SKITM.
-                      </p>
-                      <ul className="space-y-2">
-                        <li className="flex items-start">
-                          <CheckCircle size={18} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
-                          <span className="text-skitm-gray">25-50% tuition fee waiver for the next semester</span>
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle size={18} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
-                          <span className="text-skitm-gray">CGPA of 8.5 or above with no backlogs</span>
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle size={18} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
-                          <span className="text-skitm-gray">Awarded each semester based on previous semester performance</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <div className="bg-skitm-blue/5 p-4 rounded-lg">
-                        <div className="flex items-center mb-3">
-                          <Calendar size={16} className="text-skitm-blue mr-2" />
-                          <h5 className="font-medium text-skitm-navy">Key Dates</h5>
-                        </div>
-                        <ul className="space-y-2 text-sm">
-                          <li className="flex justify-between">
-                            <span className="text-skitm-gray">Fall Semester Awards:</span>
-                            <span className="text-skitm-navy font-medium">August 15, 2023</span>
-                          </li>
-                          <li className="flex justify-between">
-                            <span className="text-skitm-gray">Spring Semester Awards:</span>
-                            <span className="text-skitm-navy font-medium">February 15, 2024</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="overflow-x-auto mb-6">
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr className="bg-skitm-blue/10">
+                      <th className="border border-gray-300 px-2 py-3 text-left font-semibold text-skitm-navy">JEE Percentile</th>
+                      <th className="border border-gray-300 px-2 py-3 text-left font-semibold text-skitm-navy">12/UG Percentage</th>
+                      <th className="border border-gray-300 px-2 py-3 text-center font-semibold text-skitm-navy">CSE B.Tech. <br/>Including PRP</th>
+                      <th className="border border-gray-300 px-2 py-3 text-center font-semibold text-skitm-navy">B.Tech. AIML <br/>Including PRP</th>
+                      <th className="border border-gray-300 px-2 py-3 text-center font-semibold text-skitm-navy">B.Tech. IT/CSIT <br/>Including PRP</th>
+                      <th className="border border-gray-300 px-2 py-3 text-center font-semibold text-skitm-navy">B.Tech. DS <br/>Including PRP</th>
+                      <th className="border border-gray-300 px-2 py-3 text-center font-semibold text-skitm-navy">B.Tech. EC</th>
+                      <th className="border border-gray-300 px-2 py-3 text-center font-semibold text-skitm-navy">B.Tech CE/ME</th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white/50">
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">Above 90</td>
+                      <td className="border border-gray-300 px-2 py-2">Above 90</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">35,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">25,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">25,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">25,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">25,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">25,000</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">75-89.9</td>
+                      <td className="border border-gray-300 px-2 py-2">85-89.9</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">70,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">65,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">63,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">60,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">30,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">34,000</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">60-74.9</td>
+                      <td className="border border-gray-300 px-2 py-2">80-84.9</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">78,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">73,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">71,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">65,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">37,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">40,000</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">40-59.9</td>
+                      <td className="border border-gray-300 px-2 py-2">75-79.9</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">83,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">76,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">74,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">71,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">41,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">46,000</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">30-39.9</td>
+                      <td className="border border-gray-300 px-2 py-2">70-74.9</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">87,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">79,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">77,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">74,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">44,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">48,000</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">20-29.9</td>
+                      <td className="border border-gray-300 px-2 py-2">65-69.9</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">89,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">82,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">80,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">77,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">47,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">50,000</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">Below 20</td>
+                      <td className="border border-gray-300 px-2 py-2">Below 65</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">91,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">85,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">83,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">80,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">50,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">55,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="overflow-x-auto mb-4">
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr className="bg-skitm-blue/10">
+                      <th className="border border-gray-300 px-2 py-3 text-left font-semibold text-skitm-navy">Lateral Entry</th>
+                      <th className="border border-gray-300 px-2 py-3 text-center font-semibold text-skitm-navy">CSE/EC</th>
+                      <th className="border border-gray-300 px-2 py-3 text-center font-semibold text-skitm-navy">CE/ME</th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white/50">
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">Fee Structure</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">60,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">50,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+              <p className="text-sm text-skitm-gray bg-gray-50 p-3 rounded">
+                B.Tech Plus: Additional ₹35,000/Year (Optional) for International Study Tour & higher configuration laptop.
+              </p>
+            </div>
+            
+            {/* Other Programs */}
+            <div className="glassmorphism rounded-xl p-8 mb-8">
+              <div className="flex items-center mb-6">
+                <Graduation className="text-skitm-blue mr-3" size={28} />
+                <h3 className="text-xl font-bold text-skitm-navy">Professional Programs Fee Structure (in ₹)</h3>
+              </div>
+              
+              <div className="overflow-x-auto mb-6">
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr className="bg-skitm-blue/10">
+                      <th className="border border-gray-300 px-2 py-3 text-left font-semibold text-skitm-navy">12th/UG Percentage</th>
+                      <th className="border border-gray-300 px-2 py-3 text-center font-semibold text-skitm-navy">BBA <br/>Including PRP</th>
+                      <th className="border border-gray-300 px-2 py-3 text-center font-semibold text-skitm-navy">B.Pharm</th>
+                      <th className="border border-gray-300 px-2 py-3 text-center font-semibold text-skitm-navy">D.Pharm</th>
+                      <th className="border border-gray-300 px-2 py-3 text-center font-semibold text-skitm-navy">M.Pharm</th>
+                      <th className="border border-gray-300 px-2 py-3 text-center font-semibold text-skitm-navy">B.Com <br/>Including PRP</th>
+                      <th className="border border-gray-300 px-2 py-3 text-center font-semibold text-skitm-navy">IMBA <br/>Including PRP</th>
+                      <th className="border border-gray-300 px-2 py-3 text-center font-semibold text-skitm-navy">MBA <br/>Including PRP</th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white/50">
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">Above 85</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">80,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">43,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">85,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">49,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">37,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">55,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">64,000</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">80-84.9</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">85,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">47,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">90,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">51,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">39,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">58,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">69,000</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">75-79.9</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">88,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">49,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">93,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">53,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">42,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">61,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">74,000</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">70-74.9</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">90,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">51,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">95,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">55,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">45,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">65,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">79,000</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">65-69.9</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">92,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">55,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">98,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">57,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">48,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">70,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">81,000</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">Below 65</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">95,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">60,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">100,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">60,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">50,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">75,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">84,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="overflow-x-auto mb-4">
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr className="bg-skitm-blue/10">
+                      <th className="border border-gray-300 px-2 py-3 text-left font-semibold text-skitm-navy">12th/UG Percentage</th>
+                      <th className="border border-gray-300 px-2 py-3 text-center font-semibold text-skitm-navy">BALLB/BBA LLB</th>
+                      <th className="border border-gray-300 px-2 py-3 text-center font-semibold text-skitm-navy">LLB</th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white/50">
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">Above 85</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">50,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">33,000</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">80-84.9</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">55,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">35,000</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">75-79.9</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">60,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">38,000</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">70-74.9</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">65,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">40,000</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">65-69.9</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">70,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">42,000</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-2 py-2">Below 65</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">75,000</td>
+                      <td className="border border-gray-300 px-2 py-2 text-center">45,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="space-y-3 mt-4 text-sm">
+                <p className="text-skitm-gray bg-gray-50 p-3 rounded">
+                  <strong>Additional PWC @ Rs. 50,000</strong> (Optional)
+                </p>
+                <p className="text-skitm-gray bg-gray-50 p-3 rounded">
+                  <strong>For all other courses:</strong> Additional ₹1,05,000 (Optional) for International Study Tour & Tablet which can be equally divided in yearly fee.
+                </p>
+                <p className="text-skitm-gray bg-gray-50 p-3 rounded">
+                  <strong>M.Pharm:</strong> Rs. 85,000/- fee for GPAT qualified students.
+                </p>
+                <p className="text-skitm-gray bg-gray-50 p-3 rounded">
+                  <strong>Upgrade PRP for B.Tech, MBA, IMBA.BBA and B.Com.</strong>
+                </p>
+                <p className="text-skitm-gray bg-gray-50 p-3 rounded">
+                  <strong>One Time Admission Fee:</strong> Rs.2,000/-
+                </p>
               </div>
             </div>
             
-            {/* Need-Based Scholarships */}
+            {/* Hostel Facility */}
             <div className="glassmorphism rounded-xl p-8 mb-8">
               <div className="flex items-center mb-6">
-                <Users className="text-skitm-blue mr-3" size={28} />
-                <h3 className="text-xl font-bold text-skitm-navy">Need-Based Scholarships</h3>
+                <Building className="text-skitm-blue mr-3" size={28} />
+                <h3 className="text-xl font-bold text-skitm-navy">Hostel Facility</h3>
               </div>
               
-              <div className="space-y-8">
-                <div className="bg-white/50 rounded-lg p-6">
-                  <h4 className="text-lg font-semibold text-skitm-navy mb-3">SKITM Financial Aid Program</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <p className="text-skitm-gray mb-4">
-                        Financial assistance for students from economically disadvantaged backgrounds.
-                      </p>
-                      <ul className="space-y-2">
-                        <li className="flex items-start">
-                          <CheckCircle size={18} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
-                          <span className="text-skitm-gray">Up to 75% tuition fee waiver based on family income</span>
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle size={18} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
-                          <span className="text-skitm-gray">Annual family income less than ₹4 lakhs</span>
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle size={18} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
-                          <span className="text-skitm-gray">Requires submission of income certificate and supporting documents</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <div className="bg-skitm-blue/5 p-4 rounded-lg">
-                        <div className="flex items-center mb-3">
-                          <Calendar size={16} className="text-skitm-blue mr-2" />
-                          <h5 className="font-medium text-skitm-navy">Key Dates</h5>
-                        </div>
-                        <ul className="space-y-2 text-sm">
-                          <li className="flex justify-between">
-                            <span className="text-skitm-gray">Application Opens:</span>
-                            <span className="text-skitm-navy font-medium">June 1, 2023</span>
-                          </li>
-                          <li className="flex justify-between">
-                            <span className="text-skitm-gray">Application Deadline:</span>
-                            <span className="text-skitm-navy font-medium">July 15, 2023</span>
-                          </li>
-                          <li className="flex justify-between">
-                            <span className="text-skitm-gray">Results Announcement:</span>
-                            <span className="text-skitm-navy font-medium">July 31, 2023</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Special Category Scholarships */}
-            <div className="glassmorphism rounded-xl p-8">
-              <div className="flex items-center mb-6">
-                <User className="text-skitm-blue mr-3" size={28} />
-                <h3 className="text-xl font-bold text-skitm-navy">Special Category Scholarships</h3>
-              </div>
-              
-              <div className="space-y-8">
-                <div className="bg-white/50 rounded-lg p-6">
-                  <h4 className="text-lg font-semibold text-skitm-navy mb-3">Women in Engineering Scholarship</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <p className="text-skitm-gray mb-4">
-                        Encourages women to pursue engineering education and promotes gender equality in STEM fields.
-                      </p>
-                      <ul className="space-y-2">
-                        <li className="flex items-start">
-                          <CheckCircle size={18} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
-                          <span className="text-skitm-gray">25-50% tuition fee waiver</span>
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle size={18} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
-                          <span className="text-skitm-gray">Female students with good academic records</span>
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle size={18} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
-                          <span className="text-skitm-gray">Preference to students from underrepresented regions</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <div className="bg-skitm-blue/5 p-4 rounded-lg">
-                        <div className="flex items-center mb-3">
-                          <Calendar size={16} className="text-skitm-blue mr-2" />
-                          <h5 className="font-medium text-skitm-navy">Key Dates</h5>
-                        </div>
-                        <ul className="space-y-2 text-sm">
-                          <li className="flex justify-between">
-                            <span className="text-skitm-gray">Application Opens:</span>
-                            <span className="text-skitm-navy font-medium">June 1, 2023</span>
-                          </li>
-                          <li className="flex justify-between">
-                            <span className="text-skitm-gray">Application Deadline:</span>
-                            <span className="text-skitm-navy font-medium">July 15, 2023</span>
-                          </li>
-                          <li className="flex justify-between">
-                            <span className="text-skitm-gray">Results Announcement:</span>
-                            <span className="text-skitm-navy font-medium">July 31, 2023</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="bg-white/50 rounded-lg p-6">
+                <p className="text-skitm-navy font-semibold mb-2">Hostel Fee (Boy's & Girl's): ₹80,000/-</p>
+                <p className="text-sm text-skitm-gray">Comfortable accommodation with modern amenities for both boys and girls.</p>
               </div>
             </div>
           </div>
           
-          {/* How to Apply */}
+          {/* Institute Level Scholarships */}
           <div className="glassmorphism rounded-xl p-8 mb-16">
-            <h2 className="text-2xl font-display font-bold text-skitm-navy mb-6 text-center">
-              How to Apply
-            </h2>
+            <div className="flex items-center mb-8 justify-center">
+              <BadgeDollarSign className="text-skitm-blue mr-3" size={28} />
+              <h2 className="text-2xl font-display font-bold text-skitm-navy">Institute Level Scholarships</h2>
+            </div>
             
-            <div className="max-w-3xl mx-auto">
-              <ol className="space-y-6">
-                <li className="bg-white/50 p-4 rounded-lg">
-                  <div className="flex items-center mb-2">
-                    <div className="bg-skitm-blue text-white w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3">1</div>
-                    <h4 className="font-semibold text-skitm-navy">Check Eligibility</h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-white/50 p-6 rounded-lg">
+                <div className="flex items-start mb-2">
+                  <CheckCircle size={18} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-skitm-navy">Sports Scholarship</h4>
+                    <p className="text-sm text-skitm-gray">₹5,000/- (National Level) & ₹3,000/- (State Level) for all courses entry level only.</p>
                   </div>
-                  <p className="text-skitm-gray ml-9">
-                    Review the eligibility criteria for each scholarship program and determine which ones you qualify for.
-                  </p>
-                </li>
-                
-                <li className="bg-white/50 p-4 rounded-lg">
-                  <div className="flex items-center mb-2">
-                    <div className="bg-skitm-blue text-white w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3">2</div>
-                    <h4 className="font-semibold text-skitm-navy">Prepare Documents</h4>
-                  </div>
-                  <p className="text-skitm-gray ml-9">
-                    Gather all required documents including academic records, income certificates, and other supporting materials.
-                  </p>
-                </li>
-                
-                <li className="bg-white/50 p-4 rounded-lg">
-                  <div className="flex items-center mb-2">
-                    <div className="bg-skitm-blue text-white w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3">3</div>
-                    <h4 className="font-semibold text-skitm-navy">Complete Application Form</h4>
-                  </div>
-                  <p className="text-skitm-gray ml-9">
-                    Fill out the scholarship application form available on the SKITM student portal or at the Financial Aid Office.
-                  </p>
-                </li>
-                
-                <li className="bg-white/50 p-4 rounded-lg">
-                  <div className="flex items-center mb-2">
-                    <div className="bg-skitm-blue text-white w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3">4</div>
-                    <h4 className="font-semibold text-skitm-navy">Submit Application</h4>
-                  </div>
-                  <p className="text-skitm-gray ml-9">
-                    Submit the completed application form along with all required documents before the specified deadline.
-                  </p>
-                </li>
-                
-                <li className="bg-white/50 p-4 rounded-lg">
-                  <div className="flex items-center mb-2">
-                    <div className="bg-skitm-blue text-white w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3">5</div>
-                    <h4 className="font-semibold text-skitm-navy">Scholarship Review Process</h4>
-                  </div>
-                  <p className="text-skitm-gray ml-9">
-                    Applications are reviewed by the Scholarship Committee. Selected candidates may be called for an interview.
-                  </p>
-                </li>
-                
-                <li className="bg-white/50 p-4 rounded-lg">
-                  <div className="flex items-center mb-2">
-                    <div className="bg-skitm-blue text-white w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3">6</div>
-                    <h4 className="font-semibold text-skitm-navy">Award Notification</h4>
-                  </div>
-                  <p className="text-skitm-gray ml-9">
-                    Successful applicants will be notified via email and the scholarship amount will be adjusted in their fee structure.
-                  </p>
-                </li>
-              </ol>
+                </div>
+              </div>
               
-              <div className="text-center mt-8">
-                <a 
-                  href="#"
-                  className="inline-flex items-center bg-skitm-blue text-white px-6 py-3 rounded-md hover:bg-skitm-lightBlue transition-colors font-medium"
-                >
-                  <Download size={18} className="mr-2" />
-                  Download Scholarship Application Form
-                </a>
+              <div className="bg-white/50 p-6 rounded-lg">
+                <div className="flex items-start mb-2">
+                  <CheckCircle size={18} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-skitm-navy">Single Parent Scholarship</h4>
+                    <p className="text-sm text-skitm-gray">₹5,000/- for students with no parents or single parent for during the course.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-white/50 p-6 rounded-lg">
+                <div className="flex items-start mb-2">
+                  <CheckCircle size={18} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-skitm-navy">Girl's Scholarship</h4>
+                    <p className="text-sm text-skitm-gray">₹3,000/- for all girls' students during the course.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-white/50 p-6 rounded-lg">
+                <div className="flex items-start mb-2">
+                  <CheckCircle size={18} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-skitm-navy">EWS Scholarship</h4>
+                    <p className="text-sm text-skitm-gray">₹5,000/- for students admitted under EWS category for during the course.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-white/50 p-6 rounded-lg">
+                <div className="flex items-start mb-2">
+                  <CheckCircle size={18} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-skitm-navy">Sibling Scholarship</h4>
+                    <p className="text-sm text-skitm-gray">₹5,000/- for B.Tech & B.Pharm and ₹3,000/- for Professional Studies & D.Pharm entry level.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-white/50 p-6 rounded-lg">
+                <div className="flex items-start mb-2">
+                  <CheckCircle size={18} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-skitm-navy">Defence Service Scholarship</h4>
+                    <p className="text-sm text-skitm-gray">Scholarship of ₹5,000/- for child of defence service employee entry level.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/50 p-6 rounded-lg md:col-span-2">
+                <div className="flex items-start mb-2">
+                  <CheckCircle size={18} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-skitm-navy">Full Payment Discount</h4>
+                    <p className="text-sm text-skitm-gray">On one time Full annual fee deposit: 5% discount of Annual fee.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           
-          {/* FAQ Section */}
-          <div className="glassmorphism rounded-xl p-8">
-            <h2 className="text-2xl font-display font-bold text-skitm-navy mb-8 text-center">
-              Frequently Asked Questions
+          {/* Contact Section */}
+          <div className="glassmorphism rounded-xl p-8 text-center">
+            <h2 className="text-2xl font-display font-bold text-skitm-navy mb-4">
+              Admission Helpline
             </h2>
+            <div className="max-w-xl mx-auto space-y-3">
+              <p className="text-skitm-gray">
+                <strong>Phone:</strong> 0731-2995586
+              </p>
+              <p className="text-skitm-gray">
+                <strong>Mobile:</strong> 9770907103, 9770907100
+              </p>
+              <p className="text-skitm-gray">
+                <strong>Website:</strong> <a href="https://www.skitm.in" className="text-skitm-blue">www.skitm.in</a>
+              </p>
+              <p className="text-skitm-gray">
+                <strong>Email:</strong> <a href="mailto:admissions@skitm.in" className="text-skitm-blue">admissions@skitm.in</a>
+              </p>
+              <p className="text-skitm-gray">
+                <strong>Address:</strong> Near Ralamandal, Tillor Khurd Indore (M.P.) 452020
+              </p>
+            </div>
             
-            <div className="space-y-6 max-w-3xl mx-auto">
-              <div className="bg-white/50 p-6 rounded-lg">
-                <h4 className="font-semibold text-skitm-navy mb-2">Can I apply for multiple scholarships simultaneously?</h4>
-                <p className="text-skitm-gray">
-                  Yes, you can apply for multiple scholarships for which you are eligible. However, in most cases, a student will be awarded only one scholarship with the highest benefit.
-                </p>
-              </div>
-              
-              <div className="bg-white/50 p-6 rounded-lg">
-                <h4 className="font-semibold text-skitm-navy mb-2">What happens if I don't maintain the required academic performance for a merit scholarship?</h4>
-                <p className="text-skitm-gray">
-                  If you fail to maintain the required academic performance, the scholarship may be revoked or put on probation for one semester. You can regain the scholarship by meeting the criteria in the subsequent semester.
-                </p>
-              </div>
-              
-              <div className="bg-white/50 p-6 rounded-lg">
-                <h4 className="font-semibold text-skitm-navy mb-2">Are scholarship opportunities available for existing students or only for new admissions?</h4>
-                <p className="text-skitm-gray">
-                  Both new and existing students can apply for scholarships. While some scholarships are specifically for new admissions, many are available for continuing students based on their academic performance or financial need.
-                </p>
-              </div>
-              
-              <div className="bg-white/50 p-6 rounded-lg">
-                <h4 className="font-semibold text-skitm-navy mb-2">How and when will I know if I've been awarded a scholarship?</h4>
-                <p className="text-skitm-gray">
-                  Scholarship recipients will be notified via email and through the student portal. The timing varies by scholarship type, but most decisions are announced within 4-6 weeks after the application deadline.
-                </p>
-              </div>
+            <div className="mt-8">
+              <a 
+                href="#" 
+                className="inline-flex items-center bg-skitm-blue text-white px-6 py-3 rounded-md hover:bg-skitm-blue/80 transition-colors font-medium"
+              >
+                <Download size={18} className="mr-2" />
+                Download Fee Structure
+              </a>
             </div>
           </div>
         </div>
