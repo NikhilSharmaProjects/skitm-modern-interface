@@ -1,5 +1,4 @@
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { 
   PlusCircle, Save, Trash2, 
@@ -8,6 +7,7 @@ import {
 import { useForm } from 'react-hook-form';
 import Button from '@/components/ui/CustomButton';
 import { Textarea } from '@/components/ui/textarea';
+import { NewsItem, newsService } from '@/services/dataService';
 import {
   Form,
   FormControl,
@@ -35,13 +35,10 @@ interface NewsItem {
 }
 
 const AdminNewsEditor = () => {
-  const [newsItems, setNewsItems] = useState<NewsItem[]>(() => {
-    const savedNews = localStorage.getItem('skitm-news');
-    return savedNews ? JSON.parse(savedNews) : [];
-  });
-  
+  const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [currentNewsItem, setCurrentNewsItem] = useState<NewsItem | null>(null);
+  const [loading, setLoading] = useState(true);
   
   const form = useForm<Omit<NewsItem, 'id'>>({
     defaultValues: {
@@ -52,6 +49,23 @@ const AdminNewsEditor = () => {
       imageUrl: '',
     }
   });
+  
+  useEffect(() => {
+    async function loadNews() {
+      setLoading(true);
+      try {
+        const items = await newsService.getAll();
+        setNewsItems(items);
+      } catch (error) {
+        console.error("Failed to load news items:", error);
+        toast.error("Failed to load news items. Using cached data if available.");
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    loadNews();
+  }, []);
   
   const openNewNewsDialog = () => {
     form.reset({
@@ -77,37 +91,55 @@ const AdminNewsEditor = () => {
     setIsDialogOpen(true);
   };
   
-  const onSubmit = (data: Omit<NewsItem, 'id'>) => {
-    if (currentNewsItem) {
-      // Edit existing news item
-      const updatedNewsItems = newsItems.map(item => 
-        item.id === currentNewsItem.id 
-          ? { ...item, ...data } 
-          : item
-      );
-      setNewsItems(updatedNewsItems);
-      localStorage.setItem('skitm-news', JSON.stringify(updatedNewsItems));
-      toast.success("News item updated successfully");
-    } else {
-      // Create new news item
-      const newNewsItem: NewsItem = {
-        id: Date.now().toString(),
-        ...data
-      };
-      const updatedNewsItems = [...newsItems, newNewsItem];
-      setNewsItems(updatedNewsItems);
-      localStorage.setItem('skitm-news', JSON.stringify(updatedNewsItems));
-      toast.success("News item created successfully");
+  const onSubmit = async (data: Omit<NewsItem, 'id'>) => {
+    try {
+      let result;
+      
+      if (currentNewsItem) {
+        // Edit existing news item
+        result = await newsService.save({
+          ...data,
+          id: currentNewsItem.id,
+        });
+        
+        if (result) {
+          setNewsItems(prev => prev.map(item => 
+            item.id === currentNewsItem.id ? result! : item
+          ));
+          toast.success("News item updated successfully");
+        }
+      } else {
+        // Create new news item with a temporary ID
+        result = await newsService.save({
+          ...data,
+          id: Date.now().toString(),
+        });
+        
+        if (result) {
+          setNewsItems(prev => [...prev, result!]);
+          toast.success("News item created successfully");
+        }
+      }
+      
+      setIsDialogOpen(false);
+    } catch (error) {
+      console.error("Error saving news item:", error);
+      toast.error("Failed to save news item. Please try again.");
     }
-    setIsDialogOpen(false);
   };
   
-  const deleteNewsItem = (id: string) => {
+  const deleteNewsItem = async (id: string) => {
     if (confirm("Are you sure you want to delete this news item?")) {
-      const updatedNewsItems = newsItems.filter(item => item.id !== id);
-      setNewsItems(updatedNewsItems);
-      localStorage.setItem('skitm-news', JSON.stringify(updatedNewsItems));
-      toast.success("News item deleted successfully");
+      try {
+        const success = await newsService.delete(id);
+        if (success) {
+          setNewsItems(prev => prev.filter(item => item.id !== id));
+          toast.success("News item deleted successfully");
+        }
+      } catch (error) {
+        console.error("Error deleting news item:", error);
+        toast.error("Failed to delete news item. Please try again.");
+      }
     }
   };
   
@@ -127,7 +159,11 @@ const AdminNewsEditor = () => {
           </Button>
         </div>
         
-        {newsItems.length === 0 ? (
+        {loading ? (
+          <div className="text-center py-8">
+            <p>Loading news items...</p>
+          </div>
+        ) : newsItems.length === 0 ? (
           <div className="text-center py-12 border border-dashed border-gray-200 rounded-lg">
             <FileText size={32} className="mx-auto text-gray-300 mb-2" />
             <h3 className="text-sm font-medium text-gray-700 mb-1">No news items found</h3>

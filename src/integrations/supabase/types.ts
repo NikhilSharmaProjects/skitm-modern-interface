@@ -9,7 +9,132 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      blogs: {
+        Row: {
+          author: string
+          content: string
+          created_at: string
+          date: string
+          id: string
+          image: string | null
+          slug: string
+          title: string
+        }
+        Insert: {
+          author: string
+          content: string
+          created_at?: string
+          date: string
+          id?: string
+          image?: string | null
+          slug: string
+          title: string
+        }
+        Update: {
+          author?: string
+          content?: string
+          created_at?: string
+          date?: string
+          id?: string
+          image?: string | null
+          slug?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      events: {
+        Row: {
+          category: string | null
+          created_at: string
+          date: string
+          description: string
+          id: string
+          image: string | null
+          location: string
+          time: string
+          title: string
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string
+          date: string
+          description: string
+          id?: string
+          image?: string | null
+          location: string
+          time: string
+          title: string
+        }
+        Update: {
+          category?: string | null
+          created_at?: string
+          date?: string
+          description?: string
+          id?: string
+          image?: string | null
+          location?: string
+          time?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      gallery: {
+        Row: {
+          category: string
+          created_at: string
+          date: string
+          id: string
+          imageurl: string
+          title: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          date: string
+          id?: string
+          imageurl: string
+          title: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          date?: string
+          id?: string
+          imageurl?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      news: {
+        Row: {
+          category: string
+          created_at: string
+          date: string
+          description: string
+          id: string
+          imageurl: string | null
+          title: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          date: string
+          description: string
+          id?: string
+          imageurl?: string | null
+          title: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          date?: string
+          description?: string
+          id?: string
+          imageurl?: string | null
+          title?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

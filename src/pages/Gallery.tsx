@@ -4,6 +4,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Helmet } from "react-helmet-async";
 import { X } from "lucide-react";
+import { GalleryItem, galleryService } from "@/services/dataService";
+import { toast } from "sonner";
 
 // Define GalleryItem type
 interface GalleryItem {
@@ -75,16 +77,24 @@ const Gallery = () => {
     const { ref, isVisible } = useScrollAnimationDiv();
     const [activeCategory, setActiveCategory] = useState("All");
     const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
+    const [loading, setLoading] = useState(true);
     const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
 
     useEffect(() => {
-        // Load gallery items from localStorage or use defaults
-        const savedGallery = localStorage.getItem("skitm-gallery");
-        if (savedGallery) {
-            setGalleryItems(JSON.parse(savedGallery));
-        } else {
-            setGalleryItems(defaultGalleryItems);
+        async function loadGallery() {
+            setLoading(true);
+            try {
+                const items = await galleryService.getAll();
+                setGalleryItems(items);
+            } catch (error) {
+                console.error("Failed to load gallery items:", error);
+                toast.error("Failed to load gallery. Using cached data if available.");
+            } finally {
+                setLoading(false);
+            }
         }
+        
+        loadGallery();
     }, []);
 
     const filteredItems =
@@ -169,7 +179,11 @@ const Gallery = () => {
                     </div>
 
                     {/* Gallery Grid */}
-                    {filteredItems.length === 0 ? (
+                    {loading ? (
+                        <div className="flex justify-center py-12">
+                            <p>Loading gallery...</p>
+                        </div>
+                    ) : filteredItems.length === 0 ? (
                         <div className="text-center py-16">
                             <p className="text-skitm-gray">
                                 No images found in this category.

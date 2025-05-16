@@ -1,10 +1,11 @@
-
 import { useState, useEffect, useRef } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Helmet } from 'react-helmet-async';
 import { Calendar, MapPin, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { NewsItem, newsService } from '@/services/dataService';
+import { toast } from 'sonner';
 
 interface NewsItem {
   id: string;
@@ -21,48 +22,24 @@ const News = () => {
   const [loading, setLoading] = useState(true);
   
   useEffect(() => {
-    // Load news from localStorage
-    const savedNews = localStorage.getItem('skitm-news');
-    if (savedNews) {
-      const parsedNews = JSON.parse(savedNews);
-      
-      // Sort news by date (newest first)
-      const sortedNews = [...parsedNews].sort(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-      );
-      
-      setNewsItems(sortedNews);
-    } else {
-      // Default news items if none in localStorage
-      const defaultNews: NewsItem[] = [
-        {
-          id: '1',
-          title: 'SKITM Receives National Excellence Award',
-          date: '2023-06-15',
-          description: 'SKITM has been honored with the National Excellence Award for Outstanding Contribution to Technical Education by the Ministry of Education.',
-          imageUrl: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80',
-          category: 'achievement'
-        },
-        {
-          id: '2',
-          title: 'SKITM Secures ₹2 Crore Research Grant',
-          date: '2023-05-28',
-          description: 'The Department of Computer Science has secured a prestigious research grant for developing AI solutions for healthcare challenges.',
-          imageUrl: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80',
-          category: 'news'
-        },
-        {
-          id: '3',
-          title: 'New Industry Collaboration with TechGiant',
-          date: '2023-05-10',
-          description: 'SKITM has partnered with TechGiant to establish a Center of Excellence for Cloud Computing and offer industry internships.',
-          imageUrl: 'https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80',
-          category: 'news'
-        },
-      ];
-      setNewsItems(defaultNews);
+    async function loadNews() {
+      setLoading(true);
+      try {
+        const items = await newsService.getAll();
+        // Sort news by date (newest first)
+        const sortedNews = [...items].sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+        setNewsItems(sortedNews);
+      } catch (error) {
+        console.error("Failed to load news:", error);
+        toast.error("Failed to load news. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
     }
-    setLoading(false);
+
+    loadNews();
   }, []);
   
   const formatDate = (dateString: string) => {
