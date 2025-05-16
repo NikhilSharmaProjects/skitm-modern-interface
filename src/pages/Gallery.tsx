@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useScrollAnimationDiv } from "@/hooks/useScrollAnimationDiv";
 import Navbar from "@/components/layout/Navbar";
@@ -6,52 +7,6 @@ import { Helmet } from "react-helmet-async";
 import { X } from "lucide-react";
 import { GalleryItem, galleryService } from "@/services/dataService";
 import { toast } from "sonner";
-
-// Default gallery items if none in localStorage
-const defaultGalleryItems: GalleryItem[] = [
-    {
-        id: "1",
-        title: "Campus Building",
-        imageUrl: "Gallery/GalleryImage (1).png",
-        category: "Campus",
-        date: "2023-01-15",
-    },
-    {
-        id: "2",
-        title: "Graduation Ceremony",
-        imageUrl: "Gallery/GalleryImage (2).png",
-        category: "Events",
-        date: "2023-06-22",
-    },
-    {
-        id: "3",
-        title: "Technical Workshop",
-        imageUrl: "Gallery/GalleryImage (3).png",
-        category: "Workshops",
-        date: "2023-03-10",
-    },
-    {
-        id: "4",
-        title: "Sports Event",
-        imageUrl: "Gallery/GalleryImage (4).png",
-        category: "Sports",
-        date: "2023-02-05",
-    },
-    {
-        id: "5",
-        title: "Cultural Festival",
-        imageUrl: "Gallery/GalleryImage (5).png",
-        category: "Cultural",
-        date: "2023-04-18",
-    },
-    {
-        id: "6",
-        title: "Research Exhibition",
-        imageUrl: "Gallery/GalleryImage (5).png",
-        category: "Research",
-        date: "2023-05-30",
-    },
-];
 
 // Gallery categories
 const categories = [
@@ -70,16 +25,23 @@ const Gallery = () => {
     const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
     const [loading, setLoading] = useState(true);
     const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         async function loadGallery() {
             setLoading(true);
+            setError(null);
             try {
                 const items = await galleryService.getAll();
                 setGalleryItems(items);
-            } catch (error) {
-                console.error("Failed to load gallery items:", error);
+                
+                if (items.length === 0) {
+                    setError("No gallery items found. Please add some in the admin dashboard.");
+                }
+            } catch (err) {
+                console.error("Failed to load gallery items:", err);
                 toast.error("Failed to load gallery. Using cached data if available.");
+                setError("Failed to load gallery items. Please try again later.");
             } finally {
                 setLoading(false);
             }
@@ -172,7 +134,14 @@ const Gallery = () => {
                     {/* Gallery Grid */}
                     {loading ? (
                         <div className="flex justify-center py-12">
-                            <p>Loading gallery...</p>
+                            <div className="animate-pulse flex flex-col items-center">
+                                <div className="h-10 w-10 rounded-full bg-skitm-blue/30 mb-2"></div>
+                                <p className="text-skitm-gray">Loading gallery...</p>
+                            </div>
+                        </div>
+                    ) : error ? (
+                        <div className="text-center py-16">
+                            <p className="text-skitm-gray">{error}</p>
                         </div>
                     ) : filteredItems.length === 0 ? (
                         <div className="text-center py-16">
@@ -193,6 +162,10 @@ const Gallery = () => {
                                         alt={item.title}
                                         className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                                         loading="lazy"
+                                        onError={(e) => {
+                                            // Fallback image if the original fails to load
+                                            (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400x300?text=Image+Not+Available';
+                                        }}
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-1 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                                         <h3 className="text-white font-medium mb-1">
@@ -215,6 +188,7 @@ const Gallery = () => {
                     <button
                         onClick={closeLightbox}
                         className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+                        aria-label="Close lightbox"
                     >
                         <X size={32} />
                     </button>
@@ -224,6 +198,10 @@ const Gallery = () => {
                             src={selectedItem.imageUrl}
                             alt={selectedItem.title}
                             className="w-full h-auto max-h-[80vh] object-contain mx-auto"
+                            onError={(e) => {
+                                // Fallback image if the original fails to load
+                                (e.target as HTMLImageElement).src = 'https://via.placeholder.com/800x600?text=Image+Not+Available';
+                            }}
                         />
 
                         <div className="text-center mt-4">

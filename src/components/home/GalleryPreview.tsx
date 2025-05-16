@@ -1,49 +1,86 @@
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import Button from "@/components/ui/CustomButton";
+import { GalleryItem, galleryService } from "@/services/dataService";
+import { toast } from "sonner";
 
 const GalleryPreview = () => {
     const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation();
+    const [galleryImages, setGalleryImages] = useState<GalleryItem[]>([]);
+    const [loading, setLoading] = useState(true);
 
-    const galleryImages = [
-        {
-            id: "1",
-            imageUrl:
-                "https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",
-            title: "Campus Building",
-        },
-        {
-            id: "2",
-            imageUrl:
-                "https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",
-            title: "Graduation Ceremony",
-        },
-        {
-            id: "3",
-            imageUrl:
-                "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",
-            title: "Technical Workshop",
-        },
-        {
-            id: "4",
-            imageUrl:
-                "https://images.unsplash.com/photo-1588072432174-7f828b7ddd75?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",
-            title: "Sports Event",
-        },
-        {
-            id: "5",
-            imageUrl:
-                "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",
-            title: "Cultural Festival",
-        },
-        {
-            id: "6",
-            imageUrl:
-                "https://images.unsplash.com/photo-1517486808906-6ca8b3f8e7a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",
-            title: "Research Exhibition",
-        },
-    ];
+    useEffect(() => {
+        async function loadGalleryPreview() {
+            setLoading(true);
+            try {
+                let items = await galleryService.getAll();
+                // Take only the first 6 items for the preview
+                items = items.slice(0, 6);
+                setGalleryImages(items);
+            } catch (error) {
+                console.error("Failed to load gallery preview:", error);
+                toast.error("Failed to load gallery preview");
+                
+                // Fallback to default images
+                setGalleryImages([
+                    {
+                        id: "1",
+                        imageUrl:
+                            "Gallery/GalleryImage (1).png",
+                        title: "Campus Building",
+                        category: "Campus",
+                        date: "2023-01-15"
+                    },
+                    {
+                        id: "2",
+                        imageUrl:
+                            "Gallery/GalleryImage (2).png",
+                        title: "Graduation Ceremony",
+                        category: "Events",
+                        date: "2023-06-22"
+                    },
+                    {
+                        id: "3",
+                        imageUrl:
+                            "Gallery/GalleryImage (3).png",
+                        title: "Technical Workshop",
+                        category: "Workshops",
+                        date: "2023-03-10"
+                    },
+                    {
+                        id: "4",
+                        imageUrl:
+                            "Gallery/GalleryImage (4).png",
+                        title: "Sports Event",
+                        category: "Sports",
+                        date: "2023-02-05"
+                    },
+                    {
+                        id: "5",
+                        imageUrl:
+                            "Gallery/GalleryImage (5).png",
+                        title: "Cultural Festival",
+                        category: "Cultural",
+                        date: "2023-04-18"
+                    },
+                    {
+                        id: "6",
+                        imageUrl:
+                            "Gallery/GalleryImage (6).png",
+                        title: "Research Exhibition",
+                        category: "Research",
+                        date: "2023-05-30"
+                    },
+                ]);
+            } finally {
+                setLoading(false);
+            }
+        }
+        
+        loadGalleryPreview();
+    }, []);
 
     return (
         <section className="py-20 bg-white">
@@ -66,30 +103,40 @@ const GalleryPreview = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    {galleryImages.map((image, index) => (
-                        <Link
-                            key={image.id}
-                            to={`/gallery/${image.id}`}
-                            className={`group relative overflow-hidden rounded-xl shadow-md transition-transform hover:scale-[1.02] ${
-                                sectionVisible ? "animate-fade-in" : "opacity-1"
-                            }`}
-                            style={{ animationDelay: `${0.1 * index}s` }}
-                        >
-                            <img
-                                src={image.imageUrl}
-                                alt={image.title}
-                                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                                loading="lazy"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-1 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                                <span className="text-white font-medium">
-                                    {image.title}
-                                </span>
-                            </div>
-                        </Link>
-                    ))}
-                </div>
+                {loading ? (
+                    <div className="flex justify-center py-12">
+                        <p className="text-skitm-gray">Loading gallery preview...</p>
+                    </div>
+                ) : (
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        {galleryImages.map((image, index) => (
+                            <Link
+                                key={image.id}
+                                to="/gallery"
+                                className={`group relative overflow-hidden rounded-xl shadow-md transition-transform hover:scale-[1.02] ${
+                                    sectionVisible ? "animate-fade-in" : "opacity-1"
+                                }`}
+                                style={{ animationDelay: `${0.1 * index}s` }}
+                            >
+                                <img
+                                    src={image.imageUrl}
+                                    alt={image.title}
+                                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                                    loading="lazy"
+                                    onError={(e) => {
+                                        // Fallback image if the original fails to load
+                                        (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400x300?text=Image+Not+Available';
+                                    }}
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-1 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                    <span className="text-white font-medium">
+                                        {image.title}
+                                    </span>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                )}
 
                 <div className="text-center mt-12">
                     <Link to="/gallery">
