@@ -24,16 +24,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-// Types for news management
-interface NewsItem {
-  id: string;
-  title: string;
-  description: string;
-  date: string;
-  category: string;
-  imageUrl?: string;
-}
-
 const AdminNewsEditor = () => {
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);

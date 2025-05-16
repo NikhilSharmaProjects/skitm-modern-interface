@@ -7,15 +7,6 @@ import { X } from "lucide-react";
 import { GalleryItem, galleryService } from "@/services/dataService";
 import { toast } from "sonner";
 
-// Define GalleryItem type
-interface GalleryItem {
-    id: string;
-    title: string;
-    imageUrl: string;
-    category: string;
-    date: string;
-}
-
 // Default gallery items if none in localStorage
 const defaultGalleryItems: GalleryItem[] = [
     {
