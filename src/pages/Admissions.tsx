@@ -292,10 +292,10 @@ const Admissions = () => {
                                                 Application Start Date
                                             </td>
                                             <td className="px-6 py-4">
-                                                15th January 2023
+                                                15th January 2025
                                             </td>
                                             <td className="px-6 py-4">
-                                                1st February 2023
+                                                1st February 2025
                                             </td>
                                         </tr>
                                         <tr className="border-b bg-gray-50">
@@ -303,10 +303,10 @@ const Admissions = () => {
                                                 Application Deadline
                                             </td>
                                             <td className="px-6 py-4">
-                                                30th April 2023
+                                                30th April 2025
                                             </td>
                                             <td className="px-6 py-4">
-                                                15th May 2023
+                                                15th May 2025
                                             </td>
                                         </tr>
                                         <tr className="border-b">
@@ -314,10 +314,10 @@ const Admissions = () => {
                                                 Entrance Examination
                                             </td>
                                             <td className="px-6 py-4">
-                                                15th May 2023
+                                                15th May 2025
                                             </td>
                                             <td className="px-6 py-4">
-                                                1st June 2023
+                                                1st June 2025
                                             </td>
                                         </tr>
                                         <tr className="border-b bg-gray-50">
@@ -325,10 +325,10 @@ const Admissions = () => {
                                                 Result Declaration
                                             </td>
                                             <td className="px-6 py-4">
-                                                10th June 2023
+                                                10th June 2025
                                             </td>
                                             <td className="px-6 py-4">
-                                                20th June 2023
+                                                20th June 2025
                                             </td>
                                         </tr>
                                         <tr>
@@ -336,10 +336,10 @@ const Admissions = () => {
                                                 Commencement of Classes
                                             </td>
                                             <td className="px-6 py-4">
-                                                1st August 2023
+                                                1st August 2025
                                             </td>
                                             <td className="px-6 py-4">
-                                                15th August 2023
+                                                15th August 2025
                                             </td>
                                         </tr>
                                     </tbody>

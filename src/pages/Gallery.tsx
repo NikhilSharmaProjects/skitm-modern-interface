@@ -14,42 +14,42 @@ const defaultGalleryItems: GalleryItem[] = [
         title: "Campus Building",
         imageUrl: "Gallery/GalleryImage (1).png",
         category: "Campus",
-        date: "2023-01-15",
+        date: "2025-01-15",
     },
     {
         id: "2",
         title: "Graduation Ceremony",
         imageUrl: "Gallery/GalleryImage (2).png",
         category: "Events",
-        date: "2023-06-22",
+        date: "2025-06-22",
     },
     {
         id: "3",
         title: "Technical Workshop",
         imageUrl: "Gallery/GalleryImage (3).png",
         category: "Workshops",
-        date: "2023-03-10",
+        date: "2025-03-10",
     },
     {
         id: "4",
         title: "Sports Event",
         imageUrl: "Gallery/GalleryImage (4).png",
         category: "Sports",
-        date: "2023-02-05",
+        date: "2025-02-05",
     },
     {
         id: "5",
         title: "Cultural Festival",
         imageUrl: "Gallery/GalleryImage (5).png",
         category: "Cultural",
-        date: "2023-04-18",
+        date: "2025-04-18",
     },
     {
         id: "6",
         title: "Research Exhibition",
         imageUrl: "Gallery/GalleryImage (5).png",
         category: "Research",
-        date: "2023-05-30",
+        date: "2025-05-30",
     },
 ];
 
@@ -79,12 +79,14 @@ const Gallery = () => {
                 setGalleryItems(items);
             } catch (error) {
                 console.error("Failed to load gallery items:", error);
-                toast.error("Failed to load gallery. Using cached data if available.");
+                toast.error(
+                    "Failed to load gallery. Using cached data if available."
+                );
             } finally {
                 setLoading(false);
             }
         }
-        
+
         loadGallery();
     }, []);
 

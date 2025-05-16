@@ -22,7 +22,7 @@ const defaultEvents = [
         title: "Orientation Day for New Students",
         description:
             "Welcome ceremony for all new students with campus tour, introduction to faculty and student activities.",
-        date: "2023-07-15",
+        date: "2025-07-15",
         time: "09:00",
         location: "Main Auditorium",
         image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",
@@ -32,7 +32,7 @@ const defaultEvents = [
         title: "Annual Technical Symposium",
         description:
             "A platform for students to showcase their technical innovations and compete in various technical events.",
-        date: "2023-08-20",
+        date: "2025-08-20",
         time: "10:00",
         location: "Engineering Block",
         image: "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",

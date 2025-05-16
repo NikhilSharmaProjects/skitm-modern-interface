@@ -26,7 +26,7 @@ const defaultBlogs = [
         content:
             "A comprehensive guide to the admission process at SKITM, including eligibility criteria, important dates, and tips for a successful application.",
         author: "Admission Team",
-        date: "2023-05-15",
+        date: "2025-05-15",
         image: "/placeholder.svg",
     },
     {
@@ -36,7 +36,7 @@ const defaultBlogs = [
         content:
             "Explore various career paths and opportunities available to engineering graduates from SKITM, from industry positions to entrepreneurship.",
         author: "Career Development Cell",
-        date: "2023-04-03",
+        date: "2025-04-03",
         image: "/placeholder.svg",
     },
     {
@@ -46,7 +46,7 @@ const defaultBlogs = [
         content:
             "Get a glimpse of what life is like on the SKITM campus, including academic activities, clubs, events, and recreational facilities.",
         author: "Student Council",
-        date: "2023-03-21",
+        date: "2025-03-21",
         image: "/placeholder.svg",
     },
 ];

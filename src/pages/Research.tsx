@@ -60,7 +60,7 @@ const Research = () => {
             title: "Machine Learning Approaches for Predictive Maintenance in Manufacturing",
             authors: "Kumar R., Sharma P., Gupta M.",
             journal: "International Journal of Industrial Engineering",
-            year: 2023,
+            year: 2025,
             citation: 12,
         },
         {
@@ -68,7 +68,7 @@ const Research = () => {
             title: "Sustainable Energy Management Systems for Smart Buildings",
             authors: "Patel S., Verma A., Malhotra V.",
             journal: "Renewable and Sustainable Energy Reviews",
-            year: 2022,
+            year: 2024,
             citation: 28,
         },
         {
@@ -76,7 +76,7 @@ const Research = () => {
             title: "Novel Approaches in IoT Security: A Comprehensive Survey",
             authors: "Singh N., Kumar R., Desai A.",
             journal: "Journal of Network and Computer Applications",
-            year: 2023,
+            year: 2025,
             citation: 15,
         },
         {
@@ -84,7 +84,7 @@ const Research = () => {
             title: "Nanomaterial-Enhanced Concrete for Sustainable Construction",
             authors: "Verma A., Patel S., Gupta M.",
             journal: "Construction and Building Materials",
-            year: 2022,
+            year: 2024,
             citation: 32,
         },
     ];
