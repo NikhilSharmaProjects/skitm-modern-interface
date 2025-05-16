@@ -181,9 +181,8 @@ const PlacementSection = () => {
                                     key={company.id}
                                     className="h-20 glassmorphism rounded-lg flex items-center justify-center"
                                 >
-                                    <div className="text-xl font-bold text-skitm-navy">
-                                        {company.name}
-                                    </div>
+                                    <img className="max-h-full max-w-full object-contain" src={`/logos/companylogo (${company.id}).png`} >
+                                    </img>
                                 </div>
                             ))}
                         </div>

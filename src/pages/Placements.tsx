@@ -1,9 +1,15 @@
-
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Button from "@/components/ui/CustomButton";
 import { useScrollAnimationDiv } from "@/hooks/useScrollAnimationDiv";
-import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table";
+import {
+    Table,
+    TableHeader,
+    TableRow,
+    TableHead,
+    TableBody,
+    TableCell,
+} from "@/components/ui/table";
 
 const Placements = () => {
     const { ref: headingRef, isVisible: headingVisible } =
@@ -66,14 +72,94 @@ const Placements = () => {
 
     // Real placement data
     const placementData = [
-        { id: 1, enrollmentNo: "0875CS223D04", name: "Harshita Shinde", branch: "CSE", batch: "2025", gender: "Female", company: "Hotwax Systems", package: "6.50", mobile: "9302924181" },
-        { id: 2, enrollmentNo: "0875CS211105", name: "Saloni Sharma", branch: "CSE", batch: "2025", gender: "Female", company: "Webkorps Services India", package: "4.50", mobile: "9981360159" },
-        { id: 3, enrollmentNo: "0875CS211095", name: "Rohit Bhure", branch: "CSE", batch: "2025", gender: "Male", company: "MPSeDC Ltd.", package: "3.0-6.0", mobile: "8839178090" },
-        { id: 4, enrollmentNo: "0875CS211029", name: "Atharv Chaudhary", branch: "CSE", batch: "2025", gender: "Male", company: "Tech Mahindra", package: "3.25-5.50", mobile: "9021524598" },
-        { id: 5, enrollmentNo: "0875CS211045", name: "Hardik Bakhatriya", branch: "CSE", batch: "2025", gender: "Male", company: "Tech Mahindra", package: "3.25-5.50", mobile: "6263517807" },
-        { id: 6, enrollmentNo: "0875CS211064", name: "Lokesh Punwani", branch: "CSE", batch: "2025", gender: "Male", company: "Tech Mahindra", package: "3.25-5.50", mobile: "7987433610" },
-        { id: 7, enrollmentNo: "DC1603246", name: "Gaurav Jaiswal", branch: "MBA", batch: "2025", gender: "Male", company: "Bajaj Allianz Life Insurance Co. Ltd.", package: "3.50", mobile: "9993094222" },
-        { id: 8, enrollmentNo: "DC2215458", name: "Mokshita Dangi", branch: "B.Com", batch: "2025", gender: "Female", company: "Accenture India", package: "3.44", mobile: "9516716526" },
+        {
+            id: 1,
+            enrollmentNo: "0875CS223D04",
+            name: "Harshita Shinde",
+            branch: "CSE",
+            batch: "2025",
+            gender: "Female",
+            company: "Hotwax Systems",
+            package: "6.50",
+            mobile: "9302924181",
+        },
+        {
+            id: 2,
+            enrollmentNo: "0875CS211105",
+            name: "Saloni Sharma",
+            branch: "CSE",
+            batch: "2025",
+            gender: "Female",
+            company: "Webkorps Services India",
+            package: "4.50",
+            mobile: "9981360159",
+        },
+        {
+            id: 3,
+            enrollmentNo: "0875CS211095",
+            name: "Rohit Bhure",
+            branch: "CSE",
+            batch: "2025",
+            gender: "Male",
+            company: "MPSeDC Ltd.",
+            package: "3.0-6.0",
+            mobile: "8839178090",
+        },
+        {
+            id: 4,
+            enrollmentNo: "0875CS211029",
+            name: "Atharv Chaudhary",
+            branch: "CSE",
+            batch: "2025",
+            gender: "Male",
+            company: "Tech Mahindra",
+            package: "3.25-5.50",
+            mobile: "9021524598",
+        },
+        {
+            id: 5,
+            enrollmentNo: "0875CS211045",
+            name: "Hardik Bakhatriya",
+            branch: "CSE",
+            batch: "2025",
+            gender: "Male",
+            company: "Tech Mahindra",
+            package: "3.25-5.50",
+            mobile: "6263517807",
+        },
+        {
+            id: 6,
+            enrollmentNo: "0875CS211064",
+            name: "Lokesh Punwani",
+            branch: "CSE",
+            batch: "2025",
+            gender: "Male",
+            company: "Tech Mahindra",
+            package: "3.25-5.50",
+            mobile: "7987433610",
+        },
+        {
+            id: 7,
+            enrollmentNo: "DC1603246",
+            name: "Gaurav Jaiswal",
+            branch: "MBA",
+            batch: "2025",
+            gender: "Male",
+            company: "Bajaj Allianz Life Insurance Co. Ltd.",
+            package: "3.50",
+            mobile: "9993094222",
+        },
+        {
+            id: 8,
+            enrollmentNo: "DC2215458",
+            name: "Mokshita Dangi",
+            branch: "B.Com",
+            batch: "2025",
+            gender: "Female",
+            company: "Accenture India",
+            package: "3.44",
+            mobile: "9516716526",
+        },
     ];
 
     return (
@@ -218,12 +304,24 @@ const Placements = () => {
                                     <TableBody>
                                         {placementData.map((student) => (
                                             <TableRow key={student.id}>
-                                                <TableCell>{student.id}</TableCell>
-                                                <TableCell className="font-medium">{student.name}</TableCell>
-                                                <TableCell>{student.branch}</TableCell>
-                                                <TableCell>{student.batch}</TableCell>
-                                                <TableCell>{student.company}</TableCell>
-                                                <TableCell>₹{student.package}</TableCell>
+                                                <TableCell>
+                                                    {student.id}
+                                                </TableCell>
+                                                <TableCell className="font-medium">
+                                                    {student.name}
+                                                </TableCell>
+                                                <TableCell>
+                                                    {student.branch}
+                                                </TableCell>
+                                                <TableCell>
+                                                    {student.batch}
+                                                </TableCell>
+                                                <TableCell>
+                                                    {student.company}
+                                                </TableCell>
+                                                <TableCell>
+                                                    ₹{student.package}
+                                                </TableCell>
                                             </TableRow>
                                         ))}
                                     </TableBody>
@@ -242,9 +340,10 @@ const Placements = () => {
                                     key={index}
                                     className="h-20 glassmorphism rounded-lg flex items-center justify-center p-2"
                                 >
-                                    <div className="text-sm font-bold text-skitm-navy text-center">
-                                        {company}
-                                    </div>
+                                    <img
+                                        src={`/logos/companylogo (${index}).png`} // ← the dynamic part done right
+                                        className="max-h-full max-w-full object-contain"
+                                    />
                                 </div>
                             ))}
                         </div>
