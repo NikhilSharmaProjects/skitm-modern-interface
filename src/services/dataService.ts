@@ -1,5 +1,5 @@
 
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/lib/supabase";
 
 // Types for data entities
 export interface NewsItem {
@@ -42,7 +42,7 @@ export interface GalleryItem {
 
 // Generic function to fetch data from Supabase with local storage fallback
 async function fetchData<T>(
-  table: string,
+  table: "news" | "events" | "blogs" | "gallery",
   localStorageKey: string,
   defaultData: T[] = []
 ): Promise<T[]> {
@@ -56,9 +56,27 @@ async function fetchData<T>(
     }
     
     if (data && data.length > 0) {
+      // Adapt data to match our frontend interfaces if needed
+      let adaptedData: T[] = data.map((item: any) => {
+        // Map properties like `imageurl` to `imageUrl` for certain tables
+        if (table === 'gallery') {
+          return {
+            ...item,
+            imageUrl: item.imageurl,
+          } as unknown as T;
+        }
+        if (table === 'news' && item.imageurl) {
+          return {
+            ...item,
+            imageUrl: item.imageurl,
+          } as unknown as T;
+        }
+        return item as T;
+      });
+      
       // Store the fetched data in local storage as backup
-      localStorage.setItem(localStorageKey, JSON.stringify(data));
-      return data as T[];
+      localStorage.setItem(localStorageKey, JSON.stringify(adaptedData));
+      return adaptedData;
     }
     
     // If no data from Supabase, try local storage
@@ -84,28 +102,40 @@ async function fetchData<T>(
 
 // Generic function to save data to both Supabase and local storage
 async function saveData<T extends { id: string }>(
-  table: string,
+  table: "news" | "events" | "blogs" | "gallery",
   data: T,
   localStorageKey: string
 ): Promise<T | null> {
   try {
     let result;
+    let supabaseData: any = { ...data };
+    
+    // Adapt frontend interface to match Supabase column names
+    if (table === 'gallery' && 'imageUrl' in data) {
+      supabaseData.imageurl = (data as any).imageUrl;
+      delete supabaseData.imageUrl;
+    }
+    
+    if (table === 'news' && 'imageUrl' in data) {
+      supabaseData.imageurl = (data as any).imageUrl;
+      delete supabaseData.imageUrl;
+    }
     
     // If id is a UUID string from Supabase
     if (data.id && data.id.includes('-')) {
       // Update existing record
       const { data: updatedData, error } = await supabase
         .from(table)
-        .update({ ...data })
+        .update({ ...supabaseData })
         .eq('id', data.id)
         .select('*')
         .single();
       
       if (error) throw error;
-      result = updatedData as T;
+      result = updatedData;
     } else {
       // For new records or those with client-generated IDs
-      const { id, ...dataWithoutId } = data;
+      const { id, ...dataWithoutId } = supabaseData;
       const { data: insertedData, error } = await supabase
         .from(table)
         .insert({ ...dataWithoutId })
@@ -113,7 +143,19 @@ async function saveData<T extends { id: string }>(
         .single();
       
       if (error) throw error;
-      result = insertedData as T;
+      result = insertedData;
+    }
+    
+    // Adapt result back to frontend interface
+    let adaptedResult: any = { ...result };
+    if (table === 'gallery' && 'imageurl' in adaptedResult) {
+      adaptedResult.imageUrl = adaptedResult.imageurl;
+      delete adaptedResult.imageurl;
+    }
+    
+    if (table === 'news' && 'imageurl' in adaptedResult) {
+      adaptedResult.imageUrl = adaptedResult.imageurl;
+      delete adaptedResult.imageurl;
     }
     
     // Update local storage with the new data
@@ -123,13 +165,13 @@ async function saveData<T extends { id: string }>(
     // Replace or add the item
     const existingIndex = items.findIndex(item => item.id === data.id);
     if (existingIndex >= 0) {
-      items[existingIndex] = result;
+      items[existingIndex] = adaptedResult;
     } else {
-      items.push(result);
+      items.push(adaptedResult);
     }
     
     localStorage.setItem(localStorageKey, JSON.stringify(items));
-    return result;
+    return adaptedResult as T;
   } catch (error) {
     console.error(`Error saving to Supabase ${table}, falling back to local storage only:`, error);
     
@@ -152,7 +194,7 @@ async function saveData<T extends { id: string }>(
 
 // Generic function to delete data from both Supabase and local storage
 async function deleteData<T extends { id: string }>(
-  table: string,
+  table: "news" | "events" | "blogs" | "gallery",
   id: string,
   localStorageKey: string
 ): Promise<boolean> {

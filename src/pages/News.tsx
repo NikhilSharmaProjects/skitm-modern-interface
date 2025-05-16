@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -6,15 +7,6 @@ import { Calendar, MapPin, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { NewsItem, newsService } from '@/services/dataService';
 import { toast } from 'sonner';
-
-interface NewsItem {
-  id: string;
-  title: string;
-  description: string;
-  date: string;
-  category: string;
-  imageUrl?: string;
-}
 
 const News = () => {
   const headingRef = useRef<HTMLDivElement>(null);

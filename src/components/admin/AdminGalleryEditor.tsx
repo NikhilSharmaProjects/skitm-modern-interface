@@ -24,15 +24,7 @@ import {
 } from "@/components/ui/dialog";
 import { supabase } from '@/lib/supabase';
 import { v4 as uuidv4 } from 'uuid';
-
-// Types for gallery management
-interface GalleryItem {
-  id: string;
-  title: string;
-  image_url: string;
-  category: string;
-  date: string;
-}
+import { GalleryItem } from '@/services/dataService';
 
 const categories = ["Campus", "Events", "Workshops", "Sports", "Cultural", "Research"];
 
@@ -48,7 +40,7 @@ const AdminGalleryEditor = () => {
   const form = useForm<Omit<GalleryItem, 'id'>>({
     defaultValues: {
       title: '',
-      image_url: '',
+      imageUrl: '',
       category: 'Campus',
       date: new Date().toISOString().split('T')[0]
     }
@@ -69,7 +61,16 @@ const AdminGalleryEditor = () => {
       
       if (error) throw error;
       
-      setGalleryItems(data || []);
+      // Transform data to match our frontend model
+      const transformedData = data?.map(item => ({
+        id: item.id,
+        title: item.title,
+        imageUrl: item.imageurl, // Map from DB 'imageurl' to our 'imageUrl'
+        category: item.category,
+        date: item.date
+      })) || [];
+      
+      setGalleryItems(transformedData);
     } catch (error) {
       console.error('Error fetching gallery items:', error);
       toast.error("Failed to load gallery items");
@@ -81,7 +82,7 @@ const AdminGalleryEditor = () => {
   const openNewItemDialog = () => {
     form.reset({
       title: '',
-      image_url: '',
+      imageUrl: '',
       category: 'Campus',
       date: new Date().toISOString().split('T')[0]
     });
@@ -93,12 +94,12 @@ const AdminGalleryEditor = () => {
   const openEditItemDialog = (item: GalleryItem) => {
     form.reset({
       title: item.title,
-      image_url: item.image_url,
+      imageUrl: item.imageUrl,
       category: item.category,
       date: item.date
     });
     setCurrentItem(item);
-    setPreviewUrl(item.image_url);
+    setPreviewUrl(item.imageUrl);
     setIsDialogOpen(true);
   };
   
@@ -140,7 +141,7 @@ const AdminGalleryEditor = () => {
         .getPublicUrl(filePath);
       
       // Update form with image URL
-      form.setValue('image_url', urlData.publicUrl);
+      form.setValue('imageUrl', urlData.publicUrl);
       setPreviewUrl(urlData.publicUrl);
       toast.success('Image uploaded successfully');
       
@@ -160,7 +161,7 @@ const AdminGalleryEditor = () => {
           .from('gallery')
           .update({
             title: data.title,
-            image_url: data.image_url,
+            imageurl: data.imageUrl, // Map from our 'imageUrl' to DB 'imageurl'
             category: data.category,
             date: data.date
           })
@@ -174,7 +175,7 @@ const AdminGalleryEditor = () => {
           .from('gallery')
           .insert([{
             title: data.title,
-            image_url: data.image_url,
+            imageurl: data.imageUrl, // Map from our 'imageUrl' to DB 'imageurl'
             category: data.category,
             date: data.date
           }]);
@@ -198,7 +199,7 @@ const AdminGalleryEditor = () => {
         // Get the item to delete its image from storage
         const { data: item } = await supabase
           .from('gallery')
-          .select('image_url')
+          .select('imageurl')
           .eq('id', id)
           .single();
         
@@ -211,8 +212,8 @@ const AdminGalleryEditor = () => {
         if (error) throw error;
         
         // Attempt to delete image from storage if it's in our storage
-        if (item && item.image_url && item.image_url.includes('storage')) {
-          const imagePath = item.image_url.split('images/')[1];
+        if (item && item.imageurl && item.imageurl.includes('storage')) {
+          const imagePath = item.imageurl.split('images/')[1];
           if (imagePath) {
             await supabase
               .storage
@@ -270,7 +271,7 @@ const AdminGalleryEditor = () => {
               <div key={item.id} className="border border-gray-200 rounded-lg overflow-hidden hover:border-skitm-blue/50 hover:shadow-sm transition-all">
                 <div className="h-32 overflow-hidden">
                   <img 
-                    src={item.image_url} 
+                    src={item.imageUrl} 
                     alt={item.title}
                     className="w-full h-full object-cover"
                     onError={(e) => {
@@ -335,7 +336,7 @@ const AdminGalleryEditor = () => {
               
               <FormField
                 control={form.control}
-                name="image_url"
+                name="imageUrl"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Image</FormLabel>
