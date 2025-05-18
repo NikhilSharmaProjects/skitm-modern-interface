@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -73,7 +72,7 @@ const PlacementSection = () => {
                             </div>
                             <div className="text-center">
                                 <div className="text-4xl font-display font-bold text-skitm-blue mb-2">
-                                    18+
+                                    200+
                                 </div>
                                 <p className="text-sm text-skitm-gray">
                                     Recruiting Companies
@@ -181,8 +180,10 @@ const PlacementSection = () => {
                                     key={company.id}
                                     className="h-20 glassmorphism rounded-lg flex items-center justify-center"
                                 >
-                                    <img className="max-h-full max-w-full object-contain" src={`/logos/companylogo (${company.id}).png`} >
-                                    </img>
+                                    <img
+                                        className="max-h-full max-w-full object-contain"
+                                        src={`/logos/companylogo (${company.id}).png`}
+                                    ></img>
                                 </div>
                             ))}
                         </div>
@@ -207,7 +208,8 @@ const PlacementSection = () => {
                                         Harshita Shinde
                                     </div>
                                     <div className="text-xs text-skitm-gray">
-                                        CSE Batch of 2025, Software Engineer at Hotwax Systems
+                                        CSE Batch of 2025, Software Engineer at
+                                        Hotwax Systems
                                     </div>
                                 </div>
                             </div>

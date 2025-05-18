@@ -341,7 +341,7 @@ const Placements = () => {
                                     className="h-20 glassmorphism rounded-lg flex items-center justify-center p-2"
                                 >
                                     <img
-                                        src={`/logos/companylogo (${index}).png`} // ← the dynamic part done right
+                                        src={`/logos/companylogo (${index + 1}).png`} // ← the dynamic part done right
                                         className="max-h-full max-w-full object-contain"
                                     />
                                 </div>
