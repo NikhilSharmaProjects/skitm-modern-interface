@@ -1,86 +1,104 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { useScrollAnimationDiv } from "@/hooks/useScrollAnimationDiv";
-import {
-    GraduationCap,
-    FileText,
-    CalendarCheck,
-    CheckCircle,
-    XCircle,
-    ArrowRight,
-} from "lucide-react";
+import { CheckCircle, Mail, MapPin, Phone, User } from "lucide-react";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
+
+const formSchema = z.object({
+    name: z.string().min(2, "Name must be at least 2 characters"),
+    email: z.string().email("Invalid email address"),
+    mobile: z.string().min(10, "Phone number must be at least 10 digits"),
+    state: z.string().min(1, "Please select a state"),
+    city: z.string().min(1, "Please enter your city"),
+    program: z.enum(["Undergraduate", "Postgraduate"]),
+    course: z.string().min(1, "Please select a course"),
+    agreement: z.boolean().refine(val => val === true, {
+        message: "You must agree to receive information"
+    })
+});
 
 const Admissions = () => {
-    const { ref: headingRef, isVisible: headingVisible } =
-        useScrollAnimationDiv();
-    const { ref: processRef, isVisible: processVisible } =
-        useScrollAnimationDiv();
-    const { ref: eligibilityRef, isVisible: eligibilityVisible } =
-        useScrollAnimationDiv();
+    const { ref: headingRef, isVisible: headingVisible } = useScrollAnimationDiv();
+    const { ref: formRef, isVisible: formVisible } = useScrollAnimationDiv();
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    // Admission process steps
-    const admissionSteps = [
-        {
-            icon: <FileText className="h-8 w-8 text-white" />,
-            title: "Submit Application",
-            description:
-                "Fill out the online application form with all required personal and academic details.",
-        },
-        {
-            icon: <CalendarCheck className="h-8 w-8 text-white" />,
-            title: "Entrance Examination",
-            description:
-                "Appear for the university entrance exam or submit valid GATE/CAT/MAT scores.",
-        },
-        {
-            icon: <GraduationCap className="h-8 w-8 text-white" />,
-            title: "Document Verification",
-            description:
-                "Submit original documents for verification as per the checklist provided.",
-        },
-        {
-            icon: <CheckCircle className="h-8 w-8 text-white" />,
-            title: "Admission Confirmation",
-            description:
-                "Pay the admission fee and complete the enrollment process to secure your seat.",
-        },
+    const form = useForm<z.infer<typeof formSchema>>({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            name: "",
+            email: "",
+            mobile: "",
+            state: "",
+            city: "",
+            program: "Undergraduate",
+            course: "",
+            agreement: false
+        }
+    });
+
+    const indianStates = [
+        "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", 
+        "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", 
+        "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", 
+        "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal",
+        "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli and Daman and Diu", 
+        "Delhi", "Lakshadweep", "Puducherry"
     ];
 
-    // Eligibility criteria
-    const eligibilityCriteria = {
-        undergraduate: [
-            "Completed 10+2 or equivalent with minimum 60% aggregate in PCM subjects",
-            "Valid score in JEE Main/State level entrance examination",
-            "Age not more than 23 years as of 1st July of the admission year",
-        ],
-        postgraduate: [
-            "Bachelor's degree in relevant discipline with minimum 60% aggregate",
-            "Valid GATE/CAT/MAT/university entrance test score",
-            "Minimum 2 years of work experience (for certain programs)",
-        ],
-        phd: [
-            "Master's degree in relevant discipline with minimum 65% aggregate",
-            "Qualified UGC-NET/CSIR/university research entrance test",
-            "Research proposal aligned with institute's research areas",
-        ],
+    const undergraduateCourses = [
+        "BTECH CSE",
+        "BTECH CS - AI and ML",
+        "BTECH CS-DS",
+        "BTECH IT",
+        "BTECH ECE",
+        "BTECH ME",
+        "BTECH CE",
+        "INTEGRATED MBA",
+        "B.PHARM",
+        "D.PHARM",
+        "BBA",
+        "B.COM",
+        "B.COM (COMPUTER)",
+        "BA LLB",
+        "BBA LLB",
+        "LLB",
+        "BTECH CSIT"
+    ];
+
+    const postgraduateCourses = [
+        "MBA Plus",
+        "M.PHARM",
+        "MBA"
+    ];
+
+    const onSubmit = async (values: z.infer<typeof formSchema>) => {
+        setIsSubmitting(true);
+        try {
+            // In a real application, this would send data to the server
+            console.log("Form submitted with values:", values);
+            
+            // Simulate network delay
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            toast.success("Application submitted successfully! We'll contact you soon.");
+            form.reset();
+        } catch (error) {
+            toast.error("Failed to submit your application. Please try again.");
+            console.error("Form submission error:", error);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
-
-    // Required documents
-    const requiredDocuments = [
-        "Completed application form with recent photograph",
-        "10th and 12th mark sheets and certificates",
-        "Undergraduate/graduate degree certificates and mark sheets (for PG/PhD)",
-        "Valid entrance examination score card",
-        "Transfer certificate from last attended institution",
-        "Migration certificate (if applicable)",
-        "Character certificate from last attended institution",
-        "Four passport size photographs",
-        "Valid ID proof (Aadhar/Passport/Driving License)",
-        "Caste/Category certificate (if applicable)",
-        "Income certificate (if applying for need-based scholarship)",
-    ];
 
     return (
         <div className="min-h-screen flex flex-col">
@@ -98,7 +116,7 @@ const Admissions = () => {
                             Join Our Institution
                         </div>
                         <h1 className="text-4xl md:text-5xl font-display font-bold text-skitm-navy mb-6">
-                            Admission Process
+                            Apply for Admission
                         </h1>
                         <p className="text-lg text-skitm-gray max-w-2xl mx-auto">
                             Take the first step towards a successful career by
@@ -106,161 +124,220 @@ const Admissions = () => {
                         </p>
                     </div>
 
-                    {/* Admission Steps */}
+                    {/* Application Form */}
                     <div
-                        ref={processRef}
-                        className={`mb-16 ${
-                            processVisible ? "animate-fade-in" : "opacity-1"
+                        ref={formRef}
+                        className={`mb-16 max-w-3xl mx-auto ${
+                            formVisible ? "animate-fade-in" : "opacity-1"
                         }`}
                     >
-                        <h2 className="text-2xl font-display font-bold text-skitm-navy text-center mb-10">
-                            How to Apply
-                        </h2>
-
-                        <div className="relative">
-                            {/* Steps Connector */}
-                            <div className="hidden md:block absolute top-0 left-1/2 h-full w-1 bg-skitm-blue/20 -translate-x-1/2 z-0"></div>
-
-                            <div className="space-y-12 md:space-y-0 md:grid md:grid-cols-2 gap-8">
-                                {admissionSteps.map((step, index) => (
-                                    <div
-                                        key={index}
-                                        className={`flex md:items-center gap-6 ${
-                                            index % 2 === 0
-                                                ? "md:flex-row md:justify-end md:text-right"
-                                                : "md:flex-row-reverse md:justify-end"
-                                        }`}
-                                    >
-                                        <div className="flex-1 glassmorphism rounded-xl p-6 hover:shadow-md transition-shadow">
-                                            <h3 className="text-xl font-display font-bold text-skitm-navy mb-2">
-                                                {step.title}
-                                            </h3>
-                                            <p className="text-skitm-gray">
-                                                {step.description}
-                                            </p>
-                                        </div>
-
-                                        <div className="flex-shrink-0 w-14 h-14 rounded-full bg-skitm-blue flex items-center justify-center z-10 shadow-md">
-                                            {step.icon}
-                                            <span className="sr-only">
-                                                Step {index + 1}
-                                            </span>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Eligibility Criteria */}
-                    <div
-                        ref={eligibilityRef}
-                        className={`mb-16 ${
-                            eligibilityVisible ? "animate-fade-in" : "opacity-1"
-                        }`}
-                    >
-                        <h2 className="text-2xl font-display font-bold text-skitm-navy text-center mb-10">
-                            Eligibility Criteria
-                        </h2>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <div className="glassmorphism rounded-xl overflow-hidden">
-                                <div className="bg-skitm-navy py-3 px-6">
-                                    <h3 className="text-xl font-display font-bold text-white">
-                                        Undergraduate Programs
-                                    </h3>
-                                </div>
-                                <div className="p-6">
-                                    <ul className="space-y-4">
-                                        {eligibilityCriteria.undergraduate.map(
-                                            (criterion, index) => (
-                                                <li
-                                                    key={index}
-                                                    className="flex items-start gap-3"
-                                                >
-                                                    <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                                                    <span className="text-skitm-gray">
-                                                        {criterion}
-                                                    </span>
-                                                </li>
-                                            )
-                                        )}
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div className="glassmorphism rounded-xl overflow-hidden">
-                                <div className="bg-skitm-navy py-3 px-6">
-                                    <h3 className="text-xl font-display font-bold text-white">
-                                        Postgraduate Programs
-                                    </h3>
-                                </div>
-                                <div className="p-6">
-                                    <ul className="space-y-4">
-                                        {eligibilityCriteria.postgraduate.map(
-                                            (criterion, index) => (
-                                                <li
-                                                    key={index}
-                                                    className="flex items-start gap-3"
-                                                >
-                                                    <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                                                    <span className="text-skitm-gray">
-                                                        {criterion}
-                                                    </span>
-                                                </li>
-                                            )
-                                        )}
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div className="glassmorphism rounded-xl overflow-hidden">
-                                <div className="bg-skitm-navy py-3 px-6">
-                                    <h3 className="text-xl font-display font-bold text-white">
-                                        PhD Programs
-                                    </h3>
-                                </div>
-                                <div className="p-6">
-                                    <ul className="space-y-4">
-                                        {eligibilityCriteria.phd.map(
-                                            (criterion, index) => (
-                                                <li
-                                                    key={index}
-                                                    className="flex items-start gap-3"
-                                                >
-                                                    <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                                                    <span className="text-skitm-gray">
-                                                        {criterion}
-                                                    </span>
-                                                </li>
-                                            )
-                                        )}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Required Documents */}
-                    <div className="mb-16">
-                        <h2 className="text-2xl font-display font-bold text-skitm-navy text-center mb-10">
-                            Required Documents
-                        </h2>
-
                         <div className="glassmorphism rounded-xl p-8">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
-                                {requiredDocuments.map((document, index) => (
-                                    <div
-                                        key={index}
-                                        className="flex items-start gap-3"
-                                    >
-                                        <FileText className="h-5 w-5 text-skitm-blue flex-shrink-0 mt-0.5" />
-                                        <span className="text-skitm-gray">
-                                            {document}
-                                        </span>
+                            <h2 className="text-2xl font-display font-bold text-skitm-navy text-center mb-8">
+                                Admission Enquiry Form
+                            </h2>
+
+                            <Form {...form}>
+                                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <FormField
+                                            control={form.control}
+                                            name="name"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel>Name *</FormLabel>
+                                                    <FormControl>
+                                                        <div className="relative">
+                                                            <User className="absolute left-3 top-2.5 h-5 w-5 text-skitm-gray/50" />
+                                                            <Input 
+                                                                placeholder="Your full name" 
+                                                                className="pl-10" 
+                                                                {...field} 
+                                                            />
+                                                        </div>
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                        
+                                        <FormField
+                                            control={form.control}
+                                            name="email"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel>Email *</FormLabel>
+                                                    <FormControl>
+                                                        <div className="relative">
+                                                            <Mail className="absolute left-3 top-2.5 h-5 w-5 text-skitm-gray/50" />
+                                                            <Input 
+                                                                placeholder="Your email address" 
+                                                                className="pl-10" 
+                                                                type="email" 
+                                                                {...field} 
+                                                            />
+                                                        </div>
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                        
+                                        <FormField
+                                            control={form.control}
+                                            name="mobile"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel>Mobile No. *</FormLabel>
+                                                    <FormControl>
+                                                        <div className="relative">
+                                                            <Phone className="absolute left-3 top-2.5 h-5 w-5 text-skitm-gray/50" />
+                                                            <Input 
+                                                                placeholder="Your mobile number" 
+                                                                className="pl-10" 
+                                                                type="tel" 
+                                                                {...field} 
+                                                            />
+                                                        </div>
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                        
+                                        <FormField
+                                            control={form.control}
+                                            name="state"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel>Select State *</FormLabel>
+                                                    <Select onValueChange={field.onChange} value={field.value}>
+                                                        <FormControl>
+                                                            <SelectTrigger className="pl-10">
+                                                                <SelectValue placeholder="Select your state" />
+                                                            </SelectTrigger>
+                                                        </FormControl>
+                                                        <SelectContent className="max-h-[300px]">
+                                                            {indianStates.map((state) => (
+                                                                <SelectItem key={state} value={state}>
+                                                                    {state}
+                                                                </SelectItem>
+                                                            ))}
+                                                        </SelectContent>
+                                                    </Select>
+                                                    <div className="pointer-events-none absolute translate-y-[-42px] translate-x-3">
+                                                        <MapPin className="h-5 w-5 text-skitm-gray/50" />
+                                                    </div>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                        
+                                        <FormField
+                                            control={form.control}
+                                            name="city"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel>Enter Your City *</FormLabel>
+                                                    <FormControl>
+                                                        <div className="relative">
+                                                            <MapPin className="absolute left-3 top-2.5 h-5 w-5 text-skitm-gray/50" />
+                                                            <Input 
+                                                                placeholder="Your city" 
+                                                                className="pl-10" 
+                                                                {...field} 
+                                                            />
+                                                        </div>
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                        
+                                        <FormField
+                                            control={form.control}
+                                            name="program"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel>Select Program Applying For *</FormLabel>
+                                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                                        <FormControl>
+                                                            <SelectTrigger>
+                                                                <SelectValue placeholder="Select program" />
+                                                            </SelectTrigger>
+                                                        </FormControl>
+                                                        <SelectContent>
+                                                            <SelectItem value="Undergraduate">Undergraduate</SelectItem>
+                                                            <SelectItem value="Postgraduate">Postgraduate</SelectItem>
+                                                        </SelectContent>
+                                                    </Select>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                        
+                                        <FormField
+                                            control={form.control}
+                                            name="course"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel>Select Course *</FormLabel>
+                                                    <Select onValueChange={field.onChange} value={field.value}>
+                                                        <FormControl>
+                                                            <SelectTrigger>
+                                                                <SelectValue placeholder="Select course" />
+                                                            </SelectTrigger>
+                                                        </FormControl>
+                                                        <SelectContent className="max-h-[300px]">
+                                                            {form.watch("program") === "Undergraduate" ? 
+                                                                undergraduateCourses.map((course) => (
+                                                                    <SelectItem key={course} value={course}>
+                                                                        {course}
+                                                                    </SelectItem>
+                                                                )) :
+                                                                postgraduateCourses.map((course) => (
+                                                                    <SelectItem key={course} value={course}>
+                                                                        {course}
+                                                                    </SelectItem>
+                                                                ))
+                                                            }
+                                                        </SelectContent>
+                                                    </Select>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
                                     </div>
-                                ))}
-                            </div>
+                                    
+                                    <FormField
+                                        control={form.control}
+                                        name="agreement"
+                                        render={({ field }) => (
+                                            <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-4 bg-skitm-blue/5">
+                                                <FormControl>
+                                                    <Checkbox
+                                                        checked={field.value}
+                                                        onCheckedChange={field.onChange}
+                                                    />
+                                                </FormControl>
+                                                <div className="space-y-1 leading-none">
+                                                    <FormLabel>
+                                                        I agree to receive information regarding my submitted enquiry on Shivajirao Kadam Group of Institutions
+                                                    </FormLabel>
+                                                    <FormMessage />
+                                                </div>
+                                            </FormItem>
+                                        )}
+                                    />
+                                    
+                                    <Button 
+                                        type="submit" 
+                                        className="w-full bg-skitm-blue hover:bg-skitm-navy text-white" 
+                                        disabled={isSubmitting}
+                                    >
+                                        {isSubmitting ? "Submitting..." : "Submit"}
+                                    </Button>
+                                </form>
+                            </Form>
                         </div>
                     </div>
 

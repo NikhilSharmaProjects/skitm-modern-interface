@@ -106,9 +106,9 @@ const FeaturedCourses = () => {
                             <p className="text-skitm-gray mb-4 text-sm">
                                 {course.description}
                             </p>
-                            <Link to={`/courses/${course.id}`}>
+                            <Link to="/admissions">
                                 <Button variant="outline" size="sm" fullWidth>
-                                    View Details
+                                    Apply Now
                                 </Button>
                             </Link>
                         </div>

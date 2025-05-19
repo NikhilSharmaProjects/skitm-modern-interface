@@ -455,9 +455,9 @@ const Courses = () => {
                                             </Button>
                                         </Link>
                                     </div>
-                                    <Link to={`/courses/${course.id}`}>
+                                    <Link to="/admissions">
                                         <Button variant="outline" fullWidth>
-                                            Course Details
+                                            Apply Now
                                         </Button>
                                     </Link>
                                 </div>
