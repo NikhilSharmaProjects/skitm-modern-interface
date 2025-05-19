@@ -214,11 +214,6 @@ const Contact = () => {
                                         Map Placeholder
                                     </p>
                                 </div>
-                                <p className="text-sm text-skitm-gray mb-2">
-                                    Our campus is conveniently located just off
-                                    NH-48, approximately 30 minutes from Indira
-                                    Gandhi International Airport.
-                                </p>
                                 <Button variant="outline" size="sm" fullWidth>
                                     Get Directions
                                 </Button>

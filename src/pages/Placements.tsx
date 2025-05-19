@@ -18,9 +18,9 @@ const Placements = () => {
     // Real placement statistics
     const placementStats = [
         { label: "Placement Rate", value: "95%", icon: "📈" },
-        { label: "Highest Package", value: "₹6.5 LPA", icon: "💰" },
-        { label: "Average Package", value: "₹3.5-4.5 LPA", icon: "📊" },
-        { label: "Companies Visited", value: "18+", icon: "🏢" },
+        { label: "Highest Package", value: "₹12 LPA", icon: "💰" },
+        { label: "Average Package", value: "₹6.5-4.5 LPA", icon: "📊" },
+        { label: "Companies Visited", value: "200+", icon: "🏢" },
     ];
 
     // Real top recruiters
@@ -430,9 +430,6 @@ const Placements = () => {
                                 </p>
                             </div>
                         </div>
-                        <Button variant="primary">
-                            Contact Placement Cell
-                        </Button>
                     </div>
                 </div>
             </main>

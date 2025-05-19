@@ -205,10 +205,22 @@ const Footer = () => {
                                     className="text-skitm-blue mr-3 flex-shrink-0"
                                 />
                                 <a
-                                    href="tel:+917314013344"
+                                    href="tel:+9770907100"
                                     className="text-gray-300 hover:text-white transition-colors"
                                 >
-                                    +91 731 401 3344
+                                    + 9770907100
+                                </a>
+                            </div>
+                            <div className="flex items-center">
+                                <Phone
+                                    size={20}
+                                    className="text-skitm-blue mr-3 flex-shrink-0"
+                                />
+                                <a
+                                    href="tel:+9770907103"
+                                    className="text-gray-300 hover:text-white transition-colors"
+                                >
+                                    + 9770907103
                                 </a>
                             </div>
                             <div className="flex items-center">
@@ -230,7 +242,7 @@ const Footer = () => {
                 {/* Copyright Section */}
                 <div className="border-t border-gray-700 mt-8 pt-8 text-center">
                     <p className="text-gray-400">
-                        © {new Date().getFullYear()} SKITM, Indore. All Rights
+                        © SKITM, Indore. All Rights
                         Reserved.
                     </p>
                 </div>
