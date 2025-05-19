@@ -1,5 +1,4 @@
 
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import Button from "@/components/ui/CustomButton";
@@ -15,7 +14,7 @@ interface Course {
 
 const FeaturedCourses = () => {
     const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation();
-    const [courses, setCourses] = useState<Course[]>([
+    const courses: Course[] = [
         {
             id: "1",
             name: "Computer Science & Engineering",
@@ -61,7 +60,7 @@ const FeaturedCourses = () => {
                 "Prestigious law programs including B.A. LL.B. (Hons.), B.B.A. LL.B. (Hons.), and LL.B. (Hons.).",
             icon: "⚖️",
         },
-    ]);
+    ];
 
     return (
         <section className="py-20 bg-gradient-to-b from-white to-blue-50">
@@ -106,9 +105,9 @@ const FeaturedCourses = () => {
                             <p className="text-skitm-gray mb-4 text-sm">
                                 {course.description}
                             </p>
-                            <Link to={`/courses/${course.id}`}>
+                            <Link to="/admissions">
                                 <Button variant="outline" size="sm" fullWidth>
-                                    View Details
+                                    Apply Now
                                 </Button>
                             </Link>
                         </div>
