@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Helmet } from 'react-helmet-async';
-import { Calendar, MapPin, ExternalLink } from 'lucide-react';
+import { Calendar, MapPin, ExternalLink, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { NewsItem, newsService } from '@/services/dataService';
 import { toast } from 'sonner';
@@ -46,9 +46,46 @@ const News = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>News & Events - SKITM</title>
-        <meta name="description" content="Stay updated with the latest news, events, achievements, and announcements from SKITM. Find information about upcoming workshops, seminars, cultural events, and more." />
-        <meta name="keywords" content="SKITM news, college events, campus updates, academic news, engineering events, technical fest, cultural events" />
+        <title>Latest News & Updates - SKITM | Top Engineering College in Indore</title>
+        <meta name="description" content="Stay updated with the latest news, events, achievements, and announcements from SKITM - one of the best engineering colleges in Indore, Madhya Pradesh." />
+        <meta name="keywords" content="SKITM news, college events, campus updates, academic news, engineering events, technical fest, cultural events, best college in Indore" />
+        <link rel="canonical" href="https://skitm.in/news" />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="Latest News & Updates - SKITM Indore" />
+        <meta property="og:description" content="Stay updated with the latest news from Shivajirao Kadam Institute of Technology and Management, Indore." />
+        <meta property="og:url" content="https://skitm.in/news" />
+        <meta property="og:type" content="website" />
+        
+        {/* Schema.org markup for News */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              "name": "Latest News & Updates - SKITM",
+              "description": "Stay updated with the latest news, events, achievements, and announcements from Shivajirao Kadam Institute of Technology and Management.",
+              "url": "https://skitm.in/news",
+              "mainEntity": {
+                "@type": "ItemList",
+                "itemListElement": [
+                  ${newsItems.slice(0, 5).map((item, index) => `
+                    {
+                      "@type": "ListItem",
+                      "position": ${index + 1},
+                      "item": {
+                        "@type": "NewsArticle",
+                        "headline": "${item.title}",
+                        "datePublished": "${item.date}",
+                        "description": "${item.description?.substring(0, 100)}..."
+                      }
+                    }
+                  `).join(',')}
+                ]
+              }
+            }
+          `}
+        </script>
       </Helmet>
       
       <Navbar />
@@ -66,7 +103,7 @@ const News = () => {
               News & Announcements
             </h1>
             <p className="text-lg text-skitm-gray max-w-2xl mx-auto">
-              Stay up to date with the latest happenings at SKITM.
+              Stay up to date with the latest happenings at SKITM, one of the top educational institutes in Madhya Pradesh.
             </p>
           </div>
           
@@ -83,21 +120,33 @@ const News = () => {
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {newsItems.map(item => (
-                  <div key={item.id} className="glassmorphism rounded-xl overflow-hidden h-full flex flex-col">
+                {newsItems.map((item, index) => (
+                  <article 
+                    key={item.id} 
+                    className="glassmorphism rounded-xl overflow-hidden h-full flex flex-col"
+                    itemScope 
+                    itemType="https://schema.org/NewsArticle"
+                  >
                     {item.imageUrl && (
                       <div className="h-48 overflow-hidden">
                         <img 
                           src={item.imageUrl} 
                           alt={item.title} 
                           className="w-full h-full object-cover"
+                          itemProp="image"
                         />
                       </div>
                     )}
                     <div className="p-6 flex flex-col flex-grow">
                       <div className="flex items-center mb-3">
                         <Calendar size={16} className="text-skitm-blue mr-2" />
-                        <span className="text-sm text-skitm-gray">{formatDate(item.date)}</span>
+                        <time 
+                          dateTime={item.date} 
+                          className="text-sm text-skitm-gray"
+                          itemProp="datePublished"
+                        >
+                          {formatDate(item.date)}
+                        </time>
                       </div>
                       <div className="mb-2">
                         <span className={`inline-block px-2 py-0.5 text-xs font-medium rounded ${
@@ -110,14 +159,28 @@ const News = () => {
                           {item.category.charAt(0).toUpperCase() + item.category.slice(1)}
                         </span>
                       </div>
-                      <h3 className="text-xl font-bold text-skitm-navy mb-3">
+                      <h2 
+                        className="text-xl font-bold text-skitm-navy mb-3"
+                        itemProp="headline"
+                      >
                         {item.title}
-                      </h3>
-                      <p className="text-skitm-gray mb-4 flex-grow">
+                      </h2>
+                      <p 
+                        className="text-skitm-gray mb-4 flex-grow"
+                        itemProp="description"
+                      >
                         {item.description}
                       </p>
+                      
+                      <Link 
+                        to={`/news/${item.id}`} 
+                        className="text-skitm-blue hover:text-skitm-navy mt-2 inline-flex items-center"
+                        aria-label={`Read more about ${item.title}`}
+                      >
+                        Read More <ArrowRight size={16} className="ml-1" />
+                      </Link>
                     </div>
-                  </div>
+                  </article>
                 ))}
               </div>
             )}
