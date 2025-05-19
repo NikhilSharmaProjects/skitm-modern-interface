@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import {
     Phone,
@@ -14,11 +15,15 @@ const Footer = () => {
         <footer className="bg-skitm-navy text-white">
             <div className="container mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {/* About Column */}
+                    {/* About Column with Logo */}
                     <div>
-                        <h3 className="text-xl font-display font-bold mb-4">
-                            SKITM
-                        </h3>
+                        <div className="mb-4">
+                            <img 
+                                src="/lovable-uploads/b26f37d3-55cb-448a-ad13-c5921427affe.png" 
+                                alt="SKITM Logo" 
+                                className="h-16 w-auto mb-4"
+                            />
+                        </div>
                         <p className="text-gray-300 mb-4">
                             ShivajiRao Kadam Institute of Technology and
                             Management, established with the vision of providing

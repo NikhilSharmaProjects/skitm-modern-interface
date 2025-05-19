@@ -42,7 +42,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <span className="text-xl font-display font-bold text-skitm-navy">SKITM</span>
+            <img 
+              src="/lovable-uploads/b26f37d3-55cb-448a-ad13-c5921427affe.png" 
+              alt="SKITM Logo"
+              className="h-12 w-auto" 
+            />
           </Link>
           
           {/* Desktop Navigation */}
