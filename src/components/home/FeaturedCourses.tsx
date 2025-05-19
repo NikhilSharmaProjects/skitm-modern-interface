@@ -71,6 +71,13 @@ const FeaturedCourses = () => {
                 }`}
             >
                 <div className="text-center mb-12">
+                    <div className="flex justify-center mb-6">
+                        <img 
+                            src="/lovable-uploads/b26f37d3-55cb-448a-ad13-c5921427affe.png" 
+                            alt="SKITM Logo" 
+                            className="h-16 w-auto" 
+                        />
+                    </div>
                     <h2 className="text-3xl md:text-4xl font-display font-bold text-skitm-navy mb-4">
                         Our Academic Programs
                     </h2>
