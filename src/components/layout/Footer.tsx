@@ -233,26 +233,6 @@ const Footer = () => {
                         © {new Date().getFullYear()} SKITM, Indore. All Rights
                         Reserved.
                     </p>
-                    <div className="mt-2 flex justify-center space-x-4 text-sm">
-                        <Link
-                            to="/privacy-policy"
-                            className="text-gray-400 hover:text-white transition-colors"
-                        >
-                            Privacy Policy
-                        </Link>
-                        <Link
-                            to="/terms"
-                            className="text-gray-400 hover:text-white transition-colors"
-                        >
-                            Terms of Use
-                        </Link>
-                        <Link
-                            to="/sitemap"
-                            className="text-gray-400 hover:text-white transition-colors"
-                        >
-                            Sitemap
-                        </Link>
-                    </div>
                 </div>
             </div>
         </footer>

@@ -135,11 +135,10 @@ const Contact = () => {
                                                 Address
                                             </h3>
                                             <p className="text-skitm-gray">
-                                                SKITM Campus, NH-48,
-                                                Indore-Jaipur Highway
-                                                <br />
-                                                Gurugram, Haryana - 122001,
-                                                India
+                                                Off Indore Bypass Road, Near
+                                                Ralamandal Sanctuary <br />
+                                                Tillore Khurd, Indore-452020,
+                                                Madhya Pradesh India
                                             </p>
                                         </div>
                                     </div>
