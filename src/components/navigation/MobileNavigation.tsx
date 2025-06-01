@@ -4,16 +4,24 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 
 interface MobileNavigationProps {
+  aboutLinks: { name: string; href: string }[];
   academicLinks: { name: string; href: string }[];
   admissionLinks: { name: string; href: string }[];
   campusLifeLinks: { name: string; href: string }[];
+  placementLinks: { name: string; href: string }[];
+  partnershipsLinks: { name: string; href: string }[];
+  cellsCommitteesLinks: { name: string; href: string }[];
   isOpen: boolean;
 }
 
 const MobileNavigation = ({ 
+  aboutLinks,
   academicLinks, 
   admissionLinks, 
   campusLifeLinks,
+  placementLinks,
+  partnershipsLinks,
+  cellsCommitteesLinks,
   isOpen 
 }: MobileNavigationProps) => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -23,6 +31,32 @@ const MobileNavigation = ({
   const toggleSection = (section: string) => {
     setExpandedSection(expandedSection === section ? null : section);
   };
+
+  const renderSection = (title: string, links: { name: string; href: string }[], sectionKey: string) => (
+    <div className="relative">
+      <button 
+        onClick={() => toggleSection(sectionKey)}
+        className="flex items-center justify-between w-full px-4 py-2 text-base font-medium text-skitm-navy hover:bg-skitm-blue/10 rounded-md"
+      >
+        <span>{title}</span>
+        {expandedSection === sectionKey ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+      </button>
+      
+      {expandedSection === sectionKey && (
+        <div className="pl-4 max-h-48 overflow-y-auto">
+          {links.map((item) => (
+            <Link 
+              key={item.name}
+              to={item.href}
+              className="block px-4 py-2 text-sm text-skitm-navy hover:bg-skitm-blue/10 rounded-md"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
   
   return (
     <div className="lg:hidden glassmorphism shadow-lg animate-fade-in overflow-y-auto max-h-[80vh]">
@@ -33,94 +67,15 @@ const MobileNavigation = ({
         >
           Home
         </Link>
-        <Link 
-          to="/about" 
-          className="block px-4 py-2 text-base font-medium text-skitm-navy hover:bg-skitm-blue/10 rounded-md"
-        >
-          About
-        </Link>
         
-        {/* Academics Section */}
-        <div className="relative">
-          <button 
-            onClick={() => toggleSection('academics')}
-            className="flex items-center justify-between w-full px-4 py-2 text-base font-medium text-skitm-navy hover:bg-skitm-blue/10 rounded-md"
-          >
-            <span>Academics</span>
-            {expandedSection === 'academics' ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-          </button>
-          
-          {expandedSection === 'academics' && (
-            <div className="pl-4">
-              {academicLinks.map((item) => (
-                <Link 
-                  key={item.name}
-                  to={item.href}
-                  className="block px-4 py-2 text-sm text-skitm-navy hover:bg-skitm-blue/10 rounded-md"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
+        {renderSection('About', aboutLinks, 'about')}
+        {renderSection('Academics', academicLinks, 'academics')}
+        {renderSection('Admissions', admissionLinks, 'admissions')}
+        {renderSection('Campus Life', campusLifeLinks, 'campusLife')}
+        {renderSection('Placements', placementLinks, 'placements')}
+        {renderSection('Partnerships', partnershipsLinks, 'partnerships')}
+        {renderSection('Cells & Committees', cellsCommitteesLinks, 'cells')}
         
-        {/* Admissions Section */}
-        <div className="relative">
-          <button 
-            onClick={() => toggleSection('admissions')}
-            className="flex items-center justify-between w-full px-4 py-2 text-base font-medium text-skitm-navy hover:bg-skitm-blue/10 rounded-md"
-          >
-            <span>Admissions</span>
-            {expandedSection === 'admissions' ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-          </button>
-          
-          {expandedSection === 'admissions' && (
-            <div className="pl-4">
-              {admissionLinks.map((item) => (
-                <Link 
-                  key={item.name}
-                  to={item.href}
-                  className="block px-4 py-2 text-sm text-skitm-navy hover:bg-skitm-blue/10 rounded-md"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
-        
-        {/* Campus Life Section */}
-        <div className="relative">
-          <button 
-            onClick={() => toggleSection('campusLife')}
-            className="flex items-center justify-between w-full px-4 py-2 text-base font-medium text-skitm-navy hover:bg-skitm-blue/10 rounded-md"
-          >
-            <span>Campus Life</span>
-            {expandedSection === 'campusLife' ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-          </button>
-          
-          {expandedSection === 'campusLife' && (
-            <div className="pl-4">
-              {campusLifeLinks.map((item) => (
-                <Link 
-                  key={item.name}
-                  to={item.href}
-                  className="block px-4 py-2 text-sm text-skitm-navy hover:bg-skitm-blue/10 rounded-md"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
-        
-        <Link 
-          to="/placements" 
-          className="block px-4 py-2 text-base font-medium text-skitm-navy hover:bg-skitm-blue/10 rounded-md"
-        >
-          Placements
-        </Link>
         <Link 
           to="/gallery" 
           className="block px-4 py-2 text-base font-medium text-skitm-navy hover:bg-skitm-blue/10 rounded-md"
@@ -138,12 +93,6 @@ const MobileNavigation = ({
           className="block px-4 py-2 text-base font-medium text-skitm-navy hover:bg-skitm-blue/10 rounded-md"
         >
           Blogs
-        </Link>
-        <Link 
-          to="/library" 
-          className="block px-4 py-2 text-base font-medium text-skitm-navy hover:bg-skitm-blue/10 rounded-md"
-        >
-          Library
         </Link>
         <Link 
           to="/contact" 

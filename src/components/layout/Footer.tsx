@@ -14,12 +14,12 @@ const Footer = () => {
     return (
         <footer className="bg-skitm-navy text-white">
             <div className="container mx-auto px-4 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
                     {/* About Column with Logo */}
-                    <div>
+                    <div className="lg:col-span-2">
                         <div className="mb-4">
                             <img 
-                                src="/lovable-uploads/b26f37d3-55cb-448a-ad13-c5921427affe.png" 
+                                src="/lovable-uploads/1be76fe5-e5d4-4ae1-a6a0-99a3c65c9d60.png" 
                                 alt="SKITM Logo" 
                                 className="h-16 w-auto mb-4"
                             />
@@ -74,10 +74,10 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link
-                                    to="/courses"
+                                    to="/departments"
                                     className="text-gray-300 hover:text-white transition-colors"
                                 >
-                                    Courses Offered
+                                    Departments
                                 </Link>
                             </li>
                             <li>
@@ -131,10 +131,50 @@ const Footer = () => {
                         <ul className="space-y-2">
                             <li>
                                 <Link
-                                    to="/departments"
+                                    to="/cse"
                                     className="text-gray-300 hover:text-white transition-colors"
                                 >
-                                    Departments
+                                    Computer Science
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/ece"
+                                    className="text-gray-300 hover:text-white transition-colors"
+                                >
+                                    Electronics
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/me"
+                                    className="text-gray-300 hover:text-white transition-colors"
+                                >
+                                    Mechanical
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/ce"
+                                    className="text-gray-300 hover:text-white transition-colors"
+                                >
+                                    Civil
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/mba"
+                                    className="text-gray-300 hover:text-white transition-colors"
+                                >
+                                    MBA
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/bpharma"
+                                    className="text-gray-300 hover:text-white transition-colors"
+                                >
+                                    Pharmacy
                                 </Link>
                             </li>
                             <li>
@@ -143,46 +183,6 @@ const Footer = () => {
                                     className="text-gray-300 hover:text-white transition-colors"
                                 >
                                     Faculty
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to="/research"
-                                    className="text-gray-300 hover:text-white transition-colors"
-                                >
-                                    Research
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to="/facilities"
-                                    className="text-gray-300 hover:text-white transition-colors"
-                                >
-                                    Facilities
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to="/library"
-                                    className="text-gray-300 hover:text-white transition-colors"
-                                >
-                                    Library
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to="/scholarships"
-                                    className="text-gray-300 hover:text-white transition-colors"
-                                >
-                                    Scholarships
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to="/student-life"
-                                    className="text-gray-300 hover:text-white transition-colors"
-                                >
-                                    Student Life
                                 </Link>
                             </li>
                         </ul>
