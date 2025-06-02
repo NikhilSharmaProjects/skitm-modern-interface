@@ -1,81 +1,92 @@
 
-// Main navigation structure based on SKITM sitemap
-export const aboutLinks = [
-  { name: "About SKITM", href: "/about" },
-  { name: "Society", href: "/society" },
-  { name: "Vision & Mission", href: "/vision-mission" },
-  { name: "Chairman", href: "/chairman" },
-  { name: "Director's Message", href: "/directors-message" },
+// Hierarchical navigation structure based on SKITM sitemap
+
+// About Us sub-routes
+export const aboutSKITMLinks = [
+  { name: "About SKITM", href: "/about-skitm" },
+];
+
+export const leadershipLinks = [
+  { name: "About our Chairman", href: "/chairman" },
   { name: "Board of Governors", href: "/board-governors" },
-  { name: "Leadership Team", href: "/leadership-team" },
   { name: "Board of Advisors", href: "/board-advisors" },
+  { name: "Leadership Team", href: "/leadership-team" },
 ];
 
-export const academicLinks = [
-  { name: "Engineering Departments", href: "/departments" },
-  { name: "Computer Science", href: "/cse" },
-  { name: "Electronics & Communication", href: "/ece" },
-  { name: "Mechanical Engineering", href: "/me" },
-  { name: "Civil Engineering", href: "/ce" },
-  { name: "Management (MBA)", href: "/mba" },
-  { name: "Integrated MBA", href: "/imba" },
+export const aboutUsLinks = [
+  { name: "About SKITM", href: "/about-skitm" },
+  { name: "Leadership of SKITM", href: "/leadership", subItems: leadershipLinks },
+  { name: "Our Partners", href: "/partners" },
+  { name: "Society", href: "/society" },
+  { name: "Director's Message", href: "/directors-message" },
+  { name: "Vision and Mission", href: "/vision-mission" },
+];
+
+// Academics sub-routes
+export const engineeringLinks = [
+  { name: "Computer Science & Engineering", href: "/cse" },
+  { name: "Electronics & Communication Engineering", href: "/ece" },
+  { name: "Civil Engineering", href: "/civil-engineering" },
+  { name: "Mechanical Engineering", href: "/mechanical-engineering" },
+  { name: "Applied Science Department", href: "/applied-science" },
+];
+
+export const managementLinks = [
+  { name: "MBA", href: "/mba" },
+  { name: "Integrated MBA", href: "/integrated-mba" },
+  { name: "MBA Plus", href: "/mba-plus" },
+];
+
+export const pharmacyLinks = [
+  { name: "B.Pharm", href: "/bpharm" },
+  { name: "D.Pharm", href: "/dpharm" },
+];
+
+export const professionalStudiesLinks = [
   { name: "BBA", href: "/bba" },
-  { name: "Pharmacy (B.Pharma)", href: "/bpharm" },
-  { name: "D.Pharma", href: "/dpharm" },
-  { name: "Commerce Programs", href: "/commerce" },
-  { name: "Applied Sciences", href: "/ash" },
-  { name: "Faculty", href: "/faculty" },
-  { name: "Research", href: "/research" },
-  { name: "Library", href: "/library" },
+  { name: "B.Com Computer Applications", href: "/bcom-ca" },
+  { name: "B.Com General", href: "/bcom-general" },
+  { name: "B.Com Honours", href: "/bcom-honours" },
+  { name: "B.Com Taxation", href: "/bcom-taxation" },
 ];
 
-export const admissionLinks = [
-  { name: "Admission Process", href: "/admissions" },
-  { name: "Apply to SKITM", href: "/apply" },
-  { name: "Online Application", href: "/online-admission" },
-  { name: "Fees Structure", href: "/fees" },
+export const academicsLinks = [
+  { name: "Engineering", href: "/engineering", subItems: engineeringLinks },
+  { name: "Management", href: "/management", subItems: managementLinks },
+  { name: "Pharmacy", href: "/pharmacy", subItems: pharmacyLinks },
+  { name: "Professional Studies", href: "/professional-studies", subItems: professionalStudiesLinks },
+  { name: "Transnational School of Law", href: "/law" },
+];
+
+// Admissions sub-routes
+export const admissionsLinks = [
+  { name: "Apply To SKITM", href: "/apply-to-skitm" },
   { name: "Scholarships", href: "/scholarships" },
-  { name: "Admission Enquiry", href: "/admission-enquiry" },
+  { name: "Download Brochure", href: "/download-brochure" },
   { name: "FAQs", href: "/faqs" },
 ];
 
-export const campusLifeLinks = [
-  { name: "Student Life", href: "/student-life" },
+// Student Life sub-routes
+export const studentLifeLinks = [
+  { name: "Hostel", href: "/hostel" },
+  { name: "Projects & Workshops", href: "/projects-workshops" },
+  { name: "Student Testimonials", href: "/student-testimonials" },
   { name: "Campus", href: "/campus" },
   { name: "Facilities", href: "/facilities" },
-  { name: "Hostels", href: "/hostels" },
+  { name: "Library", href: "/library" },
   { name: "Sports", href: "/sports" },
-  { name: "Clubs & Societies", href: "/clubs-societies" },
-  { name: "Cultural Society", href: "/cultural-society" },
-  { name: "Events", href: "/events" },
 ];
 
-export const placementLinks = [
-  { name: "Placement Process", href: "/placement-process" },
-  { name: "Our Recruiters", href: "/recruiters" },
-  { name: "Placement Reports", href: "/placement-reports" },
-  { name: "Campus Recruitment", href: "/campus-recruitment" },
-  { name: "Career Services", href: "/career" },
-  { name: "CRD Team", href: "/crd-team" },
-];
-
-export const partnershipsLinks = [
-  { name: "Our Partners", href: "/partners" },
-  { name: "Oracle Academy", href: "/oracle-academy" },
-  { name: "AWS Academy", href: "/aws-academy" },
-  { name: "HarvardX Certifications", href: "/harvardx" },
-  { name: "Linux Foundation", href: "/linux-foundation" },
-  { name: "Coursera Academy", href: "/coursera-academy" },
-  { name: "Red Hat Academy", href: "/red-hat-academy" },
-  { name: "UiPath Academy", href: "/uipath" },
-];
-
-export const cellsCommitteesLinks = [
-  { name: "Entrepreneurship Cell", href: "/entrepreneurship-cell" },
-  { name: "Incubation Cell", href: "/incubation-cell" },
-  { name: "Women Development Cell", href: "/women-development-cell" },
-  { name: "Internal Quality Assurance", href: "/iqac" },
-  { name: "Grievance Redressal", href: "/grievance-committee" },
-  { name: "Anti-Ragging Committee", href: "/anti-ragging" },
-  { name: "SC/ST Committee", href: "/sc-st-committee" },
+// Main navigation structure
+export const mainNavigationLinks = [
+  { name: "Home", href: "/" },
+  { name: "About Us", href: "/about", subItems: aboutUsLinks },
+  { name: "Academics", href: "/academics", subItems: academicsLinks },
+  { name: "Admissions", href: "/admissions", subItems: admissionsLinks },
+  { name: "Placement", href: "/placement" },
+  { name: "Student Life", href: "/student-life", subItems: studentLifeLinks },
+  { name: "News & Events", href: "/news-events" },
+  { name: "Gallery", href: "/gallery" },
+  { name: "Campus Tour", href: "/campus-tour" },
+  { name: "Contact Us", href: "/contact" },
 ];

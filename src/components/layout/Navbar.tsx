@@ -2,17 +2,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import DesktopNavigation from '../navigation/DesktopNavigation';
-import MobileNavigation from '../navigation/MobileNavigation';
-import { 
-  aboutLinks, 
-  academicLinks, 
-  admissionLinks, 
-  campusLifeLinks,
-  placementLinks,
-  partnershipsLinks,
-  cellsCommitteesLinks
-} from '@/data/navigationLinks';
+import HierarchicalNavigation from '../navigation/HierarchicalNavigation';
+import MobileHierarchicalNavigation from '../navigation/MobileHierarchicalNavigation';
 import { Helmet } from 'react-helmet-async';
 
 const Navbar = () => {
@@ -76,30 +67,26 @@ const Navbar = () => {
               "@type": "SiteNavigationElement",
               "name": [
                 "Home", 
-                "About", 
+                "About Us", 
                 "Academics", 
                 "Admissions", 
-                "Campus Life",
-                "Placements",
-                "Partnerships",
-                "Cells & Committees",
-                "Gallery",
+                "Placement",
+                "Student Life",
                 "News & Events",
-                "Blogs",
-                "Contact"
+                "Gallery",
+                "Campus Tour",
+                "Contact Us"
               ],
               "url": [
                 "https://skitm.in/",
                 "https://skitm.in/about",
-                "https://skitm.in/departments",
+                "https://skitm.in/academics",
                 "https://skitm.in/admissions",
+                "https://skitm.in/placement",
                 "https://skitm.in/student-life",
-                "https://skitm.in/placements",
-                "https://skitm.in/partners",
-                "https://skitm.in/entrepreneurship-cell",
+                "https://skitm.in/news-events",
                 "https://skitm.in/gallery",
-                "https://skitm.in/news",
-                "https://skitm.in/blogs",
+                "https://skitm.in/campus-tour",
                 "https://skitm.in/contact"
               ]
             }
@@ -129,15 +116,7 @@ const Navbar = () => {
             </Link>
             
             {/* Desktop Navigation */}
-            <DesktopNavigation 
-              aboutLinks={aboutLinks}
-              academicLinks={academicLinks}
-              admissionLinks={admissionLinks}
-              campusLifeLinks={campusLifeLinks}
-              placementLinks={placementLinks}
-              partnershipsLinks={partnershipsLinks}
-              cellsCommitteesLinks={cellsCommitteesLinks}
-            />
+            <HierarchicalNavigation />
             
             {/* Mobile Menu Button */}
             <button
@@ -154,16 +133,7 @@ const Navbar = () => {
         
         {/* Mobile Navigation */}
         <div id="mobile-menu">
-          <MobileNavigation 
-            aboutLinks={aboutLinks}
-            academicLinks={academicLinks}
-            admissionLinks={admissionLinks}
-            campusLifeLinks={campusLifeLinks}
-            placementLinks={placementLinks}
-            partnershipsLinks={partnershipsLinks}
-            cellsCommitteesLinks={cellsCommitteesLinks}
-            isOpen={mobileMenuOpen}
-          />
+          <MobileHierarchicalNavigation isOpen={mobileMenuOpen} />
         </div>
       </header>
     </>
