@@ -2,9 +2,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import DesktopNavigation from '../navigation/DesktopNavigation';
-import MobileNavigation from '../navigation/MobileNavigation';
-import { academicLinks, admissionLinks, campusLifeLinks } from '@/data/navigationLinks';
+import HierarchicalNavigation from '../navigation/HierarchicalNavigation';
+import MobileHierarchicalNavigation from '../navigation/MobileHierarchicalNavigation';
 import { Helmet } from 'react-helmet-async';
 
 const Navbar = () => {
@@ -68,26 +67,26 @@ const Navbar = () => {
               "@type": "SiteNavigationElement",
               "name": [
                 "Home", 
-                "About", 
+                "About Us", 
                 "Academics", 
                 "Admissions", 
-                "Campus Life",
-                "Placements",
-                "Gallery",
+                "Placement",
+                "Student Life",
                 "News & Events",
-                "Blogs",
-                "Contact"
+                "Gallery",
+                "Campus Tour",
+                "Contact Us"
               ],
               "url": [
                 "https://skitm.in/",
                 "https://skitm.in/about",
-                "https://skitm.in/departments",
+                "https://skitm.in/academics",
                 "https://skitm.in/admissions",
+                "https://skitm.in/placement",
                 "https://skitm.in/student-life",
-                "https://skitm.in/placements",
+                "https://skitm.in/news-events",
                 "https://skitm.in/gallery",
-                "https://skitm.in/news",
-                "https://skitm.in/blogs",
+                "https://skitm.in/campus-tour",
                 "https://skitm.in/contact"
               ]
             }
@@ -108,7 +107,7 @@ const Navbar = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center" aria-label="SKITM Home">
               <img 
-                src="/lovable-uploads/b26f37d3-55cb-448a-ad13-c5921427affe.png" 
+                src="/lovable-uploads/1be76fe5-e5d4-4ae1-a6a0-99a3c65c9d60.png" 
                 alt="SKITM Logo"
                 className="h-12 w-auto" 
                 width="48"
@@ -117,11 +116,7 @@ const Navbar = () => {
             </Link>
             
             {/* Desktop Navigation */}
-            <DesktopNavigation 
-              academicLinks={academicLinks}
-              admissionLinks={admissionLinks}
-              campusLifeLinks={campusLifeLinks}
-            />
+            <HierarchicalNavigation />
             
             {/* Mobile Menu Button */}
             <button
@@ -138,12 +133,7 @@ const Navbar = () => {
         
         {/* Mobile Navigation */}
         <div id="mobile-menu">
-          <MobileNavigation 
-            academicLinks={academicLinks}
-            admissionLinks={admissionLinks}
-            campusLifeLinks={campusLifeLinks}
-            isOpen={mobileMenuOpen}
-          />
+          <MobileHierarchicalNavigation isOpen={mobileMenuOpen} />
         </div>
       </header>
     </>

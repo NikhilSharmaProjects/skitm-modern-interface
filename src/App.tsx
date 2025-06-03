@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,37 +10,80 @@ import { useEffect, createContext, useState, useContext } from "react";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import Contact from "./pages/Contact";
 
-// Academic pages
+// About Us pages
+import AboutSKITM from "./pages/about/AboutSKITM";
+import Society from "./pages/about/Society";
+import VisionMission from "./pages/about/VisionMission";
+import Chairman from "./pages/about/Chairman";
+import DirectorsMessage from "./pages/about/DirectorsMessage";
+import BoardGovernors from "./pages/about/BoardGovernors";
+import LeadershipTeam from "./pages/about/LeadershipTeam";
+import BoardAdvisors from "./pages/about/BoardAdvisors";
+import Leadership from "./pages/about/Leadership";
+import Partners from "./pages/about/Partners";
+
+// Academic pages - Engineering
+import Engineering from "./pages/academics/Engineering";
+import CSE from "./pages/academics/engineering/CSE";
+import ECE from "./pages/academics/engineering/ECE";
+import CivilEngineering from "./pages/academics/engineering/CivilEngineering";
+import MechanicalEngineering from "./pages/academics/engineering/MechanicalEngineering";
+import AppliedScience from "./pages/academics/engineering/AppliedScience";
+
+// Academic pages - Management
+import Management from "./pages/academics/Management";
+import MBA from "./pages/academics/management/MBA";
+import IntegratedMBA from "./pages/academics/management/IntegratedMBA";
+import MBAPlus from "./pages/academics/management/MBAPlus";
+
+// Academic pages - Pharmacy
+import Pharmacy from "./pages/academics/Pharmacy";
+import BPharma from "./pages/academics/pharmacy/BPharma";
+import DPharma from "./pages/academics/pharmacy/DPharma";
+
+// Academic pages - Professional Studies
+import ProfessionalStudies from "./pages/academics/ProfessionalStudies";
+import BBA from "./pages/academics/professional/BBA";
+import BComCA from "./pages/academics/professional/BComCA";
+import BComGeneral from "./pages/academics/professional/BComGeneral";
+import BComHonours from "./pages/academics/professional/BComHonours";
+import BComTaxation from "./pages/academics/professional/BComTaxation";
+
+// Academic pages - Law
+import Law from "./pages/academics/Law";
+
+// Other academic pages
+import Academics from "./pages/Academics";
 import Departments from "./pages/Departments";
-import Management from "./pages/Management";
-import Pharmacy from "./pages/Pharmacy";
-import Law from "./pages/Law";
-import ProfessionalStudies from "./pages/ProfessionalStudies";
-import Courses from "./pages/Courses";
 import Faculty from "./pages/Faculty";
 import Research from "./pages/Research";
 import Library from "./pages/Library";
 
 // Admission pages
 import Admissions from "./pages/Admissions";
-import Fees from "./pages/Fees";
+import ApplyToSKITM from "./pages/admissions/ApplyToSKITM";
 import Scholarships from "./pages/Scholarships";
+import DownloadBrochure from "./pages/admissions/DownloadBrochure";
 import Faqs from "./pages/Faqs";
 
-// Campus Life pages
+// Placement pages
+import Placement from "./pages/Placement";
+
+// Student Life pages
 import StudentLife from "./pages/StudentLife";
-import Events from "./pages/Events";
+import Hostel from "./pages/student-life/Hostel";
+import ProjectsWorkshops from "./pages/student-life/ProjectsWorkshops";
+import StudentTestimonials from "./pages/student-life/StudentTestimonials";
+import Campus from "./pages/student-life/Campus";
 import Facilities from "./pages/Facilities";
-import Hostels from "./pages/Hostels";
+import Sports from "./pages/student-life/Sports";
 
 // Other pages
-import Placements from "./pages/Placements";
+import NewsEvents from "./pages/NewsEvents";
 import Gallery from "./pages/Gallery";
-import News from "./pages/News";
-import Contact from "./pages/Contact";
-import Blogs from "./pages/Blogs";
-import BlogDetail from "./pages/BlogDetail";
+import CampusTour from "./pages/CampusTour";
 
 // Admin pages
 import Login from "./pages/Login";
@@ -109,7 +151,6 @@ function ScrollToTop() {
 }
 
 const App = () => {
-  // Create a client inside the component
   const queryClient = new QueryClient();
   
   return (
@@ -125,37 +166,82 @@ const App = () => {
                 {/* Main pages */}
                 <Route path="/" element={<Index />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                
+                {/* About Us pages */}
+                <Route path="/about-skitm" element={<AboutSKITM />} />
+                <Route path="/society" element={<Society />} />
+                <Route path="/vision-mission" element={<VisionMission />} />
+                <Route path="/chairman" element={<Chairman />} />
+                <Route path="/directors-message" element={<DirectorsMessage />} />
+                <Route path="/board-governors" element={<BoardGovernors />} />
+                <Route path="/leadership-team" element={<LeadershipTeam />} />
+                <Route path="/board-advisors" element={<BoardAdvisors />} />
+                <Route path="/leadership" element={<Leadership />} />
+                <Route path="/partners" element={<Partners />} />
                 
                 {/* Academic pages */}
+                <Route path="/academics" element={<Academics />} />
                 <Route path="/departments" element={<Departments />} />
+                
+                {/* Engineering */}
+                <Route path="/engineering" element={<Engineering />} />
+                <Route path="/cse" element={<CSE />} />
+                <Route path="/ece" element={<ECE />} />
+                <Route path="/civil-engineering" element={<CivilEngineering />} />
+                <Route path="/mechanical-engineering" element={<MechanicalEngineering />} />
+                <Route path="/applied-science" element={<AppliedScience />} />
+                
+                {/* Management */}
                 <Route path="/management" element={<Management />} />
+                <Route path="/mba" element={<MBA />} />
+                <Route path="/integrated-mba" element={<IntegratedMBA />} />
+                <Route path="/mba-plus" element={<MBAPlus />} />
+                
+                {/* Pharmacy */}
                 <Route path="/pharmacy" element={<Pharmacy />} />
-                <Route path="/law" element={<Law />} />
+                <Route path="/bpharm" element={<BPharma />} />
+                <Route path="/dpharm" element={<DPharma />} />
+                
+                {/* Professional Studies */}
                 <Route path="/professional-studies" element={<ProfessionalStudies />} />
-                <Route path="/courses" element={<Courses />} />
+                <Route path="/bba" element={<BBA />} />
+                <Route path="/bcom-ca" element={<BComCA />} />
+                <Route path="/bcom-general" element={<BComGeneral />} />
+                <Route path="/bcom-honours" element={<BComHonours />} />
+                <Route path="/bcom-taxation" element={<BComTaxation />} />
+                
+                {/* Law */}
+                <Route path="/law" element={<Law />} />
+                
+                {/* Other academic pages */}
                 <Route path="/faculty" element={<Faculty />} />
                 <Route path="/research" element={<Research />} />
                 <Route path="/library" element={<Library />} />
                 
                 {/* Admission pages */}
                 <Route path="/admissions" element={<Admissions />} />
-                <Route path="/fees" element={<Fees />} />
+                <Route path="/apply-to-skitm" element={<ApplyToSKITM />} />
                 <Route path="/scholarships" element={<Scholarships />} />
+                <Route path="/download-brochure" element={<DownloadBrochure />} />
                 <Route path="/faqs" element={<Faqs />} />
                 
-                {/* Campus Life pages */}
+                {/* Placement pages */}
+                <Route path="/placement" element={<Placement />} />
+                
+                {/* Student Life pages */}
                 <Route path="/student-life" element={<StudentLife />} />
-                <Route path="/events" element={<Events />} />
+                <Route path="/hostel" element={<Hostel />} />
+                <Route path="/projects-workshops" element={<ProjectsWorkshops />} />
+                <Route path="/student-testimonials" element={<StudentTestimonials />} />
+                <Route path="/campus" element={<Campus />} />
                 <Route path="/facilities" element={<Facilities />} />
-                <Route path="/hostels" element={<Hostels />} />
+                <Route path="/sports" element={<Sports />} />
                 
                 {/* Other pages */}
-                <Route path="/placements" element={<Placements />} />
+                <Route path="/news-events" element={<NewsEvents />} />
                 <Route path="/gallery" element={<Gallery />} />
-                <Route path="/news" element={<News />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/blogs" element={<Blogs />} />
-                <Route path="/blogs/:slug" element={<BlogDetail />} />
+                <Route path="/campus-tour" element={<CampusTour />} />
                 
                 {/* Admin pages */}
                 <Route path="/login" element={<Login />} />
