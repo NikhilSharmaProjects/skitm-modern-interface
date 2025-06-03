@@ -71,9 +71,8 @@ const Hostels = () => {
     const hostelBuildings = [
         {
             name: "Boys' Hostel",
-            capacity: "500 students",
+            capacity: "198 students",
             roomTypes: [
-                "Single Occupancy",
                 "Double Occupancy",
                 "Triple Occupancy",
             ],
@@ -84,7 +83,7 @@ const Hostels = () => {
         {
             name: "Girls' Hostel",
             capacity: "350 students",
-            roomTypes: ["Single Occupancy", "Double Occupancy"],
+            roomTypes: ["Double Occupancy"],
             description:
                 "Secure and comfortable accommodation for female students with enhanced facilities",
             image: "https://images.unsplash.com/photo-1573497497889-973a747371fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
