@@ -39,6 +39,7 @@ export const managementLinks = [
 
 export const pharmacyLinks = [
   { name: "B.Pharm", href: "/bpharm" },
+  { name: "M.Pharm", href: "/mpharm" },
   { name: "D.Pharm", href: "/dpharm" },
 ];
 

@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -42,6 +43,7 @@ import MBAPlus from "./pages/academics/management/MBAPlus";
 import Pharmacy from "./pages/academics/Pharmacy";
 import BPharma from "./pages/academics/pharmacy/BPharma";
 import DPharma from "./pages/academics/pharmacy/DPharma";
+import MPharm from "./pages/academics/pharmacy/MPharm";
 
 // Academic pages - Professional Studies
 import ProfessionalStudies from "./pages/academics/ProfessionalStudies";
@@ -201,6 +203,7 @@ const App = () => {
                 {/* Pharmacy */}
                 <Route path="/pharmacy" element={<Pharmacy />} />
                 <Route path="/bpharm" element={<BPharma />} />
+                <Route path="/mpharm" element={<MPharm />} />
                 <Route path="/dpharm" element={<DPharma />} />
                 
                 {/* Professional Studies */}
