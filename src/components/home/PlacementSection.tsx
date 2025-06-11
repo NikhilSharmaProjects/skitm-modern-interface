@@ -1,223 +1,145 @@
-import { useState, useEffect } from "react";
+
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import Button from "@/components/ui/CustomButton";
+import ParallaxSection from "@/components/common/ParallaxSection";
+import { TrendingUp, Users, Award, Building2 } from "lucide-react";
 
 const PlacementSection = () => {
     const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation();
 
-    // Real company logos
-    const companyLogos = [
-        { id: 1, name: "Hotwax Systems", color: "#fff" },
-        { id: 2, name: "Webkorps Services", color: "#fff" },
-        { id: 3, name: "Tech Mahindra", color: "#fff" },
-        { id: 4, name: "Accenture India", color: "#fff" },
-        { id: 5, name: "MPSeDC Ltd.", color: "#fff" },
-        { id: 6, name: "Bajaj Allianz", color: "#fff" },
-        { id: 7, name: "VectEd Technologies", color: "#fff" },
-        { id: 8, name: "Magpie Engineering", color: "#fff" },
+    const stats = [
+        {
+            icon: <TrendingUp className="h-8 w-8 text-white" />,
+            number: "85%+",
+            label: "Placement Rate",
+        },
+        {
+            icon: <Building2 className="h-8 w-8 text-white" />,
+            number: "200+",
+            label: "Partner Companies",
+        },
+        {
+            icon: <Award className="h-8 w-8 text-white" />,
+            number: "₹12 LPA",
+            label: "Highest Package",
+        },
+        {
+            icon: <Users className="h-8 w-8 text-white" />,
+            number: "500+",
+            label: "Students Placed",
+        },
+    ];
+
+    const topRecruiters = [
+        "/logos/companylogo (1).png",
+        "/logos/companylogo (2).png", 
+        "/logos/companylogo (3).png",
+        "/logos/companylogo (4).png",
+        "/logos/companylogo (5).png",
+        "/logos/companylogo (6).png",
+        "/logos/companylogo (7).png",
+        "/logos/companylogo (8).png",
     ];
 
     return (
-        <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
-            <div
-                ref={sectionRef as React.RefObject<HTMLDivElement>}
-                className={`container mx-auto px-4 ${
-                    sectionVisible ? "animate-fade-in" : "opacity-1"
-                }`}
+        <>
+            {/* Parallax Stats Section */}
+            <ParallaxSection 
+                backgroundImage="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                overlayOpacity={0.7}
+                className="min-h-[60vh]"
             >
-                <div className="text-center mb-12">
-                    <div className="inline-block px-4 py-1.5 mb-4 text-sm font-medium bg-skitm-blue/10 rounded-full text-skitm-blue">
-                        Career Opportunities
+                <div className="text-center space-y-12">
+                    <div className="space-y-6">
+                        <h2 className="font-display font-bold text-4xl md:text-5xl leading-tight tracking-wide">
+                            Exceptional Placement Record
+                        </h2>
+                        <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+                            Our students are recruited by leading companies worldwide
+                        </p>
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-display font-bold text-skitm-navy mb-4">
-                        Placements & Recruiters
-                    </h2>
-                    <p className="text-lg text-skitm-gray max-w-2xl mx-auto">
-                        Our dedicated placement cell works tirelessly to secure
-                        excellent career opportunities for our students.
-                    </p>
+                    
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                        {stats.map((stat, index) => (
+                            <div key={index} className="text-center">
+                                <div className="flex justify-center mb-4">
+                                    <div className="p-4 bg-white/20 backdrop-blur-sm rounded-full">
+                                        {stat.icon}
+                                    </div>
+                                </div>
+                                <div className="font-display font-bold text-3xl md:text-4xl mb-2">
+                                    {stat.number}
+                                </div>
+                                <div className="text-base text-blue-200">
+                                    {stat.label}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
+            </ParallaxSection>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div className="glassmorphism rounded-xl p-8">
-                        <h3 className="text-2xl font-display font-semibold text-skitm-navy mb-6">
-                            Placement Highlights
-                        </h3>
-
-                        <div className="grid grid-cols-2 gap-6 mb-8">
-                            <div className="text-center">
-                                <div className="text-4xl font-display font-bold text-skitm-blue mb-2">
-                                    95%
-                                </div>
-                                <p className="text-sm text-skitm-gray">
-                                    Placement Assistance
-                                </p>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-4xl font-display font-bold text-skitm-blue mb-2">
-                                    ₹6.5 LPA
-                                </div>
-                                <p className="text-sm text-skitm-gray">
-                                    Highest Package
-                                </p>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-4xl font-display font-bold text-skitm-blue mb-2">
-                                    ₹3.5-4.5 LPA
-                                </div>
-                                <p className="text-sm text-skitm-gray">
-                                    Average Package
-                                </p>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-4xl font-display font-bold text-skitm-blue mb-2">
-                                    200+
-                                </div>
-                                <p className="text-sm text-skitm-gray">
-                                    Recruiting Companies
-                                </p>
+            {/* Recruiters Section */}
+            <section className="section-container bg-white">
+                <div
+                    ref={sectionRef as React.RefObject<HTMLDivElement>}
+                    className={`${sectionVisible ? "animate-fade-in" : "opacity-1"}`}
+                >
+                    <div className="image-first-block mb-16">
+                        <div className="image-first-content">
+                            <h3 className="section-title">Industry Partnerships</h3>
+                            <p className="text-body-lg text-skitm-gray mb-6">
+                                Strong industry connections ensure our students have access to the best career opportunities. We maintain partnerships with over 200 companies across various sectors.
+                            </p>
+                            <p className="text-body text-skitm-gray mb-8">
+                                Our dedicated Career Resource and Development team works tirelessly to bridge the gap between academia and industry, ensuring our graduates are industry-ready.
+                            </p>
+                            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                                <Link to="/placements">
+                                    <Button variant="primary">
+                                        Placement Details
+                                    </Button>
+                                </Link>
+                                <Link to="/placements/recruiters">
+                                    <Button variant="outline">
+                                        Our Recruiters
+                                    </Button>
+                                </Link>
                             </div>
                         </div>
-
-                        <div className="bg-skitm-navy/5 rounded-lg p-4 mb-6">
-                            <h4 className="text-lg font-semibold text-skitm-navy mb-2">
-                                Placement Preparation
-                            </h4>
-                            <ul className="text-sm text-skitm-gray space-y-2">
-                                <li className="flex items-start">
-                                    <svg
-                                        className="w-5 h-5 text-skitm-blue flex-shrink-0 mr-2"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M5 13l4 4L19 7"
-                                        />
-                                    </svg>
-                                    <span>Resume building workshops</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <svg
-                                        className="w-5 h-5 text-skitm-blue flex-shrink-0 mr-2"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M5 13l4 4L19 7"
-                                        />
-                                    </svg>
-                                    <span>
-                                        Mock interviews with industry experts
-                                    </span>
-                                </li>
-                                <li className="flex items-start">
-                                    <svg
-                                        className="w-5 h-5 text-skitm-blue flex-shrink-0 mr-2"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M5 13l4 4L19 7"
-                                        />
-                                    </svg>
-                                    <span>
-                                        Aptitude and technical test preparation
-                                    </span>
-                                </li>
-                                <li className="flex items-start">
-                                    <svg
-                                        className="w-5 h-5 text-skitm-blue flex-shrink-0 mr-2"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M5 13l4 4L19 7"
-                                        />
-                                    </svg>
-                                    <span>
-                                        Soft skills and communication training
-                                    </span>
-                                </li>
-                            </ul>
+                        <div>
+                            <img 
+                                src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Job Interview"
+                                className="image-first-image"
+                            />
                         </div>
-
-                        <Link to="/placements">
-                            <Button variant="primary" fullWidth>
-                                View Placement Statistics
-                            </Button>
-                        </Link>
                     </div>
 
-                    <div>
-                        <h3 className="text-2xl font-display font-semibold text-skitm-navy mb-6">
+                    {/* Company Logos */}
+                    <div className="text-center">
+                        <h4 className="font-display font-semibold text-2xl text-skitm-navy mb-8 tracking-wide">
                             Our Top Recruiters
-                        </h3>
-
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-                            {companyLogos.map((company) => (
+                        </h4>
+                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 items-center">
+                            {topRecruiters.map((logo, index) => (
                                 <div
-                                    key={company.id}
-                                    className="h-20 glassmorphism rounded-lg flex items-center justify-center"
+                                    key={index}
+                                    className="flex items-center justify-center p-4 glassmorphism rounded-lg hover:shadow-lg transition-all duration-300"
                                 >
                                     <img
-                                        className="max-h-full max-w-full object-contain"
-                                        src={`/logos/companylogo (${company.id}).png`}
-                                    ></img>
+                                        src={logo}
+                                        alt={`Company ${index + 1}`}
+                                        className="max-h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                                    />
                                 </div>
                             ))}
                         </div>
-
-                        <div className="bg-skitm-blue/10 rounded-lg p-6">
-                            <h4 className="text-lg font-semibold text-skitm-navy mb-3">
-                                Student Testimonial
-                            </h4>
-                            <p className="text-skitm-gray text-sm italic mb-4">
-                                "The placement cell at SKITM provided excellent
-                                guidance and preparation that helped me secure a
-                                job at one of the leading tech companies. The
-                                mock interviews and technical training sessions
-                                were particularly helpful."
-                            </p>
-                            <div className="flex items-center">
-                                <div className="w-10 h-10 rounded-full bg-skitm-blue/20 flex items-center justify-center text-skitm-blue font-bold mr-3">
-                                    HS
-                                </div>
-                                <div>
-                                    <div className="text-sm font-semibold text-skitm-navy">
-                                        Harshita Shinde
-                                    </div>
-                                    <div className="text-xs text-skitm-gray">
-                                        CSE Batch of 2025, Software Engineer at
-                                        Hotwax Systems
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 };
 

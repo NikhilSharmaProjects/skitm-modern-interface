@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import HeroSection from '@/components/home/HeroSection';
+import HeroSlideshow from '@/components/home/HeroSlideshow';
 import FeaturedCourses from '@/components/home/FeaturedCourses';
 import AboutSection from '@/components/home/AboutSection';
 import NewsEventsSection from '@/components/home/NewsEventsSection';
@@ -20,8 +20,8 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <main className="flex-grow pt-16">
-        <HeroSection />
+      <main className="flex-grow">
+        <HeroSlideshow />
         <AboutSection />
         <FeaturedCourses />
         <NewsEventsSection />

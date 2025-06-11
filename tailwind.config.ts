@@ -20,8 +20,17 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["SF Pro Text", "system-ui", "sans-serif"],
-        display: ["SF Pro Display", "system-ui", "sans-serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
+        display: ["Playfair Display", "Georgia", "serif"],
+        body: ["Inter", "system-ui", "sans-serif"],
+      },
+      fontSize: {
+        'body': ['17px', { lineHeight: '1.6', letterSpacing: '0.01em' }],
+        'body-lg': ['18px', { lineHeight: '1.6', letterSpacing: '0.01em' }],
+        'heading-sm': ['24px', { lineHeight: '1.3', letterSpacing: '0.02em' }],
+        'heading-md': ['32px', { lineHeight: '1.25', letterSpacing: '0.02em' }],
+        'heading-lg': ['48px', { lineHeight: '1.2', letterSpacing: '0.02em' }],
+        'heading-xl': ['64px', { lineHeight: '1.1', letterSpacing: '0.03em' }],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -118,6 +127,10 @@ export default {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.5" },
         },
+        "parallax": {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-50px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -129,6 +142,7 @@ export default {
         "slide-out": "slide-out 0.3s ease-out forwards",
         "float": "float 6s ease-in-out infinite",
         "pulse": "pulse 3s ease-in-out infinite",
+        "parallax": "parallax 10s ease-in-out infinite alternate",
       },
       backdropBlur: {
         xs: '2px',
