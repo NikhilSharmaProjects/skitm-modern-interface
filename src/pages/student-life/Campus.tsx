@@ -1,296 +1,116 @@
 
-import PageTemplate from '@/components/layout/PageTemplate';
-import { MapPin, Trees, Building, Users, Car, Wifi, Camera, Clock } from 'lucide-react';
+import ParallaxSection from '@/components/common/ParallaxSection';
+import { MapPin, TreePine, Building2, Heart } from 'lucide-react';
 
 const Campus = () => {
-  const campusFeatures = [
-    {
-      icon: <Building className="h-8 w-8 text-skitm-blue" />,
-      title: "Modern Infrastructure",
-      description: "State-of-the-art academic buildings with smart classrooms, well-equipped laboratories, and contemporary facilities designed for optimal learning experience."
-    },
-    {
-      icon: <Trees className="h-8 w-8 text-skitm-blue" />,
-      title: "Green Campus",
-      description: "Sprawling 50-acre campus with lush green gardens, tree-lined pathways, and eco-friendly environment that promotes sustainability and well-being."
-    },
-    {
-      icon: <Users className="h-8 w-8 text-skitm-blue" />,
-      title: "Vibrant Community",
-      description: "Diverse student community from across India fostering cultural exchange, collaborative learning, and lifelong friendships in a inclusive environment."
-    },
-    {
-      icon: <Wifi className="h-8 w-8 text-skitm-blue" />,
-      title: "Digital Campus",
-      description: "High-speed Wi-Fi connectivity throughout campus, digital library access, smart card systems, and modern IT infrastructure supporting digital learning."
-    }
+  const campusStats = [
+    { icon: <MapPin className="h-8 w-8 text-white" />, number: "100+", label: "Acres Campus" },
+    { icon: <Building2 className="h-8 w-8 text-white" />, number: "15+", label: "Academic Buildings" },
+    { icon: <TreePine className="h-8 w-8 text-white" />, number: "70%", label: "Green Coverage" },
+    { icon: <Heart className="h-8 w-8 text-white" />, number: "5000+", label: "Happy Students" },
   ];
 
-  const facilities = [
+  const campusAreas = [
     {
-      category: "Academic Facilities",
-      items: [
-        {
-          name: "Smart Classrooms",
-          description: "65+ air-conditioned classrooms with digital projectors and audio-visual systems",
-          icon: <Building className="h-5 w-5 text-skitm-blue" />
-        },
-        {
-          name: "Research Laboratories",
-          description: "Specialized labs for AI, ML, Robotics, and advanced engineering research",
-          icon: <Building className="h-5 w-5 text-skitm-blue" />
-        },
-        {
-          name: "Central Library",
-          description: "26,673 volumes, digital resources, and quiet study spaces",
-          icon: <Building className="h-5 w-5 text-skitm-blue" />
-        },
-        {
-          name: "Seminar Halls",
-          description: "Multiple conference halls for academic events and guest lectures",
-          icon: <Building className="h-5 w-5 text-skitm-blue" />
-        }
-      ]
+      title: "Academic Complex",
+      description: "Modern classrooms, laboratories, and lecture halls equipped with latest technology for enhanced learning experience",
+      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
-      category: "Recreation & Sports",
-      items: [
-        {
-          name: "Sports Complex",
-          description: "Cricket ground, basketball court, volleyball court, and badminton facilities",
-          icon: <Users className="h-5 w-5 text-skitm-blue" />
-        },
-        {
-          name: "Gymnasium",
-          description: "Modern fitness equipment and dedicated space for physical training",
-          icon: <Users className="h-5 w-5 text-skitm-blue" />
-        },
-        {
-          name: "Indoor Games",
-          description: "Table tennis, chess, carrom, and other recreational activities",
-          icon: <Users className="h-5 w-5 text-skitm-blue" />
-        },
-        {
-          name: "Cultural Center",
-          description: "Auditorium and performance spaces for cultural events and festivals",
-          icon: <Users className="h-5 w-5 text-skitm-blue" />
-        }
-      ]
+      title: "Green Spaces",
+      description: "Beautiful landscaped gardens, open spaces, and recreational areas that provide a serene environment for study and relaxation",
+      image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
-      category: "Student Amenities",
-      items: [
-        {
-          name: "Cafeteria & Food Courts",
-          description: "Multiple dining options with hygienic and nutritious meal varieties",
-          icon: <Building className="h-5 w-5 text-skitm-blue" />
-        },
-        {
-          name: "Medical Center",
-          description: "On-campus health facility with qualified medical staff and emergency care",
-          icon: <Building className="h-5 w-5 text-skitm-blue" />
-        },
-        {
-          name: "Banking & ATM",
-          description: "On-campus banking services and ATM facilities for student convenience",
-          icon: <Building className="h-5 w-5 text-skitm-blue" />
-        },
-        {
-          name: "Transportation",
-          description: "Bus services connecting campus to major locations in Indore",
-          icon: <Car className="h-5 w-5 text-skitm-blue" />
-        }
-      ]
-    }
-  ];
-
-  const campusLife = [
-    {
-      title: "Annual Cultural Festival",
-      description: "Three-day cultural extravaganza featuring competitions, performances, and celebrations showcasing student talents.",
-      image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-    },
-    {
-      title: "Technical Symposium",
-      description: "Technical competitions, workshops, and seminars bringing together students and industry experts.",
-      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-    },
-    {
-      title: "Sports Championships",
-      description: "Inter-department and inter-college sports competitions promoting healthy competition and team spirit.",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-    },
-    {
-      title: "Industry Interactions",
-      description: "Regular guest lectures, industry visits, and corporate interactions enhancing practical knowledge.",
-      image: "https://images.unsplash.com/photo-1559223607-b4d0555ae227?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+      title: "Student Hub",
+      description: "Central area with cafeterias, student lounges, and recreational facilities where students gather and socialize",
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     }
   ];
 
   return (
-    <PageTemplate
-      title="Campus Life"
-      subtitle="Experience vibrant campus life at SKITM with modern facilities, green environment, and endless opportunities for growth."
-      breadcrumb="Student Life"
-    >
-      {/* Campus Overview */}
-      <div className="glassmorphism rounded-xl p-8 mb-16">
-        <div className="flex items-center mb-6">
-          <MapPin className="h-8 w-8 text-skitm-blue mr-3" />
-          <h2 className="text-2xl font-display font-bold text-skitm-navy">
-            Campus Overview
-          </h2>
-        </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-          <div>
-            <p className="text-skitm-gray mb-6 leading-relaxed">
-              SKITM's sprawling 50-acre campus is strategically located near Ralamandal Wildlife Sanctuary, providing a serene and pollution-free environment ideal for academic pursuits. The campus combines modern infrastructure with natural beauty, creating an inspiring atmosphere for learning and personal development.
-            </p>
-            
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="font-medium text-skitm-navy">Campus Area:</span>
-                <span className="text-skitm-gray">50 Acres</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="font-medium text-skitm-navy">Location:</span>
-                <span className="text-skitm-gray">Near Ralamandal Sanctuary, Indore</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="font-medium text-skitm-navy">Student Capacity:</span>
-                <span className="text-skitm-gray">3000+ Students</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="font-medium text-skitm-navy">Academic Buildings:</span>
-                <span className="text-skitm-gray">8 Major Blocks</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="font-medium text-skitm-navy">Hostel Capacity:</span>
-                <span className="text-skitm-gray">548 Students</span>
-              </div>
-            </div>
+    <div className="min-h-screen flex flex-col">
+      {/* Parallax Hero Section */}
+      <ParallaxSection 
+        backgroundImage="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+        overlayOpacity={0.5}
+        className="min-h-[70vh] pt-24"
+      >
+        <div className="text-center space-y-8">
+          <div className="inline-block px-6 py-2 mb-6 text-sm font-medium bg-white/20 backdrop-blur-sm rounded-full text-white">
+            Beautiful Campus
           </div>
-          
-          <div className="relative">
-            <img 
-              src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-              alt="SKITM Campus Aerial View"
-              className="w-full h-80 object-cover rounded-lg"
-            />
-            <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1 rounded">
-              Aerial View of SKITM Campus
-            </div>
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {campusFeatures.map((feature, index) => (
-            <div key={index} className="text-center">
-              <div className="flex justify-center mb-4">
-                <div className="p-4 bg-skitm-blue/10 rounded-full">
-                  {feature.icon}
-                </div>
-              </div>
-              <h3 className="font-bold text-skitm-navy mb-2">{feature.title}</h3>
-              <p className="text-sm text-skitm-gray">{feature.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Campus Facilities */}
-      <div className="glassmorphism rounded-xl p-8 mb-16">
-        <h2 className="text-2xl font-display font-bold text-skitm-navy text-center mb-8">
-          Campus Facilities
-        </h2>
-        
-        {facilities.map((category, index) => (
-          <div key={index} className="mb-8">
-            <h3 className="text-xl font-display font-bold text-skitm-navy mb-6">
-              {category.category}
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {category.items.map((item, idx) => (
-                <div key={idx} className="flex items-start space-x-4 p-4 border border-skitm-blue/20 rounded-lg">
-                  <div className="p-2 bg-skitm-blue/10 rounded-full">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-skitm-navy mb-1">{item.name}</h4>
-                    <p className="text-sm text-skitm-gray">{item.description}</p>
+          <h1 className="font-display font-bold text-5xl md:text-6xl leading-tight tracking-wide">
+            Campus Life
+          </h1>
+          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+            Experience vibrant campus life in our beautiful, modern, and sustainable environment
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto pt-8">
+            {campusStats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="flex justify-center mb-3">
+                  <div className="p-3 bg-white/20 backdrop-blur-sm rounded-full">
+                    {stat.icon}
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Campus Life Events */}
-      <div className="glassmorphism rounded-xl p-8 mb-16">
-        <div className="flex items-center mb-8">
-          <Camera className="h-8 w-8 text-skitm-blue mr-3" />
-          <h2 className="text-2xl font-display font-bold text-skitm-navy">
-            Campus Life Highlights
-          </h2>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {campusLife.map((event, index) => (
-            <div key={index} className="border border-skitm-blue/20 rounded-xl overflow-hidden">
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={event.image}
-                  alt={event.title}
-                  className="w-full h-full object-cover"
-                />
+                <div className="font-display font-bold text-2xl md:text-3xl mb-1">
+                  {stat.number}
+                </div>
+                <div className="text-sm md:text-base text-blue-200">
+                  {stat.label}
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="font-bold text-skitm-navy mb-3">{event.title}</h3>
-                <p className="text-skitm-gray">{event.description}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </ParallaxSection>
 
-      {/* Sustainability Initiatives */}
-      <div className="glassmorphism rounded-xl p-8">
-        <div className="flex items-center mb-6">
-          <Trees className="h-8 w-8 text-skitm-blue mr-3" />
-          <h2 className="text-2xl font-display font-bold text-skitm-navy">
-            Green & Sustainable Campus
-          </h2>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="text-center p-6">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Trees className="h-8 w-8 text-green-600" />
-            </div>
-            <h3 className="font-bold text-skitm-navy mb-2">Green Initiatives</h3>
-            <p className="text-sm text-skitm-gray">Extensive plantation drives, rainwater harvesting, and waste management systems promoting environmental consciousness.</p>
+      <main className="flex-grow">
+        {/* Campus Areas Section */}
+        <section className="section-container bg-white">
+          <h2 className="section-title text-center">Campus Areas</h2>
+          <div className="space-y-16">
+            {campusAreas.map((area, index) => (
+              <div key={index} className={`image-first-block ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+                <div className={index % 2 === 1 ? 'order-1 lg:order-2' : 'order-2 lg:order-1'}>
+                  <img 
+                    src={area.image}
+                    alt={area.title}
+                    className="image-first-image"
+                  />
+                </div>
+                <div className={`image-first-content ${index % 2 === 1 ? 'order-2 lg:order-1' : 'order-1 lg:order-2'}`}>
+                  <h3 className="section-title">{area.title}</h3>
+                  <p className="text-body-lg text-skitm-gray">
+                    {area.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
-          
-          <div className="text-center p-6">
-            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Clock className="h-8 w-8 text-blue-600" />
+        </section>
+
+        {/* Sustainability Parallax */}
+        <ParallaxSection 
+          backgroundImage="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+          overlayOpacity={0.7}
+          className="min-h-[50vh]"
+        >
+          <div className="text-center space-y-8">
+            <h2 className="font-display font-bold text-4xl md:text-5xl leading-tight tracking-wide">
+              Sustainable Campus
+            </h2>
+            <div className="flex flex-wrap justify-center gap-6">
+              <div className="glassmorphism-dark px-6 py-3 rounded-lg">Solar Energy</div>
+              <div className="glassmorphism-dark px-6 py-3 rounded-lg">Rain Water Harvesting</div>
+              <div className="glassmorphism-dark px-6 py-3 rounded-lg">Waste Management</div>
+              <div className="glassmorphism-dark px-6 py-3 rounded-lg">Green Buildings</div>
             </div>
-            <h3 className="font-bold text-skitm-navy mb-2">Energy Efficiency</h3>
-            <p className="text-sm text-skitm-gray">Solar panel installations, LED lighting, and energy-efficient systems reducing carbon footprint and promoting sustainability.</p>
           </div>
-          
-          <div className="text-center p-6">
-            <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Users className="h-8 w-8 text-purple-600" />
-            </div>
-            <h3 className="font-bold text-skitm-navy mb-2">Community Engagement</h3>
-            <p className="text-sm text-skitm-gray">Student-led environmental clubs and community outreach programs creating awareness about environmental protection.</p>
-          </div>
-        </div>
-      </div>
-    </PageTemplate>
+        </ParallaxSection>
+      </main>
+    </div>
   );
 };
 

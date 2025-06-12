@@ -1,11 +1,10 @@
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
+import ParallaxSection from '@/components/common/ParallaxSection';
 import Button from '@/components/ui/CustomButton';
 import { toast } from "sonner";
-import { Loader2 } from 'lucide-react';
+import { Loader2, Shield } from 'lucide-react';
 import { useAuth } from '@/App';
 
 const Login = () => {
@@ -44,87 +43,91 @@ const Login = () => {
   
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
-      
-      <main className="flex-grow pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-md mx-auto glassmorphism rounded-xl p-8">
-            <div className="text-center mb-8">
-              <h1 className="text-3xl font-display font-bold text-skitm-navy mb-2">Admin Login</h1>
-              <p className="text-skitm-gray">Please enter your credentials to continue</p>
+      {/* Parallax Hero Section */}
+      <ParallaxSection 
+        backgroundImage="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+        overlayOpacity={0.7}
+        className="min-h-[100vh] pt-24"
+      >
+        <div className="max-w-md mx-auto glassmorphism rounded-xl p-8">
+          <div className="text-center mb-8">
+            <div className="flex justify-center mb-4">
+              <div className="p-3 bg-skitm-blue/20 backdrop-blur-sm rounded-full">
+                <Shield className="h-8 w-8 text-white" />
+              </div>
+            </div>
+            <h1 className="text-3xl font-display font-bold text-white mb-2">Admin Login</h1>
+            <p className="text-blue-100">Please enter your credentials to continue</p>
+          </div>
+          
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label htmlFor="username" className="block text-sm font-medium text-white mb-1">
+                Username
+              </label>
+              <input
+                id="username"
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                className="w-full px-4 py-3 rounded-lg bg-white/20 backdrop-blur-sm border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50"
+                placeholder="Enter your username"
+                required
+              />
             </div>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="username" className="block text-sm font-medium text-skitm-navy mb-1">
-                  Username
-                </label>
-                <input
-                  id="username"
-                  type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-skitm-blue/50 focus:border-skitm-blue"
-                  placeholder="Enter your username"
-                  required
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="password" className="block text-sm font-medium text-skitm-navy mb-1">
-                  Password
-                </label>
-                <input
-                  id="password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-skitm-blue/50 focus:border-skitm-blue"
-                  placeholder="Enter your password"
-                  required
-                />
-              </div>
-              
-              <div className="text-right">
-                <a href="#" className="text-sm text-skitm-blue hover:text-skitm-navy transition-colors">
-                  Forgot password?
-                </a>
-              </div>
-              
-              <Button
-                type="submit"
-                variant="primary"
-                size="lg"
-                fullWidth
-                disabled={isLoading}
-              >
-                {isLoading ? (
-                  <>
-                    <Loader2 className="h-4 w-4 animate-spin" />
-                    Signing In...
-                  </>
-                ) : (
-                  "Sign In"
-                )}
-              </Button>
-            </form>
-            
-            <div className="mt-6 text-center">
-              <p className="text-sm text-skitm-gray">
-                Need help? Contact the IT department at <a href="mailto:it@skitm.in" className="text-skitm-blue hover:text-skitm-navy transition-colors">it@skitm.in</a>
-              </p>
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-white mb-1">
+                Password
+              </label>
+              <input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-4 py-3 rounded-lg bg-white/20 backdrop-blur-sm border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50"
+                placeholder="Enter your password"
+                required
+              />
             </div>
             
-            <div className="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-md">
-              <p className="text-sm text-amber-800">
-                <strong>Login Access:</strong> Use username <code>admin</code> and password <code>demo123</code> to login.
-              </p>
+            <div className="text-right">
+              <a href="#" className="text-sm text-blue-100 hover:text-white transition-colors">
+                Forgot password?
+              </a>
             </div>
+            
+            <Button
+              type="submit"
+              variant="primary"
+              size="lg"
+              fullWidth
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  Signing In...
+                </>
+              ) : (
+                "Sign In"
+              )}
+            </Button>
+          </form>
+          
+          <div className="mt-6 text-center">
+            <p className="text-sm text-blue-100">
+              Need help? Contact the IT department at <a href="mailto:it@skitm.in" className="text-white hover:text-blue-200 transition-colors">it@skitm.in</a>
+            </p>
+          </div>
+          
+          <div className="mt-4 p-3 bg-amber-500/20 border border-amber-400/30 rounded-md backdrop-blur-sm">
+            <p className="text-sm text-amber-100">
+              <strong>Login Access:</strong> Use username <code className="bg-white/20 px-1 rounded">admin</code> and password <code className="bg-white/20 px-1 rounded">demo123</code> to login.
+            </p>
           </div>
         </div>
-      </main>
-      
-      <Footer />
+      </ParallaxSection>
     </div>
   );
 };
