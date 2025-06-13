@@ -1,4 +1,6 @@
 
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import { Code, Lightbulb, Users, Award } from 'lucide-react';
 
@@ -30,11 +32,13 @@ const ProjectsWorkshops = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Navbar />
+
       {/* Parallax Hero Section */}
       <ParallaxSection 
         backgroundImage="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
         overlayOpacity={0.6}
-        className="min-h-[70vh] pt-24"
+        className="min-h-[70vh]"
       >
         <div className="text-center space-y-8">
           <div className="inline-block px-6 py-2 mb-6 text-sm font-medium bg-white/20 backdrop-blur-sm rounded-full text-white">
@@ -110,6 +114,8 @@ const ProjectsWorkshops = () => {
           </div>
         </ParallaxSection>
       </main>
+
+      <Footer />
     </div>
   );
 };

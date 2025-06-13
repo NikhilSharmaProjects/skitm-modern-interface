@@ -1,266 +1,123 @@
 
-import { useState, useEffect } from "react";
-import { useScrollAnimationDiv } from "@/hooks/useScrollAnimationDiv";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import { Helmet } from "react-helmet-async";
-import { X } from "lucide-react";
-import { GalleryItem, galleryService } from "@/services/dataService";
-import { toast } from "sonner";
-
-// Default gallery items if none in localStorage
-const defaultGalleryItems: GalleryItem[] = [
-    {
-        id: "1",
-        title: "Campus Building",
-        imageUrl: "Gallery/GalleryImage (1).png",
-        category: "Campus",
-        date: "2023-01-15",
-    },
-    {
-        id: "2",
-        title: "Graduation Ceremony",
-        imageUrl: "Gallery/GalleryImage (2).png",
-        category: "Events",
-        date: "2023-06-22",
-    },
-    {
-        id: "3",
-        title: "Technical Workshop",
-        imageUrl: "Gallery/GalleryImage (3).png",
-        category: "Workshops",
-        date: "2023-03-10",
-    },
-    {
-        id: "4",
-        title: "Sports Event",
-        imageUrl: "Gallery/GalleryImage (4).png",
-        category: "Sports",
-        date: "2023-02-05",
-    },
-    {
-        id: "5",
-        title: "Cultural Festival",
-        imageUrl: "Gallery/GalleryImage (5).png",
-        category: "Cultural",
-        date: "2023-04-18",
-    },
-    {
-        id: "6",
-        title: "Research Exhibition",
-        imageUrl: "Gallery/GalleryImage (5).png",
-        category: "Research",
-        date: "2023-05-30",
-    },
-];
-
-// Gallery categories
-const categories = [
-    "All",
-    "Campus",
-    "Events",
-    "Workshops",
-    "Sports",
-    "Cultural",
-    "Research",
-];
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
+import ParallaxSection from '@/components/common/ParallaxSection';
+import { Camera, Image, Video, Award } from 'lucide-react';
 
 const Gallery = () => {
-    const { ref, isVisible } = useScrollAnimationDiv();
-    const [activeCategory, setActiveCategory] = useState("All");
-    const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
-    const [error, setError] = useState<string | null>(null);
+  const galleryStats = [
+    { icon: <Camera className="h-8 w-8 text-white" />, number: "1000+", label: "Photos" },
+    { icon: <Video className="h-8 w-8 text-white" />, number: "50+", label: "Videos" },
+    { icon: <Image className="h-8 w-8 text-white" />, number: "20+", label: "Events" },
+    { icon: <Award className="h-8 w-8 text-white" />, number: "5+", label: "Years Documented" },
+  ];
 
-    useEffect(() => {
-        async function loadGallery() {
-            setLoading(true);
-            setError(null);
-            try {
-                const items = await galleryService.getAll();
-                setGalleryItems(items);
-            } catch (error) {
-                console.error("Failed to load gallery items:", error);
-                toast.error("Failed to load gallery. Using cached data if available.");
-            } finally {
-                setLoading(false);
-            }
-        }
+  const galleryCategories = [
+    {
+      title: "Campus Life",
+      description: "Daily life, activities, and vibrant moments captured across our beautiful campus",
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "Academic Events",
+      description: "Conferences, seminars, workshops, and academic celebrations throughout the year",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "Sports & Recreation",
+      description: "Athletic achievements, sports events, and recreational activities of our students",
+      image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    }
+  ];
 
-        loadGallery();
-    }, []);
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
 
-    const filteredItems =
-        activeCategory === "All"
-            ? galleryItems
-            : galleryItems.filter((item) => item.category === activeCategory);
-
-    const openLightbox = (item: GalleryItem) => {
-        setSelectedItem(item);
-        document.body.style.overflow = "hidden";
-    };
-
-    const closeLightbox = () => {
-        setSelectedItem(null);
-        document.body.style.overflow = "auto";
-    };
-
-    // Format date
-    const formatDate = (dateString: string) => {
-        const options: Intl.DateTimeFormatOptions = {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-        };
-        return new Date(dateString).toLocaleDateString("en-US", options);
-    };
-
-    return (
-        <div className="min-h-screen flex flex-col">
-            <Helmet>
-                <title>Gallery - SKITM</title>
-                <meta
-                    name="description"
-                    content="Browse through images of SKITM campus, events, workshops, and student activities. See what life at SKITM is all about."
-                />
-                <meta property="og:title" content="Gallery - SKITM" />
-                <meta
-                    property="og:description"
-                    content="Browse through images of SKITM campus, events, workshops, and student activities."
-                />
-                <meta property="og:type" content="website" />
-                <link rel="canonical" href="https://skitm.edu/gallery" />
-            </Helmet>
-
-            <Navbar />
-
-            <main className="flex-grow pt-24 pb-16">
-                <div className="container mx-auto px-4">
-                    <div
-                        ref={ref as React.RefObject<HTMLDivElement>}
-                        className={`text-center mb-12 ${
-                            isVisible ? "animate-fade-in" : "opacity-1"
-                        }`}
-                    >
-                        <div className="inline-block px-4 py-1.5 mb-4 text-sm font-medium bg-skitm-blue/10 rounded-full text-skitm-blue">
-                            Visual Tour
-                        </div>
-                        <h1 className="text-4xl md:text-5xl font-display font-bold text-skitm-navy mb-6">
-                            SKITM Gallery
-                        </h1>
-                        <p className="text-lg text-skitm-gray max-w-2xl mx-auto">
-                            Explore images from our campus, events, and student
-                            activities
-                        </p>
-                    </div>
-
-                    {/* Category Filter */}
-                    <div className="flex flex-wrap justify-center gap-2 mb-12">
-                        {categories.map((category) => (
-                            <button
-                                key={category}
-                                onClick={() => setActiveCategory(category)}
-                                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                                    activeCategory === category
-                                        ? "bg-skitm-blue text-white"
-                                        : "bg-gray-100 text-skitm-gray hover:bg-gray-200"
-                                }`}
-                            >
-                                {category}
-                            </button>
-                        ))}
-                    </div>
-
-                    {/* Gallery Grid */}
-                    {loading ? (
-                        <div className="flex justify-center py-12">
-                            <div className="animate-pulse flex flex-col items-center">
-                                <div className="h-10 w-10 rounded-full bg-skitm-blue/30 mb-2"></div>
-                                <p className="text-skitm-gray">Loading gallery...</p>
-                            </div>
-                        </div>
-                    ) : error ? (
-                        <div className="text-center py-16">
-                            <p className="text-skitm-gray">{error}</p>
-                        </div>
-                    ) : filteredItems.length === 0 ? (
-                        <div className="text-center py-16">
-                            <p className="text-skitm-gray">
-                                No images found in this category.
-                            </p>
-                        </div>
-                    ) : (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                            {filteredItems.map((item) => (
-                                <div
-                                    key={item.id}
-                                    className="relative overflow-hidden rounded-lg shadow-md cursor-pointer group"
-                                    onClick={() => openLightbox(item)}
-                                >
-                                    <img
-                                        src={item.imageUrl}
-                                        alt={item.title}
-                                        className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                                        loading="lazy"
-                                        onError={(e) => {
-                                            // Fallback image if the original fails to load
-                                            (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400x300?text=Image+Not+Available';
-                                        }}
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-1 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                                        <h3 className="text-white font-medium mb-1">
-                                            {item.title}
-                                        </h3>
-                                        <p className="text-white/80 text-sm">
-                                            {formatDate(item.date)}
-                                        </p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    )}
+      {/* Parallax Hero Section */}
+      <ParallaxSection 
+        backgroundImage="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+        overlayOpacity={0.6}
+        className="min-h-[70vh]"
+      >
+        <div className="text-center space-y-8">
+          <div className="inline-block px-6 py-2 mb-6 text-sm font-medium bg-white/20 backdrop-blur-sm rounded-full text-white">
+            Visual Journey
+          </div>
+          <h1 className="font-display font-bold text-5xl md:text-6xl leading-tight tracking-wide">
+            Gallery
+          </h1>
+          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+            Capturing memories and moments that define the SKITM experience
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto pt-8">
+            {galleryStats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="flex justify-center mb-3">
+                  <div className="p-3 bg-white/20 backdrop-blur-sm rounded-full">
+                    {stat.icon}
+                  </div>
                 </div>
-            </main>
-
-            {/* Lightbox */}
-            {selectedItem && (
-                <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
-                    <button
-                        onClick={closeLightbox}
-                        className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
-                        aria-label="Close lightbox"
-                    >
-                        <X size={32} />
-                    </button>
-
-                    <div className="max-w-5xl max-h-[90vh] w-full">
-                        <img
-                            src={selectedItem.imageUrl}
-                            alt={selectedItem.title}
-                            className="w-full h-auto max-h-[80vh] object-contain mx-auto"
-                            onError={(e) => {
-                                // Fallback image if the original fails to load
-                                (e.target as HTMLImageElement).src = 'https://via.placeholder.com/800x600?text=Image+Not+Available';
-                            }}
-                        />
-
-                        <div className="text-center mt-4">
-                            <h3 className="text-white text-lg font-medium">
-                                {selectedItem.title}
-                            </h3>
-                            <p className="text-gray-300 text-sm mt-1">
-                                {formatDate(selectedItem.date)} •{" "}
-                                {selectedItem.category}
-                            </p>
-                        </div>
-                    </div>
+                <div className="font-display font-bold text-2xl md:text-3xl mb-1">
+                  {stat.number}
                 </div>
-            )}
-
-            <Footer />
+                <div className="text-sm md:text-base text-blue-200">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-    );
+      </ParallaxSection>
+
+      <main className="flex-grow">
+        {/* Gallery Categories Section */}
+        <section className="section-container bg-white">
+          <h2 className="section-title text-center">Our Memories</h2>
+          <div className="space-y-16">
+            {galleryCategories.map((category, index) => (
+              <div key={index} className={`image-first-block ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+                <div className={index % 2 === 1 ? 'order-1 lg:order-2' : 'order-2 lg:order-1'}>
+                  <img 
+                    src={category.image}
+                    alt={category.title}
+                    className="image-first-image"
+                  />
+                </div>
+                <div className={`image-first-content ${index % 2 === 1 ? 'order-2 lg:order-1' : 'order-1 lg:order-2'}`}>
+                  <h3 className="section-title">{category.title}</h3>
+                  <p className="text-body-lg text-skitm-gray">
+                    {category.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Moments & Achievements Parallax */}
+        <ParallaxSection 
+          backgroundImage="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+          overlayOpacity={0.7}
+          className="min-h-[50vh]"
+        >
+          <div className="text-center space-y-8">
+            <h2 className="font-display font-bold text-4xl md:text-5xl leading-tight tracking-wide">
+              Moments & Achievements
+            </h2>
+            <div className="flex flex-wrap justify-center gap-6">
+              <div className="glassmorphism-dark px-6 py-3 rounded-lg">Graduation Ceremonies</div>
+              <div className="glassmorphism-dark px-6 py-3 rounded-lg">Cultural Festivals</div>
+              <div className="glassmorphism-dark px-6 py-3 rounded-lg">Research Presentations</div>
+              <div className="glassmorphism-dark px-6 py-3 rounded-lg">Industry Visits</div>
+            </div>
+          </div>
+        </ParallaxSection>
+      </main>
+
+      <Footer />
+    </div>
+  );
 };
 
 export default Gallery;

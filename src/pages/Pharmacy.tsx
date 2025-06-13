@@ -1,5 +1,6 @@
 
-import PageTemplate from '@/components/layout/PageTemplate';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import Button from '@/components/ui/CustomButton';
 import { useScrollAnimationDiv } from '@/hooks/useScrollAnimationDiv';
@@ -42,11 +43,13 @@ const Pharmacy = () => {
   
   return (
     <div className="min-h-screen flex flex-col">
+      <Navbar />
+
       {/* Parallax Hero Section */}
       <ParallaxSection 
         backgroundImage="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
         overlayOpacity={0.6}
-        className="min-h-[70vh] pt-24"
+        className="min-h-[70vh]"
       >
         <div className="text-center space-y-8">
           <div className="inline-block px-6 py-2 mb-6 text-sm font-medium bg-white/20 backdrop-blur-sm rounded-full text-white">
@@ -167,6 +170,8 @@ const Pharmacy = () => {
           </div>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 };

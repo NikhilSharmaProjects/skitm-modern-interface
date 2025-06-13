@@ -1,6 +1,8 @@
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import Button from '@/components/ui/CustomButton';
 import { toast } from "sonner";
@@ -43,11 +45,13 @@ const Login = () => {
   
   return (
     <div className="min-h-screen flex flex-col">
+      <Navbar />
+
       {/* Parallax Hero Section */}
       <ParallaxSection 
         backgroundImage="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
         overlayOpacity={0.7}
-        className="min-h-[100vh] pt-24"
+        className="min-h-[100vh]"
       >
         <div className="max-w-md mx-auto glassmorphism rounded-xl p-8">
           <div className="text-center mb-8">
@@ -128,6 +132,8 @@ const Login = () => {
           </div>
         </div>
       </ParallaxSection>
+
+      <Footer />
     </div>
   );
 };
