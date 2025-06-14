@@ -1,8 +1,19 @@
-
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import { Camera, Image, Video, Award } from 'lucide-react';
+
+// Utility: random gallery images list
+const GALLERY_IMAGE_COUNT = 21; // Update this if images are added or removed
+const getGalleryImageFilenames = () =>
+  Array.from({ length: GALLERY_IMAGE_COUNT }, (_, i) => `Gallery/GalleryImage (${i + 1}).png`);
+
+// Utility: pick an image, optionally shuffle for each category
+function pickRandomGalleryImage() {
+  const imgs = getGalleryImageFilenames();
+  const idx = Math.floor(Math.random() * imgs.length);
+  return imgs[idx];
+}
 
 const Gallery = () => {
   const galleryStats = [
@@ -12,21 +23,22 @@ const Gallery = () => {
     { icon: <Award className="h-8 w-8 text-white" />, number: "5+", label: "Years Documented" },
   ];
 
+  // Assign a random image to each category
   const galleryCategories = [
     {
       title: "Campus Life",
       description: "Daily life, activities, and vibrant moments captured across our beautiful campus",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: pickRandomGalleryImage(),
     },
     {
       title: "Academic Events",
       description: "Conferences, seminars, workshops, and academic celebrations throughout the year",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: pickRandomGalleryImage(),
     },
     {
       title: "Sports & Recreation",
       description: "Athletic achievements, sports events, and recreational activities of our students",
-      image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: pickRandomGalleryImage(),
     }
   ];
 
@@ -36,7 +48,7 @@ const Gallery = () => {
 
       {/* Parallax Hero Section */}
       <ParallaxSection 
-        backgroundImage="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+        backgroundImage={pickRandomGalleryImage()}
         overlayOpacity={0.6}
         className="min-h-[70vh]"
       >
@@ -97,7 +109,7 @@ const Gallery = () => {
 
         {/* Moments & Achievements Parallax */}
         <ParallaxSection 
-          backgroundImage="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+          backgroundImage={pickRandomGalleryImage()}
           overlayOpacity={0.7}
           className="min-h-[50vh]"
         >
