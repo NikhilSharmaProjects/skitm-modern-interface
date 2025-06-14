@@ -7,25 +7,29 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   // Try to use stored CMS content, fallback to original
-  const [content, setContent] = useState<any>(null);
+  const [cms, setCms] = useState<any>(null);
 
   useEffect(() => {
-    const cms = localStorage.getItem("cms-homepage");
-    setContent(cms ? JSON.parse(cms) : null);
+    const stored = localStorage.getItem("cms-pages");
+    setCms(stored ? JSON.parse(stored).home : null);
   }, []);
+
+  // Helper: get first matching section
+  const getSection = (idx: number, fallback: string) =>
+    cms?.sections?.[idx]?.content || fallback;
 
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <section className="min-h-[70vh] bg-gradient-to-b from-skitm-blue to-skitm-navy flex flex-col justify-center items-center text-center px-4">
         <h1 className="text-5xl font-display font-bold text-white mb-6">
-          {content?.heroTitle || "Welcome to SKITM"}
+          {getSection(0, "Welcome to SKITM")}
         </h1>
         <p className="text-xl text-blue-100 mb-8">
-          {content?.heroSubtitle || "Empowering Minds, Shaping Futures."}
+          {getSection(1, "Empowering Minds, Shaping Futures.")}
         </p>
         <div className="flex flex-wrap justify-center gap-8">
-          {(content?.stats || [
+          {(cms?.stats || [
             { label: "Students", value: "4000+" },
             { label: "Courses", value: "25+" },
             { label: "Faculty", value: "150+" },

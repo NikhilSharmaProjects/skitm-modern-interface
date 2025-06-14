@@ -1,115 +1,191 @@
 
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
-import { useNavigate } from "react-router-dom";
 import Button from "@/components/ui/CustomButton";
 
-type HomePageContent = {
-  heroTitle: string;
-  heroSubtitle: string;
-  stats: { label: string; value: string }[];
+type PageId = "home" | "about" | "admissions" | "placement" | "contact";
+
+interface EditableSection {
+  label: string;
+  content: string;
+}
+
+type CMSPages = {
+  [key in PageId]: {
+    sections: EditableSection[];
+  };
 };
 
-const defaultHomePageContent: HomePageContent = {
-  heroTitle: "Welcome to SKITM",
-  heroSubtitle: "Empowering Minds, Shaping Futures.",
-  stats: [
-    { label: "Students", value: "4000+" },
-    { label: "Courses", value: "25+" },
-    { label: "Faculty", value: "150+" },
-    { label: "Years", value: "10+" },
-  ],
+const pageNames: Record<PageId, string> = {
+  home: "Home",
+  about: "About SKITM",
+  admissions: "Admissions",
+  placement: "Placement",
+  contact: "Contact Us",
+};
+
+// Default CMS content structure
+const defaultCMSPages: CMSPages = {
+  home: {
+    sections: [
+      { label: "Hero Title", content: "Welcome to SKITM" },
+      { label: "Hero Subtitle", content: "Empowering Minds, Shaping Futures." },
+    ],
+  },
+  about: {
+    sections: [
+      { label: "About Title", content: "About SKITM" },
+      { label: "Body", content: "To be a leading institution in technical education and research, fostering innovation and entrepreneurship for the betterment of society." },
+    ],
+  },
+  admissions: {
+    sections: [
+      { label: "Admissions Title", content: "Admissions at SKITM" },
+      { label: "Body", content: "Find out how to apply and start your journey at SKITM." },
+    ],
+  },
+  placement: {
+    sections: [
+      { label: "Placement Title", content: "Placement" },
+      { label: "Body", content: "Our placement cell connects students with top employers." },
+    ],
+  },
+  contact: {
+    sections: [
+      { label: "Contact Title", content: "Contact Us" },
+      { label: "Body", content: "Reach out to us for any queries or help." },
+    ],
+  },
 };
 
 export default function AdminCMS() {
-  const [page, setPage] = useState<"dashboard" | "homepage">("dashboard");
-  const [home, setHome] = useState<HomePageContent>(defaultHomePageContent);
+  const [cmsPages, setCmsPages] = useState<CMSPages>(defaultCMSPages);
+  const [selectedPage, setSelectedPage] = useState<PageId>("home");
+  const [editingSections, setEditingSections] = useState<EditableSection[]>([]);
   const [saving, setSaving] = useState(false);
 
-  // Load from localStorage
+  // Load CMS data from localStorage
   useEffect(() => {
-    const saved = localStorage.getItem("cms-homepage");
-    if (saved) {
-      setHome(JSON.parse(saved));
+    const stored = localStorage.getItem("cms-pages");
+    if (stored) {
+      setCmsPages(JSON.parse(stored));
+      setEditingSections(JSON.parse(stored)[selectedPage]?.sections || []);
+    } else {
+      setEditingSections(defaultCMSPages[selectedPage].sections);
     }
   }, []);
 
-  // Handlers
-  const handleStatChange = (i: number, field: "label" | "value", val: string) => {
-    setHome((cur) => {
-      const stats = [...cur.stats];
-      stats[i] = { ...stats[i], [field]: val };
-      return { ...cur, stats };
+  // Whenever we change the page being edited, sync local edits
+  useEffect(() => {
+    setEditingSections(cmsPages[selectedPage]?.sections || defaultCMSPages[selectedPage].sections);
+  }, [selectedPage, cmsPages]);
+
+  // Handle section edit
+  const handleChange = (i: number, value: string) => {
+    setEditingSections((cur) => {
+      const next = [...cur];
+      next[i] = { ...next[i], content: value };
+      return next;
     });
   };
 
-  const saveHome = () => {
+  // Save content for the selected page
+  const handleSave = () => {
     setSaving(true);
-    localStorage.setItem("cms-homepage", JSON.stringify(home));
+    const nextPages = { ...cmsPages, [selectedPage]: { sections: editingSections } };
+    setCmsPages(nextPages);
+    localStorage.setItem("cms-pages", JSON.stringify(nextPages));
     setTimeout(() => {
       setSaving(false);
-      toast.success("Content saved!");
+      toast.success(`${pageNames[selectedPage]} content saved!`);
     }, 700);
   };
 
-  return (
-    <div className="container mx-auto p-8 min-h-screen">
-      {page === "dashboard" && (
-        <div>
-          <h1 className="text-2xl font-bold mb-6">Admin Content Management</h1>
-          <div className="space-y-4">
-            <Button onClick={() => setPage("homepage")} variant="primary">Edit Homepage Content</Button>
-            {/* Add more sections here (About, Contact, etc.) */}
-          </div>
-        </div>
-      )}
+  // Add new section
+  const handleAddSection = () => {
+    setEditingSections((cur) => [...cur, { label: "New Section", content: "" }]);
+  };
 
-      {page === "homepage" && (
-        <div className="max-w-xl mx-auto bg-white shadow rounded-lg p-6">
-          <h2 className="text-xl font-semibold mb-4">Homepage Editor</h2>
-          <div className="mb-4">
-            <label className="block text-sm mb-1">Hero Title:</label>
-            <input
-              className="w-full px-3 py-2 border rounded"
-              value={home.heroTitle}
-              onChange={e => setHome({ ...home, heroTitle: e.target.value })}
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm mb-1">Hero Subtitle:</label>
-            <input
-              className="w-full px-3 py-2 border rounded"
-              value={home.heroSubtitle}
-              onChange={e => setHome({ ...home, heroSubtitle: e.target.value })}
-            />
-          </div>
-          <div className="mb-6">
-            <label className="block text-sm mb-2">Stats:</label>
-            <div className="space-y-2">
-              {home.stats.map((stat, i) => (
-                <div key={i} className="flex space-x-2">
+  // Delete a section
+  const handleDeleteSection = (i: number) => {
+    setEditingSections((cur) => cur.filter((_, idx) => idx !== i));
+  };
+
+  // Change section label
+  const handleSectionLabelChange = (i: number, label: string) => {
+    setEditingSections((cur) => {
+      const next = [...cur];
+      next[i] = { ...next[i], label };
+      return next;
+    });
+  };
+
+  return (
+    <div className="container mx-auto min-h-screen p-8">
+      <h1 className="text-2xl font-bold mb-6">Admin Content Management System (CMS)</h1>
+      <div className="grid md:grid-cols-5 gap-8">
+        {/* Sidebar: Page List */}
+        <aside className="bg-gray-50 p-4 rounded-lg shadow max-md:mb-6 md:col-span-1">
+          <ul className="space-y-3">
+            {Object.entries(pageNames).map(([pageId, name]) => (
+              <li key={pageId}>
+                <button
+                  className={`block w-full text-left px-3 py-2 rounded transition ${
+                    selectedPage === pageId
+                      ? "bg-blue-100 text-blue-700 font-medium"
+                      : "hover:bg-blue-50"
+                  }`}
+                  onClick={() => setSelectedPage(pageId as PageId)}
+                >
+                  {name}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </aside>
+        {/* Main Editor */}
+        <div className="md:col-span-4 bg-white shadow rounded-lg p-6">
+          <h2 className="text-xl font-semibold mb-4">
+            Editing <span className="text-blue-800">{pageNames[selectedPage]}</span>
+          </h2>
+          <div className="space-y-6">
+            {editingSections.map((section, i) => (
+              <div key={i} className="border-b pb-4 mb-4 last:border-b-0 last:mb-0">
+                <div className="flex items-center space-x-2 mb-1">
                   <input
-                    className="px-2 py-1 border rounded w-40"
-                    value={stat.label}
-                    onChange={e => handleStatChange(i, "label", e.target.value)}
+                    className="px-2 py-1 border rounded font-bold text-base"
+                    value={section.label}
+                    onChange={e => handleSectionLabelChange(i, e.target.value)}
                   />
-                  <input
-                    className="px-2 py-1 border rounded w-24"
-                    value={stat.value}
-                    onChange={e => handleStatChange(i, "value", e.target.value)}
-                  />
+                  <Button
+                    size="sm"
+                    variant="destructive"
+                    onClick={() => handleDeleteSection(i)}
+                    className="!ml-2"
+                  >
+                    Delete
+                  </Button>
                 </div>
-              ))}
-            </div>
+                <textarea
+                  className="w-full px-3 py-2 border rounded"
+                  rows={2}
+                  value={section.content}
+                  onChange={e => handleChange(i, e.target.value)}
+                  placeholder={`Section Content for "${section.label}"`}
+                />
+              </div>
+            ))}
+            <Button onClick={handleAddSection} variant="secondary" type="button">
+              Add Section
+            </Button>
           </div>
-          <div className="flex gap-2">
-            <Button onClick={saveHome} variant="primary" disabled={saving}>
+          <div className="flex gap-2 mt-8">
+            <Button onClick={handleSave} variant="primary" disabled={saving}>
               {saving ? "Saving..." : "Save Changes"}
             </Button>
-            <Button onClick={() => setPage("dashboard")} type="button" variant="outline">Back</Button>
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }
