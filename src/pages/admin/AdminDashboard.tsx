@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/App';
@@ -170,6 +169,18 @@ const AdminDashboard = () => {
                 
                 <button 
                   className={`w-full flex items-center px-3 py-2 text-sm rounded-md ${
+                    activeTab === 'cms'
+                      ? 'bg-skitm-blue/10 text-skitm-blue font-medium'
+                      : 'text-gray-600 hover:bg-gray-100'
+                  }`}
+                  onClick={() => window.open('/admin-cms', '_self')}
+                >
+                  <Settings size={18} className="mr-2 shrink-0" />
+                  <span>Content CMS</span>
+                </button>
+                
+                <button 
+                  className={`w-full flex items-center px-3 py-2 text-sm rounded-md ${
                     activeTab === 'settings' 
                       ? 'bg-skitm-blue/10 text-skitm-blue font-medium' 
                       : 'text-gray-600 hover:bg-gray-100'
@@ -204,6 +215,7 @@ const AdminDashboard = () => {
                 <TabsTrigger value="news">News</TabsTrigger>
                 <TabsTrigger value="events">Events</TabsTrigger>
                 <TabsTrigger value="gallery">Gallery</TabsTrigger>
+                <TabsTrigger value="cms">Content CMS</TabsTrigger>
                 <TabsTrigger value="settings">Settings</TabsTrigger>
               </TabsList>
               
@@ -308,6 +320,10 @@ const AdminDashboard = () => {
               
               <TabsContent value="gallery" className="space-y-6">
                 <AdminGalleryEditor />
+              </TabsContent>
+              
+              <TabsContent value="cms" className="space-y-6">
+                {/* Content CMS content */}
               </TabsContent>
               
               <TabsContent value="settings" className="space-y-6">
