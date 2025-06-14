@@ -2,6 +2,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import { Camera, Image, Video, Award } from 'lucide-react';
+import { getRandomGalleryImage, pickRandomGalleryImages } from "@/utils/galleryImages";
 
 // Utility: random gallery images list
 const GALLERY_IMAGE_COUNT = 21; // Update this if images are added or removed
@@ -28,17 +29,17 @@ const Gallery = () => {
     {
       title: "Campus Life",
       description: "Daily life, activities, and vibrant moments captured across our beautiful campus",
-      image: pickRandomGalleryImage(),
+      image: getRandomGalleryImage(),
     },
     {
       title: "Academic Events",
       description: "Conferences, seminars, workshops, and academic celebrations throughout the year",
-      image: pickRandomGalleryImage(),
+      image: getRandomGalleryImage(),
     },
     {
       title: "Sports & Recreation",
       description: "Athletic achievements, sports events, and recreational activities of our students",
-      image: pickRandomGalleryImage(),
+      image: getRandomGalleryImage(),
     }
   ];
 
@@ -48,7 +49,7 @@ const Gallery = () => {
 
       {/* Parallax Hero Section */}
       <ParallaxSection 
-        backgroundImage={pickRandomGalleryImage()}
+        backgroundImage={getRandomGalleryImage()}
         overlayOpacity={0.6}
         className="min-h-[70vh]"
       >
@@ -109,7 +110,7 @@ const Gallery = () => {
 
         {/* Moments & Achievements Parallax */}
         <ParallaxSection 
-          backgroundImage={pickRandomGalleryImage()}
+          backgroundImage={getRandomGalleryImage()}
           overlayOpacity={0.7}
           className="min-h-[50vh]"
         >

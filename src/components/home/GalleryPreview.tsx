@@ -1,26 +1,8 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import Button from "@/components/ui/CustomButton";
-
-// Utility: get a list of possible image filenames
-const GALLERY_IMAGE_COUNT = 21; // Adjust this if you add/remove images!
-const getGalleryImageFilenames = () =>
-  Array.from({ length: GALLERY_IMAGE_COUNT }, (_, i) => `Gallery/GalleryImage (${i + 1}).png`);
-
-// Utility: pick N random images, avoiding duplicates
-function pickRandomGalleryImages(count: number): string[] {
-  const filenames = getGalleryImageFilenames();
-  const copy = [...filenames];
-  const selections: string[] = [];
-  for (let i = 0; i < Math.min(count, copy.length); i++) {
-    const idx = Math.floor(Math.random() * copy.length);
-    selections.push(copy[idx]);
-    copy.splice(idx, 1); // Remove so there's no duplicate
-  }
-  return selections;
-}
+import { getRandomGalleryImage, pickRandomGalleryImages } from "@/utils/galleryImages";
 
 const GalleryPreview = () => {
   const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation();
@@ -31,7 +13,7 @@ const GalleryPreview = () => {
     const imgs = pickRandomGalleryImages(6).map((imgPath, idx) => ({
       id: String(idx + 1),
       imageUrl: imgPath,
-      title: `Gallery Image ${idx + 1}`,
+      title: `Campus Moment ${idx + 1}`,
     }));
     setGalleryImages(imgs);
   }, []);
@@ -89,4 +71,3 @@ const GalleryPreview = () => {
 };
 
 export default GalleryPreview;
-

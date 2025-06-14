@@ -4,6 +4,7 @@ import ParallaxSection from '@/components/common/ParallaxSection';
 import Button from '@/components/ui/CustomButton';
 import { HomeIcon, RocketIcon, GraduationCap, Lightbulb, Users, ShieldCheck, TrendingUp } from 'lucide-react';
 import { useEffect, useState } from "react";
+import { getRandomGalleryImage } from "@/utils/galleryImages";
 
 export default function Home() {
   // Try to use stored CMS content, fallback to original
@@ -44,7 +45,7 @@ export default function Home() {
       </section>
 
       <ParallaxSection 
-        backgroundImage="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80"
+        backgroundImage={getRandomGalleryImage()}
         overlayOpacity={0.6}
         className="min-h-[50vh]"
       >
@@ -107,7 +108,7 @@ export default function Home() {
         <div className="image-first-block">
           <div>
             <img 
-              src="https://images.unsplash.com/photo-1509883661558-e4626c6b46ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+              src={getRandomGalleryImage()} // Replaced static image
               alt="About SKITM"
               className="image-first-image"
             />
@@ -131,7 +132,7 @@ export default function Home() {
       </section>
 
       <ParallaxSection 
-        backgroundImage="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+        backgroundImage={getRandomGalleryImage()}
         overlayOpacity={0.7}
         className="min-h-[50vh]"
       >
