@@ -3,6 +3,10 @@ import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import OptimizedImage from '@/components/ui/OptimizedImage';
 import { Basketball, Bell, BellElectric, Bus, Cctv, Computer, Football, Gymnasium, Library, TableTennis, Wifi } from "lucide-react";
+// Use only allowed icons and assign meaningful ones below:
+import { 
+  Cricket
+} from "lucide-react";
 
 const FACILITY_IMAGES = [
   { title: "Auditorium", img: "https://images.unsplash.com/photo-1473177104440-ffee2f376098?auto=format&fit=crop&w=800&q=80" },
@@ -41,8 +45,8 @@ const icons: Record<string, JSX.Element> = {
   "Computer Labs": <Computer size={32} className="text-skitm-blue" />,
   "Labs for Specific Subjects": <Computer size={32} className="text-skitm-blue" />,
   "Amphitheatre": <Basketball size={32} className="text-skitm-blue" />,
-  "Cricket Ground": <Football size={32} className="text-skitm-blue" />,
-  "Volleyball Court": <Football size={32} className="text-skitm-blue" />,
+  "Cricket Ground": <Cricket size={32} className="text-skitm-blue" />,
+  "Volleyball Court": <Volleyball size={32} className="text-skitm-blue" />,
   "Canteen": <Bell size={32} className="text-skitm-blue" />,
   "CCTV Surveillance": <Cctv size={32} className="text-skitm-blue" />,
   "Digitally equipped library": <Library size={32} className="text-skitm-blue" />,
@@ -54,9 +58,9 @@ const icons: Record<string, JSX.Element> = {
   "Wi-Fi Enabled Campus": <Wifi size={32} className="text-skitm-blue" />,
   "Indoor Sports Facilities – Table Tennis, Chess, Billiards": <TableTennis size={32} className="text-skitm-blue" />,
   "Football Ground": <Football size={32} className="text-skitm-blue" />,
-  "Cricket Pavilion": <Football size={32} className="text-skitm-blue" />,
+  "Cricket Pavilion": <Cricket size={32} className="text-skitm-blue" />,
   "Building for College of Professional Studies": <Library size={32} className="text-skitm-blue" />,
-  "Gymnasium": <Gymnasium size={32} className="text-skitm-blue" />,
+  "Gymnasium": <BellElectric size={32} className="text-skitm-blue" />,
   "Basketball Court": <Basketball size={32} className="text-skitm-blue" />,
   "Biometric Entry Points": <Cctv size={32} className="text-skitm-blue" />,
   "Recreation Spaces": <Bell size={32} className="text-skitm-blue" />,
