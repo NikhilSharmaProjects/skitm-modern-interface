@@ -2,108 +2,118 @@
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
-import {
-  Bed, Internet, Computer, Gymnasium, Tv, TableTennis, Basketball, Volleyball, Football, Badminton, Garden, HotWater, Water
-} from "lucide-react";
+import { Basketball } from "lucide-react";
 
 // Placeholder/stock images relevant for hostels
 const IMG_ROOM = "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80"; // white building
-const IMG_GARDEN = "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&w=800&q=80"; // garden
+const IMG_GARDEN = "https://images.unsplash.com/photo-1500673922987-e212871fec225?auto=format&fit=crop&w=800&q=80"; // garden
 const IMG_LOUNGE = "https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&w=800&q=80"; // lounge
 const IMG_POND = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"; // water pond
 
 const features = [
   {
-    icon: <Internet className="h-7 w-7 text-skitm-blue" />,
-    title: "24x7 Internet",
-    description: "High-speed 100MBPS WiFi access in all rooms, lounge and study areas.",
+    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    title: "24x7 Internet Connectivity",
+    description: "High-speed 100MBPS WiFi access in all rooms and campus.",
     image: IMG_ROOM,
-  },
-  {
-    icon: <Computer className="h-7 w-7 text-skitm-blue" />,
-    title: "Computer Labs",
-    description: "Accessible computer centers for all residents to aid in studies and projects.",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    icon: <Gymnasium className="h-7 w-7 text-skitm-blue" />,
-    title: "Gymnasium",
-    description: "State-of-the-art gym facilities for fitness and health.",
-    image: "https://images.unsplash.com/photo-1519864600265-abb62423ddec?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    icon: <Tv className="h-7 w-7 text-skitm-blue" />,
-    title: "TV Room",
-    description: "Spacious lounge with TV for breaks, movies, and events.",
-    image: IMG_LOUNGE
-  },
-  {
-    icon: <TableTennis className="h-7 w-7 text-skitm-blue" />,
-    title: "Indoor & Outdoor Games",
-    description: "Table tennis, chess, and board games indoors; Volleyball, Football, Kho Kho, and Badminton outdoors.",
-    image: "https://images.unsplash.com/photo-1517639493569-56689abc3e66?auto=format&fit=crop&w=800&q=80"
   },
   {
     icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
-    title: "Sports Ground",
-    description: "Basketball, volleyball, football, and more—ample space for your favorite sports.",
-    image: "https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=800&q=80"
+    title: "Computer Labs",
+    description: "Accessible computer centers for all residents.",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
   },
   {
-    icon: <Garden className="h-7 w-7 text-skitm-blue" />,
-    title: "Garden & Greenery",
-    description: "Beautiful gardens, open spaces, and walking trails.",
-    image: IMG_GARDEN
+    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    title: "Gymnasium",
+    description: "State-of-the-art gym facilities for fitness and health.",
+    image: "https://images.unsplash.com/photo-1519864600265-abb62423ddec?auto=format&fit=crop&w=800&q=80",
   },
   {
-    icon: <HotWater className="h-7 w-7 text-skitm-blue" />,
-    title: "Hot & RO Water",
-    description: "Round-the-clock supply of hot water and safe drinking RO water.",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
+    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    title: "TV Room",
+    description: "Spacious lounge with TV for relaxation and entertainment.",
+    image: IMG_LOUNGE,
   },
   {
-    icon: <Bed className="h-7 w-7 text-skitm-blue" />,
-    title: "Air-Cooled Rooms",
-    description: "Comfortable air-cooled rooms to make hostel a true home away from home.",
-    image: IMG_ROOM,
+    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    title: "Table Tennis",
+    description: "Enjoy hours of indoor fun with table tennis.",
+    image: "https://images.unsplash.com/photo-1517639493569-56689abc3e66?auto=format&fit=crop&w=800&q=80",
   },
   {
-    icon: <Utensils className="h-7 w-7 text-skitm-blue" />,
-    title: "Mess & Canteen",
-    description: "Pure vegetarian menu, homely nutritious meals, with special weekly treats and a lively canteen.",
-    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
+    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    title: "Basketball Ground",
+    description: "Outdoor court for basketball enthusiasts.",
+    image: "https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=800&q=80",
   },
   {
-    icon: <Water className="h-7 w-7 text-skitm-blue" />,
+    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    title: "Volleyball, Kho Kho, Football, Badminton",
+    description: "Enjoy various outdoor sports on campus.",
+    image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    title: "Indoor & Outdoor Games",
+    description: "Wide range of games for recreation and fitness.",
+    image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
     title: "Water Pond",
-    description: "Serene water pond adding tranquility to the campus.",
-    image: IMG_POND
+    description: "Serene water pond for peace and relaxation.",
+    image: IMG_POND,
+  },
+  {
+    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    title: "Garden",
+    description: "Beautiful garden and greenery throughout campus.",
+    image: IMG_GARDEN,
+  },
+  {
+    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    title: "Mess – Canteen",
+    description: "Nutritious and hygienic vegetarian meals in a lively mess.",
+    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    title: "Hot & RO Drinking Water",
+    description: "24x7 supply of hot water and RO purified drinking water.",
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    title: "Weekly Tour",
+    description: "Exciting weekly tours for fun and learning.",
+    image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
 const rules = [
-  "Hostel accommodation is provisional and based on academic performance and discipline.",
+  "To provide congenial atmosphere and discipline, hostel accommodation is provisional subject to satisfactory academic performance and discipline.",
   "No refund/claim for Hostel Money if leaving mid-session.",
-  "Admission is for one academic year; payment in quarterly installments.",
+  "Admission made for one academic year; payment on a quarterly basis.",
   "All residents must follow hostel rules and regulations.",
-  "Residents are solely responsible for their actions inside/outside campus.",
+  "Residents solely responsible for actions inside or outside the campus.",
   "Rooms can be inspected by Warden/Management at any time.",
   "No electronic devices allowed without prior permission.",
-  "Morning classes are mandatory, regular and punctual attendance required.",
-  "Application on prescribed form to Hostel Warden required for admission.",
+  "Regular and punctual attendance in classes is expected.",
+  "Application for hostel admission on prescribed form to the Warden.",
   "Only vegetarian meals are served.",
-  "Meals must be taken in the dining hall (morning tea, breakfast, lunch, dinner).",
-  "Meals are served only during prescribed timings displayed on the board.",
+  "Meals to be taken in the Dining Hall; includes morning tea, breakfast, lunch, and dinner.",
+  "Meals served only during prescribed timings displayed on the notice board.",
   "Common menu for all residents.",
-  "Maintain dignity; no nuisance or disturbance permitted.",
+  "Maintain decorum and no nuisance/disturbance.",
   "Switch off room lights/fans when leaving the room.",
-  "Inform Warden in case of illness/injury; all medical charges are borne by residents.",
+  "Report illness/injury to Warden; charges borne by residents.",
   "Visitors/parents only allowed in hostel rooms with prior permission.",
-  "Directions of Wardens must be obeyed on all matters.",
-  "Illegal activities (gambling, making noise at night, etc.) are forbidden.",
-  "Smoking is strictly prohibited on campus.",
-  "No intoxicants (alcohol, gutkha, etc.) allowed on premises. No one should come to hostel in inebriated condition.",
-  "Residents are responsible for hostel property; damages must be reported and will be charged.",
+  "Obey Wardens' directions and instructions on all matters.",
+  "No involvement in illegal activities, gambling, or making noise at night.",
+  "Smoking strictly prohibited on campus.",
+  "No intoxicants (alcohol, gutkha, etc.) allowed in hostel or institute premises. No students should come to hostel in inebriated condition.",
+  "Residents responsible for rooms and institute property. Damage/breakage/theft must be reported immediately; guilty students will bear the cost.",
 ];
 
 const Hostel = () => (
