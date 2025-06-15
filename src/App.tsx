@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,8 +8,6 @@ import { useEffect, createContext, useState, useContext } from "react";
 
 // Main pages
 import Index from "./pages/Index";
-import About from "./pages/About";
-import NotFound from "./pages/NotFound";
 import Contact from "./pages/Contact";
 
 // About Us pages
@@ -90,6 +87,7 @@ import CampusTour from "./pages/CampusTour";
 // Admin pages
 import Login from "./pages/Login";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import NotFound from "./pages/NotFound";
 
 // Auth context
 type AuthContextType = {
@@ -167,7 +165,8 @@ const App = () => {
               <Routes>
                 {/* Main pages */}
                 <Route path="/" element={<Index />} />
-                <Route path="/about" element={<About />} />
+                {/* Redirect /about to /about-skitm since /about is deprecated */}
+                <Route path="/about" element={<Navigate to="/about-skitm" replace />} />
                 <Route path="/contact" element={<Contact />} />
                 
                 {/* About Us pages */}
