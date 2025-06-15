@@ -1,4 +1,6 @@
 
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import { Star, Users, Award, MessageCircle } from 'lucide-react';
 
@@ -64,6 +66,7 @@ const StudentTestimonials = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Navbar />
       {/* Parallax Hero Section */}
       <ParallaxSection 
         backgroundImage="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
@@ -167,6 +170,7 @@ const StudentTestimonials = () => {
           </div>
         </ParallaxSection>
       </main>
+      <Footer />
     </div>
   );
 };
