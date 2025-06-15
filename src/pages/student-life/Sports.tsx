@@ -2,7 +2,7 @@
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
-import { Basketball, Cricket, Football, Volleyball, TableTennis } from 'lucide-react';
+import { cricket, football, volleyball, tableTennis, basketball } from 'lucide-react';
 
 const SPORTS_HEAD = {
   name: "Mr. Anil Panwar",
@@ -19,31 +19,31 @@ const sports = [
   {
     name: "Cricket",
     desc: "Full-size cricket ground, regular matches and professional coaching.",
-    icon: <Cricket className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
+    icon: <cricket className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
     img: "https://images.unsplash.com/photo-1551038247-3d9af20df552?auto=format&fit=crop&w=800&q=80"
   },
   {
     name: "Football",
     desc: "Well-maintained football field for tournaments and training.",
-    icon: <Football className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
+    icon: <football className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
     img: "https://images.unsplash.com/photo-1500673922987-e212871fec2e?auto=format&fit=crop&w=800&q=80"
   },
   {
     name: "Volleyball",
     desc: "Outdoor volleyball courts with modern facilities.",
-    icon: <Volleyball className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
+    icon: <volleyball className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
     img: "https://images.unsplash.com/photo-1439337153520-7082a56a81f4?auto=format&fit=crop&w=800&q=80"
   },
   {
     name: "Basketball",
     desc: "Basketball court for regular matches and events.",
-    icon: <Basketball className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
+    icon: <basketball className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
     img: "https://images.unsplash.com/photo-1460574283810-2aab119d8511?auto=format&fit=crop&w=800&q=80"
   },
   {
     name: "Table Tennis",
     desc: "Indoor table tennis and indoor games facility.",
-    icon: <TableTennis className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
+    icon: <tableTennis className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
     img: "https://images.unsplash.com/photo-1431576901776-e539bd916ba2?auto=format&fit=crop&w=800&q=80"
   }
 ];
