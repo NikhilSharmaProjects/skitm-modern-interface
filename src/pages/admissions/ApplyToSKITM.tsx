@@ -1,188 +1,157 @@
 
 import PageTemplate from '@/components/layout/PageTemplate';
-import Button from '@/components/ui/CustomButton';
 
 const ApplyToSKITM = () => {
   return (
     <PageTemplate
       title="Apply To SKITM"
-      subtitle="Start your journey towards excellence - Apply now for admission to SKITM"
+      subtitle="Empowering Minds, Shaping Futures"
       breadcrumb="Admissions"
     >
-      <div className="space-y-8">
+      <div className="space-y-10">
+
+        {/* Welcome Section */}
         <div className="glassmorphism rounded-xl p-8">
-          <h2 className="text-2xl font-display font-bold text-skitm-navy mb-6">
-            Admission Process
+          <h2 className="text-2xl font-display font-bold text-skitm-navy mb-4 text-center">
+            Welcome to Shivajirao Kadam Institute of Technology and Management (SKITM) Indore
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-skitm-blue rounded-full flex items-center justify-center mx-auto mb-3">
-                <span className="text-white font-bold">1</span>
-              </div>
-              <h3 className="font-semibold text-skitm-navy mb-2">Fill Application</h3>
-              <p className="text-sm text-skitm-gray">Complete the online application form with required details</p>
+          <p className="text-xl font-display font-semibold text-skitm-blue mb-3 text-center">
+            Empowering Minds, Shaping Futures
+          </p>
+          <p className="text-skitm-gray text-center max-w-3xl mx-auto">
+            Welcome to SKITM, your gateway to excellence in technical, pharmacy and managerial education. As a premier institution in Indore, we take pride in offering a diverse range of courses that cater to the dynamic needs of the industry. At SKITM, we believe in nurturing talent, fostering innovation, and shaping leaders of tomorrow.
+          </p>
+        </div>
+
+        {/* Offerings Section */}
+        <div className="glassmorphism rounded-xl p-8">
+          <h3 className="text-xl font-display font-bold text-skitm-navy mb-6">
+            Our Offerings
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            {/* Engineering Excellence */}
+            <div>
+              <h4 className="font-bold text-skitm-blue mb-2">Engineering Excellence</h4>
+              <ul className="text-skitm-gray text-sm space-y-1 list-disc list-inside">
+                <li>B.Tech. in Computer Science Engineering</li>
+                <li>B.Tech. in CSE – Artificial Intelligence & ML</li>
+                <li>B.Tech. in CSIT</li>
+                <li>B.Tech. in CSE – Data Science</li>
+                <li>B.Tech. in Information Technology</li>
+                <li>B.Tech. in Electronics & Comm. Engineering</li>
+                <li>B.Tech. in Civil Engineering</li>
+                <li>B.Tech. in Mechanical Engineering</li>
+              </ul>
             </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-skitm-blue rounded-full flex items-center justify-center mx-auto mb-3">
-                <span className="text-white font-bold">2</span>
-              </div>
-              <h3 className="font-semibold text-skitm-navy mb-2">Document Upload</h3>
-              <p className="text-sm text-skitm-gray">Upload required documents and certificates</p>
+
+            {/* Business and Commerce */}
+            <div>
+              <h4 className="font-bold text-skitm-blue mb-2">Business and Commerce</h4>
+              <ul className="text-skitm-gray text-sm space-y-1 list-disc list-inside">
+                <li>Bachelor of Business Administration (BBA)</li>
+                <li>Bachelor of Commerce (BCom)</li>
+                <li>Master of Business Administration (MBA)</li>
+                <li>Integrated MBA programs</li>
+              </ul>
             </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-skitm-blue rounded-full flex items-center justify-center mx-auto mb-3">
-                <span className="text-white font-bold">3</span>
-              </div>
-              <h3 className="font-semibold text-skitm-navy mb-2">Review & Submit</h3>
-              <p className="text-sm text-skitm-gray">Review your application and submit for processing</p>
+
+            {/* Pharmaceutical Sciences */}
+            <div>
+              <h4 className="font-bold text-skitm-blue mb-2">Pharmaceutical Sciences</h4>
+              <ul className="text-skitm-gray text-sm space-y-1 list-disc list-inside">
+                <li>Bachelor of Pharmacy</li>
+                <li>Diploma in Pharmacy</li>
+                <li>Master of Pharmacy</li>
+              </ul>
             </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-skitm-blue rounded-full flex items-center justify-center mx-auto mb-3">
-                <span className="text-white font-bold">4</span>
-              </div>
-              <h3 className="font-semibold text-skitm-navy mb-2">Confirmation</h3>
-              <p className="text-sm text-skitm-gray">Receive confirmation and further instructions</p>
+
+            {/* Transnational School of Law */}
+            <div>
+              <h4 className="font-bold text-skitm-blue mb-2">Transnational School of Law</h4>
+              <ul className="text-skitm-gray text-sm space-y-1 list-disc list-inside">
+                <li>B.A. LL.B. (Hons.)</li>
+                <li>B.B.A. LL.B. (Hons.)</li>
+                <li>LL.B. (Hons.)</li>
+              </ul>
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="glassmorphism rounded-xl p-8">
-            <h3 className="text-xl font-display font-bold text-skitm-navy mb-6">
-              Online Application Form
-            </h3>
-            <form className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-skitm-navy mb-2">First Name *</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-skitm-blue"
-                    placeholder="Enter first name"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-skitm-navy mb-2">Last Name *</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-skitm-blue"
-                    placeholder="Enter last name"
-                  />
-                </div>
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-skitm-navy mb-2">Email Address *</label>
-                <input
-                  type="email"
-                  className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-skitm-blue"
-                  placeholder="Enter email address"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-skitm-navy mb-2">Phone Number *</label>
-                <input
-                  type="tel"
-                  className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-skitm-blue"
-                  placeholder="Enter phone number"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-skitm-navy mb-2">Program of Interest *</label>
-                <select className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-skitm-blue">
-                  <option value="">Select Program</option>
-                  <optgroup label="Engineering">
-                    <option value="btech-cse">B.Tech Computer Science</option>
-                    <option value="btech-ece">B.Tech Electronics</option>
-                    <option value="btech-me">B.Tech Mechanical</option>
-                    <option value="btech-ce">B.Tech Civil</option>
-                  </optgroup>
-                  <optgroup label="Management">
-                    <option value="mba">MBA</option>
-                    <option value="imba">Integrated MBA</option>
-                    <option value="mba-plus">MBA Plus</option>
-                  </optgroup>
-                  <optgroup label="Pharmacy">
-                    <option value="bpharma">B.Pharma</option>
-                    <option value="dpharma">D.Pharma</option>
-                  </optgroup>
-                  <optgroup label="Professional Studies">
-                    <option value="bba">BBA</option>
-                    <option value="bcom">B.Com</option>
-                  </optgroup>
-                </select>
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-skitm-navy mb-2">Previous Education</label>
-                <textarea
-                  rows={3}
-                  className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-skitm-blue"
-                  placeholder="Brief details about your previous education"
-                ></textarea>
-              </div>
-              
-              <div className="pt-4">
-                <Button variant="primary" fullWidth>
-                  Submit Application
-                </Button>
-              </div>
-            </form>
+        {/* Why Choose SKITM */}
+        <div className="glassmorphism rounded-xl p-8">
+          <h3 className="text-xl font-display font-bold text-skitm-navy mb-5">
+            Why Choose SKITM?
+          </h3>
+          <ul className="text-skitm-gray text-base space-y-2 list-disc list-inside">
+            <li><b className="text-skitm-blue">Experienced Faculty:</b> Learn from industry experts and experienced academicians dedicated to your success.</li>
+            <li><b className="text-skitm-blue">State-of-the-Art Facilities:</b> Access cutting-edge labs, libraries, and technology to enhance your learning experience.</li>
+            <li><b className="text-skitm-blue">Industry Connections:</b> Benefit from our strong ties with industry leaders, providing valuable exposure and opportunities.</li>
+            <li><b className="text-skitm-blue">Holistic Development:</b> Beyond academics, we focus on your overall development with extracurricular activities and leadership programs.</li>
+          </ul>
+        </div>
+
+        {/* Apply to SKITM / Admission Process */}
+        <div className="glassmorphism rounded-xl p-8">
+          <h3 className="text-xl font-display font-bold text-skitm-navy mb-5">
+            Apply to SKITM: Admission Guidelines
+          </h3>
+
+          <div className="mb-8">
+            <h4 className="font-semibold text-skitm-blue mb-2">Domicile Rule</h4>
+            <p className="text-skitm-gray text-sm mb-2">
+              Candidates aspiring for B.Tech admission in Madhya Pradesh must note that 90% of seats in B.E colleges across the state are reserved for Madhya Pradesh domicile/resident students. Only MP domicile students will be considered for the Tuition Fee Waiver scheme.
+            </p>
+            <h4 className="font-semibold text-skitm-blue mb-2">Entrance Exam</h4>
+            <p className="text-skitm-gray text-sm mb-2">
+              Madhya Pradesh B.Tech applicants must have a valid JEE Main score (non-zero positive score) to be eligible for the admission process.
+              Candidates without JEE Main score can also apply for MP B.Tech admission, and Class 12 merit of the candidates will be considered while preparing the merit list.
+            </p>
+            <h4 className="font-semibold text-skitm-blue mb-2">Academic Qualification</h4>
+            <p className="text-skitm-gray text-sm mb-2">
+              B.Tech aspirants in Madhya Pradesh must have passed Class 12 with Physics, Mathematics and Chemistry/Biology/Biotechnology/Computer Science as the main subjects.
+              The minimum qualifying marks required in Class 12 for B.Tech applicants should be 45% for General Category and 40% for reserved categories.
+            </p>
           </div>
-          
-          <div className="space-y-6">
-            <div className="glassmorphism rounded-xl p-6">
-              <h3 className="text-lg font-display font-bold text-skitm-navy mb-4">
-                Required Documents
-              </h3>
-              <ul className="space-y-2 text-skitm-gray">
-                <li>• 10th Mark Sheet and Certificate</li>
-                <li>• 12th Mark Sheet and Certificate</li>
-                <li>• JEE Main Scorecard (for B.Tech)</li>
-                <li>• CAT/MAT/CMAT Scorecard (for MBA)</li>
-                <li>• Transfer Certificate</li>
-                <li>• Character Certificate</li>
-                <li>• Passport Size Photographs</li>
-                <li>• Aadhar Card Copy</li>
-              </ul>
-            </div>
-            
-            <div className="glassmorphism rounded-xl p-6">
-              <h3 className="text-lg font-display font-bold text-skitm-navy mb-4">
-                Important Dates
-              </h3>
-              <div className="space-y-3">
-                <div className="flex justify-between">
-                  <span className="text-skitm-gray">Application Start:</span>
-                  <span className="font-semibold text-skitm-navy">March 15, 2024</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-skitm-gray">Application Deadline:</span>
-                  <span className="font-semibold text-skitm-navy">July 30, 2024</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-skitm-gray">Merit List Declaration:</span>
-                  <span className="font-semibold text-skitm-navy">August 10, 2024</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-skitm-gray">Admission Confirmation:</span>
-                  <span className="font-semibold text-skitm-navy">August 25, 2024</span>
-                </div>
-              </div>
-            </div>
-            
-            <div className="glassmorphism rounded-xl p-6">
-              <h3 className="text-lg font-display font-bold text-skitm-navy mb-4">
-                Need Help?
-              </h3>
-              <div className="space-y-2 text-skitm-gray">
-                <p>📞 +91 9770907100</p>
-                <p>📧 admissions@skitm.in</p>
-                <p>🕒 Mon-Sat: 9:00 AM - 5:00 PM</p>
-              </div>
-            </div>
+
+          <div className="mb-8">
+            <h4 className="font-semibold text-skitm-blue mb-3">B.Tech/B.Pharm/MBA/IMBA/Diploma/Lateral Entry Admission Process</h4>
+            <ol className="list-decimal list-inside text-skitm-gray text-sm space-y-2 ml-2">
+              <li>
+                <b className="text-skitm-blue">Registration for Counselling Process:</b> Click on the official link on the DTE website to register for counselling.
+              </li>
+              <li>
+                <b className="text-skitm-blue">Login:</b> After the successful registration, candidates will be directed to the Login page. After login, fill the online application form for counselling.
+              </li>
+              <li>
+                <b className="text-skitm-blue">Filling Online Application Form:</b> Enter all personal details in the prescribed columns of the form.
+              </li>
+              <li>
+                <b className="text-skitm-blue">Release of Common Merit List:</b> DTE MP will release a Common Merit List of eligible candidates for B.E admission. The list will include candidate name, JEE Main Roll Number, Category, and merit number. Admission is merit-based.
+              </li>
+              <li>
+                <b className="text-skitm-blue">Publication of Provisional Seat Allotment Letter:</b> After the merit list, candidates can download the seat allotment letter if satisfied with the allotment.
+              </li>
+              <li>
+                <b className="text-skitm-blue">Upgradation of Seat:</b> Candidates may opt for seat upgradation by re-submitting the option entry form online. Students get two chances for upgradation as per the schedule.
+              </li>
+              <li>
+                <b className="text-skitm-blue">Reporting to College:</b> Download the seat allotment letter and report to the respective college with all relevant documents.
+              </li>
+              <li>
+                <b className="text-skitm-blue">Verification of Documents:</b> College authorities verify documents to confirm your admission.
+              </li>
+              <li>
+                <b className="text-skitm-blue">Admission Confirmation:</b> After document verification, admission is confirmed and you must deposit the first-year fee within the specified date.
+              </li>
+            </ol>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-skitm-blue mb-3">Admission Process for BBA/B.Com</h4>
+            <p className="text-skitm-gray text-sm mb-2">
+              Admission is done by applying through an online form prescribed by the Department of Higher Education, followed by Personal Interview.
+            </p>
           </div>
         </div>
       </div>
