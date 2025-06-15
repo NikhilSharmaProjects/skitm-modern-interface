@@ -2,6 +2,7 @@
 import ParallaxSection from '@/components/common/ParallaxSection';
 import CampusMap from '@/components/common/CampusMap';
 import OptimizedImage from '@/components/ui/OptimizedImage';
+import PageTemplate from '@/components/layout/PageTemplate';
 
 const CAMPUS_IMAGES = [
   "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80",
@@ -54,7 +55,7 @@ const CAMPUS_GALLERY = [
 
 const Campus = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-skitm-offWhite">
+    <PageTemplate title="Our Campus">
       {/* Parallax Hero Section */}
       <ParallaxSection
         backgroundImage={CAMPUS_IMAGES[0]}
@@ -161,8 +162,9 @@ const Campus = () => {
           </div>
         </section>
       </main>
-    </div>
+    </PageTemplate>
   );
 };
 
 export default Campus;
+
