@@ -2,7 +2,20 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import OptimizedImage from '@/components/ui/OptimizedImage';
-import { basketball, bell, bellElectric, bus, cctv, computer, football, library, wifi, volleyball, tableTennis, cricket } from "lucide-react";
+import {
+  Basketball,
+  Bell,
+  BellElectric,
+  Bus,
+  Cctv,
+  Computer,
+  Cricket,
+  Football,
+  Library,
+  TableTennis,
+  Volleyball,
+  Wifi
+} from "lucide-react";
 // Use only allowed icons and assign meaningful ones below:
 
 const FACILITY_IMAGES = [
@@ -37,35 +50,34 @@ const FACILITY_DEVELOPMENT = [
 ];
 
 const icons: Record<string, JSX.Element> = {
-  "Auditorium": <bell size={32} className="text-skitm-blue" />,
-  "Boys Hostel": <bellElectric size={32} className="text-skitm-blue" />,
-  "Computer Labs": <computer size={32} className="text-skitm-blue" />,
-  "Labs for Specific Subjects": <computer size={32} className="text-skitm-blue" />,
-  "Amphitheatre": <basketball size={32} className="text-skitm-blue" />,
-  "Cricket Ground": <cricket size={32} className="text-skitm-blue" />,
-  "Volleyball Court": <volleyball size={32} className="text-skitm-blue" />,
-  "Canteen": <bell size={32} className="text-skitm-blue" />,
-  "CCTV Surveillance": <cctv size={32} className="text-skitm-blue" />,
-  "Digitally equipped library": <library size={32} className="text-skitm-blue" />,
-  "Smart Classes": <computer size={32} className="text-skitm-blue" />,
-  "Transport Facility – Buses": <bus size={32} className="text-skitm-blue" />,
-  "Language Labs": <computer size={32} className="text-skitm-blue" />,
-  "Audio-Visual Rooms": <bell size={32} className="text-skitm-blue" />,
-  "ATM": <bell size={32} className="text-skitm-blue" />,
-  "Wi-Fi Enabled Campus": <wifi size={32} className="text-skitm-blue" />,
-  "Indoor Sports Facilities – Table Tennis, Chess, Billiards": <tableTennis size={32} className="text-skitm-blue" />,
-  "Football Ground": <football size={32} className="text-skitm-blue" />,
-  "Cricket Pavilion": <cricket size={32} className="text-skitm-blue" />,
-  "Building for College of Professional Studies": <library size={32} className="text-skitm-blue" />,
-  // Gymnasium doesn't exist as lucide-react icon, using bellElectric as fallback
-  "Gymnasium": <bellElectric size={32} className="text-skitm-blue" />,
-  "Basketball Court": <basketball size={32} className="text-skitm-blue" />,
-  "Biometric Entry Points": <cctv size={32} className="text-skitm-blue" />,
-  "Recreation Spaces": <bell size={32} className="text-skitm-blue" />,
-  "Residential Facilities": <bellElectric size={32} className="text-skitm-blue" />,
+  "Auditorium": <Bell size={32} className="text-skitm-blue" />,
+  "Boys Hostel": <BellElectric size={32} className="text-skitm-blue" />,
+  "Computer Labs": <Computer size={32} className="text-skitm-blue" />,
+  "Labs for Specific Subjects": <Computer size={32} className="text-skitm-blue" />,
+  "Amphitheatre": <Basketball size={32} className="text-skitm-blue" />,
+  "Cricket Ground": <Cricket size={32} className="text-skitm-blue" />,
+  "Volleyball Court": <Volleyball size={32} className="text-skitm-blue" />,
+  "Canteen": <Bell size={32} className="text-skitm-blue" />,
+  "CCTV Surveillance": <Cctv size={32} className="text-skitm-blue" />,
+  "Digitally equipped library": <Library size={32} className="text-skitm-blue" />,
+  "Smart Classes": <Computer size={32} className="text-skitm-blue" />,
+  "Transport Facility – Buses": <Bus size={32} className="text-skitm-blue" />,
+  "Language Labs": <Computer size={32} className="text-skitm-blue" />,
+  "Audio-Visual Rooms": <Bell size={32} className="text-skitm-blue" />,
+  "ATM": <Bell size={32} className="text-skitm-blue" />,
+  "Wi-Fi Enabled Campus": <Wifi size={32} className="text-skitm-blue" />,
+  "Indoor Sports Facilities – Table Tennis, Chess, Billiards": <TableTennis size={32} className="text-skitm-blue" />,
+  "Football Ground": <Football size={32} className="text-skitm-blue" />,
+  "Cricket Pavilion": <Cricket size={32} className="text-skitm-blue" />,
+  "Building for College of Professional Studies": <Library size={32} className="text-skitm-blue" />,
+  "Gymnasium": <BellElectric size={32} className="text-skitm-blue" />,
+  "Basketball Court": <Basketball size={32} className="text-skitm-blue" />,
+  "Biometric Entry Points": <Cctv size={32} className="text-skitm-blue" />,
+  "Recreation Spaces": <Bell size={32} className="text-skitm-blue" />,
+  "Residential Facilities": <BellElectric size={32} className="text-skitm-blue" />,
 };
 
-const getFacilityIcon = (title: string) => icons[title] || <bell size={32} className="text-skitm-blue" />;
+const getFacilityIcon = (title: string) => icons[title] || <Bell size={32} className="text-skitm-blue" />;
 
 const getShortDesc = (title: string) => {
   // short descriptions for select facilities
