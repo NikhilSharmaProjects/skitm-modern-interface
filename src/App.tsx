@@ -75,7 +75,7 @@ import StudentLife from "./pages/StudentLife";
 import Hostel from "./pages/student-life/Hostel";
 import ProjectsWorkshops from "./pages/student-life/ProjectsWorkshops";
 import StudentTestimonials from "./pages/student-life/StudentTestimonials";
-import Campus from "./pages/student-life/Campus";
+import Campus from "./pages/campus/Campus";
 import Facilities from "./pages/Facilities";
 import Sports from "./pages/student-life/Sports";
 
