@@ -1,41 +1,40 @@
-
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import HierarchicalNavigation from '../navigation/HierarchicalNavigation';
-import MobileHierarchicalNavigation from '../navigation/MobileHierarchicalNavigation';
-import { Helmet } from 'react-helmet-async';
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import HierarchicalNavigation from "../navigation/HierarchicalNavigation";
+import MobileHierarchicalNavigation from "../navigation/MobileHierarchicalNavigation";
+import { Helmet } from "react-helmet-async";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
-  
-  // Close mobile menu when route changes
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [location]);
-  
-  // Handle navbar background change on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  
-  return (
-    <>
-      <Helmet>
-        {/* Navigation breadcrumb schema */}
-        <script type="application/ld+json">
-          {`
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const location = useLocation();
+
+    // Close mobile menu when route changes
+    useEffect(() => {
+        setMobileMenuOpen(false);
+    }, [location]);
+
+    // Handle navbar background change on scroll
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    return (
+        <>
+            <Helmet>
+                {/* Navigation breadcrumb schema */}
+                <script type="application/ld+json">
+                    {`
             {
               "@context": "https://schema.org",
               "@type": "BreadcrumbList",
@@ -46,22 +45,29 @@ const Navbar = () => {
                   "name": "Home",
                   "item": "https://skitm.in/"
                 },
-                ${location.pathname !== "/" ? `
+                ${
+                    location.pathname !== "/"
+                        ? `
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "${location.pathname.substring(1).charAt(0).toUpperCase() + location.pathname.substring(2)}",
+                  "name": "${
+                      location.pathname.substring(1).charAt(0).toUpperCase() +
+                      location.pathname.substring(2)
+                  }",
                   "item": "https://skitm.in${location.pathname}"
                 }
-                ` : ''}
+                `
+                        : ""
+                }
               ]
             }
           `}
-        </script>
-        
-        {/* Primary navigation schema */}
-        <script type="application/ld+json">
-          {`
+                </script>
+
+                {/* Primary navigation schema */}
+                <script type="application/ld+json">
+                    {`
             {
               "@context": "https://schema.org",
               "@type": "SiteNavigationElement",
@@ -91,53 +97,63 @@ const Navbar = () => {
               ]
             }
           `}
-        </script>
-      </Helmet>
-    
-      <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'py-3 glassmorphism shadow-md' 
-            : 'py-5 bg-transparent'
-        }`}
-        role="banner"
-      >
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <Link to="/" className="flex items-center" aria-label="SKITM Home">
-              <img 
-                src="/lovable-uploads/1be76fe5-e5d4-4ae1-a6a0-99a3c65c9d60.png" 
-                alt="SKITM Logo"
-                className="h-12 w-auto" 
-                width="48"
-                height="48"
-              />
-            </Link>
-            
-            {/* Desktop Navigation */}
-            <HierarchicalNavigation />
-            
-            {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden text-skitm-navy"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-expanded={mobileMenuOpen}
-              aria-controls="mobile-menu"
-              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                </script>
+            </Helmet>
+
+            <header
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+                    isScrolled
+                        ? "py-3 glassmorphism shadow-md"
+                        : "py-5 bg-transparent"
+                }`}
+                role="banner"
             >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-        
-        {/* Mobile Navigation */}
-        <div id="mobile-menu">
-          <MobileHierarchicalNavigation isOpen={mobileMenuOpen} />
-        </div>
-      </header>
-    </>
-  );
+                <div className="container mx-auto px-4">
+                    <div className="flex items-center justify-between">
+                        {/* Logo */}
+                        <Link
+                            to="/"
+                            className="flex items-center"
+                            aria-label="SKITM Home"
+                        >
+                            <img
+                                src="/SkitmLogo.png"
+                                alt="SKITM Logo"
+                                className="h-12 w-auto"
+                                width="48"
+                                height="48"
+                            />
+                        </Link>
+
+                        {/* Desktop Navigation */}
+                        <HierarchicalNavigation />
+
+                        {/* Mobile Menu Button */}
+                        <button
+                            className="lg:hidden text-skitm-navy"
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            aria-expanded={mobileMenuOpen}
+                            aria-controls="mobile-menu"
+                            aria-label={
+                                mobileMenuOpen ? "Close menu" : "Open menu"
+                            }
+                        >
+                            {mobileMenuOpen ? (
+                                <X size={24} />
+                            ) : (
+                                <Menu size={24} />
+                            )}
+                        </button>
+                    </div>
+                </div>
+
+                {/* Mobile Navigation */}
+                <div id="mobile-menu">
+                    <MobileHierarchicalNavigation isOpen={mobileMenuOpen} />
+                </div>
+            </header>
+        </>
+    );
 };
 
 export default Navbar;

@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import {
     Phone,
@@ -18,9 +17,9 @@ const Footer = () => {
                     {/* About Column with Logo */}
                     <div className="lg:col-span-2">
                         <div className="mb-4">
-                            <img 
-                                src="/lovable-uploads/1be76fe5-e5d4-4ae1-a6a0-99a3c65c9d60.png" 
-                                alt="SKITM Logo" 
+                            <img
+                                src="/logo.png"
+                                alt="SKITM Logo"
                                 className="h-16 w-auto mb-4"
                             />
                         </div>
@@ -247,8 +246,7 @@ const Footer = () => {
                 {/* Copyright Section */}
                 <div className="border-t border-gray-700 mt-8 pt-8 text-center">
                     <p className="text-gray-400">
-                        © SKITM, Indore. All Rights
-                        Reserved.
+                        © SKITM, Indore. All Rights Reserved.
                     </p>
                 </div>
             </div>
