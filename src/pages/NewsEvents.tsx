@@ -1,4 +1,6 @@
 
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import { Calendar, Users, Award, BookOpen } from 'lucide-react';
 
@@ -10,53 +12,131 @@ const NewsEvents = () => {
     { icon: <BookOpen className="h-8 w-8 text-white" />, number: "100+", label: "Workshops" },
   ];
 
+  // Provided event data (latest first - you can reorder as needed)
   const latestNews = [
     {
-      category: "Academic",
-      title: "New Academic Session 2024-25 Begins",
-      excerpt: "SKITM welcomes new batch of students with comprehensive orientation programs and induction activities.",
-      date: "June 15, 2024",
-      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+      category: "Hackathon",
+      title: "Innothon 2.0 – A National-Level Hackathon!",
+      excerpt: "Exciting opportunity for innovators, coders, and creators to showcase talent in a 36-hour hackathon on a national stage.",
+      date: "May 9, 2025",
+      image: "",
     },
     {
-      category: "Placements",
-      title: "Record Breaking Placement Season 2024",
-      excerpt: "SKITM achieves 95% placement rate with highest package of 12 LPA from leading companies.",
-      date: "May 20, 2024",
-      image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+      category: "Farewell",
+      title: "Farewell Event Ceremony",
+      excerpt: "A ceremony to bid farewell and celebrate achievements, memories, and gratitude with departing students.",
+      date: "May 6, 2025",
+      image: "",
     },
     {
-      category: "Research",
-      title: "Innovation in Pharmaceutical Research",
-      excerpt: "Our pharmacy department receives recognition for groundbreaking research in drug development.",
-      date: "April 10, 2024",
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-    }
+      category: "Seminar",
+      title: "NEP In Higher Education: Adaption and Challenges",
+      excerpt: "A seminar on implementing India's National Education Policy 2020 for higher education with discussion panels.",
+      date: "April 11, 2025",
+      image: "",
+    },
+    {
+      category: "Competition",
+      title: "Business Plan Competition",
+      excerpt: "Student teams compete with innovative business plan presentations; winning entries receive special recognition.",
+      date: "April 4, 2025",
+      image: "",
+    },
+    {
+      category: "Workshop",
+      title: "Introduction to Spatial Thinking, GIS and Remote Sensing",
+      excerpt: "Hands-on workshop exploring geospatial science fundamentals and their applications.",
+      date: "April 4, 2025",
+      image: "",
+    },
+    {
+      category: "Celebration",
+      title: "Celebrate World Poetry Day",
+      excerpt: "A cultural evening with poetry recital and vibrant literary performances on campus.",
+      date: "March 21, 2025",
+      image: "",
+    },
+    {
+      category: "Festival",
+      title: "Holi Milan Samaroh",
+      excerpt: "Colorful celebration of the festival of Holi, with music and traditions at SKITM campus.",
+      date: "March 13, 2025",
+      image: "",
+    },
   ];
 
+  // Upcoming events - detailed, formatted for sidebar
   const upcomingEvents = [
     {
-      date: "25",
-      month: "Dec",
-      title: "Annual Tech Fest 2024",
-      description: "Three-day technology festival featuring competitions, workshops, and industry exhibitions."
+      date: "09",
+      month: "May",
+      year: "2025",
+      title: "Innothon 2.0 – A National-Level Hackathon!",
+      description:
+        "We are thrilled to announce Innothon 2.0, an exciting opportunity for innovators, coders, and creators. This 36-hour hackathon is designed to bring together passionate minds to solve real-world challenges.",
+      time: "09:00 - 16:00 (May 11, 2025)",
+      location: "Shivajirao Kadam Institute of Technology and Management Indore",
     },
     {
-      date: "30",
-      month: "Nov",
-      title: "Industry Expert Lecture Series",
-      description: "Guest lectures by leading industry professionals and thought leaders."
+      date: "06",
+      month: "May",
+      year: "2025",
+      title: "Farewell Event Ceremony",
+      description:
+        "A farewell event is a ceremony to bid farewell to individuals leaving the institution. Celebrate achievements, express gratitude, and cherish memories.",
+      time: "02:30 - 04:30",
+      location: "Shivajirao Kadam Institute of Technology and Management Indore",
     },
     {
-      date: "15",
-      month: "Jan",
-      title: "National Sports Tournament",
-      description: "Inter-collegiate sports competition with participants from across the region."
-    }
+      date: "11",
+      month: "Apr",
+      year: "2025",
+      title: "NEP In Higher Education: Adaption and Challenges",
+      description: "Seminar focused on India's National Education Policy 2020.",
+      time: "09:30 - 16:00 (April 12, 2025)",
+      location: "SKITM, Indore",
+    },
+    {
+      date: "04",
+      month: "Apr",
+      year: "2025",
+      title: "Business Plan Competition",
+      description: "Student teams present creative and viable business plans.",
+      time: "12:00 - 16:00",
+      location: "SKITM, Indore",
+    },
+    {
+      date: "04",
+      month: "Apr",
+      year: "2025",
+      title: "Introduction to Spatial Thinking, GIS and Remote Sensing",
+      description: "Hands-on workshop; explore GIS and remote sensing.",
+      time: "09:30 - 16:30",
+      location: "",
+    },
+    {
+      date: "21",
+      month: "Mar",
+      year: "2025",
+      title: "Celebrate World Poetry Day",
+      description: "An evening of poetry, music, and celebrations.",
+      time: "01:00 - 04:00",
+      location: "",
+    },
+    {
+      date: "13",
+      month: "Mar",
+      year: "2025",
+      title: "Holi Milan Samaroh",
+      description: "Traditional Holi festivities on campus.",
+      time: "01:00 - 04:00",
+      location: "SKITM, Indore",
+    },
   ];
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Navbar />
       {/* Parallax Hero Section */}
       <ParallaxSection 
         backgroundImage="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
@@ -100,11 +180,18 @@ const NewsEvents = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {latestNews.map((news, index) => (
               <div key={index} className="glassmorphism rounded-xl overflow-hidden card-hover">
-                <img 
-                  src={news.image}
-                  alt={news.title}
-                  className="w-full h-48 object-cover"
-                />
+                {/* Hide image if missing, show placeholder */}
+                {news.image ? (
+                  <img 
+                    src={news.image}
+                    alt={news.title}
+                    className="w-full h-48 object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-48 bg-skitm-blue/10 flex items-center justify-center text-skitm-blue font-display font-bold text-xl">
+                    {news.title[0]}
+                  </div>
+                )}
                 <div className="p-6">
                   <span className="inline-block px-3 py-1 bg-skitm-blue/10 text-skitm-blue rounded-full text-sm mb-3">
                     {news.category}
@@ -141,10 +228,17 @@ const NewsEvents = () => {
                       <div className="flex-shrink-0 w-16 h-16 bg-skitm-blue rounded-lg flex flex-col items-center justify-center text-white">
                         <span className="font-display font-bold text-lg">{event.date}</span>
                         <span className="text-xs uppercase">{event.month}</span>
+                        <span className="text-xs">{event.year}</span>
                       </div>
                       <div className="flex-grow">
                         <h4 className="font-display font-bold text-skitm-navy mb-2">{event.title}</h4>
                         <p className="text-skitm-gray text-sm">{event.description}</p>
+                        <div className="text-xs text-skitm-navy mt-2 flex flex-col gap-0.5">
+                          <span>{event.time}</span>
+                          {event.location && (
+                            <span><b>Venue:</b> {event.location}</span>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -173,6 +267,7 @@ const NewsEvents = () => {
           </div>
         </ParallaxSection>
       </main>
+      <Footer />
     </div>
   );
 };

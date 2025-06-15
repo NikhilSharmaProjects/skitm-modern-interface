@@ -1,13 +1,10 @@
-
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import {
-  Cricket,
-  Football,
+  Bell,
   Volleyball,
-  TableTennis,
-  Basketball
+  TableTennis
 } from 'lucide-react';
 
 const SPORTS_HEAD = {
@@ -25,13 +22,13 @@ const sports = [
   {
     name: "Cricket",
     desc: "Full-size cricket ground, regular matches and professional coaching.",
-    icon: <Cricket className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
+    icon: <Bell className="h-10 w-10 text-skitm-blue mx-auto mb-3" />, // fallback
     img: "https://images.unsplash.com/photo-1551038247-3d9af20df552?auto=format&fit=crop&w=800&q=80"
   },
   {
     name: "Football",
     desc: "Well-maintained football field for tournaments and training.",
-    icon: <Football className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
+    icon: <Bell className="h-10 w-10 text-skitm-blue mx-auto mb-3" />, // fallback
     img: "https://images.unsplash.com/photo-1500673922987-e212871fec2e?auto=format&fit=crop&w=800&q=80"
   },
   {
@@ -43,7 +40,7 @@ const sports = [
   {
     name: "Basketball",
     desc: "Basketball court for regular matches and events.",
-    icon: <Basketball className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
+    icon: <Bell className="h-10 w-10 text-skitm-blue mx-auto mb-3" />, // fallback
     img: "https://images.unsplash.com/photo-1460574283810-2aab119d8511?auto=format&fit=crop&w=800&q=80"
   },
   {
