@@ -4,12 +4,13 @@ import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import { Linkedin } from "lucide-react";
 
-/** Images for the sections */
+// Section images
 const imgCareer = "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80";
 const imgIntern = "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80";
 const imgRecruiters = "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80";
 const imgReports = "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80";
 
+// CRD Team data
 const crdTeam = [
   {
     name: "Prof. Rakesh Pandey",
@@ -27,7 +28,7 @@ const crdTeam = [
   },
   {
     name: "Prof. Mayuri Akotiya",
-    designation: "Assistant Professor, SKITM Pharmacy",
+    designation: "Assistant Professor",
     phone: "8349296888",
     linkedin: "https://www.linkedin.com/in/mayuri-akotiya/",
     email: "mayuriakotiya@skitm.in"
@@ -48,13 +49,13 @@ const crdTeam = [
   }
 ];
 
-// Placement data for 2025
+// Placement data (as provided)
 const placement2025 = [
   { name: "Harshita Shinde", package: "6.50", company: "Hotwax Systems", branch: "CSE" },
   { name: "Lokesh Punwani", package: "4.50", company: "Webkorps Services India", branch: "CSE" },
   { name: "Saloni Sharma", package: "4.50", company: "Webkorps Services India", branch: "CSE" },
-  { name: "Mayur Likhitkar", package: "up to 4.30", company: "VectEd Technologies", branch: "CSE" },
-  { name: "Mousam Vishwakarma", package: "up to 4.30", company: "VectEd Technologies", branch: "CSE" },
+  { name: "Mayur Likhitkar", package: "upto 4.30", company: "VectEd Technologies", branch: "CSE" },
+  { name: "Mousam Vishwakarma", package: "upto 4.30", company: "VectEd Technologies", branch: "CSE" },
   { name: "Avani Purohit", package: "3.00", company: "Magpie Engineering", branch: "CSE" },
   { name: "Devansh Kadam", package: "3.00", company: "Magpie Engineering", branch: "CSE" },
   { name: "Rajveer Patel", package: "3.00", company: "Magpie Engineering", branch: "CSE" },
@@ -85,7 +86,7 @@ const placement2025 = [
   { name: "Lokesh Punwani", package: "3.25-5.50", company: "Tech Mahindra", branch: "CSE" },
   { name: "Divyansh Sharma", package: "3.25-5.50", company: "Tech Mahindra", branch: "CSE" },
   { name: "Shivam Sawle", package: "1.80", company: "ZF Steering Gear (India) Ltd.", branch: "ME" },
-  { name: "Ayush Chouhan", package: "up to 5.0", company: "Geek of Gurukul", branch: "CSE" },
+  { name: "Ayush Chouhan", package: "upto 5.0", company: "Geek of Gurukul", branch: "CSE" },
   { name: "Akash Dukre", package: "3.00", company: "Map Quality Solutions", branch: "CSE" },
   { name: "Bhavesh Rathore", package: "3.00", company: "Map Quality Solutions", branch: "CSE" },
   { name: "Sagar Patel", package: "3.00", company: "Map Quality Solutions", branch: "CSE" },
@@ -93,9 +94,9 @@ const placement2025 = [
   { name: "Niraj Jaiswal", package: "4.32", company: "Venture Fincorp", branch: "MBA" },
   { name: "Pankaj Kumar Khelwan", package: "4.32", company: "Venture Fincorp", branch: "MBA" },
   { name: "Vandana Anjana", package: "4.32", company: "Venture Fincorp", branch: "MBA" },
-  { name: "Batul Bablawala", package: "up to 5.0", company: "Geek of Gurukul", branch: "MBA" },
-  { name: "Niraj Jaiswal", package: "up to 5.0", company: "Geek of Gurukul", branch: "MBA" },
-  { name: "Pradip Suryavanshi", package: "up to 5.0", company: "Geek of Gurukul", branch: "MBA" },
+  { name: "Batul Bablawala", package: "upto 5.0", company: "Geek of Gurukul", branch: "MBA" },
+  { name: "Niraj Jaiswal", package: "upto 5.0", company: "Geek of Gurukul", branch: "MBA" },
+  { name: "Pradip Suryavanshi", package: "upto 5.0", company: "Geek of Gurukul", branch: "MBA" },
   { name: "Gaurav Jaiswal", package: "3.50", company: "Bajaj Allianz Life Insurance Co. Ltd.", branch: "MBA" },
   { name: "Mokshita Dangi", package: "3.44", company: "Accenture India", branch: "B.Com" },
   { name: "Mokshita Dangi", package: "8.58", company: "Jaro Education", branch: "B.Com" },
@@ -117,31 +118,31 @@ const Placement = () => {
             SKITM : Career Development Cell
           </div>
           <h1 className="font-display font-bold text-5xl md:text-6xl leading-tight tracking-wide">
-            Launch Your Career With Us
+            Bridging Talent and Opportunity
           </h1>
           <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            The Corporate Relations Division (CRD) at SKITM helps every student secure their first job and build a sustainable career through proactive assessment, grooming, counseling, and placement support services.
+            The Corporate Relations Division (CRD) at SKITM works on its mission to help every student to get the first job as well as develop a sustainable career by providing assessment, grooming, counseling, and placement support services. Our team tirelessly works at building industry–academia interaction through planned activities, delivering placement opportunities to every SKITM student.
           </p>
         </div>
       </ParallaxSection>
-
+      
       <main className="flex-grow">
         {/* Career Section - with image */}
         <section className="section-container bg-white py-12">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <img
               src={imgCareer}
-              alt="Career Development Cell"
+              alt="SKITM Career Development"
               className="rounded-xl shadow-lg max-w-sm mx-auto"
             />
             <div>
               <h2 className="font-display text-2xl md:text-3xl font-bold text-skitm-navy mb-4">
-                What is the Career Development Cell?
+                About the Career Development Cell
               </h2>
               <p className="text-skitm-gray mb-4">
-                The CRD team at SKITM tirelessly works to develop industry-academia interaction, hosting industry experts and ensuring students get valuable beyond-classroom inputs.
+                The CRD team at SKITM tirelessly develops Industry–Academia linkages through a well-planned portfolio of activities. We ensure industry experts visit campus to impart practical, real-world inputs to all our students. Eminent personalities from various esteemed organizations regularly share their experience with our graduates and post-graduates.
                 <br /><br />
-                In 2020-21, leading organizations across IT, Manufacturing, Automobile, Banking, and more conducted campus recruitment for SKITM students.
+                Leading organizations in IT, ITES, Manufacturing, Automobile, Banking & Financial Services, Insurance, and FMCG conducted placement drives for SKITM students in recent years.
               </p>
             </div>
           </div>
@@ -155,20 +156,19 @@ const Placement = () => {
                 Internship Opportunities
               </h2>
               <p className="text-skitm-gray mb-4">
-                SKITM provides internship opportunities at reputed organizations, allowing students to apply their academic knowledge in real-world industry settings. Some students have received stipends up to Rs. 10,000 depending on their performance.
+                SKITM provides internships at reputed organizations, giving students hands-on industry experience. Internships let students apply theoretical knowledge in real-life business and technical settings, learn how engineering solves real-world problems, and transform from students to industry-ready professionals.
+                <br />
+                Students have received stipends up to Rs. 10,000, with many internships seamlessly leading into final year projects and job offers.
               </p>
               <ul className="list-disc list-inside text-skitm-gray mb-4">
                 <li>Real Time Industry Experience and Exposure</li>
-                <li>Professional Networking</li>
-                <li>Adds Value, Skills, Experience to CV</li>
+                <li>Helps to develop Professional Network</li>
+                <li>Add Values, Skills, and Experience to the CV</li>
               </ul>
-              <p className="text-skitm-gray">
-                Internships often lead to final year projects or direct job offers, making students industry-ready professionals.
-              </p>
             </div>
             <img
               src={imgIntern}
-              alt="Internship Opportunities"
+              alt="Internship at SKITM"
               className="rounded-xl shadow-lg max-w-sm mx-auto"
             />
           </div>
@@ -210,7 +210,7 @@ const Placement = () => {
                 SKITM Placement Reports - 2025
               </h2>
               <p className="text-skitm-gray mb-4">
-                Detailed data on placements for the 2025 batch including package, company and branch for each student.
+                Our placement report showcases the impressive success stories of SKITM students, their highest packages, and the leading companies they joined.
               </p>
             </div>
           </div>
@@ -251,13 +251,13 @@ const Placement = () => {
                 Our Recruiters
               </h2>
               <p className="text-skitm-gray">
-                Leading companies across IT, Manufacturing, Financial Services, Insurance, and FMCG have recruited from SKITM, giving our students exceptional career opportunities.
+                SKITM is proud to have industry engagement with leading companies across sectors who actively participate in our placement processes and provide careers for our students.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Support Services Parallax */}
+        {/* Beyond Placement Section */}
         <ParallaxSection
           backgroundImage="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
           overlayOpacity={0.7}
