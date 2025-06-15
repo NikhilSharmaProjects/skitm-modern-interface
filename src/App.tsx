@@ -82,7 +82,6 @@ import Sports from "./pages/student-life/Sports";
 // Other pages
 import NewsEvents from "./pages/NewsEvents";
 import Gallery from "./pages/Gallery";
-import CampusTour from "./pages/CampusTour";
 
 // Admin pages
 import Login from "./pages/Login";
@@ -243,7 +242,6 @@ const App = () => {
                 {/* Other pages */}
                 <Route path="/news-events" element={<NewsEvents />} />
                 <Route path="/gallery" element={<Gallery />} />
-                <Route path="/campus-tour" element={<CampusTour />} />
                 
                 {/* Admin pages */}
                 <Route path="/login" element={<Login />} />
