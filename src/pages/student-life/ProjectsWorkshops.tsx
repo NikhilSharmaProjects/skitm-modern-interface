@@ -2,117 +2,153 @@
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
-import { Code, Lightbulb, Users, Award } from 'lucide-react';
+import { Award, Book, Code, Computer, Users, FlaskRound, Wrench } from 'lucide-react';
+
+const introImage = "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"; // students at workshop
+
+const departmentWorkshops = [
+  {
+    department: "Electronics & Communication Engineering",
+    icon: <FlaskRound className="h-6 w-6 text-skitm-blue" />,
+    color: "bg-blue-50",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    workshops: [
+      { title: "Workshop in Electronics & Communications", detail: "An awareness seminar on UPSC Civil Services is conducted for the students of pre-final year and final year." },
+      { title: "Expert Lecture: Embedded Systems", detail: "Topic: 'Embedded Systems and Applications of AVR Microcontroller'" },
+      { title: "Seminar: Applications of IoT", detail: "Seminar on 'Applications of IoT' in industrial, medical, armed forces domain. Supporting technologies like Raspberry-Pi and Arduino discussed." },
+      { title: "Expert Lecture: Hyper-Connected World", detail: "Lecture on 'Evolutions on Technologies in Hyper-Connected World'." },
+      { title: "PCB Designing & Fabrication", detail: "2nd-year workshop covering PCB design in Eagle, hardware fabrication and component assembly." },
+      { title: "Hands-on Circuit Testing", detail: "Practical session on circuit fabrication and testing by students." }
+    ]
+  },
+  {
+    department: "Civil Engineering",
+    icon: <Wrench className="h-6 w-6 text-skitm-blue" />,
+    color: "bg-green-50",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+    workshops: [
+      { title: "Workshop in Civil Engineering", detail: "Workshops & technical events to give students industry exposure." },
+      { title: "Kota Barrage (Rajasthan)", detail: "5 days tour at Rawatbhata atomic power plant." },
+      { title: "Pune – Bombay Tour", detail: "7 days tour: Mumbai metro project, Bandra Worli Sealink, Bhatan tunnel, LAVASA township." },
+      { title: "Bhakra – Nangal Dam", detail: "8 day technical tour: Bhakra & Nangal Dams, Rohtang Tunnel, bridges, Golden Temple and more." },
+      { title: "Indore Trenching Ground Visit", detail: "Industrial visit (zero waste plant) for understanding dry/wet waste processing." },
+      { title: "Jalud & Devdharan Water Plant Visits", detail: "Technical tours for 3rd year students." },
+      { title: "Annual Civil Mania & Thrill o Civil Competitions", detail: "Bridge model making, Crane making, Debate, Techno Rangoli, and more with lots of prizes." }
+    ]
+  },
+  {
+    department: "Computer Science & Engineering",
+    icon: <Code className="h-6 w-6 text-skitm-blue" />,
+    color: "bg-yellow-50",
+    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&q=80",
+    workshops: [
+      { title: "ISO HACK", detail: "'ISO HACK', a national level 36-hour coding competition with the theme 'Code for a Reason'." },
+      { title: "Short Term Training: Data Science", detail: "Training program on Data Science and Big Data Analytics." },
+      { title: "IoT Workshop", detail: "Three day hands-on IoT workshop: Node MCU, Arduino, cloud and connectivity." },
+      { title: "Cloud Computing with AWS", detail: '"Cloud Computing with AWS" conducted by Mr. Mehtab Singh.' },
+      { title: "Cyber Threats & InfoSec Careers", detail: "Expert session by Rediff.com Director (InfoSec) on cyber threats and security careers." },
+      { title: "Software Quality Workshop", detail: "National workshop on the impact of software quality for engineers." }
+    ]
+  },
+  {
+    department: "Mechanical Engineering",
+    icon: <Award className="h-6 w-6 text-skitm-blue" />,
+    color: "bg-orange-50",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+    workshops: [
+      { title: "Smart Manufacturing Talk", detail: "Expert lecture for students on Smart Manufacturing strategies." },
+      { title: "Industrial Visits", detail: "Visits to Indian Railways, Sanchi Dairy Plant, Eicher Motors, and more." },
+      { title: "Power Plant & Machinery Talks", detail: "Prof. Khandwawala & Prof. Ambekar on thermal plants and machine design." },
+      { title: "Material Engineering Talk", detail: "Prof. Satish Purohit on material selection and material engineering." },
+      { title: "E-baja 2018 Participation", detail: "Team Acroracerz achieved IVth rank in national E-baja competition." }
+    ]
+  }
+];
+
+const speakerImage = "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80";
 
 const ProjectsWorkshops = () => {
-  const stats = [
-    { icon: <Code className="h-8 w-8 text-white" />, number: "50+", label: "Projects Annually" },
-    { icon: <Lightbulb className="h-8 w-8 text-white" />, number: "25+", label: "Workshops" },
-    { icon: <Users className="h-8 w-8 text-white" />, number: "1000+", label: "Participants" },
-    { icon: <Award className="h-8 w-8 text-white" />, number: "15+", label: "Industry Partners" },
-  ];
-
-  const projectTypes = [
-    {
-      title: "Technical Innovation Projects",
-      description: "Cutting-edge research and development projects in collaboration with industry partners",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      title: "Industry Workshops",
-      description: "Hands-on workshops conducted by industry experts on latest technologies and trends",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      title: "Student-Led Initiatives",
-      description: "Encouraging students to lead and manage their own research and development projects",
-      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    }
-  ];
-
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-skitm-offWhite">
       <Navbar />
 
-      {/* Parallax Hero Section */}
-      <ParallaxSection 
-        backgroundImage="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-        overlayOpacity={0.6}
-        className="min-h-[70vh]"
+      {/* Parallax Intro Section */}
+      <ParallaxSection
+        backgroundImage={introImage}
+        overlayOpacity={0.65}
+        className="min-h-[55vh]"
       >
-        <div className="text-center space-y-8">
-          <div className="inline-block px-6 py-2 mb-6 text-sm font-medium bg-white/20 backdrop-blur-sm rounded-full text-white">
-            Innovation Hub
-          </div>
-          <h1 className="font-display font-bold text-5xl md:text-6xl leading-tight tracking-wide">
+        <div className="parallax-content space-y-6">
+          <div className="inline-block px-6 py-2 mb-4 rounded-full bg-white/30 text-white text-sm font-semibold shadow-md backdrop-blur">
             Projects & Workshops
-          </h1>
-          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            Hands-on learning through real-world projects and industry collaborations
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto pt-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="flex justify-center mb-3">
-                  <div className="p-3 bg-white/20 backdrop-blur-sm rounded-full">
-                    {stat.icon}
-                  </div>
-                </div>
-                <div className="font-display font-bold text-2xl md:text-3xl mb-1">
-                  {stat.number}
-                </div>
-                <div className="text-sm md:text-base text-blue-200">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
           </div>
+          <h1 className="font-display text-5xl md:text-6xl font-extrabold drop-shadow-lg mb-3 leading-tight">
+            Practical Learning at SKITM
+          </h1>
+          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed drop-shadow">
+            Practical learning is a major part of our unique teaching methodology. We emphasize hands-on projects, training, workshops, industrial visits, and speaker events so students gain invaluable real-world exposure and expert guidance.
+          </p>
         </div>
       </ParallaxSection>
 
       <main className="flex-grow">
-        {/* Project Types Section */}
-        <section className="section-container bg-white">
-          <h2 className="section-title text-center">Innovation Opportunities</h2>
-          <div className="space-y-16">
-            {projectTypes.map((project, index) => (
-              <div key={index} className={`image-first-block ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                <div className={index % 2 === 1 ? 'order-1 lg:order-2' : 'order-2 lg:order-1'}>
-                  <img 
-                    src={project.image}
-                    alt={project.title}
-                    className="image-first-image"
+        {/* Departments & Workshops */}
+        <section className="section-container bg-white/90 rounded-b-3xl pb-8">
+          <h2 className="section-title text-center mb-0">Key Workshops & Activities</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 mt-10">
+            {departmentWorkshops.map((dept, i) => (
+              <div key={dept.department} className={`rounded-2xl shadow-xl card-hover flex flex-col h-full group overflow-hidden glassmorphism ${dept.color}`}>
+                <div className="h-48 w-full overflow-hidden">
+                  <img
+                    src={dept.image}
+                    alt={dept.department}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
                   />
                 </div>
-                <div className={`image-first-content ${index % 2 === 1 ? 'order-2 lg:order-1' : 'order-1 lg:order-2'}`}>
-                  <h3 className="section-title">{project.title}</h3>
-                  <p className="text-body-lg text-skitm-gray">
-                    {project.description}
-                  </p>
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div className="flex items-center gap-3 mb-2">
+                    {dept.icon}
+                    <span className="font-display font-bold text-xl md:text-2xl text-skitm-navy grow">
+                      {dept.department}
+                    </span>
+                  </div>
+                  <ul className="mt-2 ml-1 space-y-3 text-skitm-gray">
+                    {dept.workshops.map((w, idx) => (
+                      <li key={idx} className="text-base">
+                        <span className="font-semibold text-skitm-blue">{w.title}:</span> {w.detail}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Skills Development Parallax */}
-        <ParallaxSection 
-          backgroundImage="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-          overlayOpacity={0.7}
-          className="min-h-[50vh]"
-        >
-          <div className="text-center space-y-8">
-            <h2 className="font-display font-bold text-4xl md:text-5xl leading-tight tracking-wide">
-              Skills Development
-            </h2>
-            <div className="flex flex-wrap justify-center gap-6">
-              <div className="glassmorphism-dark px-6 py-3 rounded-lg">AI & Machine Learning</div>
-              <div className="glassmorphism-dark px-6 py-3 rounded-lg">Web Development</div>
-              <div className="glassmorphism-dark px-6 py-3 rounded-lg">Mobile Apps</div>
-              <div className="glassmorphism-dark px-6 py-3 rounded-lg">IoT Solutions</div>
+        {/* Speaker Events / Industrial Visits */}
+        <section className="section-container bg-skitm-offWhite pt-0 pb-10">
+          <h2 className="section-title text-center mb-6">Real-World Exposure & Industrial Visits</h2>
+          <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
+            <img
+              src={speakerImage}
+              alt="Speaker event"
+              className="rounded-xl shadow-lg max-w-md mx-auto h-64 object-cover"
+            />
+            <div className="max-w-lg mx-auto text-lg text-skitm-gray space-y-5">
+              <p>
+                Our students participate in frequent industrial visits and hands-on sessions at major sites and companies – be it atomic power plants, metro projects, national competitions, or top IT and manufacturing firms.<br />
+                Eminent speakers and industry experts routinely guide students with lectures, live demonstrations, and interactive training so SKITM graduates are industry-ready from day one!
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <span className="inline-block px-4 py-2 bg-skitm-blue text-white rounded-lg text-sm font-medium">Workshops</span>
+                <span className="inline-block px-4 py-2 bg-skitm-green text-white rounded-lg text-sm font-medium">Industrial Visits</span>
+                <span className="inline-block px-4 py-2 bg-skitm-navy text-white rounded-lg text-sm font-medium">Speaker Events</span>
+                <span className="inline-block px-4 py-2 bg-skitm-yellow text-skitm-navy rounded-lg text-sm font-medium">Competitions</span>
+              </div>
             </div>
           </div>
-        </ParallaxSection>
+        </section>
       </main>
 
       <Footer />
@@ -121,3 +157,4 @@ const ProjectsWorkshops = () => {
 };
 
 export default ProjectsWorkshops;
+
