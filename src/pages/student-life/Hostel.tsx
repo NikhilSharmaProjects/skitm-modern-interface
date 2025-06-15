@@ -1,8 +1,7 @@
-
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
-import { Basketball } from "lucide-react";
+import { Wifi, Dumbbell, Tv, Table2, Goal, Droplets, TreePalm, Utensils, Circle } from "lucide-react";
 
 // Placeholder/stock images relevant for hostels
 const IMG_ROOM = "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80"; // white building
@@ -12,79 +11,79 @@ const IMG_POND = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?a
 
 const features = [
   {
-    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    icon: <Wifi className="h-7 w-7 text-skitm-blue" />,
     title: "24x7 Internet Connectivity",
     description: "High-speed 100MBPS WiFi access in all rooms and campus.",
     image: IMG_ROOM,
   },
   {
-    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    icon: <Circle className="h-7 w-7 text-skitm-blue" />,
     title: "Computer Labs",
     description: "Accessible computer centers for all residents.",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
   },
   {
-    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    icon: <Dumbbell className="h-7 w-7 text-skitm-blue" />,
     title: "Gymnasium",
     description: "State-of-the-art gym facilities for fitness and health.",
     image: "https://images.unsplash.com/photo-1519864600265-abb62423ddec?auto=format&fit=crop&w=800&q=80",
   },
   {
-    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    icon: <Tv className="h-7 w-7 text-skitm-blue" />,
     title: "TV Room",
     description: "Spacious lounge with TV for relaxation and entertainment.",
     image: IMG_LOUNGE,
   },
   {
-    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    icon: <Table2 className="h-7 w-7 text-skitm-blue" />,
     title: "Table Tennis",
     description: "Enjoy hours of indoor fun with table tennis.",
     image: "https://images.unsplash.com/photo-1517639493569-56689abc3e66?auto=format&fit=crop&w=800&q=80",
   },
   {
-    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    icon: <Goal className="h-7 w-7 text-skitm-blue" />,
     title: "Basketball Ground",
     description: "Outdoor court for basketball enthusiasts.",
     image: "https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=800&q=80",
   },
   {
-    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    icon: <Goal className="h-7 w-7 text-skitm-blue" />,
     title: "Volleyball, Kho Kho, Football, Badminton",
     description: "Enjoy various outdoor sports on campus.",
     image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80",
   },
   {
-    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    icon: <Circle className="h-7 w-7 text-skitm-blue" />,
     title: "Indoor & Outdoor Games",
     description: "Wide range of games for recreation and fitness.",
     image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80",
   },
   {
-    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    icon: <Droplets className="h-7 w-7 text-skitm-blue" />,
     title: "Water Pond",
     description: "Serene water pond for peace and relaxation.",
     image: IMG_POND,
   },
   {
-    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    icon: <TreePalm className="h-7 w-7 text-skitm-blue" />,
     title: "Garden",
     description: "Beautiful garden and greenery throughout campus.",
     image: IMG_GARDEN,
   },
   {
-    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    icon: <Utensils className="h-7 w-7 text-skitm-blue" />,
     title: "Mess – Canteen",
     description: "Nutritious and hygienic vegetarian meals in a lively mess.",
     image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
   },
   {
-    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    icon: <Droplets className="h-7 w-7 text-skitm-blue" />,
     title: "Hot & RO Drinking Water",
     description: "24x7 supply of hot water and RO purified drinking water.",
     image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
   },
   {
-    icon: <Basketball className="h-7 w-7 text-skitm-blue" />,
+    icon: <Circle className="h-7 w-7 text-skitm-blue" />,
     title: "Weekly Tour",
     description: "Exciting weekly tours for fun and learning.",
     image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80",
