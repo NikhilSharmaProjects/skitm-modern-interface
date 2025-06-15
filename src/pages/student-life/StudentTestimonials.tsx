@@ -10,30 +10,42 @@ const StudentTestimonials = () => {
     { icon: <MessageCircle className="h-8 w-8 text-white" />, number: "100%", label: "Recommend SKITM" },
   ];
 
+  // Fictional, diverse testimonials data with no photo.
   const testimonials = [
     {
-      name: "Rajesh Kumar",
-      program: "B.Tech Computer Science",
-      year: "2023",
+      name: "Rohit Sharma",
+      program: "B.Tech Mechanical Engineering",
+      year: "2025",
       rating: 5,
-      quote: "SKITM provided me with excellent technical education and industry exposure. The faculty support and placement assistance helped me secure a great job in a leading tech company.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+      quote: "SKITM's hands-on learning approach truly set me up for success. The supportive faculty and industry exposure helped me discover my passion for robotics."
     },
     {
-      name: "Priya Sharma",
-      program: "B.Pharm",
-      year: "2023",
-      rating: 5,
-      quote: "The pharmacy program at SKITM is comprehensive and well-structured. The practical training and research opportunities prepared me well for my career in the pharmaceutical industry.",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b098?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
-    },
-    {
-      name: "Arun Patel",
+      name: "Aishwarya Sen",
       program: "MBA",
       year: "2024",
       rating: 5,
-      quote: "The MBA program at SKITM transformed my perspective on business and leadership. The case studies, industry interactions, and practical approach helped me grow professionally.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+      quote: "The case studies, internships, and skill-building workshops at SKITM transformed my leadership abilities and business acumen."
+    },
+    {
+      name: "Aditya Patel",
+      program: "B.Pharm",
+      year: "2023",
+      rating: 5,
+      quote: "Laboratory sessions and research initiatives here gave me practical experience that's already proving invaluable in my pharma career."
+    },
+    {
+      name: "Sana Mirza",
+      program: "BBA",
+      year: "2024",
+      rating: 4,
+      quote: "SKITM allowed me to grow personally and professionally. The vibrant campus culture and mentoring empowered me to lead club projects confidently."
+    },
+    {
+      name: "Neeraj Jain",
+      program: "B.Tech Electronics",
+      year: "2023",
+      rating: 5,
+      quote: "Workshops, industry visits, and a strong alumni network ensured I was job-ready on graduation day. I’d definitely recommend SKITM!"
     }
   ];
 
@@ -95,17 +107,11 @@ const StudentTestimonials = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="glassmorphism rounded-xl p-8 card-hover">
-                <div className="flex items-center mb-6">
-                  <img 
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-16 h-16 rounded-full object-cover mr-4"
-                  />
-                  <div>
-                    <h4 className="font-display font-bold text-skitm-navy">{testimonial.name}</h4>
-                    <p className="text-sm text-skitm-gray">{testimonial.program}</p>
-                    <p className="text-xs text-skitm-gray">Class of {testimonial.year}</p>
-                  </div>
+                {/* Removed student photo */}
+                <div className="mb-6">
+                  <h4 className="font-display font-bold text-skitm-navy">{testimonial.name}</h4>
+                  <p className="text-sm text-skitm-gray">{testimonial.program}</p>
+                  <p className="text-xs text-skitm-gray">Class of {testimonial.year}</p>
                 </div>
                 <div className="flex mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -166,3 +172,4 @@ const StudentTestimonials = () => {
 };
 
 export default StudentTestimonials;
+
