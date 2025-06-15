@@ -82,6 +82,7 @@ import Sports from "./pages/student-life/Sports";
 // Other pages
 import NewsEvents from "./pages/NewsEvents";
 import Gallery from "./pages/Gallery";
+import Blogs from "./pages/Blogs"; // <-- Add this import
 
 // Admin pages
 import Login from "./pages/Login";
@@ -240,9 +241,12 @@ const App = () => {
                 <Route path="/sports" element={<Sports />} />
                 
                 {/* Other pages */}
-                <Route path="/news-events" element={<NewsEvents />} />
                 <Route path="/gallery" element={<Gallery />} />
+                <Route path="/blogs" element={<Blogs />} /> {/* <-- Add Blogs */}
                 
+                {/* Remove campus tour and top-level news-events nav -- /news-events is still routed below */}
+                <Route path="/news-events" element={<NewsEvents />} />
+
                 {/* Admin pages */}
                 <Route path="/login" element={<Login />} />
                 <Route path="/admin-dashboard" element={

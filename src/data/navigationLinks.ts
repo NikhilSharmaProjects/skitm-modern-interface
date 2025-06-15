@@ -1,4 +1,3 @@
-
 // Hierarchical navigation structure based on SKITM sitemap
 
 // About Us sub-routes
@@ -76,6 +75,7 @@ export const studentLifeLinks = [
   { name: "Facilities", href: "/facilities" },
   { name: "Library", href: "/library" },
   { name: "Sports", href: "/sports" },
+  { name: "News & Events", href: "/news-events" },
 ];
 
 // Main navigation structure
@@ -86,8 +86,7 @@ export const mainNavigationLinks = [
   { name: "Admissions", href: "/admissions", subItems: admissionsLinks },
   { name: "Placement", href: "/placement" },
   { name: "Student Life", href: "/student-life", subItems: studentLifeLinks },
-  { name: "News & Events", href: "/news-events" },
   { name: "Gallery", href: "/gallery" },
-  { name: "Campus Tour", href: "/campus-tour" },
+  { name: "Blogs", href: "/blogs" },
   { name: "Contact Us", href: "/contact" },
 ];
