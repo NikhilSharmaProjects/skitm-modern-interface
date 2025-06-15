@@ -1,24 +1,38 @@
 
 import PageTemplate from '@/components/layout/PageTemplate';
 
-const LeadershipTeam = () => {
-  const leaders = [
-    { name: "Dr. [Name]", position: "Director", department: "Administration" },
-    { name: "Dr. [Name]", position: "Dean Academics", department: "Academic Affairs" },
-    { name: "Dr. [Name]", position: "Dean Student Affairs", department: "Student Welfare" },
-    { name: "Prof. [Name]", position: "Registrar", department: "Administration" },
-    { name: "Dr. [Name]", position: "Head - CSE", department: "Computer Science" },
-    { name: "Dr. [Name]", position: "Head - ECE", department: "Electronics" },
-    { name: "Dr. [Name]", position: "Head - ME", department: "Mechanical" },
-    { name: "Dr. [Name]", position: "Head - CE", department: "Civil" },
-  ];
+const leaders = [
+  { name: "Dr. Shivajirao Kadam", position: "Chairman, BOG and Chancellor", department: "Bharti Vidyapeeth University, Pune" },
+  { name: "Dr. Rahul Kadam", position: "Chairman", department: "Transnational Knowledge Society and MD, Udagiri Sugar Limited" },
+  { name: "Dr. DP Agrawal", position: "Chairman Advisory Board", department: "Former Chairman UPSC Board" },
+  { name: "Dr. Ashok Kumat", position: "Vice Chairman", department: "SKITM" },
+  { name: "Dr. Sanjay Purkar", position: "Director", department: "SKITM" },
+  { name: "Prof. Satish B. Purohit", position: "Dean Innovations", department: "Former Professor Mechanical Engineering, SGSITS" },
+  { name: "Shri Sanjay Jagdale", position: "Director, Sports", department: "Former BCCI Secretary" },
+  { name: "Dr. Rizwan Khan", position: "Principal", department: "SKIPER" },
+  { name: "Dr. Sumeet Khurana", position: "Director", department: "Faculty of Management Studies" },
+  { name: "Dr. Vishal Mehta", position: "Principal", department: "College of Professional Studies" },
+  { name: "AVM Praveen Kumar (Retd.) AVSM, VSM", position: "Dean Student Affairs", department: "" },
+  { name: "Dr. Preetesh Purohit", position: "Professor and Dean", department: "Engineering" },
+  { name: "Dr. Amit Udawat", position: "Head", department: "Electronics & Communication" },
+  { name: "Prof. Girish Patidar", position: "Head", department: "Civil Engineering" },
+];
 
+const LeadershipTeam = () => {
   return (
     <PageTemplate
       title="Leadership Team"
       subtitle="Dedicated leaders driving academic excellence and institutional growth."
       breadcrumb="About Us"
     >
+      <div className="mb-8">
+        <p className="text-skitm-gray mb-6">
+          The leadership team at SKITM is committed to upholding and promoting the mission of the School: educate and develop innovative, entrepreneurial and responsible business leaders.
+        </p>
+        <p className="text-skitm-gray mb-10">
+          With their diverse backgrounds and perspectives, the Board of Governors, the Advisory Body and the Director work together to take the institute forward, supporting the faculty and staff, spearheading a host of new academic projects and initiatives across its campuses and around the globe, and building and sustaining the collaborative, inclusive environment for students that encourages learning and invention.
+        </p>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
         {leaders.map((leader, index) => (
           <div key={index} className="glassmorphism rounded-xl p-6">
@@ -31,7 +45,9 @@ const LeadershipTeam = () => {
             <p className="text-skitm-blue font-semibold mb-1 text-center text-sm">
               {leader.position}
             </p>
-            <p className="text-xs text-skitm-gray text-center">{leader.department}</p>
+            {leader.department && (
+              <p className="text-xs text-skitm-gray text-center">{leader.department}</p>
+            )}
           </div>
         ))}
       </div>
