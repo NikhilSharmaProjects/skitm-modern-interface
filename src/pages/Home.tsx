@@ -1,3 +1,4 @@
+
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
@@ -108,7 +109,7 @@ export default function Home() {
         <div className="image-first-block">
           <div>
             <img 
-              src={getRandomGalleryImage()} // Replaced static image
+              src={getRandomGalleryImage()} // Always use a random gallery image
               alt="About SKITM"
               className="image-first-image"
             />

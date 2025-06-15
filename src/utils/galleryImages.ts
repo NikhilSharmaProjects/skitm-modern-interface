@@ -1,9 +1,9 @@
 
-const GALLERY_IMAGE_COUNT = 21; // Update this if you add or remove images
+const GALLERY_IMAGE_COUNT = 21; // Adjust if you add/remove images
 
 export function getRandomGalleryImage(): string {
   const idx = Math.floor(Math.random() * GALLERY_IMAGE_COUNT) + 1;
-  return `Gallery/GalleryImage (${idx}).png`;
+  return `/Gallery/GalleryImage (${idx}).png`;
 }
 
 export function pickRandomGalleryImages(count: number): string[] {
@@ -12,5 +12,5 @@ export function pickRandomGalleryImages(count: number): string[] {
     const j = Math.floor(Math.random() * (i + 1));
     [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
   }
-  return numbers.slice(0, count).map(idx => `Gallery/GalleryImage (${idx}).png`);
+  return numbers.slice(0, count).map(idx => `/Gallery/GalleryImage (${idx}).png`);
 }

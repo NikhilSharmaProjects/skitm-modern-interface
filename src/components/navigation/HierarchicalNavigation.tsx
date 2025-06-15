@@ -19,31 +19,37 @@ interface DropdownProps {
 const Dropdown = ({ items, isOpen, level = 0 }: DropdownProps) => {
   const [openSubmenus, setOpenSubmenus] = useState<{ [key: string]: boolean }>({});
 
-  const toggleSubmenu = (itemName: string) => {
-    setOpenSubmenus(prev => ({
-      ...prev,
-      [itemName]: !prev[itemName]
-    }));
-  };
-
+  // Removed toggleSubmenu and only open via hover from parent logic
   if (!isOpen) return null;
 
   return (
-    <div className={`absolute ${level === 0 ? 'top-full left-0' : 'top-0 left-full'} min-w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50`}>
+    <div
+      className={`absolute ${
+        level === 0 ? 'top-full left-0' : 'top-0 left-full'
+      } min-w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50`}
+    >
       {items.map((item) => (
-        <div key={item.name} className="relative group">
+        <div
+          key={item.name}
+          className="relative group"
+          onMouseEnter={() =>
+            setOpenSubmenus((prev) => ({ ...prev, [item.name]: true }))
+          }
+          onMouseLeave={() =>
+            setOpenSubmenus((prev) => ({ ...prev, [item.name]: false }))
+          }
+        >
           {item.subItems ? (
             <div>
               <button
-                onClick={() => toggleSubmenu(item.name)}
                 className="w-full flex items-center justify-between px-4 py-2 text-sm text-skitm-navy hover:bg-skitm-blue/10 transition-colors"
               >
                 <span>{item.name}</span>
                 <ChevronRight className="w-4 h-4" />
               </button>
-              <Dropdown 
-                items={item.subItems} 
-                isOpen={openSubmenus[item.name] || false} 
+              <Dropdown
+                items={item.subItems}
+                isOpen={!!openSubmenus[item.name]}
                 level={level + 1}
               />
             </div>
@@ -87,8 +93,8 @@ const HierarchicalNavigation = () => {
                 <span>{item.name}</span>
                 <ChevronDown className="w-4 h-4 ml-1" />
               </button>
-              <Dropdown 
-                items={item.subItems} 
+              <Dropdown
+                items={item.subItems}
                 isOpen={openDropdown === item.name}
               />
             </div>
