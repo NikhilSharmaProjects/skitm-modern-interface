@@ -11,13 +11,10 @@ const Society = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
         <div className="glassmorphism rounded-xl p-8">
           <h2 className="text-2xl font-display font-bold text-skitm-navy mb-6">
-            Our Society
+            About the Society
           </h2>
           <p className="text-skitm-gray mb-4">
-            The Shivajirao Kadam Institute of Technology and Management is established under the aegis of a dedicated society committed to providing quality technical education.
-          </p>
-          <p className="text-skitm-gray mb-4">
-            Our society comprises experienced educationists, industry experts, and philanthropists who work together to ensure the institute maintains the highest standards of academic excellence.
+            Transnational Knowledge Society was founded in the year 2008. The aim of the society is to elevate the region by providing high-quality education at reasonable costs. Till now, society has catered to over 8000 students, transforming their lives and the lives of their families. Transnational Knowledge Society has been instrumental in improving the educational standards in the city by setting an example of good governance and a student-centric approach. In the past, the society has controlled the Transnational Knowledge Society Group of Institutions and later on the Acropolis Technical Campus. Currently, there are 4 Colleges under its aegis, catering to over 1700 students from across the State. Transnational Knowledge Society through SKITM aims to impart highly impactful education, which helps students build successful careers. High focus on the moral compass, societal transformation, and the good of the industry are the messages which resonate in its teachings.
           </p>
         </div>
         
