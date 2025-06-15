@@ -1,9 +1,8 @@
-
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import OptimizedImage from '@/components/ui/OptimizedImage';
-import { BasketballCourt, Bell, BellElectric, Bus, Cctv, Computer, Football, Gymnasium, Library, TableTennis, Wifi } from "lucide-react";
+import { Basketball, Bell, BellElectric, Bus, Cctv, Computer, Football, Gymnasium, Library, TableTennis, Wifi } from "lucide-react";
 
 const FACILITY_IMAGES = [
   { title: "Auditorium", img: "https://images.unsplash.com/photo-1473177104440-ffee2f376098?auto=format&fit=crop&w=800&q=80" },
@@ -41,7 +40,7 @@ const icons: Record<string, JSX.Element> = {
   "Boys Hostel": <BellElectric size={32} className="text-skitm-blue" />,
   "Computer Labs": <Computer size={32} className="text-skitm-blue" />,
   "Labs for Specific Subjects": <Computer size={32} className="text-skitm-blue" />,
-  "Amphitheatre": <BasketballCourt size={32} className="text-skitm-blue" />,
+  "Amphitheatre": <Basketball size={32} className="text-skitm-blue" />,
   "Cricket Ground": <Football size={32} className="text-skitm-blue" />,
   "Volleyball Court": <Football size={32} className="text-skitm-blue" />,
   "Canteen": <Bell size={32} className="text-skitm-blue" />,
@@ -58,7 +57,7 @@ const icons: Record<string, JSX.Element> = {
   "Cricket Pavilion": <Football size={32} className="text-skitm-blue" />,
   "Building for College of Professional Studies": <Library size={32} className="text-skitm-blue" />,
   "Gymnasium": <Gymnasium size={32} className="text-skitm-blue" />,
-  "Basketball Court": <BasketballCourt size={32} className="text-skitm-blue" />,
+  "Basketball Court": <Basketball size={32} className="text-skitm-blue" />,
   "Biometric Entry Points": <Cctv size={32} className="text-skitm-blue" />,
   "Recreation Spaces": <Bell size={32} className="text-skitm-blue" />,
   "Residential Facilities": <BellElectric size={32} className="text-skitm-blue" />,
@@ -200,4 +199,3 @@ const Facilities = () => {
 };
 
 export default Facilities;
-
