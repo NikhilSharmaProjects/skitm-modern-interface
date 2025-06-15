@@ -11,8 +11,14 @@ const Scholarships = () => {
     <div className="min-h-screen flex flex-col">
       <Helmet>
         <title>Scholarships & Fee Structure - SKITM</title>
-        <meta name="description" content="Explore scholarships and fee structure at SKITM. Find information about merit-based scholarships, fees for different programs, and eligibility criteria." />
-        <meta name="keywords" content="SKITM scholarships, fee structure, engineering scholarships, merit scholarships, JEE scholarships, SKITM fees" />
+        <meta
+          name="description"
+          content="Explore scholarships, eligibility, and fee structure at SKITM, including special and merit scholarships for outstanding students."
+        />
+        <meta
+          name="keywords"
+          content="SKITM scholarships, fee structure, merit scholarships, sports scholarships, SKITM fees"
+        />
       </Helmet>
       
       <Navbar />
@@ -30,16 +36,57 @@ const Scholarships = () => {
               Scholarships & Fee Structure
             </h1>
             <p className="text-lg text-skitm-gray max-w-2xl mx-auto">
-              Supporting talented students through merit-based scholarships for AY 2025-26.
+              Supporting talented students through genuine SKITM scholarships and transparent fee structure for AY 2025-26.
             </p>
+          </div>
+          
+          {/* Scholarships Section */}
+          <div className="glassmorphism rounded-xl p-8 mb-16">
+            <h2 className="text-2xl font-display font-bold text-skitm-navy mb-6 text-center">
+              Scholarships
+            </h2>
+
+            <h3 className="text-xl font-bold text-skitm-blue mb-3">Special scholarships through an application</h3>
+            <p className="text-skitm-gray mb-4">
+              We award special scholarships for achievers or outstanding all-round performers in diverse fields. You may be eligible for a scholarship if you meet any of the following criteria:
+            </p>
+            <ul className="list-disc list-inside text-skitm-gray space-y-2 mb-4">
+              <li><b>Academic Excellence:</b> State-level, board level, or national level rank holder in academics.</li>
+              <li>
+                <b>SKITM Sports Scholarships:</b> For international/national/state level award winners, provided the applicant has participated or is a rank holder under the School Games Federation of India (SGFI), or has represented any member association of The Indian Olympic Association (IOA). Only sports recognized by SGFI or IOA will be considered.
+              </li>
+              <li>
+                <b>Other Achievements:</b> National/state level achievers in fields other than academics or sports.
+              </li>
+            </ul>
+            <p className="text-skitm-gray mb-8">
+              <span className="font-semibold text-skitm-navy">Supporting documents</span> are mandatory to be considered for this scholarship.
+            </p>
+
+            <h3 className="text-xl font-bold text-skitm-blue mb-3">Merit scholarships for enrolled students</h3>
+            <p className="text-skitm-gray mb-4">
+              To encourage and reward exceptional academic performance, merit scholarships may be awarded to students enrolled in SKITM programs.
+            </p>
+            <ul className="list-disc list-inside text-skitm-gray mb-4 space-y-2">
+              <li>The list of meritorious students is prepared based on annual academic performance at the end of every academic year.</li>
+              <li>Eligible students, who are not on any other scholarship, shall be considered for the scholarship award for the remaining term of their program.</li>
+            </ul>
+
+            <h4 className="font-semibold text-skitm-blue mb-2 mt-6">Scholarship Conditions</h4>
+            <ul className="list-disc list-inside text-skitm-gray space-y-2">
+              <li>Scholarships are awarded for the full duration of the program.</li>
+              <li>The Scholarship Committee will review the performance of every scholarship student each term. Continuation of the scholarship depends on maintaining an exceptional score every semester in the enrolled program.</li>
+              <li>The scholarship amount is not paid directly to the student but is deducted from the term dues.</li>
+              <li>If a scholarship student withdraws, the student must refund scholarship amounts already disbursed by SKITM.</li>
+              <li>The Scholarship Committee reserves the right to alter, modify, or withdraw any provisions and policies at any time.</li>
+              <li>If any of the recipient's information is found to be false or inaccurate during the program, the award will be withdrawn and the student will be liable for full payment of fees or immediate dismissal.</li>
+            </ul>
           </div>
           
           {/* Introduction Section */}
           <div className="glassmorphism rounded-xl p-8 mb-16">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl font-display font-bold text-skitm-navy mb-4 text-center">
-                Shivajirao Kadam Group of Institutions
-              </h2>
+              <h2 className="text-2xl font-display font-bold text-skitm-navy">Shivajirao Kadam Group of Institutions</h2>
               <ul className="space-y-2 mb-6 text-center">
                 <li className="font-semibold text-skitm-navy">SHIVAJIRAO KADAM INSTITUTE OF TECHNOLOGY & MANAGEMENT</li>
                 <li className="text-green-600 font-medium">(NAAC A Grade | An UGC Autonomous Institute)</li>
