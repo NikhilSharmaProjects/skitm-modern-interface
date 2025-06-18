@@ -4,6 +4,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import Button from "@/components/ui/CustomButton";
 import ParallaxSection from "@/components/common/ParallaxSection";
 import { TrendingUp, Users, Award, Building2 } from "lucide-react";
+import { getRandomGalleryImage } from "@/utils/galleryImages";
 
 const PlacementSection = () => {
     const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation();
@@ -46,7 +47,7 @@ const PlacementSection = () => {
         <>
             {/* Parallax Stats Section */}
             <ParallaxSection 
-                backgroundImage="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                backgroundImage={getRandomGalleryImage()}
                 overlayOpacity={0.7}
                 className="min-h-[60vh]"
             >
@@ -110,7 +111,7 @@ const PlacementSection = () => {
                         </div>
                         <div>
                             <img 
-                                src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                src={getRandomGalleryImage()}
                                 alt="Job Interview"
                                 className="image-first-image"
                             />

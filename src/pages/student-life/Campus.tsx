@@ -3,6 +3,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import { MapPin, TreePine, Building2, Heart } from 'lucide-react';
+import { getRandomGalleryImage } from "@/utils/galleryImages";
 
 const Campus = () => {
   const campusStats = [
@@ -16,17 +17,17 @@ const Campus = () => {
     {
       title: "Academic Complex",
       description: "Modern classrooms, laboratories, and lecture halls equipped with latest technology for enhanced learning experience",
-      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: getRandomGalleryImage()
     },
     {
       title: "Green Spaces",
       description: "Beautiful landscaped gardens, open spaces, and recreational areas that provide a serene environment for study and relaxation",
-      image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: getRandomGalleryImage()
     },
     {
       title: "Student Hub",
       description: "Central area with cafeterias, student lounges, and recreational facilities where students gather and socialize",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: getRandomGalleryImage()
     }
   ];
 
@@ -36,7 +37,7 @@ const Campus = () => {
 
       {/* Parallax Hero Section */}
       <ParallaxSection 
-        backgroundImage="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+        backgroundImage={getRandomGalleryImage()}
         overlayOpacity={0.5}
         className="min-h-[70vh]"
       >
@@ -97,7 +98,7 @@ const Campus = () => {
 
         {/* Sustainability Parallax */}
         <ParallaxSection 
-          backgroundImage="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+          backgroundImage={getRandomGalleryImage()}
           overlayOpacity={0.7}
           className="min-h-[50vh]"
         >

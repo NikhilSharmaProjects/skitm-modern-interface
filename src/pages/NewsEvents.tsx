@@ -1,10 +1,13 @@
-
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import { Calendar, Users, Award, BookOpen } from 'lucide-react';
+import { getRandomGalleryImage, pickRandomGalleryImages } from "@/utils/galleryImages";
 
 const NewsEvents = () => {
+  // Get random gallery images for news and events
+  const newsImages = pickRandomGalleryImages(7);
+
   const stats = [
     { icon: <Calendar className="h-8 w-8 text-white" />, number: "50+", label: "Annual Events" },
     { icon: <Users className="h-8 w-8 text-white" />, number: "5000+", label: "Participants" },
@@ -12,56 +15,56 @@ const NewsEvents = () => {
     { icon: <BookOpen className="h-8 w-8 text-white" />, number: "100+", label: "Workshops" },
   ];
 
-  // Provided event data (latest first - you can reorder as needed)
+  // Updated event data with gallery images
   const latestNews = [
     {
       category: "Hackathon",
       title: "Innothon 2.0 – A National-Level Hackathon!",
       excerpt: "Exciting opportunity for innovators, coders, and creators to showcase talent in a 36-hour hackathon on a national stage.",
       date: "May 9, 2025",
-      image: "",
+      image: newsImages[0] || "/Gallery/GalleryImage (1).png",
     },
     {
       category: "Farewell",
       title: "Farewell Event Ceremony",
       excerpt: "A ceremony to bid farewell and celebrate achievements, memories, and gratitude with departing students.",
       date: "May 6, 2025",
-      image: "",
+      image: newsImages[1] || "/Gallery/GalleryImage (2).png",
     },
     {
       category: "Seminar",
       title: "NEP In Higher Education: Adaption and Challenges",
       excerpt: "A seminar on implementing India's National Education Policy 2020 for higher education with discussion panels.",
       date: "April 11, 2025",
-      image: "",
+      image: newsImages[2] || "/Gallery/GalleryImage (3).png",
     },
     {
       category: "Competition",
       title: "Business Plan Competition",
       excerpt: "Student teams compete with innovative business plan presentations; winning entries receive special recognition.",
       date: "April 4, 2025",
-      image: "",
+      image: newsImages[3] || "/Gallery/GalleryImage (4).png",
     },
     {
       category: "Workshop",
       title: "Introduction to Spatial Thinking, GIS and Remote Sensing",
       excerpt: "Hands-on workshop exploring geospatial science fundamentals and their applications.",
       date: "April 4, 2025",
-      image: "",
+      image: newsImages[4] || "/Gallery/GalleryImage (5).png",
     },
     {
       category: "Celebration",
       title: "Celebrate World Poetry Day",
       excerpt: "A cultural evening with poetry recital and vibrant literary performances on campus.",
       date: "March 21, 2025",
-      image: "",
+      image: newsImages[5] || "/Gallery/GalleryImage (6).png",
     },
     {
       category: "Festival",
       title: "Holi Milan Samaroh",
       excerpt: "Colorful celebration of the festival of Holi, with music and traditions at SKITM campus.",
       date: "March 13, 2025",
-      image: "",
+      image: newsImages[6] || "/Gallery/GalleryImage (7).png",
     },
   ];
 
@@ -139,7 +142,7 @@ const NewsEvents = () => {
       <Navbar />
       {/* Parallax Hero Section */}
       <ParallaxSection 
-        backgroundImage="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+        backgroundImage={getRandomGalleryImage()}
         overlayOpacity={0.6}
         className="min-h-[70vh] pt-24"
       >
@@ -180,18 +183,11 @@ const NewsEvents = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {latestNews.map((news, index) => (
               <div key={index} className="glassmorphism rounded-xl overflow-hidden card-hover">
-                {/* Hide image if missing, show placeholder */}
-                {news.image ? (
-                  <img 
-                    src={news.image}
-                    alt={news.title}
-                    className="w-full h-48 object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-48 bg-skitm-blue/10 flex items-center justify-center text-skitm-blue font-display font-bold text-xl">
-                    {news.title[0]}
-                  </div>
-                )}
+                <img 
+                  src={news.image}
+                  alt={news.title}
+                  className="w-full h-48 object-cover"
+                />
                 <div className="p-6">
                   <span className="inline-block px-3 py-1 bg-skitm-blue/10 text-skitm-blue rounded-full text-sm mb-3">
                     {news.category}
@@ -214,7 +210,7 @@ const NewsEvents = () => {
           <div className="image-first-block">
             <div className="order-2 lg:order-1">
               <img 
-                src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src={getRandomGalleryImage()}
                 alt="Campus Events"
                 className="image-first-image"
               />
@@ -250,7 +246,7 @@ const NewsEvents = () => {
 
         {/* Events Parallax */}
         <ParallaxSection 
-          backgroundImage="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+          backgroundImage={getRandomGalleryImage()}
           overlayOpacity={0.7}
           className="min-h-[50vh]"
         >

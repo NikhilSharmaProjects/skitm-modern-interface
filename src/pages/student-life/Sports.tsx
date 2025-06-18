@@ -1,6 +1,8 @@
+
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
+import { getRandomGalleryImage, pickRandomGalleryImages } from "@/utils/galleryImages";
 import {
   Bell,
   Volleyball,
@@ -18,46 +20,49 @@ const intro = `
 Our institution is a firm believer in the holistic development of our students. Hence we greatly focus on their physical fitness. Our sports department is unlike any other in the region. A host of new sporting facilities are underway, under the guidance of Mr. Sanjay Jagdale, a former Indian cricketer and a former Secretary of BCCI. Currently, we offer Cricket, Football, Volleyball, Table Tennis, Basketball and a host of other indoor games. Our aim is to provide our students with world-class sporting facilities in the coming years and help them get recognition at various national and international level platforms.
 `;
 
-const sports = [
-  {
-    name: "Cricket",
-    desc: "Full-size cricket ground, regular matches and professional coaching.",
-    icon: <Bell className="h-10 w-10 text-skitm-blue mx-auto mb-3" />, // fallback
-    img: "https://images.unsplash.com/photo-1551038247-3d9af20df552?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    name: "Football",
-    desc: "Well-maintained football field for tournaments and training.",
-    icon: <Bell className="h-10 w-10 text-skitm-blue mx-auto mb-3" />, // fallback
-    img: "https://images.unsplash.com/photo-1500673922987-e212871fec2e?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    name: "Volleyball",
-    desc: "Outdoor volleyball courts with modern facilities.",
-    icon: <Volleyball className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
-    img: "https://images.unsplash.com/photo-1439337153520-7082a56a81f4?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    name: "Basketball",
-    desc: "Basketball court for regular matches and events.",
-    icon: <Bell className="h-10 w-10 text-skitm-blue mx-auto mb-3" />, // fallback
-    img: "https://images.unsplash.com/photo-1460574283810-2aab119d8511?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    name: "Table Tennis",
-    desc: "Indoor table tennis and indoor games facility.",
-    icon: <TableTennis className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
-    img: "https://images.unsplash.com/photo-1431576901776-e539bd916ba2?auto=format&fit=crop&w=800&q=80"
-  }
-];
-
 const Sports = () => {
+  // Get random gallery images for sports
+  const sportsImages = pickRandomGalleryImages(5);
+
+  const sports = [
+    {
+      name: "Cricket",
+      desc: "Full-size cricket ground, regular matches and professional coaching.",
+      icon: <Bell className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
+      img: sportsImages[0] || "/Gallery/GalleryImage (1).png"
+    },
+    {
+      name: "Football",
+      desc: "Well-maintained football field for tournaments and training.",
+      icon: <Bell className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
+      img: sportsImages[1] || "/Gallery/GalleryImage (2).png"
+    },
+    {
+      name: "Volleyball",
+      desc: "Outdoor volleyball courts with modern facilities.",
+      icon: <Volleyball className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
+      img: sportsImages[2] || "/Gallery/GalleryImage (3).png"
+    },
+    {
+      name: "Basketball",
+      desc: "Basketball court for regular matches and events.",
+      icon: <Bell className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
+      img: sportsImages[3] || "/Gallery/GalleryImage (4).png"
+    },
+    {
+      name: "Table Tennis",
+      desc: "Indoor table tennis and indoor games facility.",
+      icon: <TableTennis className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
+      img: sportsImages[4] || "/Gallery/GalleryImage (5).png"
+    }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
 
       <ParallaxSection
-        backgroundImage="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+        backgroundImage={getRandomGalleryImage()}
         overlayOpacity={0.5}
         className="min-h-[60vh]"
       >

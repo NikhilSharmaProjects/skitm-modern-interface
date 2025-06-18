@@ -3,62 +3,66 @@ import ParallaxSection from '@/components/common/ParallaxSection';
 import CampusMap from '@/components/common/CampusMap';
 import OptimizedImage from '@/components/ui/OptimizedImage';
 import PageTemplate from '@/components/layout/PageTemplate';
-
-const CAMPUS_IMAGES = [
-  "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1431576901776-e539bd916ba2?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1500673922987-e212871fec2e?auto=format&fit=crop&w=800&q=80"
-];
-
-const CAMPUS_FEATURES = [
-  {
-    title: "Peaceful Hillside Setting",
-    description: "Nestled against the serene Ralamandal Hills, SKITM offers a peaceful atmosphere for learning and personal growth.",
-    image: CAMPUS_IMAGES[4]
-  },
-  {
-    title: "Architectural Grandeur",
-    description: "Our main academic block is clad in the same stone used in India's Parliament, exuding grandeur and timelessness.",
-    image: CAMPUS_IMAGES[3]
-  },
-  {
-    title: "Nature Meets Modernity",
-    description: "Abundant greenery, flora and fauna give the campus a unique personality and an inspiring environment to thrive.",
-    image: CAMPUS_IMAGES[1]
-  },
-  {
-    title: "Expansive Facilities",
-    description: "Spread across 12 acres, SKITM features over 300,000 sq.ft. of built-up area, with state-of-the-art labs, recreation spaces, and modern residences. Extensive new upgrades are always underway.",
-    image: CAMPUS_IMAGES[0]
-  }
-];
-
-const CAMPUS_OFFERINGS = [
-  "B.Tech (CSE, MECH, CIVIL, EC)",
-  "B.COM",
-  "BBA",
-  "Integrated MBA",
-  "MBA (Full Time)",
-  "D.Pharm",
-  "B.Pharm"
-];
-
-const CAMPUS_GALLERY = [
-  "https://images.unsplash.com/photo-1500673922987-e212871fec2e?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1431576901776-e539bd916ba2?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80"
-];
+import { getRandomGalleryImage, pickRandomGalleryImages } from "@/utils/galleryImages";
 
 const Campus = () => {
+  // Get random gallery images for campus sections
+  const campusImages = pickRandomGalleryImages(10);
+
+  const CAMPUS_IMAGES = [
+    campusImages[0] || "/Gallery/GalleryImage (1).png",
+    campusImages[1] || "/Gallery/GalleryImage (2).png",
+    campusImages[2] || "/Gallery/GalleryImage (3).png",
+    campusImages[3] || "/Gallery/GalleryImage (4).png",
+    campusImages[4] || "/Gallery/GalleryImage (5).png"
+  ];
+
+  const CAMPUS_FEATURES = [
+    {
+      title: "Peaceful Hillside Setting",
+      description: "Nestled against the serene Ralamandal Hills, SKITM offers a peaceful atmosphere for learning and personal growth.",
+      image: CAMPUS_IMAGES[4]
+    },
+    {
+      title: "Architectural Grandeur",
+      description: "Our main academic block is clad in the same stone used in India's Parliament, exuding grandeur and timelessness.",
+      image: CAMPUS_IMAGES[3]
+    },
+    {
+      title: "Nature Meets Modernity",
+      description: "Abundant greenery, flora and fauna give the campus a unique personality and an inspiring environment to thrive.",
+      image: CAMPUS_IMAGES[1]
+    },
+    {
+      title: "Expansive Facilities",
+      description: "Spread across 12 acres, SKITM features over 300,000 sq.ft. of built-up area, with state-of-the-art labs, recreation spaces, and modern residences. Extensive new upgrades are always underway.",
+      image: CAMPUS_IMAGES[0]
+    }
+  ];
+
+  const CAMPUS_OFFERINGS = [
+    "B.Tech (CSE, MECH, CIVIL, EC)",
+    "B.COM",
+    "BBA",
+    "Integrated MBA",
+    "MBA (Full Time)",
+    "D.Pharm",
+    "B.Pharm"
+  ];
+
+  const CAMPUS_GALLERY = [
+    campusImages[5] || "/Gallery/GalleryImage (6).png",
+    campusImages[6] || "/Gallery/GalleryImage (7).png",
+    campusImages[7] || "/Gallery/GalleryImage (8).png",
+    campusImages[8] || "/Gallery/GalleryImage (9).png",
+    campusImages[9] || "/Gallery/GalleryImage (10).png"
+  ];
+
   return (
     <PageTemplate title="Our Campus">
       {/* Parallax Hero Section */}
       <ParallaxSection
-        backgroundImage={CAMPUS_IMAGES[0]}
+        backgroundImage={getRandomGalleryImage()}
         overlayOpacity={0.55}
         className="min-h-[60vh]"
       >
@@ -167,4 +171,3 @@ const Campus = () => {
 };
 
 export default Campus;
-

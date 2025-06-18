@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { pickRandomGalleryImages } from "@/utils/galleryImages";
 
 interface Slide {
   id: number;
@@ -18,11 +19,17 @@ interface Slide {
 
 const HeroSlideshow = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [galleryImages, setGalleryImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    // Get 5 random gallery images for the slideshow
+    setGalleryImages(pickRandomGalleryImages(5));
+  }, []);
 
   const slides: Slide[] = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      image: galleryImages[0] || "/Gallery/GalleryImage (1).png",
       title: "Excellence in Engineering Education",
       subtitle: "Shaping Tomorrow's Engineers",
       caption: "State-of-the-art facilities and industry-aligned curriculum preparing students for the future.",
@@ -33,7 +40,7 @@ const HeroSlideshow = () => {
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      image: galleryImages[1] || "/Gallery/GalleryImage (2).png",
       title: "Business Leadership Programs",
       subtitle: "MBA & Management Excellence",
       caption: "Developing future business leaders with practical knowledge and industry connections.",
@@ -44,7 +51,7 @@ const HeroSlideshow = () => {
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      image: galleryImages[2] || "/Gallery/GalleryImage (3).png",
       title: "Healthcare Innovation",
       subtitle: "Pharmacy & Life Sciences",
       caption: "Contributing to healthcare advancement through pharmaceutical education and research.",
@@ -55,7 +62,7 @@ const HeroSlideshow = () => {
     },
     {
       id: 4,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      image: galleryImages[3] || "/Gallery/GalleryImage (4).png",
       title: "Legal Excellence",
       subtitle: "Transnational School of Law",
       caption: "Comprehensive legal education preparing advocates for global practice.",
@@ -66,7 +73,7 @@ const HeroSlideshow = () => {
     },
     {
       id: 5,
-      image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      image: galleryImages[4] || "/Gallery/GalleryImage (5).png",
       title: "Campus Life & Growth",
       subtitle: "Beyond Academics",
       caption: "Vibrant campus life with sports, cultural activities, and personal development opportunities.",
