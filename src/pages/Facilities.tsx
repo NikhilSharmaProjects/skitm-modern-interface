@@ -10,7 +10,7 @@ import {
   Cctv,
   Computer,
   Library,
-  TableTennis,
+  Zap,
   Volleyball,
   Wifi
 } from "lucide-react";
@@ -68,7 +68,7 @@ const Facilities = () => {
     "Audio-Visual Rooms": <Bell size={32} className="text-skitm-blue" />,
     "ATM": <Bell size={32} className="text-skitm-blue" />,
     "Wi-Fi Enabled Campus": <Wifi size={32} className="text-skitm-blue" />,
-    "Indoor Sports Facilities – Table Tennis, Chess, Billiards": <TableTennis size={32} className="text-skitm-blue" />,
+    "Indoor Sports Facilities – Table Tennis, Chess, Billiards": <Zap size={32} className="text-skitm-blue" />,
     "Football Ground": <Bell size={32} className="text-skitm-blue" />, // fallback
     "Cricket Pavilion": <Bell size={32} className="text-skitm-blue" />, // fallback
     "Building for College of Professional Studies": <Library size={32} className="text-skitm-blue" />,

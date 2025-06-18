@@ -6,7 +6,7 @@ import { getRandomGalleryImage, pickRandomGalleryImages } from "@/utils/galleryI
 import {
   Bell,
   Volleyball,
-  TableTennis
+  Zap
 } from 'lucide-react';
 
 const SPORTS_HEAD = {
@@ -52,7 +52,7 @@ const Sports = () => {
     {
       name: "Table Tennis",
       desc: "Indoor table tennis and indoor games facility.",
-      icon: <TableTennis className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
+      icon: <Zap className="h-10 w-10 text-skitm-blue mx-auto mb-3" />,
       img: sportsImages[4] || "/Gallery/GalleryImage (5).png"
     }
   ];
