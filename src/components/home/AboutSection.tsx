@@ -35,7 +35,7 @@ const AboutSection = () => {
         <>
             {/* Parallax Hero Section */}
             <ParallaxSection 
-                backgroundImage="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                backgroundImage="/Gallery/GalleryImage (1).png"
                 overlayOpacity={0.5}
                 className="min-h-[70vh]"
             >
@@ -105,7 +105,7 @@ const AboutSection = () => {
                             <p className="text-body text-skitm-gray mb-8">
                                 We foster an environment of innovation, research, and entrepreneurship, encouraging students to think critically and contribute meaningfully to society.
                             </p>
-                            <Link to="/about/vision-mission">
+                            <Link to="/vision-mission">
                                 <Button variant="outline">
                                     Learn More
                                 </Button>
