@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -26,7 +26,8 @@ const HeroSlideshow = () => {
     setGalleryImages(pickRandomGalleryImages(5));
   }, []);
 
-  const slides: Slide[] = [
+  // Use useMemo to make slides reactive to galleryImages changes
+  const slides: Slide[] = useMemo(() => [
     {
       id: 1,
       image: galleryImages[0] || "/Gallery/GalleryImage (1).png",
@@ -82,7 +83,7 @@ const HeroSlideshow = () => {
         link: "/campus-tour"
       }
     }
-  ];
+  ], [galleryImages]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -105,7 +106,7 @@ const HeroSlideshow = () => {
   };
 
   return (
-    <section className="hero-section relative">
+    <section className="hero-section relative min-h-[80vh] h-screen">
       {/* Slideshow Container */}
       <div className="absolute inset-0 overflow-hidden">
         {slides.map((slide, index) => (
