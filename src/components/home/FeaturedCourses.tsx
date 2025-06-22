@@ -78,14 +78,14 @@ const FeaturedCourses = () => {
         <>
             {/* Parallax Header */}
             <ParallaxSection 
-                backgroundImage="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                backgroundImage="/Gallery/GalleryImage (11).png"
                 overlayOpacity={0.6}
                 className="min-h-[50vh]"
             >
                 <div className="text-center space-y-6">
                     <div className="flex justify-center mb-6">
                         <img 
-                            src="/lovable-uploads/b26f37d3-55cb-448a-ad13-c5921427affe.png" 
+                            src="/logo.png" 
                             alt="SKITM Logo" 
                             className="h-16 w-auto opacity-90" 
                         />

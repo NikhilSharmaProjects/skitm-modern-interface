@@ -75,7 +75,7 @@ const AboutSection = () => {
                     <div className="image-first-block mb-20">
                         <div className="order-2 lg:order-1">
                             <img 
-                                src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                src="/Gallery/GalleryImage (22).png"
                                 alt="SKITM Campus"
                                 className="image-first-image"
                             />
@@ -113,7 +113,7 @@ const AboutSection = () => {
                         </div>
                         <div>
                             <img 
-                                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                src="/Gallery/GalleryImage (23).png"
                                 alt="Students in Discussion"
                                 className="image-first-image"
                             />
