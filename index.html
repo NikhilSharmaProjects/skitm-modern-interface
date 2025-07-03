@@ -3,14 +3,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SKITM - Shivajirao Kadam Institute of Technology and Management</title>
+    <meta name="theme-color" content="#247BA0" />
     
-    <!-- Enhanced Typography -->
+    <!-- Default SEO (will be overridden by React Helmet) -->
+    <title>SKITM Indore | Top Engineering, MBA, Pharmacy College in Madhya Pradesh</title>
+    <meta name="description" content="SKITM is a leading NAAC A+ accredited college in Indore offering B.Tech, MBA, B.Pharm, Law programs. Apply now for admission 2025. 85%+ placement record." />
+    
+    <!-- Enhanced Typography with font-display optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS inlined for above-the-fold -->
+    <style>
+      body { margin: 0; font-family: Inter, system-ui, sans-serif; }
+      .hero-section { min-height: 100vh; background: linear-gradient(135deg, #247BA0, #0A2463); }
+    </style>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -9,11 +9,12 @@ interface OptimizedImageProps {
   height?: number;
   loading?: 'lazy' | 'eager';
   sizes?: string;
+  aspectRatio?: string;
 }
 
 /**
- * OptimizedImage component for SEO and performance optimized images
- * Supports lazy loading, WebP format detection, and appropriate sizing
+ * Enhanced OptimizedImage component for SEO and performance
+ * Features: WebP/AVIF support, responsive images, lazy loading, proper aspect ratios
  */
 const OptimizedImage: React.FC<OptimizedImageProps> = ({
   src,
@@ -22,52 +23,135 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   width,
   height,
   loading = 'lazy',
-  sizes = '100vw'
+  sizes = '100vw',
+  aspectRatio
 }) => {
-  const [supportsWebP, setSupportsWebP] = useState<boolean | null>(null);
+  const [supportsModernFormats, setSupportsModernFormats] = useState<{
+    webp: boolean;
+    avif: boolean;
+  } | null>(null);
   
-  // Check WebP support
+  // Check modern format support
   useEffect(() => {
-    const checkWebP = async () => {
-      if (supportsWebP !== null) return;
+    const checkFormats = async () => {
+      if (supportsModernFormats !== null) return;
       
-      const webPSupport = document.createElement('canvas')
-        .toDataURL('image/webp')
-        .indexOf('data:image/webp') === 0;
-        
-      setSupportsWebP(webPSupport);
+      const canvas = document.createElement('canvas');
+      canvas.width = 1;
+      canvas.height = 1;
+      
+      const webpSupport = canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+      
+      // Check AVIF support
+      const avifSupport = await new Promise<boolean>((resolve) => {
+        const avifImg = new Image();
+        avifImg.onload = () => resolve(true);
+        avifImg.onerror = () => resolve(false);
+        avifImg.src = 'data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgABogQEAwgMg8f8D///8WfhwB8+ErK42A=';
+      });
+      
+      setSupportsModernFormats({ webp: webpSupport, avif: await avifSupport });
     };
     
-    checkWebP();
-  }, [supportsWebP]);
+    checkFormats();
+  }, [supportsModernFormats]);
 
-  // Function to get WebP version if supported
+  // Generate srcSet for responsive images
+  const generateSrcSet = (baseSrc: string) => {
+    if (!baseSrc.startsWith('/') || baseSrc.includes('http')) return baseSrc;
+    
+    // For local images, generate different sizes
+    const ext = baseSrc.substring(baseSrc.lastIndexOf('.'));
+    const nameWithoutExt = baseSrc.substring(0, baseSrc.lastIndexOf('.'));
+    
+    return [
+      `${baseSrc} 1x`,
+      `${nameWithoutExt}@2x${ext} 2x`
+    ].join(', ');
+  };
+
+  // Get optimized source based on format support
   const getOptimizedSrc = () => {
-    // If WebP is supported and the original is not already WebP
-    if (supportsWebP && src && !src.endsWith('.webp')) {
-      // For external images or images that don't have specific handling
-      return src;
+    if (!supportsModernFormats) return src;
+    
+    const { webp, avif } = supportsModernFormats;
+    
+    // For external URLs, return as-is
+    if (src.includes('http') || src.includes('//')) return src;
+    
+    // For local images, try to use modern formats
+    if (avif && !src.endsWith('.avif')) {
+      const avifSrc = src.replace(/\.(jpe?g|png|webp)$/i, '.avif');
+      return avifSrc;
     }
     
-    // Fallback to original
+    if (webp && !src.endsWith('.webp') && !src.endsWith('.avif')) {
+      const webpSrc = src.replace(/\.(jpe?g|png)$/i, '.webp');
+      return webpSrc;
+    }
+    
     return src;
   };
 
-  // While determining WebP support, render nothing to prevent layout shifts
-  if (supportsWebP === null) {
-    return <div className={`${className} bg-gray-100`} style={{ width, height }}></div>;
+  // Show placeholder while loading format support
+  if (supportsModernFormats === null) {
+    return (
+      <div 
+        className={`${className} bg-muted animate-pulse`} 
+        style={{ 
+          width, 
+          height,
+          aspectRatio: aspectRatio || (width && height ? `${width}/${height}` : undefined)
+        }}
+        aria-label={`Loading ${alt}`}
+      />
+    );
   }
 
+  const optimizedSrc = getOptimizedSrc();
+  const srcSet = generateSrcSet(optimizedSrc);
+
   return (
-    <img 
-      src={getOptimizedSrc()}
-      alt={alt}
-      className={className}
-      width={width}
-      height={height}
-      loading={loading}
-      sizes={sizes}
-    />
+    <picture>
+      {/* Modern format sources */}
+      {supportsModernFormats?.avif && !src.includes('http') && (
+        <source 
+          srcSet={src.replace(/\.(jpe?g|png|webp)$/i, '.avif')}
+          type="image/avif"
+          sizes={sizes}
+        />
+      )}
+      {supportsModernFormats?.webp && !src.includes('http') && !src.endsWith('.avif') && (
+        <source 
+          srcSet={src.replace(/\.(jpe?g|png)$/i, '.webp')}
+          type="image/webp"
+          sizes={sizes}
+        />
+      )}
+      
+      {/* Fallback image */}
+      <img 
+        src={optimizedSrc}
+        srcSet={srcSet}
+        alt={alt}
+        className={className}
+        width={width}
+        height={height}
+        loading={loading}
+        sizes={sizes}
+        style={{
+          aspectRatio: aspectRatio || (width && height ? `${width}/${height}` : undefined),
+          objectFit: 'cover'
+        }}
+        onError={(e) => {
+          // Fallback to original if optimized version fails
+          const target = e.target as HTMLImageElement;
+          if (target.src !== src) {
+            target.src = src;
+          }
+        }}
+      />
+    </picture>
   );
 };
 

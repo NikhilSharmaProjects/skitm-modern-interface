@@ -2,6 +2,8 @@
 import { useEffect } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import SEOHead from '@/components/SEO/SEOHead';
+import { structuredData, defaultSEO } from '@/lib/seo';
 import HeroSlideshow from '@/components/home/HeroSlideshow';
 import FeaturedCourses from '@/components/home/FeaturedCourses';
 import AboutSection from '@/components/home/AboutSection';
@@ -18,6 +20,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead
+        title={defaultSEO.title}
+        description={defaultSEO.description}
+        keywords={defaultSEO.keywords}
+        structuredData={structuredData.organization}
+      />
       <Navbar />
       
       <main className="flex-grow">
