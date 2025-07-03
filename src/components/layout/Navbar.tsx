@@ -101,7 +101,7 @@ const Navbar = () => {
             </Helmet>
 
             <header
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-gradient-to-b from-white/50 to-transparent ${
                     isScrolled
                         ? "py-3 glassmorphism shadow-md"
                         : "py-5 bg-transparent"
