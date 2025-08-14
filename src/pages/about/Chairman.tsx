@@ -1,7 +1,6 @@
 
 import PageTemplate from '@/components/layout/PageTemplate';
 
-const chairmanPhoto = "/photos/chairman/chairman.png"; // Please ensure this file exists in /public/photos/chairman/
 
 const Chairman = () => {
   return (
@@ -16,12 +15,10 @@ const Chairman = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
             <div>
               <img
-                src={chairmanPhoto}
+                src={"/photos/chairman/chairman.png"}
                 alt="Prof. Shivajirao Kadam"
                 className="w-full h-72 object-cover rounded-xl shadow border"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = "/SkitmLogo.png";
-                }}
+                
               />
               <p className="mt-2 text-center text-sm text-skitm-gray">
                 Prof. Dr. Shivajirao Kadam<br />
