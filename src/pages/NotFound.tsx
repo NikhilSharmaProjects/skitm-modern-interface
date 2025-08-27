@@ -43,7 +43,7 @@ const NotFound = () => {
             <main className="flex-grow container mx-auto px-4 py-16 flex flex-col items-center justify-center">
                 <div className="text-center max-w-2xl mx-auto">
                     <img 
-                        src="/lovable-uploads/b26f37d3-55cb-448a-ad13-c5921427affe.png" 
+                        src="/logo.png" 
                         alt="SKITM Logo" 
                         className="mx-auto h-20 w-auto mb-6"
                     />
