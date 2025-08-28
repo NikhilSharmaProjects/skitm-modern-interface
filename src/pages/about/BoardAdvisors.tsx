@@ -41,7 +41,7 @@ const BoardAdvisors = () => {
         {advisors.map((advisor, idx) => (
           <div key={idx} className="glassmorphism rounded-xl p-6 flex flex-col items-center text-center">
             <div className="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center mb-4">
-              <span className="text-skitm-gray text-xs">Photo</span>
+                <img src={`/photos/${advisor.name}.png`} alt="" />
             </div>
             <h3 className="text-lg font-display font-bold text-skitm-navy mb-1">{advisor.name}</h3>
             <p className="text-skitm-gray text-sm">{advisor.details}</p>

@@ -37,7 +37,7 @@ const LeadershipTeam = () => {
         {leaders.map((leader, index) => (
           <div key={index} className="glassmorphism rounded-xl p-6">
             <div className="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <span className="text-skitm-gray text-xs">Photo</span>
+                <img src={`/photos/${leader.name}.png`} alt="" />
             </div>
             <h3 className="text-lg font-display font-bold text-skitm-navy mb-2 text-center">
               {leader.name}

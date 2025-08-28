@@ -28,7 +28,7 @@ const BoardGovernors = () => {
         {governors.map((gov, idx) => (
           <div key={idx} className="glassmorphism rounded-xl p-6 text-center">
             <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <span className="text-skitm-gray text-sm">Photo</span>
+              <img src={`/photos/${gov.name}.png`} alt="" />
             </div>
             <h3 className="text-lg font-display font-bold text-skitm-navy mb-2">
               {gov.name}

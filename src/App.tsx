@@ -19,7 +19,6 @@ import DirectorsMessage from "./pages/about/DirectorsMessage";
 import BoardGovernors from "./pages/about/BoardGovernors";
 import LeadershipTeam from "./pages/about/LeadershipTeam";
 import BoardAdvisors from "./pages/about/BoardAdvisors";
-import Leadership from "./pages/about/Leadership";
 import Partners from "./pages/about/Partners";
 
 // Academic pages - Engineering
@@ -178,7 +177,6 @@ const App = () => {
                 <Route path="/board-governors" element={<BoardGovernors />} />
                 <Route path="/leadership-team" element={<LeadershipTeam />} />
                 <Route path="/board-advisors" element={<BoardAdvisors />} />
-                <Route path="/leadership" element={<Leadership />} />
                 <Route path="/partners" element={<Partners />} />
                 
                 {/* Academic pages */}

@@ -13,7 +13,11 @@ const DirectorsMessage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-1">
               <div className="w-full h-80 bg-gray-200 rounded-lg flex items-center justify-center">
-                <span className="text-skitm-gray">Director Photo</span>
+                <img
+                  src="/photos/Dr. Sanjay Purkar.png"
+                  alt="Director's Photo"
+                  className="w-full h-full object-cover rounded-lg"
+                />
               </div>
             </div>
             
@@ -28,7 +32,7 @@ const DirectorsMessage = () => {
               </p>
               
               <p className="text-skitm-gray leading-relaxed mb-4">
-                It’s a pleasure to have you Explore us through this website.
+                Itcs a pleasure to have you Explore us through this website.
               </p>
               <p className="text-skitm-gray leading-relaxed mb-4">
                 At SKITM, it’s our goal to enhance the employability of our graduates. We back our programs with research, a sound curriculum, intensive training and a host of Certifications. Our attitude of going beyond the books will surely position our graduates at the forefront of the Placement curve. Currently, SKITM is working extensively to bring its academic infrastructure at par with the best in the Industry.
