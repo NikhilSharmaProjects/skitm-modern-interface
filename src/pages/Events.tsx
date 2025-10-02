@@ -25,7 +25,7 @@ const defaultEvents = [
         date: "2025-07-15",
         time: "09:00",
         location: "Main Auditorium",
-        image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",
+        image: "/Gallery/GalleryImage (${RANDOM_INT}).png",
     },
     {
         id: "2",
@@ -35,7 +35,7 @@ const defaultEvents = [
         date: "2025-08-20",
         time: "10:00",
         location: "Engineering Block",
-        image: "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",
+        image: "/Gallery/GalleryImage (${RANDOM_INT}).png",
     },
 ];
 

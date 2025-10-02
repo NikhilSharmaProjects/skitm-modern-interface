@@ -1,5 +1,12 @@
-import ParallaxSection from '@/components/common/ParallaxSection';
-import { TrendingUp, Users, Award, Building2, Target, CheckCircle } from 'lucide-react';
+import ParallaxSection from "@/components/common/ParallaxSection";
+import {
+    TrendingUp,
+    Users,
+    Award,
+    Building2,
+    Target,
+    CheckCircle,
+} from "lucide-react";
 import {
     Table,
     TableHeader,
@@ -11,10 +18,26 @@ import {
 
 const Placements = () => {
     const stats = [
-        { icon: <TrendingUp className="h-8 w-8 text-white" />, number: "95%", label: "Placement Rate" },
-        { icon: <Building2 className="h-8 w-8 text-white" />, number: "150+", label: "Recruiting Companies" },
-        { icon: <Award className="h-8 w-8 text-white" />, number: "₹12 LPA", label: "Highest Package" },
-        { icon: <Users className="h-8 w-8 text-white" />, number: "5000+", label: "Alumni Placed" },
+        {
+            icon: <TrendingUp className="h-8 w-8 text-white" />,
+            number: "95%",
+            label: "Placement Rate",
+        },
+        {
+            icon: <Building2 className="h-8 w-8 text-white" />,
+            number: "150+",
+            label: "Recruiting Companies",
+        },
+        {
+            icon: <Award className="h-8 w-8 text-white" />,
+            number: "₹12 LPA",
+            label: "Highest Package",
+        },
+        {
+            icon: <Users className="h-8 w-8 text-white" />,
+            number: "5000+",
+            label: "Alumni Placed",
+        },
     ];
 
     const placementData = [
@@ -116,11 +139,24 @@ const Placements = () => {
     ];
 
     const topRecruiters = [
-        "Hotwax Systems", "Webkorps Services India", "VectEd Technologies", "Magpie Engineering",
-        "Hitech Digital Solutions", "Venture Fincorp", "Fleeca India Pvt. Ltd.", "MPSeDC Ltd.",
-        "Tech Mahindra", "ZF Steering Gear (India) Ltd.", "Geek of Gurukul", "Workpulse Software",
-        "Map Quality Solutions", "MavenMagnet", "Saif Design Studios", "Bajaj Allianz Life Insurance Co. Ltd.",
-        "Victory Terminal Financial Services", "Accenture India"
+        "Hotwax Systems",
+        "Webkorps Services India",
+        "VectEd Technologies",
+        "Magpie Engineering",
+        "Hitech Digital Solutions",
+        "Venture Fincorp",
+        "Fleeca India Pvt. Ltd.",
+        "MPSeDC Ltd.",
+        "Tech Mahindra",
+        "ZF Steering Gear (India) Ltd.",
+        "Geek of Gurukul",
+        "Workpulse Software",
+        "Map Quality Solutions",
+        "MavenMagnet",
+        "Saif Design Studios",
+        "Bajaj Allianz Life Insurance Co. Ltd.",
+        "Victory Terminal Financial Services",
+        "Accenture India",
     ];
 
     const successStories = [
@@ -147,13 +183,11 @@ const Placements = () => {
         },
     ];
 
-    
-
     return (
         <div className="min-h-screen flex flex-col">
             {/* Parallax Hero Section */}
-            <ParallaxSection 
-                backgroundImage="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+            <ParallaxSection
+                backgroundImage="/Gallery/GalleryImage (9).png"
                 overlayOpacity={0.7}
                 className="min-h-[70vh] pt-24"
             >
@@ -165,7 +199,8 @@ const Placements = () => {
                         Exceptional Placements
                     </h1>
                     <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-                        Leading companies across industries recruit our talented graduates
+                        Leading companies across industries recruit our talented
+                        graduates
                     </p>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto pt-8">
                         {stats.map((stat, index) => (
@@ -192,26 +227,34 @@ const Placements = () => {
                 <section className="section-container bg-white">
                     <div className="image-first-block mb-20">
                         <div className="order-2 lg:order-1">
-                            <img 
-                                src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            <img
+                                src="/Gallery/GalleryImage (9).png"
                                 alt="Job Interview"
                                 className="image-first-image"
                             />
                         </div>
                         <div className="image-first-content order-1 lg:order-2">
-                            <h3 className="section-title">Industry Partnerships</h3>
+                            <h3 className="section-title">
+                                Industry Partnerships
+                            </h3>
                             <p className="text-body-lg text-skitm-gray mb-6">
-                                Strong industry connections ensure our students have access to the best career opportunities with over 150 partner companies.
+                                Strong industry connections ensure our students
+                                have access to the best career opportunities
+                                with over 150 partner companies.
                             </p>
                             <p className="text-body text-skitm-gray mb-8">
-                                Our dedicated Career Resource and Development team bridges the gap between academia and industry.
+                                Our dedicated Career Resource and Development
+                                team bridges the gap between academia and
+                                industry.
                             </p>
                         </div>
                     </div>
                 </section>
 
                 <section className="section-container bg-skitm-offWhite">
-                    <h2 className="section-title text-center">Placement Process</h2>
+                    <h2 className="section-title text-center">
+                        Placement Process
+                    </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div className="glassmorphism rounded-xl p-8 text-center card-hover">
                             <div className="flex justify-center mb-6">
@@ -232,7 +275,8 @@ const Placements = () => {
                                 Resume Building
                             </h3>
                             <p className="text-skitm-gray">
-                                Professional resume building and interview skills
+                                Professional resume building and interview
+                                skills
                             </p>
                         </div>
                         <div className="glassmorphism rounded-xl p-8 text-center card-hover">
@@ -243,7 +287,8 @@ const Placements = () => {
                                 Company Presentations
                             </h3>
                             <p className="text-skitm-gray">
-                                Interactive sessions with industry representatives
+                                Interactive sessions with industry
+                                representatives
                             </p>
                         </div>
                         <div className="glassmorphism rounded-xl p-8 text-center card-hover">
@@ -254,14 +299,17 @@ const Placements = () => {
                                 Selection Process
                             </h3>
                             <p className="text-skitm-gray">
-                                Written tests, technical rounds, and final interviews
+                                Written tests, technical rounds, and final
+                                interviews
                             </p>
                         </div>
                     </div>
                 </section>
 
                 <section className="section-container bg-white">
-                    <h2 className="section-title text-center">Recent Placements</h2>
+                    <h2 className="section-title text-center">
+                        Recent Placements
+                    </h2>
                     <div className="glassmorphism rounded-xl overflow-hidden mb-8">
                         <div className="overflow-x-auto">
                             <Table>
@@ -278,9 +326,7 @@ const Placements = () => {
                                 <TableBody>
                                     {placementData.map((student) => (
                                         <TableRow key={student.id}>
-                                            <TableCell>
-                                                {student.id}
-                                            </TableCell>
+                                            <TableCell>{student.id}</TableCell>
                                             <TableCell className="font-medium">
                                                 {student.name}
                                             </TableCell>
@@ -305,21 +351,33 @@ const Placements = () => {
                 </section>
 
                 <section className="section-container bg-white">
-                    <h2 className="section-title text-center">Our Top Recruiters</h2>
+                    <h2 className="section-title text-center">
+                        Our Top Recruiters
+                    </h2>
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
                         {topRecruiters.map((company, index) => (
-                            <div key={index} className="glassmorphism rounded-lg p-4 text-center card-hover">
-                                <span className="text-sm font-medium text-skitm-navy">{company}</span>
+                            <div
+                                key={index}
+                                className="glassmorphism rounded-lg p-4 text-center card-hover"
+                            >
+                                <span className="text-sm font-medium text-skitm-navy">
+                                    {company}
+                                </span>
                             </div>
                         ))}
                     </div>
                 </section>
 
                 <section className="section-container bg-skitm-offWhite">
-                    <h2 className="section-title text-center">Success Stories</h2>
+                    <h2 className="section-title text-center">
+                        Success Stories
+                    </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {successStories.map((story, index) => (
-                            <div key={index} className="glassmorphism rounded-xl p-6">
+                            <div
+                                key={index}
+                                className="glassmorphism rounded-xl p-6"
+                            >
                                 <p className="text-skitm-gray text-sm italic mb-4">
                                     "{story.quote}"
                                 </p>
@@ -335,7 +393,8 @@ const Placements = () => {
                                             {story.name}
                                         </div>
                                         <div className="text-xs text-skitm-gray">
-                                            {story.batch}, ₹{story.package} at {story.company}
+                                            {story.batch}, ₹{story.package} at{" "}
+                                            {story.company}
                                         </div>
                                     </div>
                                 </div>
@@ -345,8 +404,8 @@ const Placements = () => {
                 </section>
 
                 {/* Support Services Parallax */}
-                <ParallaxSection 
-                    backgroundImage="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                <ParallaxSection
+                    backgroundImage="/Gallery/GalleryImage (9).png"
                     overlayOpacity={0.7}
                     className="min-h-[50vh]"
                 >
@@ -356,16 +415,22 @@ const Placements = () => {
                         </h2>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
                             <div className="glassmorphism-dark px-4 py-3 rounded-lg text-center">
-                                <div className="text-sm">Industry Mentorship</div>
+                                <div className="text-sm">
+                                    Industry Mentorship
+                                </div>
                             </div>
                             <div className="glassmorphism-dark px-4 py-3 rounded-lg text-center">
-                                <div className="text-sm">Soft Skills Training</div>
+                                <div className="text-sm">
+                                    Soft Skills Training
+                                </div>
                             </div>
                             <div className="glassmorphism-dark px-4 py-3 rounded-lg text-center">
                                 <div className="text-sm">Mock Interviews</div>
                             </div>
                             <div className="glassmorphism-dark px-4 py-3 rounded-lg text-center">
-                                <div className="text-sm">Internship Programs</div>
+                                <div className="text-sm">
+                                    Internship Programs
+                                </div>
                             </div>
                             <div className="glassmorphism-dark px-4 py-3 rounded-lg text-center">
                                 <div className="text-sm">Alumni Network</div>

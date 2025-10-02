@@ -72,13 +72,10 @@ const Hostels = () => {
         {
             name: "Boys' Hostel",
             capacity: "198 students",
-            roomTypes: [
-                "Double Occupancy",
-                "Triple Occupancy",
-            ],
+            roomTypes: ["Double Occupancy", "Triple Occupancy"],
             description:
                 "Modern residential facility for male students with various room configurations",
-            image: "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+            image: "/Gallery/GalleryImage (${RANDOM_INT}).png",
         },
         {
             name: "Girls' Hostel",
@@ -86,7 +83,7 @@ const Hostels = () => {
             roomTypes: ["Double Occupancy"],
             description:
                 "Secure and comfortable accommodation for female students with enhanced facilities",
-            image: "https://images.unsplash.com/photo-1573497497889-973a747371fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+            image: "/Gallery/GalleryImage (${RANDOM_INT}).png",
         },
     ];
 
