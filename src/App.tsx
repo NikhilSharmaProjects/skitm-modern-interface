@@ -2,7 +2,13 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+    useLocation,
+    Navigate,
+} from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { useEffect, createContext, useState, useContext } from "react";
 
@@ -82,6 +88,11 @@ import Sports from "./pages/student-life/Sports";
 import NewsEvents from "./pages/NewsEvents";
 import Gallery from "./pages/Gallery";
 import Blogs from "./pages/Blogs"; // <-- Add this import
+import NaacAGrade from "./pages/NaacAGrade";
+import Autonomous from "./pages/Autonomous";
+import BTech from "./pages/BTech";
+import BALLB from "./pages/BA_LLB";
+import Ranking from "./pages/Ranking";
 
 // Admin pages
 import Login from "./pages/Login";
@@ -90,178 +101,311 @@ import NotFound from "./pages/NotFound";
 
 // Auth context
 type AuthContextType = {
-  isAuthenticated: boolean;
-  login: (token: string) => void;
-  logout: () => void;
+    isAuthenticated: boolean;
+    login: (token: string) => void;
+    logout: () => void;
 };
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider");
-  }
-  return context;
+    const context = useContext(AuthContext);
+    if (!context) {
+        throw new Error("useAuth must be used within an AuthProvider");
+    }
+    return context;
 };
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
-    return localStorage.getItem("skitm-admin-token") !== null;
-  });
+    const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+        return localStorage.getItem("skitm-admin-token") !== null;
+    });
 
-  const login = (token: string) => {
-    localStorage.setItem("skitm-admin-token", token);
-    setIsAuthenticated(true);
-  };
+    const login = (token: string) => {
+        localStorage.setItem("skitm-admin-token", token);
+        setIsAuthenticated(true);
+    };
 
-  const logout = () => {
-    localStorage.removeItem("skitm-admin-token");
-    setIsAuthenticated(false);
-  };
+    const logout = () => {
+        localStorage.removeItem("skitm-admin-token");
+        setIsAuthenticated(false);
+    };
 
-  return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
-      {children}
-    </AuthContext.Provider>
-  );
+    return (
+        <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+            {children}
+        </AuthContext.Provider>
+    );
 };
 
 // Protected Route component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  const { isAuthenticated } = useAuth();
-  
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
-  }
-  
-  return <>{children}</>;
+    const { isAuthenticated } = useAuth();
+
+    if (!isAuthenticated) {
+        return <Navigate to="/login" replace />;
+    }
+
+    return <>{children}</>;
 };
 
 // ScrollToTop component to handle scroll position
 function ScrollToTop() {
-  const { pathname } = useLocation();
-  
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  
-  return null;
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
+    return null;
 }
 
 const App = () => {
-  const queryClient = new QueryClient();
-  
-  return (
-    <QueryClientProvider client={queryClient}>
-      <HelmetProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <AuthProvider>
-            <BrowserRouter>
-              <ScrollToTop />
-              <Routes>
-                {/* Main pages */}
-                <Route path="/" element={<Index />} />
-                {/* Redirect /about to /about-skitm since /about is deprecated */}
-                <Route path="/about" element={<Navigate to="/about-skitm" replace />} />
-                <Route path="/contact" element={<Contact />} />
-                
-                {/* About Us pages */}
-                <Route path="/about-skitm" element={<AboutSKITM />} />
-                <Route path="/society" element={<Society />} />
-                <Route path="/vision-mission" element={<VisionMission />} />
-                <Route path="/chairman" element={<Chairman />} />
-                <Route path="/directors-message" element={<DirectorsMessage />} />
-                <Route path="/board-governors" element={<BoardGovernors />} />
-                <Route path="/leadership-team" element={<LeadershipTeam />} />
-                <Route path="/board-advisors" element={<BoardAdvisors />} />
-                <Route path="/partners" element={<Partners />} />
-                
-                {/* Academic pages */}
-                <Route path="/academics" element={<Academics />} />
-                <Route path="/departments" element={<Departments />} />
-                
-                {/* Engineering */}
-                <Route path="/engineering" element={<Engineering />} />
-                <Route path="/cse" element={<CSE />} />
-                <Route path="/ece" element={<ECE />} />
-                <Route path="/civil-engineering" element={<CivilEngineering />} />
-                <Route path="/mechanical-engineering" element={<MechanicalEngineering />} />
-                <Route path="/applied-science" element={<AppliedScience />} />
-                
-                {/* Management */}
-                <Route path="/management" element={<Management />} />
-                <Route path="/mba" element={<MBA />} />
-                <Route path="/integrated-mba" element={<IntegratedMBA />} />
-                <Route path="/mba-plus" element={<MBAPlus />} />
-                
-                {/* Pharmacy */}
-                <Route path="/pharmacy" element={<Pharmacy />} />
-                <Route path="/bpharm" element={<BPharma />} />
-                <Route path="/mpharm" element={<MPharm />} />
-                <Route path="/dpharm" element={<DPharma />} />
-                
-                {/* Professional Studies */}
-                <Route path="/professional-studies" element={<ProfessionalStudies />} />
-                <Route path="/bba" element={<BBA />} />
-                <Route path="/bcom-ca" element={<BComCA />} />
-                <Route path="/bcom-general" element={<BComGeneral />} />
-                <Route path="/bcom-honours" element={<BComHonours />} />
-                <Route path="/bcom-taxation" element={<BComTaxation />} />
-                
-                {/* Law */}
-                <Route path="/law" element={<Law />} />
-                
-                {/* Other academic pages */}
-                <Route path="/faculty" element={<Faculty />} />
-                <Route path="/research" element={<Research />} />
-                <Route path="/library" element={<Library />} />
-                
-                {/* Admission pages */}
-                <Route path="/admissions" element={<Admissions />} />
-                <Route path="/apply-to-skitm" element={<ApplyToSKITM />} />
-                <Route path="/scholarships" element={<Scholarships />} />
-                <Route path="/download-brochure" element={<DownloadBrochure />} />
-                <Route path="/faqs" element={<Faqs />} />
-                
-                {/* Placement pages */}
-                <Route path="/placement" element={<Placement />} />
-                
-                {/* Student Life pages */}
-                <Route path="/student-life" element={<StudentLife />} />
-                <Route path="/hostel" element={<Hostel />} />
-                <Route path="/projects-workshops" element={<ProjectsWorkshops />} />
-                <Route path="/student-testimonials" element={<StudentTestimonials />} />
-                <Route path="/campus" element={<Campus />} />
-                <Route path="/facilities" element={<Facilities />} />
-                <Route path="/sports" element={<Sports />} />
-                
-                {/* Other pages */}
-                <Route path="/gallery" element={<Gallery />} />
-                <Route path="/blogs" element={<Blogs />} /> {/* <-- Add Blogs */}
-                
-                {/* Remove campus tour and top-level news-events nav -- /news-events is still routed below */}
-                <Route path="/news-events" element={<NewsEvents />} />
+    const queryClient = new QueryClient();
 
-                {/* Admin pages */}
-                <Route path="/login" element={<Login />} />
-                <Route path="/admin-dashboard" element={
-                  <ProtectedRoute>
-                    <AdminDashboard />
-                  </ProtectedRoute>
-                } />
-                
-                {/* Catch-all route */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </BrowserRouter>
-          </AuthProvider>
-        </TooltipProvider>
-      </HelmetProvider>
-    </QueryClientProvider>
-  );
+    return (
+        <QueryClientProvider client={queryClient}>
+            <HelmetProvider>
+                <TooltipProvider>
+                    <Toaster />
+                    <Sonner />
+                    <AuthProvider>
+                        <BrowserRouter>
+                            <ScrollToTop />
+                            <Routes>
+                                {/* Main pages */}
+                                <Route path="/" element={<Index />} />
+                                {/* Redirect /about to /about-skitm since /about is deprecated */}
+                                <Route
+                                    path="/about"
+                                    element={
+                                        <Navigate to="/about-skitm" replace />
+                                    }
+                                />
+                                <Route path="/contact" element={<Contact />} />
+                                {/* About Us pages */}
+                                <Route
+                                    path="/about-skitm"
+                                    element={<AboutSKITM />}
+                                />
+                                <Route path="/society" element={<Society />} />
+                                <Route
+                                    path="/vision-mission"
+                                    element={<VisionMission />}
+                                />
+                                <Route
+                                    path="/chairman"
+                                    element={<Chairman />}
+                                />
+                                <Route
+                                    path="/directors-message"
+                                    element={<DirectorsMessage />}
+                                />
+                                <Route
+                                    path="/board-governors"
+                                    element={<BoardGovernors />}
+                                />
+                                <Route
+                                    path="/leadership-team"
+                                    element={<LeadershipTeam />}
+                                />
+                                <Route
+                                    path="/board-advisors"
+                                    element={<BoardAdvisors />}
+                                />
+                                <Route
+                                    path="/partners"
+                                    element={<Partners />}
+                                />
+                                {/* Academic pages */}
+                                <Route
+                                    path="/academics"
+                                    element={<Academics />}
+                                />
+                                <Route
+                                    path="/departments"
+                                    element={<Departments />}
+                                />
+                                {/* Engineering */}
+                                <Route
+                                    path="/engineering"
+                                    element={<Engineering />}
+                                />
+                                <Route path="/cse" element={<CSE />} />
+                                <Route path="/ece" element={<ECE />} />
+                                <Route
+                                    path="/civil-engineering"
+                                    element={<CivilEngineering />}
+                                />
+                                <Route
+                                    path="/mechanical-engineering"
+                                    element={<MechanicalEngineering />}
+                                />
+                                <Route
+                                    path="/applied-science"
+                                    element={<AppliedScience />}
+                                />
+                                {/* Management */}
+                                <Route
+                                    path="/management"
+                                    element={<Management />}
+                                />
+                                <Route path="/mba" element={<MBA />} />
+                                <Route
+                                    path="/integrated-mba"
+                                    element={<IntegratedMBA />}
+                                />
+                                <Route path="/mba-plus" element={<MBAPlus />} />
+                                {/* Pharmacy */}
+                                <Route
+                                    path="/pharmacy"
+                                    element={<Pharmacy />}
+                                />
+                                <Route path="/bpharm" element={<BPharma />} />
+                                <Route path="/mpharm" element={<MPharm />} />
+                                <Route path="/dpharm" element={<DPharma />} />
+                                {/* Professional Studies */}
+                                <Route
+                                    path="/professional-studies"
+                                    element={<ProfessionalStudies />}
+                                />
+                                <Route path="/bba" element={<BBA />} />
+                                <Route path="/bcom-ca" element={<BComCA />} />
+                                <Route
+                                    path="/bcom-general"
+                                    element={<BComGeneral />}
+                                />
+                                <Route
+                                    path="/bcom-honours"
+                                    element={<BComHonours />}
+                                />
+                                <Route
+                                    path="/bcom-taxation"
+                                    element={<BComTaxation />}
+                                />
+                                {/* Law */}
+                                <Route path="/law" element={<Law />} />
+                                {/* Other academic pages */}
+                                <Route path="/faculty" element={<Faculty />} />
+                                <Route
+                                    path="/research"
+                                    element={<Research />}
+                                />
+                                <Route path="/library" element={<Library />} />
+                                {/* Admission pages */}
+                                <Route
+                                    path="/admissions"
+                                    element={<Admissions />}
+                                />
+                                <Route
+                                    path="/apply-to-skitm"
+                                    element={<ApplyToSKITM />}
+                                />
+                                <Route
+                                    path="/scholarships"
+                                    element={<Scholarships />}
+                                />
+                                <Route
+                                    path="/download-brochure"
+                                    element={<DownloadBrochure />}
+                                />
+                                <Route path="/faqs" element={<Faqs />} />
+                                {/* Placement pages */}
+                                <Route
+                                    path="/placement"
+                                    element={<Placement />}
+                                />
+                                {/* Student Life pages */}
+                                <Route
+                                    path="/student-life"
+                                    element={<StudentLife />}
+                                />
+                                <Route path="/hostel" element={<Hostel />} />
+                                <Route
+                                    path="/projects-workshops"
+                                    element={<ProjectsWorkshops />}
+                                />
+                                <Route
+                                    path="/student-testimonials"
+                                    element={<StudentTestimonials />}
+                                />
+                                <Route path="/campus" element={<Campus />} />
+                                <Route
+                                    path="/facilities"
+                                    element={<Facilities />}
+                                />
+                                <Route path="/sports" element={<Sports />} />
+                                {/* Other pages */}
+                                <Route path="/gallery" element={<Gallery />} />
+                                <Route path="/blogs" element={<Blogs />} />{" "}
+                                {/* <-- Add Blogs */}
+                                {/* New SEO landing pages */}
+                                <Route
+                                    path="/top-naac-a-grade-college-in-indore"
+                                    element={<NaacAGrade />}
+                                />
+                                <Route
+                                    path="/autonomous-college-in-indore"
+                                    element={<Autonomous />}
+                                />
+                                <Route
+                                    path="/best-btech-college-in-indore"
+                                    element={<BTech />}
+                                />
+                                <Route
+                                    path="/best-ba-llb-college-in-indore"
+                                    element={<BALLB />}
+                                />
+                                <Route path="/rankings" element={<Ranking />} />
+                                {/* SEO alias routes for existing pages from CSV */}
+                                <Route
+                                    path="/b-pharma-college-in-indore"
+                                    element={<BPharma />}
+                                />
+                                <Route
+                                    path="/d-pharma-college-in-indore"
+                                    element={<DPharma />}
+                                />
+                                <Route
+                                    path="/pharmacy-college-in-indore"
+                                    element={<Pharmacy />}
+                                />
+                                <Route
+                                    path="/law-college-in-indore"
+                                    element={<Law />}
+                                />
+                                <Route
+                                    path="/best-engineering-college-in-indore"
+                                    element={<Engineering />}
+                                />
+                                <Route
+                                    path="/best-college-for-cs-in-indore"
+                                    element={<CSE />}
+                                />
+                                {/* Remove campus tour and top-level news-events nav -- /news-events is still routed below */}
+                                <Route
+                                    path="/news-events"
+                                    element={<NewsEvents />}
+                                />
+                                {/* Admin pages */}
+                                <Route path="/login" element={<Login />} />
+                                <Route
+                                    path="/admin-dashboard"
+                                    element={
+                                        <ProtectedRoute>
+                                            <AdminDashboard />
+                                        </ProtectedRoute>
+                                    }
+                                />
+                                {/* Catch-all route */}
+                                <Route path="*" element={<NotFound />} />
+                            </Routes>
+                        </BrowserRouter>
+                    </AuthProvider>
+                </TooltipProvider>
+            </HelmetProvider>
+        </QueryClientProvider>
+    );
 };
 
 export default App;
