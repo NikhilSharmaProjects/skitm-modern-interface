@@ -42,3 +42,40 @@ Allow: /
 
 # Sitemaps
 Sitemap: https://skitm.in/sitemap.xml
+
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Jasper
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: MetaAI
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# General rule for all other bots
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /privacy_policy/policy
+Allow: /
