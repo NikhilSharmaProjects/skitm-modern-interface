@@ -7,10 +7,10 @@ import compression from "vite-plugin-compression";
 function skitmTagger() {
     return {
         name: "skitm-tagger",
-        transform(code, id) {
+        transform(code: string, id: string) {
             // This is a naive example: you can improve this for your needs
             // It adds data-skitm-id to className in JSX
-            return code.replace(/className="([^"]+)"/g, (match, p1) => {
+            return code.replace(/className="([^"]+)"/g, (match: string, p1: string) => {
                 return `className="${p1}" data-skitm-id="${p1}"`;
             });
         },
