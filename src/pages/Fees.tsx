@@ -143,28 +143,6 @@ const Fees = () => {
                                 </thead>
                                 <tbody className="divide-y divide-gray-200">
                                     <tr>
-                                        <td className="px-4 py-3">
-                                            M.Tech (CSE)
-                                        </td>
-                                        <td className="px-4 py-3">₹1,30,000</td>
-                                        <td className="px-4 py-3">₹20,000</td>
-                                        <td className="px-4 py-3">₹30,000</td>
-                                        <td className="px-4 py-3 font-semibold">
-                                            ₹1,80,000
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-4 py-3">
-                                            M.Tech (ECE)
-                                        </td>
-                                        <td className="px-4 py-3">₹1,25,000</td>
-                                        <td className="px-4 py-3">₹20,000</td>
-                                        <td className="px-4 py-3">₹30,000</td>
-                                        <td className="px-4 py-3 font-semibold">
-                                            ₹1,75,000
-                                        </td>
-                                    </tr>
-                                    <tr>
                                         <td className="px-4 py-3">MBA</td>
                                         <td className="px-4 py-3">₹1,50,000</td>
                                         <td className="px-4 py-3">₹25,000</td>

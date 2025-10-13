@@ -20,8 +20,8 @@ const slides: Slide[] = [
   {
     id: 1,
     image: "/Gallery/GalleryImage (1).png",
-    title: "Excellence in Engineering Education",
-    subtitle: "Shaping Tomorrow's Engineers",
+    title: "Naac 'A' Grade",
+    subtitle: "UGC Autonomous Institute",
     caption: "State-of-the-art facilities and industry-aligned curriculum preparing students for the future.",
     cta: {
       text: "Explore Engineering",
@@ -144,7 +144,7 @@ const HeroSlideshow = () => {
                 variant="outline"
                 className="border-white text-white bg-transparent hover:bg-white hover:text-black px-8 py-4 text-lg"
               >
-                Apply Now
+                Get Admission
               </Button>
             </Link>
           </div>

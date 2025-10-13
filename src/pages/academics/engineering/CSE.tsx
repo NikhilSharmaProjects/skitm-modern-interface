@@ -40,15 +40,6 @@ const CSE = () => {
                   <p><strong>Approval:</strong> AICTE</p>
                 </div>
               </div>
-              <div className="border-l-4 border-skitm-orange pl-6">
-                <h3 className="text-xl font-semibold text-skitm-navy mb-2">M.Tech Computer Science & Engineering</h3>
-                <p className="text-skitm-gray mb-3">2-year postgraduate program (24 credits)</p>
-                <div className="text-sm text-skitm-gray space-y-1">
-                  <p><strong>Duration:</strong> 4 Semesters</p>
-                  <p><strong>Intake:</strong> 18 Students</p>
-                  <p><strong>Specializations:</strong> Software Engineering, Data Science</p>
-                </div>
-              </div>
             </div>
           </div>
 

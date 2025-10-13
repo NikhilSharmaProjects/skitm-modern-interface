@@ -51,7 +51,7 @@ const Departments = () => {
             description:
                 "Comprehensive knowledge in communication systems, embedded systems, and signal processing applications.",
             icon: <Cpu className="h-8 w-8 text-skitm-blue" />,
-            courses: ["B.Tech in ECE", "M.Tech in ECE", "Ph.D. in ECE"],
+            courses: ["B.Tech in ECE"],
             image: "/Gallery/GalleryImage (${RANDOM_INT}).png",
         },
         {
@@ -60,7 +60,7 @@ const Departments = () => {
             description:
                 "Advanced studies in thermodynamics, robotics, manufacturing, and structural analysis with modern laboratories.",
             icon: <Cog className="h-8 w-8 text-skitm-blue" />,
-            courses: ["B.Tech in ME", "M.Tech in ME", "Ph.D. in ME"],
+            courses: ["B.Tech in ME"],
             image: "/Gallery/GalleryImage (${RANDOM_INT}).png",
         },
         {
@@ -69,7 +69,7 @@ const Departments = () => {
             description:
                 "Sustainable infrastructure development, construction technology, and environmental engineering solutions.",
             icon: <Building className="h-8 w-8 text-skitm-blue" />,
-            courses: ["B.Tech in CE", "M.Tech in CE", "Ph.D. in CE"],
+            courses: ["B.Tech in CE"],
             image: "/Gallery/GalleryImage (${RANDOM_INT}).png",
         },
         {

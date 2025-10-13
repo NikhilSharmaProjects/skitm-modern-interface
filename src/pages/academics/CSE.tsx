@@ -31,10 +31,6 @@ const CSE = () => {
                 <h3 className="text-lg font-semibold text-skitm-navy">B.Tech Computer Science & Engineering</h3>
                 <p className="text-skitm-gray text-sm">4-year undergraduate program</p>
               </div>
-              <div className="border-l-4 border-skitm-orange pl-4">
-                <h3 className="text-lg font-semibold text-skitm-navy">M.Tech Computer Science & Engineering</h3>
-                <p className="text-skitm-gray text-sm">2-year postgraduate program</p>
-              </div>
             </div>
           </div>
         </div>
