@@ -11,7 +11,7 @@ const AboutSection = () => {
     const achievements = [
         {
             icon: <Award className="h-8 w-8 text-white" />,
-            number: "A+ Grade",
+            number: "A Grade",
             label: "NAAC Accredited",
         },
         {

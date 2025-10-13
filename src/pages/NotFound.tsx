@@ -168,7 +168,7 @@ const NotFound = () => {
                     "naac",
                     "naac a grade",
                     "naac+a",
-                    "naac a+",
+                    "naac A",
                     "naac-grade",
                 ],
             },
