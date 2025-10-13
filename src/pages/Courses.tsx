@@ -18,7 +18,7 @@ const Courses = () => {
             duration: "4 years",
             eligibility: "10+2 with PCM + JEE Main (preferred)",
             description:
-                "A comprehensive program covering programming, algorithms, databases, AI, ML, cybersecurity and software engineering with industry-aligned projects.",
+                "A comprehensive program covering programming, algorithms, databases, AI, ML and software engineering with industry-aligned projects.",
             highlights: [
                 "Industry-aligned curriculum",
                 "State-of-the-art computing labs",

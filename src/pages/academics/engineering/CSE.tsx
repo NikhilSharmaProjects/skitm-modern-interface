@@ -18,7 +18,7 @@ const CSE = () => {
               The Computer Science & Engineering department at SKITM is at the forefront of technological innovation, offering comprehensive programs that prepare students for the rapidly evolving IT industry. Established with a vision to create skilled professionals in computing technologies, our department has consistently maintained high academic standards and industry relevance.
             </p>
             <p className="text-skitm-gray mb-4 leading-relaxed">
-              Our curriculum combines theoretical foundations with practical applications, ensuring graduates are well-equipped to tackle real-world challenges in software development, data science, cybersecurity, and emerging technologies. The department emphasizes hands-on learning through modern laboratories, industry projects, and internship opportunities.
+              Our curriculum combines theoretical foundations with practical applications, ensuring graduates are well-equipped to tackle real-world challenges in software development, data science, and emerging technologies. The department emphasizes hands-on learning through modern laboratories, industry projects, and internship opportunities.
             </p>
             <p className="text-skitm-gray leading-relaxed">
               With experienced faculty members holding advanced degrees from prestigious institutions and industry experience, we provide mentorship that bridges the gap between academic learning and professional requirements. Our graduates are successfully placed in leading technology companies, startups, and pursue higher education at renowned universities worldwide.
@@ -66,7 +66,6 @@ const CSE = () => {
                 <ul className="space-y-2 text-sm text-skitm-gray">
                   <li>• Artificial Intelligence & Machine Learning</li>
                   <li>• Web Development & Mobile Applications</li>
-                  <li>• Cybersecurity & Ethical Hacking</li>
                   <li>• Cloud Computing & DevOps</li>
                   <li>• Data Science & Big Data Analytics</li>
                   <li>• Internet of Things (IoT)</li>
@@ -124,9 +123,6 @@ const CSE = () => {
               </span>
               <span className="inline-block px-3 py-1 bg-skitm-blue/10 text-skitm-blue text-xs rounded-full mr-2 mb-2">
                 Data Science
-              </span>
-              <span className="inline-block px-3 py-1 bg-skitm-blue/10 text-skitm-blue text-xs rounded-full mr-2 mb-2">
-                Cybersecurity
               </span>
               <span className="inline-block px-3 py-1 bg-skitm-blue/10 text-skitm-blue text-xs rounded-full mr-2 mb-2">
                 Cloud Computing

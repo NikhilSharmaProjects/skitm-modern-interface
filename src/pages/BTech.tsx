@@ -50,7 +50,7 @@ const BTech = () => {
                             Computer Science Engineering
                         </h3>
                         <p className="text-sm text-skitm-gray">
-                            Software, Cloud, Cybersecurity
+                            Software, Cloud
                         </p>
                     </Link>
                     <Link

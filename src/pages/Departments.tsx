@@ -36,12 +36,11 @@ const Departments = () => {
             id: 1,
             name: "Computer Science & Engineering",
             description:
-                "Cutting-edge education in algorithms, programming, AI, ML, and cybersecurity with industry-focused curriculum.",
+                "Cutting-edge education in algorithms, programming, AI, ML with industry-focused curriculum.",
             icon: <Code className="h-8 w-8 text-skitm-blue" />,
             courses: [
                 "B.Tech in CSE",
                 "B.Tech in CSE (AI & ML)",
-                "B.Tech in CSE (Cybersecurity)",
             ],
             image: "/Gallery/GalleryImage (${RANDOM_INT}).png",
         },

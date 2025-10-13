@@ -18,7 +18,7 @@ const CSE = () => {
               The Computer Science & Engineering department at SKITM is at the forefront of technological innovation, offering comprehensive programs that prepare students for the rapidly evolving IT industry.
             </p>
             <p className="text-skitm-gray leading-relaxed">
-              Our curriculum combines theoretical foundations with practical applications, ensuring graduates are well-equipped to tackle real-world challenges in software development, data science, cybersecurity, and emerging technologies.
+              Our curriculum combines theoretical foundations with practical applications, ensuring graduates are well-equipped to tackle real-world challenges in software development, data science, and emerging technologies.
             </p>
           </div>
           
@@ -73,9 +73,6 @@ const CSE = () => {
               </span>
               <span className="inline-block px-3 py-1 bg-skitm-blue/10 text-skitm-blue text-xs rounded-full mr-2 mb-2">
                 Data Science
-              </span>
-              <span className="inline-block px-3 py-1 bg-skitm-blue/10 text-skitm-blue text-xs rounded-full mr-2 mb-2">
-                Cybersecurity
               </span>
               <span className="inline-block px-3 py-1 bg-skitm-blue/10 text-skitm-blue text-xs rounded-full mr-2 mb-2">
                 Cloud Computing
