@@ -2,8 +2,8 @@ import fs from "fs";
 import path from "path";
 import sharp from "sharp";
 
-const inputFolder = "./public";      // Folder containing your original images
-const outputFolder = "./publicL"; // Output folder
+const inputFolder = "./public/logos";      // Folder containing your original images
+const outputFolder = "./public/LogosL"; // Output folder
 
 if (!fs.existsSync(outputFolder)) fs.mkdirSync(outputFolder);
 
