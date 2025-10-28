@@ -78,7 +78,7 @@ const FeaturedCourses = () => {
         <>
             {/* Parallax Header */}
             <ParallaxSection
-                backgroundImage="/Gallery/GalleryImage (11).png"
+                backgroundImage="/Background.png"
                 overlayOpacity={0.6}
                 className="min-h-[50vh]"
             >

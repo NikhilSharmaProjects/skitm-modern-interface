@@ -35,7 +35,7 @@ const AboutSection = () => {
         <>
             {/* Parallax Hero Section */}
             <ParallaxSection 
-                backgroundImage="/Gallery/GalleryImage (1).png"
+                backgroundImage="/Background.png"
                 overlayOpacity={0.5}
                 className="min-h-[70vh]"
             >
