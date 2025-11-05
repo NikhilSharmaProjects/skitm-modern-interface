@@ -1,4 +1,6 @@
 import PageTemplate from '@/components/layout/PageTemplate';
+import SEOHead from '@/components/SEO/SEOHead';
+import { programSEO } from '@/lib/seo';
 import { useState } from "react";
 
 const MBA = () => {
@@ -6,11 +8,17 @@ const MBA = () => {
   const [showMore, setShowMore] = useState(false);
 
   return (
-    <PageTemplate
-      title="Master of Business Administration (MBA)"
-      subtitle="Comprehensive management education for future business leaders."
-      breadcrumb="Academics > Management"
-    >
+    <>
+      <SEOHead 
+        title={programSEO.mba.title}
+        description={programSEO.mba.description}
+        keywords={programSEO.mba.keywords}
+      />
+      <PageTemplate
+        title="Master of Business Administration (MBA)"
+        subtitle="Comprehensive management education for future business leaders."
+        breadcrumb="Academics > Management"
+      >
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
         {/* LEFT SIDE */}
         <div className="lg:col-span-2">
@@ -234,7 +242,8 @@ const MBA = () => {
 
 
 {/* READ MORE SECTION End here  */}
-    </PageTemplate>
+      </PageTemplate>
+    </>
   );
 };
 

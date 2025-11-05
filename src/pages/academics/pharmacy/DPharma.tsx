@@ -1,14 +1,22 @@
 
 import PageTemplate from '@/components/layout/PageTemplate';
+import SEOHead from '@/components/SEO/SEOHead';
+import { programSEO } from '@/lib/seo';
 import { useState } from "react";
 const DPharma = () => {
    const [showMore, setShowMore] = useState(false);
   return (
-    <PageTemplate
-      title="Diploma in Pharmacy (D.Pharm)"
-      subtitle="Professional diploma program for pharmaceutical technicians and healthcare support professionals."
-      breadcrumb="Academics > Pharmacy"
-    >
+    <>
+      <SEOHead 
+        title={programSEO.dpharm.title}
+        description={programSEO.dpharm.description}
+        keywords={programSEO.dpharm.keywords}
+      />
+      <PageTemplate
+        title="Diploma in Pharmacy (D.Pharm)"
+        subtitle="Professional diploma program for pharmaceutical technicians and healthcare support professionals."
+        breadcrumb="Academics > Pharmacy"
+      >
       <div className="glassmorphism rounded-xl p-8">
         <h2 className="text-2xl font-display font-bold text-skitm-navy mb-6">
           Program Overview
@@ -85,7 +93,8 @@ const DPharma = () => {
         }
         .animate-fadeInUp { animation: fadeInUp 0.5s ease-out; }
       `}</style>
-    </PageTemplate>
+      </PageTemplate>
+    </>
   );
 };
 

@@ -2,6 +2,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Button from "@/components/ui/CustomButton";
 import ParallaxSection from "@/components/common/ParallaxSection";
+import SEOHead from "@/components/SEO/SEOHead";
+import { programSEO } from "@/lib/seo";
 import { useScrollAnimationDiv } from "@/hooks/useScrollAnimationDiv";
 import { Link } from "react-router-dom";
 import { Scale, BookOpen, Users, Award } from "lucide-react";
@@ -83,6 +85,11 @@ const Law = () => {
 
     return (
         <div className="min-h-screen flex flex-col">
+            <SEOHead 
+                title={programSEO.law.title}
+                description={programSEO.law.description}
+                keywords={programSEO.law.keywords}
+            />
             <Navbar />
 
             {/* Parallax Hero Section */}

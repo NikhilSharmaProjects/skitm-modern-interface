@@ -1,14 +1,22 @@
 
 import PageTemplate from '@/components/layout/PageTemplate';
+import SEOHead from '@/components/SEO/SEOHead';
+import { programSEO } from '@/lib/seo';
 import { useState } from "react";
 const CSE = () => {
    const [showMore, setShowMore] = useState(false);
   return (
-    <PageTemplate
-      title="Computer Science & Engineering"
-      subtitle="Pioneering innovation in software development, artificial intelligence, and cutting-edge computing technologies."
-      breadcrumb="Academics > Engineering"
-    >
+    <>
+      <SEOHead 
+        title={programSEO.cse.title}
+        description={programSEO.cse.description}
+        keywords={programSEO.cse.keywords}
+      />
+      <PageTemplate
+        title="Computer Science & Engineering"
+        subtitle="Pioneering innovation in software development, artificial intelligence, and cutting-edge computing technologies."
+        breadcrumb="Academics > Engineering"
+      >
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
         <div className="lg:col-span-2">
           <div className="glassmorphism rounded-xl p-8 mb-8">
@@ -300,7 +308,8 @@ const CSE = () => {
   .animate-fadeInUp { animation: fadeInUp 0.5s ease-out; }
 `}</style>
 
-    </PageTemplate>
+      </PageTemplate>
+    </>
   );
 };
 
