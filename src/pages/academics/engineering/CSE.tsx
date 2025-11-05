@@ -1,7 +1,8 @@
 
 import PageTemplate from '@/components/layout/PageTemplate';
-
+import { useState } from "react";
 const CSE = () => {
+   const [showMore, setShowMore] = useState(false);
   return (
     <PageTemplate
       title="Computer Science & Engineering"
@@ -196,6 +197,109 @@ const CSE = () => {
           </div>
         </div>
       </div>
+      {/* add readmore content */}
+<div className="mt-16 w-full">
+
+  {/* open button */}
+  {!showMore && (
+    <div className="text-left">
+      <button
+        onClick={() => setShowMore(true)}
+        className="inline-flex items-center gap-2 bg-skitm-navy text-white font-semibold px-6 py-2.5 rounded-lg text-lg shadow-md"
+      >
+        Read More
+        <span className="text-white text-xl">▼</span>
+      </button>
+    </div>
+  )}
+
+  {/* show extra content */}
+  {showMore && (
+    <div className="mt-8 w-full bg-gradient-to-br from-slate-50 to-white rounded-2xl p-8 shadow-lg space-y-10 animate-fadeInUp">
+
+      {/*  Block 1 */}
+      <div>
+        <h1 className="text-2xl font-semibold text-skitm-navy mb-3">
+          Build Your Career with Best College for CS in Indore
+        </h1>
+        <p className="text-skitm-gray leading-relaxed">
+          Ranked among the best colleges for CS in Indore, SKITM provides an industry-oriented 
+          curriculum focused on innovation, coding, and problem-solving. Students benefit from 
+          live projects, hackathons, and global exposure. With dedicated mentorship and placement 
+          support, we ensure graduates are equipped to thrive in the fast-growing technology 
+          and IT sectors.
+        </p>
+      </div>
+
+      {/* Block 2 */}
+      <div>
+        <h2 className="text-2xl font-semibold text-skitm-navy mb-3">
+          Excel in Technology with Best Private Engineering College in MP for Computer Science
+        </h2>
+        <p className="text-skitm-gray leading-relaxed">
+          SKITM stands among the best private engineering colleges in MP for computer science, 
+          offering cutting-edge education in AI, Data Science, and Software Engineering. With 
+          modern labs, expert faculty, and industry-driven projects, we prepare students for 
+          successful careers in IT. Our strong placement network ensures excellent opportunities 
+          with top recruiters.
+        </p>
+      </div>
+
+      {/* Block 3 */}
+      <div>
+        <h2 className="text-2xl font-semibold text-skitm-navy mb-3">
+          Achieve Success with Best College for Computer Science Engineering in Indore
+        </h2>
+        <p className="text-skitm-gray leading-relaxed">
+          SKITM is recognized among the best colleges for computer science engineering in Indore, 
+          offering specialized programs in AI, IoT, Cybersecurity, and Cloud Computing. Our emphasis 
+          on research, skill development, and industry collaboration builds future-ready engineers. 
+          With consistent placement records, SKITM is the preferred destination for aspiring 
+          computer science professionals.
+        </p>
+      </div>
+
+      {/* Block 4 */}
+      <div>
+        <h2 className="text-2xl font-semibold text-skitm-navy mb-3">
+          Unlock Innovation at Top Engineering College in Indore for CS
+        </h2>
+        <p className="text-skitm-gray leading-relaxed">
+          As one of the top engineering colleges in Indore for CS, SKITM focuses on practical 
+          learning, coding excellence, and industry exposure. Students gain hands-on experience 
+          through advanced labs, internships, and global certifications. With a strong academic 
+          foundation and placement support, we help students achieve success in competitive 
+          IT careers.
+        </p>
+      </div>
+
+      {/* Read Less button */}
+      <div className="text-left pt-4">
+        <button
+          onClick={() => setShowMore(false)}
+          className="inline-flex items-center gap-2 bg-skitm-navy text-white font-semibold px-6 py-2.5 rounded-lg text-lg shadow-md"
+        >
+          Read Less
+          <span className="text-white text-xl">▲</span>
+        </button>
+      </div>
+
+    </div>
+  )}
+</div>
+
+{/* --in this readmore content close-- */}
+
+
+{/* Animation styles */}
+<style>{`
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeInUp { animation: fadeInUp 0.5s ease-out; }
+`}</style>
+
     </PageTemplate>
   );
 };
