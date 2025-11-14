@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import Button from "@/components/ui/CustomButton";
@@ -26,7 +25,7 @@ const AboutSection = () => {
         },
         {
             icon: <MapPin className="h-8 w-8 text-white" />,
-            number: "85%+",
+            number: "90%+",
             label: "Placement Rate",
         },
     ];
@@ -34,7 +33,7 @@ const AboutSection = () => {
     return (
         <>
             {/* Parallax Hero Section */}
-            <ParallaxSection 
+            <ParallaxSection
                 backgroundImage="/Background.png"
                 overlayOpacity={0.5}
                 className="min-h-[70vh]"
@@ -70,11 +69,13 @@ const AboutSection = () => {
             <section className="section-container bg-white">
                 <div
                     ref={sectionRef as React.RefObject<HTMLDivElement>}
-                    className={`${sectionVisible ? "animate-fade-in" : "opacity-1"}`}
+                    className={`${
+                        sectionVisible ? "animate-fade-in" : "opacity-1"
+                    }`}
                 >
                     <div className="image-first-block mb-20">
                         <div className="order-2 lg:order-1">
-                            <img 
+                            <img
                                 src="/Gallery/GalleryImage (22).png"
                                 alt="SKITM Campus"
                                 className="image-first-image"
@@ -83,10 +84,25 @@ const AboutSection = () => {
                         <div className="image-first-content order-1 lg:order-2">
                             <h3 className="section-title">About SKITM</h3>
                             <p className="text-body-lg text-skitm-gray mb-6">
-                                Shivajirao Kadam Institute of Technology and Management stands as a beacon of excellence in higher education, committed to nurturing innovative minds and fostering academic brilliance.
+                                SKITM is a NAAC Grade 'A' Accredited, UGC
+                                Autonomous Institute located in Indore, Madhya
+                                Pradesh. With a thriving student body of over
+                                2,000, SKITM offers diverse academic programs
+                                across its Engineering, Pharmacy, Law, Commerce,
+                                and Management colleges. In 2025, the institute
+                                proudly secured the 88th rank in India the Top
+                                175 Engineering Colleges Ranking by Times of
+                                India.
                             </p>
                             <p className="text-body text-skitm-gray mb-8">
-                                With state-of-the-art infrastructure, industry-aligned curriculum, and dedicated faculty, we prepare students for global challenges while maintaining our commitment to ethical values and social responsibility.
+                                Founded to address the growing demand for
+                                high-quality education in Central India, SKITM
+                                has distinguished itself through a unique blend
+                                of academic rigor and industry relevance. By
+                                bridging the gap between industry and academia,
+                                the institute is committed to democratizing
+                                access to world-class education and fostering
+                                future-ready professionals. journey.
                             </p>
                             <Link to="/about">
                                 <Button variant="primary">
@@ -100,19 +116,23 @@ const AboutSection = () => {
                         <div className="image-first-content">
                             <h3 className="section-title">Our Mission</h3>
                             <p className="text-body-lg text-skitm-gray mb-6">
-                                To provide world-class education that combines theoretical knowledge with practical application, preparing students to become leaders in their chosen fields.
+                                To provide world-class education that combines
+                                theoretical knowledge with practical
+                                application, preparing students to become
+                                leaders in their chosen fields.
                             </p>
                             <p className="text-body text-skitm-gray mb-8">
-                                We foster an environment of innovation, research, and entrepreneurship, encouraging students to think critically and contribute meaningfully to society.
+                                We foster an environment of innovation,
+                                research, and entrepreneurship, encouraging
+                                students to think critically and contribute
+                                meaningfully to society.
                             </p>
                             <Link to="/vision-mission">
-                                <Button variant="outline">
-                                    Learn More
-                                </Button>
+                                <Button variant="outline">Learn More</Button>
                             </Link>
                         </div>
                         <div>
-                            <img 
+                            <img
                                 src="/Gallery/GalleryImage (23).png"
                                 alt="Students in Discussion"
                                 className="image-first-image"

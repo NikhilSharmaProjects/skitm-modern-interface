@@ -209,10 +209,10 @@ const Footer = () => {
                                     className="text-skitm-blue mr-3 flex-shrink-0"
                                 />
                                 <a
-                                    href="tel:+9770907100"
+                                    href="tel:+91 9770907100"
                                     className="text-gray-300 hover:text-white transition-colors"
                                 >
-                                    + 9770907100
+                                    +91 9770907100
                                 </a>
                             </div>
                             <div className="flex items-center">
@@ -221,10 +221,10 @@ const Footer = () => {
                                     className="text-skitm-blue mr-3 flex-shrink-0"
                                 />
                                 <a
-                                    href="tel:+9770907103"
+                                    href="tel:+91 9770907103"
                                     className="text-gray-300 hover:text-white transition-colors"
                                 >
-                                    + 9770907103
+                                    +91 9770907103
                                 </a>
                             </div>
                             <div className="flex items-center">

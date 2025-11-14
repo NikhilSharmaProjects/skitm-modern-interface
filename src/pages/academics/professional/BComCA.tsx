@@ -35,7 +35,7 @@ const BComCA = () => {
                 <p className="text-skitm-gray mb-3">3-year undergraduate program (140 credits)</p>
                 <div className="text-sm text-skitm-gray space-y-1">
                   <p><strong>Duration:</strong> 6 Semesters</p>
-                  <p><strong>Intake:</strong> 60 Students</p>
+                  <p><strong>Intake:</strong> 120 Students</p>
                   <p><strong>Affiliation:</strong> University of Calcutta</p>
                   <p><strong>Eligibility:</strong> 12th standard with 45% marks (Commerce background preferred)</p>
                 </div>

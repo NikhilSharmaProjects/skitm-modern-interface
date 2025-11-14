@@ -29,7 +29,7 @@ const Pharmacy = () => {
           <p className="text-skitm-gray mb-3">Bachelor of Pharmacy - 4 year undergraduate program</p>
           <div className="text-sm text-skitm-gray">
             <p><strong>Duration:</strong> 8 Semesters</p>
-            <p><strong>Intake:</strong> 60 Students</p>
+            <p><strong>Intake:</strong> 100 Students</p>
           </div>
         </Link>
 

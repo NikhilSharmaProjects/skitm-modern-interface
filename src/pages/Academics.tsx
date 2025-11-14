@@ -23,7 +23,7 @@ const Academics = () => {
         },
         {
             icon: <TrendingUp className="h-8 w-8 text-white" />,
-            number: "85%",
+            number: "90%",
             label: "Placement Rate",
         },
     ];

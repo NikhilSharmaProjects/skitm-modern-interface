@@ -12,7 +12,7 @@ export interface SEOConfig {
 export const defaultSEO: SEOConfig = {
     title: "SKITM Indore | Top Engineering, MBA, Pharmacy College in Madhya Pradesh",
     description:
-        "SKITM is a leading NAAC A accredited college in Indore offering B.Tech, MBA, B.Pharm, Law programs. Apply now for admission 2025. 85%+ placement record.",
+        "SKITM is a leading NAAC A accredited college in Indore offering B.Tech, MBA, B.Pharm, Law programs. Apply now for admission 2025. 90%+ placement record.",
     keywords:
         "SKITM Indore, engineering college Indore, MBA college Indore, pharmacy college Indore, B.Tech admission 2025, law college MP, NAAC A college",
     ogImage: "/Gallery/GalleryImage (1).png",
