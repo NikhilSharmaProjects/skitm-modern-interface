@@ -10,22 +10,22 @@ export interface SEOConfig {
 }
 
 export const defaultSEO: SEOConfig = {
-    title: "SKITM Indore | Top Engineering, MBA, Pharmacy College in Madhya Pradesh",
+    title: "SKITM Indore | Top Engineering, MBA, Pharmacy College in Indore, Madhya Pradesh",
     description:
-        "SKITM is a leading NAAC A accredited college in Indore offering B.Tech, MBA, B.Pharm, Law programs. Apply now for admission 2025. 90%+ placement record.",
+        "SKITM is a leading NAAC A accredited college in Indore offering B.Tech, MBA, B.Pharm, Law programs. Apply now for admission 2025. 85%+ placement record.",
     keywords:
-        "SKITM Indore, engineering college Indore, MBA college Indore, pharmacy college Indore, B.Tech admission 2025, law college MP, NAAC A college",
+        "best private engineering college in india, best college in indore, private college in indore",
     ogImage: "/Gallery/GalleryImage (1).png",
 };
 
 export const programSEO = {
     // Engineering Programs
     cse: {
-        title: "B.Tech CSE Admission 2025 | Computer Science Engineering | SKITM Indore",
+        title: "Best College for CS in Indore | Top Engineering College in Indore for CS",
         description:
-            "Join B.Tech Computer Science Engineering at SKITM Indore. AI/ML, Data Science curriculum. 90%+ placement. Apply now for CSE admission 2025.",
+            "SKITM is among the Best College for CS in Indore and one of the Top Engineering College in Indore for CS, offering cutting-edge computer science programs, expert faculty, and excellent placement opportunities for aspiring tech leaders.",
         keywords:
-            "B.Tech CSE Indore, computer science engineering, AI ML course, software engineering college, CSE admission 2025",
+            "top engineering college in Indore for CS, best college for computer science engineering in Indore, best college for CS in Indore, best private engineering college in MP for computer science",
     },
     ece: {
         title: "B.Tech ECE Admission 2025 | Electronics Communication | SKITM Indore",
@@ -51,43 +51,43 @@ export const programSEO = {
 
     // Management Programs
     mba: {
-        title: "MBA Admission 2025 | Top Business School | SKITM Indore",
+        title: "MBA College in Indore | Best Management College in Indore",
         description:
-            "MBA program at SKITM Indore with industry internships, global exposure. Finance, Marketing, HR specializations. Apply for MBA admission 2025.",
+            "SKITM is counted among the top MBA College in Indore and stands out as one of the Best Management College in Indore, offering industry-focused learning, expert faculty, and strong placements.",
         keywords:
-            "MBA Indore, MBA admission 2025, business school Indore, MBA finance marketing, management college MP",
+            "top MBA college in Madhya Pradesh, best placement mba college in indore, management college in madhya pradesh, top private MBA college in madhya pradesh, private mba college in indore, MBA college mp, best management college in indore, best MBA college in mp, best mba college in indore, top MBA college in mp, MBA college in Indore",
     },
     bba: {
-        title: "BBA Admission 2025 | Bachelor Business Administration | SKITM Indore",
+        title: "BBA College in Indore | Top BBA College in Indore - SKITM",
         description:
-            "BBA program at SKITM Indore. Entrepreneurship focus, industry training. Apply for BBA admission 2025.",
+            "SKITM is recognized among the best BBA College in Indore and is listed among the Top BBA College in Indore, offering practical business education, expert faculty, and excellent placements.",
         keywords:
-            "BBA Indore, BBA admission 2025, business administration course, entrepreneurship program",
+            "best bba college in indore, top bba college in indore, bba private college in indore, BBA college in Indore",
     },
 
     // Pharmacy Programs
     bpharm: {
-        title: "B.Pharm Admission 2025 | Pharmacy College | SKITM Indore",
+        title: "B.Pharma College in Indore | B Pharmacy in Indore",
         description:
-            "B.Pharm at SKITM Indore. Modern pharmacy labs, clinical training. 100% placement assistance. Apply for pharmacy admission 2025.",
+            "Looking for the best B.Pharma College in Indore? Explore top-quality education, labs & placements at our leading institute for B Pharmacy in Indore - SKITM.",
         keywords:
-            "B.Pharm Indore, pharmacy college MP, pharmaceutical sciences, B.Pharm admission 2025",
+            "b pharmacy in indore, B.Pharm colleges in Indore, best private B.Pharm colleges in Madhya Pradesh",
     },
     dpharm: {
-        title: "D.Pharm Admission 2025 | Diploma Pharmacy | SKITM Indore",
+        title: "D.Pharma College in Indore | SKITM",
         description:
-            "D.Pharm program at SKITM Indore. Quick entry into pharmacy field. Apply for D.Pharm admission 2025.",
+            "Enroll at the leading D.Pharma College in Indore offering quality education, modern labs, and excellent career opportunities in the field of pharmacy.",
         keywords:
-            "D.Pharm Indore, diploma pharmacy course, pharmacy technician program",
+            "D.Pharm colleges in Indore",
     },
 
     // Law Programs
     law: {
-        title: "Law Admission 2025 | B.A/B.B.A LL.B | SKITM Law College Indore",
+        title: "Law College in Indore | Top Law College in Indore - SKITM",
         description:
-            "5-year integrated law programs at SKITM Law College Indore. Moot court, internships. Apply for law admission 2025.",
+            "SKITM ranks high among Law College in Indore and is known as one of the Top Law College in Indore, providing practical legal training, modern learning resources, and assured career guidance.",
         keywords:
-            "law college Indore, BA LLB admission, BBA LLB course, legal education MP, law admission 2025",
+            "LLB college in Indore, top law college in indore, law college in indore, law college with top placements Indore",
     },
 };
 

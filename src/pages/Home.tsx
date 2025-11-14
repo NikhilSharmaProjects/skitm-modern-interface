@@ -2,6 +2,8 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import Button from '@/components/ui/CustomButton';
+import SEOHead from '@/components/SEO/SEOHead';
+import { defaultSEO } from '@/lib/seo';
 import { HomeIcon, RocketIcon, GraduationCap, Lightbulb, Users, ShieldCheck, TrendingUp } from 'lucide-react';
 import { useEffect, useState } from "react";
 import { getRandomGalleryImage } from "@/utils/galleryImages";
@@ -21,6 +23,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead 
+        title={defaultSEO.title}
+        description={defaultSEO.description}
+        keywords={defaultSEO.keywords}
+        ogImage={defaultSEO.ogImage}
+      />
       <Navbar />
       <section className="min-h-[70vh] bg-gradient-to-b from-skitm-blue to-skitm-navy flex flex-col justify-center items-center text-center px-4">
         <h1 className="text-5xl font-display font-bold text-white mb-6">

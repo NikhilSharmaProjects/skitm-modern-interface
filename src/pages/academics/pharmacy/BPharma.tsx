@@ -1,14 +1,22 @@
 
 import PageTemplate from '@/components/layout/PageTemplate';
+import SEOHead from '@/components/SEO/SEOHead';
+import { programSEO } from '@/lib/seo';
 import { useState } from "react"; 
 const BPharma = () => {
     const [showMore, setShowMore] = useState(false);
   return (
-    <PageTemplate
-      title="Bachelor of Pharmacy (B.Pharm)"
-      subtitle="Comprehensive pharmaceutical education preparing students for careers in healthcare and drug development."
-      breadcrumb="Academics > Pharmacy"
-    >
+    <>
+      <SEOHead 
+        title={programSEO.bpharm.title}
+        description={programSEO.bpharm.description}
+        keywords={programSEO.bpharm.keywords}
+      />
+      <PageTemplate
+        title="Bachelor of Pharmacy (B.Pharm)"
+        subtitle="Comprehensive pharmaceutical education preparing students for careers in healthcare and drug development."
+        breadcrumb="Academics > Pharmacy"
+      >
       <div className="glassmorphism rounded-xl p-8">
         <h2 className="text-2xl font-display font-bold text-skitm-navy mb-6">
           Program Overview
@@ -105,7 +113,8 @@ const BPharma = () => {
         }
         .animate-fadeInUp { animation: fadeInUp 0.5s ease-out; }
       `}</style>
-    </PageTemplate>
+      </PageTemplate>
+    </>
   );
 };
 

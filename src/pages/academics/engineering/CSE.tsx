@@ -1,81 +1,48 @@
-import PageTemplate from "@/components/layout/PageTemplate";
+
+import PageTemplate from '@/components/layout/PageTemplate';
 import { useState } from "react";
 const CSE = () => {
-    const [showMore, setShowMore] = useState(false);
-    return (
-        <PageTemplate
-            title="Computer Science & Engineering"
-            subtitle="Pioneering innovation in software development, artificial intelligence, and cutting-edge computing technologies."
-            breadcrumb="Academics > Engineering"
-        >
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-                <div className="lg:col-span-2">
-                    <div className="glassmorphism rounded-xl p-8 mb-8">
-                        <h2 className="text-2xl font-display font-bold text-skitm-navy mb-6">
-                            About the Department
-                        </h2>
-                        <p className="text-skitm-gray mb-4 leading-relaxed">
-                            The Computer Science & Engineering department at
-                            SKITM is at the forefront of technological
-                            innovation, offering comprehensive programs that
-                            prepare students for the rapidly evolving IT
-                            industry. Established with a vision to create
-                            skilled professionals in computing technologies, our
-                            department has consistently maintained high academic
-                            standards and industry relevance.
-                        </p>
-                        <p className="text-skitm-gray mb-4 leading-relaxed">
-                            Our curriculum combines theoretical foundations with
-                            practical applications, ensuring graduates are
-                            well-equipped to tackle real-world challenges in
-                            software development, data science, and emerging
-                            technologies. The department emphasizes hands-on
-                            learning through modern laboratories, industry
-                            projects, and internship opportunities.
-                        </p>
-                        <p className="text-skitm-gray leading-relaxed">
-                            With experienced faculty members holding advanced
-                            degrees from prestigious institutions and industry
-                            experience, we provide mentorship that bridges the
-                            gap between academic learning and professional
-                            requirements. Our graduates are successfully placed
-                            in leading technology companies, startups, and
-                            pursue higher education at renowned universities
-                            worldwide.
-                        </p>
-                    </div>
-
-                    <div className="glassmorphism rounded-xl p-8 mb-8">
-                        <h2 className="text-2xl font-display font-bold text-skitm-navy mb-6">
-                            Programs Offered
-                        </h2>
-                        <div className="space-y-6">
-                            <div className="border-l-4 border-skitm-blue pl-6">
-                                <h3 className="text-xl font-semibold text-skitm-navy mb-2">
-                                    B.Tech Computer Science & Engineering
-                                </h3>
-                                <p className="text-skitm-gray mb-3">
-                                    4-year undergraduate program (120 credits)
-                                </p>
-                                <div className="text-sm text-skitm-gray space-y-1">
-                                    <p>
-                                        <strong>Duration:</strong> 8 Semesters
-                                    </p>
-                                    <p>
-                                        <strong>Intake:</strong> 120 Students
-                                    </p>
-                                    <p>
-                                        <strong>Affiliation:</strong> RGPV
-                                        (Rajiv Gandhi Proudyogiki
-                                        Vishwavidyalaya)
-                                    </p>
-                                    <p>
-                                        <strong>Approval:</strong> AICTE
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+   const [showMore, setShowMore] = useState(false);
+  return (
+    <PageTemplate
+      title="Computer Science & Engineering"
+      subtitle="Pioneering innovation in software development, artificial intelligence, and cutting-edge computing technologies."
+      breadcrumb="Academics > Engineering"
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        <div className="lg:col-span-2">
+          <div className="glassmorphism rounded-xl p-8 mb-8">
+            <h2 className="text-2xl font-display font-bold text-skitm-navy mb-6">
+              About the Department
+            </h2>
+            <p className="text-skitm-gray mb-4 leading-relaxed">
+              The Computer Science & Engineering department at SKITM is at the forefront of technological innovation, offering comprehensive programs that prepare students for the rapidly evolving IT industry. Established with a vision to create skilled professionals in computing technologies, our department has consistently maintained high academic standards and industry relevance.
+            </p>
+            <p className="text-skitm-gray mb-4 leading-relaxed">
+              Our curriculum combines theoretical foundations with practical applications, ensuring graduates are well-equipped to tackle real-world challenges in software development, data science, and emerging technologies. The department emphasizes hands-on learning through modern laboratories, industry projects, and internship opportunities.
+            </p>
+            <p className="text-skitm-gray leading-relaxed">
+              With experienced faculty members holding advanced degrees from prestigious institutions and industry experience, we provide mentorship that bridges the gap between academic learning and professional requirements. Our graduates are successfully placed in leading technology companies, startups, and pursue higher education at renowned universities worldwide.
+            </p>
+          </div>
+          
+          <div className="glassmorphism rounded-xl p-8 mb-8">
+            <h2 className="text-2xl font-display font-bold text-skitm-navy mb-6">
+              Programs Offered
+            </h2>
+            <div className="space-y-6">
+              <div className="border-l-4 border-skitm-blue pl-6">
+                <h3 className="text-xl font-semibold text-skitm-navy mb-2">B.Tech Computer Science & Engineering</h3>
+                <p className="text-skitm-gray mb-3">4-year undergraduate program (120 credits)</p>
+                <div className="text-sm text-skitm-gray space-y-1">
+                  <p><strong>Duration:</strong> 8 Semesters</p>
+                  <p><strong>Intake:</strong> 60 Students</p>
+                  <p><strong>Affiliation:</strong> MAKAUT (Maulana Abul Kalam Azad University of Technology)</p>
+                  <p><strong>Approval:</strong> AICTE</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
                     <div className="glassmorphism rounded-xl p-8">
                         <h2 className="text-2xl font-display font-bold text-skitm-navy mb-6">
@@ -420,8 +387,9 @@ const CSE = () => {
   }
   .animate-fadeInUp { animation: fadeInUp 0.5s ease-out; }
 `}</style>
-        </PageTemplate>
-    );
+
+    </PageTemplate>
+  );
 };
 
 export default CSE;
