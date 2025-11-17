@@ -48,7 +48,7 @@ const PlacementSection = () => {
         <>
             {/* Parallax Stats Section */}
             <ParallaxSection
-                backgroundImage={getRandomGalleryImage()}
+                backgroundImage={"/Background.png"}
                 overlayOpacity={0.7}
                 className="min-h-[60vh]"
             >

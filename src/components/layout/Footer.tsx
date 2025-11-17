@@ -71,14 +71,14 @@ const Footer = () => {
                                     About SKITM
                                 </Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link
                                     to="/departments"
                                     className="text-gray-300 hover:text-white transition-colors"
                                 >
                                     Departments
                                 </Link>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link
                                     to="/admissions"
