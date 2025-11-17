@@ -37,7 +37,7 @@ const CSE = () => {
                 <div className="text-sm text-skitm-gray space-y-1">
                   <p><strong>Duration:</strong> 8 Semesters</p>
                   <p><strong>Intake:</strong> 60 Students</p>
-                  <p><strong>Affiliation:</strong> MAKAUT (Maulana Abul Kalam Azad University of Technology)</p>
+                  <p><strong>Affiliation:</strong> RGPV(Rajiv Gandhi Proudyogiki Vishwavidyalaya), Bhopal</p>
                   <p><strong>Approval:</strong> AICTE</p>
                 </div>
               </div>
