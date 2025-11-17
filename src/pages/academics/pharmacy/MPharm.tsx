@@ -62,7 +62,7 @@ const MPharm = () => {
                                         Vishwavidyalaya, Bhopal)
                                     </p>
                                     <p>
-                                        <strong>Approval:</strong> AICTE & PCI
+                                        <strong>Approval:</strong> Pharmacy Council of India
                                     </p>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@ const MPharm = () => {
                                         Vishwavidyalaya, Bhopal)
                                     </p>
                                     <p>
-                                        <strong>Approval:</strong> AICTE & PCI
+                                        <strong>Approval:</strong> Pharmacy Council of India
                                     </p>
                                 </div>
                             </div>

@@ -52,24 +52,28 @@ const CSE = () => {
                         <div className="space-y-6">
                             <div className="border-l-4 border-skitm-blue pl-6">
                                 <h3 className="text-xl font-semibold text-skitm-navy mb-2">
-                                    B.Tech Computer Science & Engineering
+                                    Legal Studies (LLB)
                                 </h3>
                                 <p className="text-skitm-gray mb-3">
-                                    4-year undergraduate program
+                                    B.A. LL.B (Hons.)
+                                </p><p className="text-skitm-gray mb-3">
+                                    B.B.A. LL.B (Hons.)
+                                </p><p className="text-skitm-gray mb-3">
+                                    LL.B (Hons.)
                                 </p>
                                 <div className="text-sm text-skitm-gray space-y-1">
-                                    <p>
+                                    {/* <p>
                                         <strong>Duration:</strong> 8 Semesters
-                                    </p>
+                                    </p> */}
                                     <p>
-                                        <strong>Intake:</strong> 60 Students
+                                        <strong>Intake:</strong> 60 Students Each
                                     </p>
                                     <p>
                                         <strong>Affiliation:</strong> DAVV
                                         (Devi Ahilya Vishwavidyalaya, Indore)
                                     </p>
                                     <p>
-                                        <strong>Approval:</strong> AICTE
+                                        <strong>Approval:</strong> Bar Council of India
                                     </p>
                                 </div>
                             </div>
