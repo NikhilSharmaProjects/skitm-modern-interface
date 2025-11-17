@@ -66,7 +66,7 @@ const MechanicalEngineering = () => {
                                         Vishwavidyalaya), Bhopal
                                     </p>
                                     <p>
-                                        <strong>Approval:</strong> AICTE, UGC
+                                        <strong>Approval:</strong> AICTE
                                     </p>
                                 </div>
                             </div>

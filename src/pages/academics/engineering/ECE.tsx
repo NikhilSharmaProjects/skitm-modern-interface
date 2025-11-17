@@ -58,7 +58,7 @@ const ECE = () => {
                                         <strong>Duration:</strong> 8 Semesters
                                     </p>
                                     <p>
-                                        <strong>Intake:</strong> 60 Students
+                                        <strong>Intake:</strong> 30 Students
                                     </p>
                                     <p>
                                         <strong>Affiliation:</strong> RGPV
@@ -66,7 +66,7 @@ const ECE = () => {
                                         Vishwavidyalaya), Bhopal
                                     </p>
                                     <p>
-                                        <strong>Approval:</strong> AICTE, UGC
+                                        <strong>Approval:</strong> AICTE
                                     </p>
                                 </div>
                             </div>

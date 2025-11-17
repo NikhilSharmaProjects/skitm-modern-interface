@@ -56,10 +56,11 @@ const MBA = () => {
                                         <strong>Intake:</strong> 120 Students
                                     </p>
                                     <p>
-                                        <strong>Affiliation:</strong> RGPV
+                                        <strong>Affiliation:</strong> DAVV 
+                                        (Devi Ahilya Vishwavidyalaya, Indore)
                                     </p>
                                     <p>
-                                        <strong>Approval:</strong> AICTE, UGC
+                                        <strong>Approval:</strong> AICTE
                                     </p>
                                     <p>
                                         <strong>Eligibility:</strong> Graduate

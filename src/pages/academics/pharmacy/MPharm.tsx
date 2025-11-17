@@ -58,10 +58,11 @@ const MPharm = () => {
                                     </p>
                                     <p>
                                         <strong>Affiliation:</strong> RGPV
+                                        (Rajiv Gandhi Proudyogiki
+                                        Vishwavidyalaya, Bhopal)
                                     </p>
                                     <p>
-                                        <strong>Approval:</strong> AICTE, UGC &
-                                        PCI
+                                        <strong>Approval:</strong> AICTE & PCI
                                     </p>
                                 </div>
                             </div>
@@ -81,10 +82,11 @@ const MPharm = () => {
                                     </p>
                                     <p>
                                         <strong>Affiliation:</strong> RGPV
+                                        (Rajiv Gandhi Proudyogiki
+                                        Vishwavidyalaya, Bhopal)
                                     </p>
                                     <p>
-                                        <strong>Approval:</strong> AICTE, UGC &
-                                        PCI
+                                        <strong>Approval:</strong> AICTE & PCI
                                     </p>
                                 </div>
                             </div>

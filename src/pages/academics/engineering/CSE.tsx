@@ -70,8 +70,7 @@ const CSE = () => {
                                         Bhopal
                                     </p>
                                     <p>
-                                        <strong>Approval:</strong> AICTE, UGC,
-                                        UGC
+                                        <strong>Approval:</strong> AICTE
                                     </p>
                                 </div>
                             </div>

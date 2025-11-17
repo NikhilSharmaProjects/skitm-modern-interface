@@ -38,7 +38,7 @@ const governors = [
     { name: "Nominee of DTE", role: "", details: "" },
     { name: "Nominee of Government of MP", role: "", details: "" },
     { name: "Nominee of DAVV", role: "", details: "" },
-    { name: "Nominee of AICTE, UGC", role: "", details: "" },
+    { name: "Nominee of AICTE", role: "", details: "" },
 ];
 
 const BoardGovernors = () => {

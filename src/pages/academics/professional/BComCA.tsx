@@ -36,7 +36,7 @@ const BComCA = () => {
                 <div className="text-sm text-skitm-gray space-y-1">
                   <p><strong>Duration:</strong> 6 Semesters</p>
                   <p><strong>Intake:</strong> 120 Students</p>
-                  <p><strong>Affiliation:</strong> University of Calcutta</p>
+                  <p><strong>Affiliation:</strong> DAVV (Devi Ahilya Vishwavidyalaya, Indore)</p>
                   <p><strong>Eligibility:</strong> 12th standard with 45% marks (Commerce background preferred)</p>
                 </div>
               </div>

@@ -33,16 +33,7 @@ const PlacementSection = () => {
         },
     ];
 
-    const topRecruiters = [
-        "/logos/companylogo (1).png",
-        "/logos/companylogo (2).png",
-        "/logos/companylogo (3).png",
-        "/logos/companylogo (4).png",
-        "/logos/companylogo (5).png",
-        "/logos/companylogo (6).png",
-        "/logos/companylogo (7).png",
-        "/logos/companylogo (8).png",
-    ];
+    const topRecruiters = ["/logos/allLogo1.png", "/logos/allLogo2.png"];
 
     return (
         <>
@@ -140,8 +131,10 @@ const PlacementSection = () => {
                             Our Top Recruiters
                         </h4>
 
-                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 items-center">
-                            {topRecruiters.map((logo, index) => (
+                        <img src="/logos/allLogo1.png" alt="Company Logos" />
+
+                        {/*<div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 items-center">
+                             {topRecruiters.map((logo, index) => (
                                 <div
                                     key={index}
                                     className="flex items-center justify-center p-4 glassmorphism rounded-lg hover:shadow-lg transition-all duration-300"
@@ -152,8 +145,8 @@ const PlacementSection = () => {
                                         className="max-h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                                     />
                                 </div>
-                            ))}
-                        </div>
+                            ))} 
+                        </div>*/}
                     </div>
 
                     {/* Read More Section add here */}

@@ -62,12 +62,11 @@ const MBAPlus = () => {
                                         <strong>Intake:</strong> 60 Students
                                     </p>
                                     <p>
-                                        <strong>Affiliation:</strong> RGPV
-                                        (Rajiv Gandhi Proudyogiki
-                                        Vishwavidyalaya)
+                                        <strong>Affiliation:</strong> DAVV 
+                                        (Devi Ahilya Vishwavidyalaya, Indore)
                                     </p>
                                     <p>
-                                        <strong>Approval:</strong> AICTE, UGC
+                                        <strong>Approval:</strong> AICTE
                                     </p>
                                     <p>
                                         <strong>Eligibility:</strong> Graduation

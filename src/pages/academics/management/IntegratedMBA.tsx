@@ -66,7 +66,7 @@ const IntegratedMBA = () => {
                                         Vishwavidyalaya)
                                     </p>
                                     <p>
-                                        <strong>Approval:</strong> AICTE, UGC
+                                        <strong>Approval:</strong> AICTE
                                     </p>
                                     <p>
                                         <strong>Eligibility:</strong> 12th
