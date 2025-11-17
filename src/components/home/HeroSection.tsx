@@ -3,8 +3,10 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const HeroSection = () => {
+    const isMobile = useIsMobile();
     const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
     const { ref: subtitleRef, isVisible: subtitleVisible } = useScrollAnimation(
         {
@@ -17,8 +19,10 @@ const HeroSection = () => {
         rootMargin: "0px 0px -100px 0px",
     });
 
+    const backgroundImage = isMobile ? '/Background-mobile.png' : '/Background.png';
+
     return (
-        <section className="hero-section relative overflow-hidden min-h-[80vh] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: "url('/Background.png')" }}>
+        <section className="hero-section relative overflow-hidden min-h-[80vh] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url('${backgroundImage}')` }}>
             {/* Background overlay for better text visibility */}
             <div className="absolute inset-0 bg-black/40 z-10"></div>
             
@@ -32,8 +36,8 @@ const HeroSection = () => {
                 style={{ animationDelay: "2s" }}
             ></div>
 
-            <div className="container mx-auto px-4 relative z-30">
-                <div className="max-w-3xl mx-auto text-center text-white">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-30">
+                <div className="max-w-3xl mx-auto text-center text-white px-4">
                     <span
                         ref={titleRef as React.RefObject<HTMLHeadingElement>}
                         className={`inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-white/10 backdrop-blur-sm rounded-full border border-white/20 ${
@@ -46,7 +50,7 @@ const HeroSection = () => {
 
                     <h1
                         ref={subtitleRef as React.RefObject<HTMLHeadingElement>}
-                        className={`text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 ${
+                        className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 md:mb-6 leading-tight ${
                             subtitleVisible ? "animate-fade-in" : "opacity-1"
                         }`}
                         style={{ transitionDelay: "0.4s" }}
@@ -62,7 +66,7 @@ const HeroSection = () => {
                     </h1>
 
                     <p
-                        className={`text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto ${
+                        className={`text-base sm:text-lg md:text-xl text-blue-100 mb-6 md:mb-8 max-w-2xl mx-auto ${
                             subtitleVisible ? "animate-fade-in" : "opacity-1"
                         }`}
                         style={{ transitionDelay: "0.6s" }}
@@ -77,20 +81,20 @@ const HeroSection = () => {
                         }`}
                         style={{ transitionDelay: "0.8s" }}
                     >
-                        <Link to="/admissions">
+                        <Link to="/admissions" className="w-full sm:w-auto">
                             <Button
                                 size="lg"
-                                className="bg-white text-skitm-navy hover:bg-blue-50"
+                                className="bg-white text-skitm-navy hover:bg-blue-50 w-full sm:w-auto"
                             >
                                 Apply Now{" "}
                                 <ArrowRight className="ml-2" size={18} />
                             </Button>
                         </Link>
-                        <Link to="/about">
+                        <Link to="/about" className="w-full sm:w-auto">
                             <Button
                                 variant="outline"
                                 size="lg"
-                                className="border-white text-white bg-transparent hover:bg-white hover:text-black"
+                                className="border-white text-white bg-transparent hover:bg-white hover:text-black w-full sm:w-auto"
                             >
                                 Discover SKITM
                             </Button>
