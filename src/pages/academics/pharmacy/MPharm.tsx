@@ -47,7 +47,7 @@ const MPharm = () => {
                                     M.Pharm (Pharmaceutics)
                                 </h3>
                                 <p className="text-skitm-gray mb-3">
-                                    2-year postgraduate program (80 credits)
+                                    2-year postgraduate program
                                 </p>
                                 <div className="text-sm text-skitm-gray space-y-1">
                                     <p>
@@ -60,7 +60,8 @@ const MPharm = () => {
                                         <strong>Affiliation:</strong> RGPV
                                     </p>
                                     <p>
-                                        <strong>Approval:</strong> AICTE & PCI
+                                        <strong>Approval:</strong> AICTE, UGC &
+                                        PCI
                                     </p>
                                 </div>
                             </div>
@@ -69,7 +70,7 @@ const MPharm = () => {
                                     M.Pharm (Pharmaceutical Chemistry)
                                 </h3>
                                 <p className="text-skitm-gray mb-3">
-                                    2-year postgraduate program (80 credits)
+                                    2-year postgraduate program
                                 </p>
                                 <div className="text-sm text-skitm-gray space-y-1">
                                     <p>
@@ -82,7 +83,8 @@ const MPharm = () => {
                                         <strong>Affiliation:</strong> RGPV
                                     </p>
                                     <p>
-                                        <strong>Approval:</strong> AICTE & PCI
+                                        <strong>Approval:</strong> AICTE, UGC &
+                                        PCI
                                     </p>
                                 </div>
                             </div>

@@ -55,7 +55,7 @@ const CSE = () => {
                                     B.Tech Computer Science & Engineering
                                 </h3>
                                 <p className="text-skitm-gray mb-3">
-                                    4-year undergraduate program (120 credits)
+                                    4-year undergraduate program
                                 </p>
                                 <div className="text-sm text-skitm-gray space-y-1">
                                     <p>
@@ -70,7 +70,7 @@ const CSE = () => {
                                         Vishwavidyalaya)
                                     </p>
                                     <p>
-                                        <strong>Approval:</strong> AICTE
+                                        <strong>Approval:</strong> AICTE, UGC
                                     </p>
                                 </div>
                             </div>

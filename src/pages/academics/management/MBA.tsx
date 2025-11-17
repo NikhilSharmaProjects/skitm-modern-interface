@@ -1,34 +1,39 @@
-import PageTemplate from '@/components/layout/PageTemplate';
+import PageTemplate from "@/components/layout/PageTemplate";
 import { useState } from "react";
 
 const MBA = () => {
     const [showMore, setShowMore] = useState(false);
 
-  return (
-    <PageTemplate
-      title="Master of Business Administration (MBA)"
-      subtitle="Comprehensive management education for future business leaders."
-      breadcrumb="Academics > Management"
-    >
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-        {/* LEFT SIDE */}
-        <div className="lg:col-span-2">
-        
-          {/* Program Overview */}
-          <div className="glassmorphism rounded-xl p-8 mb-8">
-            <h2 className="text-2xl font-display font-bold text-skitm-navy mb-6">
-              Program Overview
-            </h2>
-            <p className="text-skitm-gray mb-4 leading-relaxed">
-              The MBA program at SKITM provides comprehensive business education with focus on leadership, strategy, and innovation.
-            </p>
-            <p className="text-skitm-gray mb-4 leading-relaxed">
-              Our two-year full-time MBA program combines rigorous academic curriculum with practical business applications.
-            </p>
-            <p className="text-skitm-gray leading-relaxed">
-              The program emphasizes developing analytical thinking, decision-making, and global business perspective.
-            </p>
-          </div>
+    return (
+        <PageTemplate
+            title="Master of Business Administration (MBA)"
+            subtitle="Comprehensive management education for future business leaders."
+            breadcrumb="Academics > Management"
+        >
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                {/* LEFT SIDE */}
+                <div className="lg:col-span-2">
+                    {/* Program Overview */}
+                    <div className="glassmorphism rounded-xl p-8 mb-8">
+                        <h2 className="text-2xl font-display font-bold text-skitm-navy mb-6">
+                            Program Overview
+                        </h2>
+                        <p className="text-skitm-gray mb-4 leading-relaxed">
+                            The MBA program at SKITM provides comprehensive
+                            business education with focus on leadership,
+                            strategy, and innovation.
+                        </p>
+                        <p className="text-skitm-gray mb-4 leading-relaxed">
+                            Our two-year full-time MBA program combines rigorous
+                            academic curriculum with practical business
+                            applications.
+                        </p>
+                        <p className="text-skitm-gray leading-relaxed">
+                            The program emphasizes developing analytical
+                            thinking, decision-making, and global business
+                            perspective.
+                        </p>
+                    </div>
 
                     {/* Program Details */}
                     <div className="glassmorphism rounded-xl p-8 mb-8">
@@ -41,7 +46,7 @@ const MBA = () => {
                                     MBA General Management
                                 </h3>
                                 <p className="text-skitm-gray mb-3">
-                                    2-year full-time program (120 credits)
+                                    2-year full-time program
                                 </p>
                                 <div className="text-sm text-skitm-gray space-y-1">
                                     <p>
@@ -54,7 +59,7 @@ const MBA = () => {
                                         <strong>Affiliation:</strong> RGPV
                                     </p>
                                     <p>
-                                        <strong>Approval:</strong> AICTE
+                                        <strong>Approval:</strong> AICTE, UGC
                                     </p>
                                     <p>
                                         <strong>Eligibility:</strong> Graduate
@@ -306,9 +311,9 @@ const MBA = () => {
   .animate-fadeInUp { animation: fadeInUp 0.5s ease-out; }
 `}</style>
 
-{/* READ MORE SECTION End here  */}
-    </PageTemplate>
-  );
+            {/* READ MORE SECTION End here  */}
+        </PageTemplate>
+    );
 };
 
 export default MBA;

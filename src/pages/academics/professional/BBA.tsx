@@ -46,7 +46,7 @@ const MBA = () => {
                                     MBA General Management
                                 </h3>
                                 <p className="text-skitm-gray mb-3">
-                                    2-year full-time program (120 credits)
+                                    2-year full-time program
                                 </p>
                                 <div className="text-sm text-skitm-gray space-y-1">
                                     <p>
@@ -59,7 +59,7 @@ const MBA = () => {
                                         <strong>Affiliation:</strong> RGPV
                                     </p>
                                     <p>
-                                        <strong>Approval:</strong> AICTE
+                                        <strong>Approval:</strong> AICTE, UGC
                                     </p>
                                     <p>
                                         <strong>Eligibility:</strong> Graduate
