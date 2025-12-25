@@ -1,0 +1,81 @@
+
+# robots.txt for SKITM website
+# Updated: 2025-05-19
+
+User-agent: *
+Allow: /
+
+# Important pages for crawling
+Allow: /about
+Allow: /courses
+Allow: /admissions
+Allow: /departments
+Allow: /placements
+Allow: /news
+Allow: /events
+Allow: /blogs
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /login
+
+# Crawl delays and rate limiting for specific bots
+User-agent: Googlebot
+Crawl-delay: 1
+
+User-agent: Bingbot
+Crawl-delay: 2
+
+User-agent: Slurp
+Crawl-delay: 2
+
+# Don't index search results
+Disallow: /search?*
+
+# Social media bots
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+# Sitemaps
+Sitemap: https://skitm.in/sitemap.xml
+
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Jasper
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: MetaAI
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# General rule for all other bots
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /privacy_policy/policy
+Allow: /
