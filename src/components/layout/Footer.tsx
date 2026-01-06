@@ -135,7 +135,7 @@ const Footer = () => {
                                     to="/cse"
                                     className="text-gray-300 hover:text-white transition-colors"
                                 >
-                                    Computer Science
+                                    Computer Science & Engg.
                                 </Link>
                             </li>
                             <li>
@@ -143,7 +143,7 @@ const Footer = () => {
                                     to="/ece"
                                     className="text-gray-300 hover:text-white transition-colors"
                                 >
-                                    Electronics
+                                    Electronics Engg.
                                 </Link>
                             </li>
                             <li>
@@ -151,7 +151,7 @@ const Footer = () => {
                                     to="/mechanical-engineering"
                                     className="text-gray-300 hover:text-white transition-colors"
                                 >
-                                    Mechanical
+                                    Mechanical Engg.
                                 </Link>
                             </li>
                             <li>
@@ -159,7 +159,7 @@ const Footer = () => {
                                     to="/civil-engineering"
                                     className="text-gray-300 hover:text-white transition-colors"
                                 >
-                                    Civil
+                                    Civil Engg.
                                 </Link>
                             </li>
                             <li>
