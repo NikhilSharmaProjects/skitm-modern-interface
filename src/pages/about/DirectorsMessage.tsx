@@ -32,7 +32,7 @@ const DirectorsMessage = () => {
               </p>
               
               <p className="text-skitm-gray leading-relaxed mb-4">
-                Itcs a pleasure to have you Explore us through this website.
+                It's a pleasure to have you Explore us through this website.
               </p>
               <p className="text-skitm-gray leading-relaxed mb-4">
                 At SKITM, it’s our goal to enhance the employability of our graduates. We back our programs with research, a sound curriculum, intensive training and a host of Certifications. Our attitude of going beyond the books will surely position our graduates at the forefront of the Placement curve. Currently, SKITM is working extensively to bring its academic infrastructure at par with the best in the Industry.
