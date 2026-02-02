@@ -93,6 +93,7 @@ export const mainNavigationLinks = [
     { name: "Placement", href: "/placement" },
     { name: "Student Life", href: "/student-life", subItems: studentLifeLinks },
     { name: "Gallery", href: "/gallery" },
+    { name: "Mandatory Disclosure", href: "/mandatory-disclosure" },
     { name: "Blogs", href: "/blogs" },
     { name: "Contact Us", href: "/contact" },
 ];
