@@ -113,7 +113,7 @@ const Faculty = () => {
             education: "MTech (I.T.), RGPV",
             specialization: "Data Analytics, Project Management",
             image: "https://placehold.co/200x200",
-            publications: 25+,
+            publications: "25+",
             experience: "21 years",
         },
         {
