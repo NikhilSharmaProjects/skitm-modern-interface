@@ -13,39 +13,45 @@ const imgReports = "/Gallery/GalleryImage (${RANDOM_INT}).png";
 const crdTeam = [
     {
         name: "Prof. Rakesh Pandey",
-        designation:
-            "Head Placements & Corporate Relations (Career Development Cell)",
+        designation: "Head Placements & Corporate Relations",
         phone: "9993683013",
-        linkedin: "https://www.linkedin.com/in/rakesh-pandey",
+        linkedin: "",
         email: "tpo@skitm.in / rkpandeytpo@gmail.com",
     },
     {
-        name: "Mr. Sudheer Vaishnav",
-        designation: "Office staff CRD",
-        phone: "9575101665",
-        linkedin: "https://www.linkedin.com/in/sudheer-vaishnav",
-        email: "sudheervaishnav@skitm.in",
-    },
-    {
-        name: "Prof. Mayuri Akotiya",
-        designation: "Assistant Professor",
-        phone: "8349296888",
-        linkedin: "https://www.linkedin.com/in/mayuri-akotiya/",
-        email: "mayuriakotiya@skitm.in",
+        name: "Prof. Suhel Khan",
+        designation: "Manager, Department of Placement and Corporate Relations",
+        phone: "7987550922",
+        linkedin: "",
+        email: "Suhelkhan@skitm.in",
     },
     {
         name: "Prof. Shailendra Jain",
         designation: "Aptitude Trainer",
         phone: "9893022700",
-        linkedin: "https://www.linkedin.com/in/shailendra-jain",
+        linkedin: "",
         email: "shailendrajain@skitm.in",
     },
     {
         name: "Prof. Molly Biswas Kundu",
         designation: "Soft Skills Trainer",
         phone: "7710069792",
-        linkedin: "https://www.linkedin.com/in/molly-biswas-kundu",
+        linkedin: "",
         email: "mollykundu@skitm.in",
+    },
+    {
+        name: "Prof. Rumana Sheikh",
+        designation: "Soft Skills Trainer",
+        phone: "+91 97131 28126",
+        linkedin: "",
+        email: "Rumanasheikh@skitm.in",
+    },
+    {
+        name: "Ms. Prashansha Shah",
+        designation: "Office staff CDC",
+        phone: "+91 97700 40697",
+        linkedin: "",
+        email: "careerdevelopment@skitm.in",
     },
 ];
 

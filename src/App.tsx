@@ -2,6 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { EnquiryFormPopup } from "@/components/ui/EnquiryFormPopup";
 import {
     BrowserRouter,
     Routes,
@@ -172,6 +173,7 @@ const App = () => {
                     <AuthProvider>
                         <BrowserRouter>
                             <ScrollToTop />
+                            <EnquiryFormPopup />
                             <Routes>
                                 {/* Main pages */}
                                 <Route path="/" element={<Index />} />

@@ -4,7 +4,7 @@ import ParallaxSection from "@/components/common/ParallaxSection";
 import { Book, FileText, Printer } from "lucide-react";
 
 const LIBRARIAN = {
-    name: "Anmaika Patel",
+    name: "Anamika Patel",
     designation: "Head Librarian",
     email: "centrallibrary@skitm.in",
 };
