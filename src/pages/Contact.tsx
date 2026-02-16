@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ParallaxSection from "@/components/common/ParallaxSection";
+import ContactForm from "@/components/common/ContactForm";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const Contact = () => {
@@ -119,6 +120,23 @@ const Contact = () => {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </section>
+
+                {/* Contact Form Section */}
+                <section className="section-container bg-gradient-to-b from-white to-blue-50">
+                    <div className="max-w-4xl mx-auto">
+                        <div className="text-center mb-12">
+                            <h2 className="font-display font-bold text-4xl md:text-5xl leading-tight tracking-wide text-skitm-navy mb-4">
+                                Send Us a Message
+                            </h2>
+                            <p className="text-lg text-skitm-gray max-w-2xl mx-auto">
+                                Have questions about admissions, academics, or
+                                campus life? Fill out the form below and we'll
+                                get back to you within 24 hours.
+                            </p>
+                        </div>
+                        <ContactForm />
                     </div>
                 </section>
 

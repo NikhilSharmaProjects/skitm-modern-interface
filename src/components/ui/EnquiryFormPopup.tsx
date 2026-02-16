@@ -47,11 +47,11 @@ export const EnquiryFormPopup: React.FC<EnquiryFormPopupProps> = ({
         setIsLoading(true);
 
         try {
-            // Simulate form submission
             console.log("Form Data:", formData);
 
-            // Here you would typically send data to your backend
-            // For now, we'll just show a success message
+
+            // ================ Backend =====================
+
             await new Promise((resolve) => setTimeout(resolve, 1000));
 
             toast({
@@ -217,13 +217,14 @@ export const EnquiryFormPopup: React.FC<EnquiryFormPopupProps> = ({
                                             htmlFor="phone"
                                             className="block text-sm font-semibold text-skitm-navy"
                                         >
-                                            Phone Number
+                                            Phone Number *
                                         </label>
                                         <input
                                             type="tel"
                                             id="phone"
                                             name="phone"
                                             value={formData.phone}
+                                            required
                                             onChange={handleChange}
                                             placeholder="+91 XXXXX XXXXX"
                                             className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-skitm-blue focus:border-transparent transition-all bg-gray-50 hover:bg-white"
