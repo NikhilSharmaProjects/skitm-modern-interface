@@ -30,6 +30,15 @@ const NaacAGrade = () => {
                 ],
             }}
         >
+            <div className="bg-white rounded shadow overflow-hidden">
+                <div className="h-[80vh]">
+                    <iframe
+                        src="/pdfs/NAAC CERTIFICATE.PDF"
+                        title="NAAC Certificate PDF"
+                        className="w-full h-full"
+                    />
+                </div>
+            </div>
             <div className="space-y-8">
                 <div className="glassmorphism rounded-xl p-8">
                     <h2 className="text-2xl font-display font-bold text-skitm-navy mb-4">
@@ -64,7 +73,15 @@ const NaacAGrade = () => {
                         </li>
                     </ul>
                 </div>
-
+                <div className="bg-white rounded shadow overflow-hidden">
+                    <div className="h-[80vh]">
+                        <iframe
+                            src="/pdfs/NAAC Grade sheet  2023.pdf"
+                            title="NAAC Certificate PDF"
+                            className="w-full h-full"
+                        />
+                    </div>
+                </div>
                 <div className="glassmorphism rounded-xl p-6">
                     <h3 className="text-xl font-display font-bold text-skitm-navy mb-4">
                         Read more

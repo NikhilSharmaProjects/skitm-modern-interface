@@ -1,5 +1,7 @@
 // Hierarchical navigation structure based on SKITM sitemap
 
+import { sub } from "date-fns";
+
 // About Us sub-routes
 export const aboutSKITMLinks = [{ name: "About SKITM", href: "/about-skitm" }];
 
@@ -8,6 +10,7 @@ export const leadershipLinks = [
     { name: "Board of Governors", href: "/board-governors" },
     { name: "Board of Advisors", href: "/board-advisors" },
     { name: "Leadership Team", href: "/leadership-team" },
+    { name: "Academic Council", href: "/academic-council" },
 ];
 
 export const aboutUsLinks = [
@@ -84,7 +87,16 @@ export const studentLifeLinks = [
     { name: "Facilities", href: "/facilities" },
     { name: "Library", href: "/library" },
     { name: "Sports", href: "/sports" },
+    { name: "Gallery", href: "/gallery" },
     { name: "News & Events", href: "/news-events" },
+];
+
+export const approvalsLinks = [
+    { name: "AICTE", href: "/aicte" },
+    { name: "UGC", href: "/ugc" },
+    { name: "RGPV", href: "/rgpv" },
+    { name: "DAVV", href: "/davv" },
+    { name: "DTE", href: "/dte" },
 ];
 
 // Main navigation structure
@@ -95,8 +107,9 @@ export const mainNavigationLinks = [
     { name: "Admissions", href: "/admissions", subItems: admissionsLinks },
     { name: "Placement", href: "/placement" },
     { name: "Student Life", href: "/student-life", subItems: studentLifeLinks },
-    { name: "Gallery", href: "/gallery" },
+    { name : "Approvals", href: "/approvals", subItems: approvalsLinks },
+    { name : "NAAC", href: "/top-naac-a-grade-college-in-indore" },
     { name: "Mandatory Disclosure", href: "/mandatory-disclosure" },
-    { name: "Blogs", href: "/blogs" },
+    // { name: "Blogs", href: "/blogs" },
     { name: "Contact Us", href: "/contact" },
 ];

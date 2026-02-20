@@ -74,6 +74,16 @@ const BoardGovernors = () => {
                 ))}
             </div>
 
+            <div className="bg-white rounded shadow overflow-hidden">
+                <div className="h-[80vh]">
+                    <iframe
+                        src="/pdfs/gov-body.PDF"
+                        title="Board of Governors PDF"
+                        className="w-full h-full"
+                    />
+                </div>
+            </div>
+
             <div className="glassmorphism rounded-xl p-8">
                 <h2 className="text-2xl font-display font-bold text-skitm-navy mb-6">
                     Role and Responsibilities

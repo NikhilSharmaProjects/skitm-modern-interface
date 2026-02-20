@@ -89,7 +89,7 @@ const HierarchicalNavigation = () => {
         >
           {item.subItems ? (
             <div>
-              <button className="flex items-center px-4 py-2 text-sm font-medium text-skitm-navy hover:text-skitm-blue transition-colors">
+              <button className="flex items-center px-2 py-2 text-sm font-medium text-skitm-navy hover:text-skitm-blue transition-colors">
                 <span>{item.name}</span>
                 <ChevronDown className="w-4 h-4 ml-1" />
               </button>
@@ -101,7 +101,7 @@ const HierarchicalNavigation = () => {
           ) : (
             <Link
               to={item.href}
-              className="flex items-center px-4 py-2 text-sm font-medium text-skitm-navy hover:text-skitm-blue transition-colors"
+              className="flex items-center px-2 py-2 text-sm font-medium text-skitm-navy hover:text-skitm-blue transition-colors"
             >
               {item.name}
             </Link>

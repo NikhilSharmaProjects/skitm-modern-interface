@@ -25,6 +25,7 @@ import Chairman from "./pages/about/Chairman";
 import DirectorsMessage from "./pages/about/DirectorsMessage";
 import BoardGovernors from "./pages/about/BoardGovernors";
 import LeadershipTeam from "./pages/about/LeadershipTeam";
+import AcademicCouncil from "./pages/about/academic";
 import BoardAdvisors from "./pages/about/BoardAdvisors";
 import Partners from "./pages/about/Partners";
 
@@ -83,6 +84,13 @@ import StudentTestimonials from "./pages/student-life/StudentTestimonials";
 import Campus from "./pages/campus/Campus";
 import Facilities from "./pages/Facilities";
 import Sports from "./pages/student-life/Sports";
+
+// Approvals pages
+import AICTE from "./pages/approvals/aicte";
+import UGC from "./pages/approvals/ugc";
+import RGPV from "./pages/approvals/rgpv";
+import DAVV from "./pages/approvals/davv";
+import DTE from "./pages/approvals/dte";
 
 // Other pages
 import NewsEvents from "./pages/NewsEvents";
@@ -214,6 +222,10 @@ const App = () => {
                                     element={<LeadershipTeam />}
                                 />
                                 <Route
+                                    path="/academic-council"
+                                    element={<AcademicCouncil />}
+                                />
+                                <Route
                                     path="/board-advisors"
                                     element={<BoardAdvisors />}
                                 />
@@ -335,6 +347,12 @@ const App = () => {
                                     element={<Facilities />}
                                 />
                                 <Route path="/sports" element={<Sports />} />
+                                {/* Approvals pages */}
+                                <Route path="/aicte" element={<AICTE />} />
+                                <Route path="/ugc" element={<UGC />} />
+                                <Route path="/rgpv" element={<RGPV />} />
+                                <Route path="/davv" element={<DAVV />} />
+                                <Route path="/dte" element={<DTE />} />
                                 {/* Other pages */}
                                 <Route path="/gallery" element={<Gallery />} />
                                 <Route
