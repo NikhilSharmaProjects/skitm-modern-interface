@@ -26,10 +26,13 @@ export const aboutUsLinks = [
 // Academics sub-routes
 export const engineeringLinks = [
     { name: "Computer Science & Engineering", href: "/cse" },
+    {name: "AIML", href: "/aiml"},
+    {name: "CSIT", href: "/csit"},
+    {name: "Information Technology", href: "/it"},
+    {name: "Data Science", href: "/data-science"},
     { name: "Electronics & Communication Engineering", href: "/ece" },
     { name: "Civil Engineering", href: "/civil-engineering" },
     { name: "Mechanical Engineering", href: "/mechanical-engineering" },
-    { name: "Applied Science Department", href: "/applied-science" },
 ];
 
 export const managementLinks = [

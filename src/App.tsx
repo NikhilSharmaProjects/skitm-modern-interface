@@ -34,7 +34,6 @@ import CSE from "./pages/academics/engineering/CSE";
 import ECE from "./pages/academics/engineering/ECE";
 import CivilEngineering from "./pages/academics/engineering/CivilEngineering";
 import MechanicalEngineering from "./pages/academics/engineering/MechanicalEngineering";
-import AppliedScience from "./pages/academics/engineering/AppliedScience";
 
 // Academic pages - Management
 import Management from "./pages/academics/Management";
@@ -242,10 +241,6 @@ const App = () => {
                                 <Route
                                     path="/mechanical-engineering"
                                     element={<MechanicalEngineering />}
-                                />
-                                <Route
-                                    path="/applied-science"
-                                    element={<AppliedScience />}
                                 />
                                 {/* Management */}
                                 <Route

@@ -143,7 +143,39 @@ const Footer = () => {
                                     to="/ece"
                                     className="text-gray-300 hover:text-white transition-colors"
                                 >
-                                    Electronics Engg.
+                                    Electronics & Communication Engg.
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/aiml"
+                                    className="text-gray-300 hover:text-white transition-colors"
+                                >
+                                    AIML
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/CSIT"
+                                    className="text-gray-300 hover:text-white transition-colors"
+                                >
+                                    CSIT
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/Data-Science"
+                                    className="text-gray-300 hover:text-white transition-colors"
+                                >
+                                    Data-Science
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/it"
+                                    className="text-gray-300 hover:text-white transition-colors"
+                                >
+                                    Information Technology
                                 </Link>
                             </li>
                             <li>

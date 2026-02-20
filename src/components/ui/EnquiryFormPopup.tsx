@@ -92,14 +92,11 @@ export const EnquiryFormPopup: React.FC<EnquiryFormPopupProps> = ({
                 {!isOpen && (
                     <button
                         onClick={() => setIsOpen(true)}
-                        className="group relative w-14 h-14 md:w-16 md:h-16 bg-skitm-blue hover:bg-skitm-lightBlue text-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center hover:scale-110 active:scale-95"
+                        className="group relative w-35 h-10 md:w-35 md:h-10 p-2 bg-skitm-blue hover:bg-skitm-lightBlue text-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center hover:scale-110 active:scale-95"
                         aria-label="Open enquiry form"
                     >
-                        <MessageCircle size={24} className="md:w-6 md:h-6" />
-                        <span className="absolute -top-2 -right-2 w-3 h-3 bg-red-500 rounded-full animate-pulse"></span>
-                        <div className="absolute right-full mr-3 bg-skitm-navy text-white text-sm whitespace-nowrap px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                            Have a question?
-                        </div>
+                        {/* <MessageCircle size={24} className="md:w-6 md:h-6" /> */}
+                        {"Enquire Now"}
                     </button>
                 )}
             </div>
