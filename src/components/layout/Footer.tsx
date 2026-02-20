@@ -121,6 +121,22 @@ const Footer = () => {
                                     Suggestions & Grievances
                                 </Link>
                             </li>
+                            <li>
+                                <Link
+                                    to="/anti-ragging"
+                                    className="text-gray-300 hover:text-white transition-colors"
+                                >
+                                    Anti Ragging Committee
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/sc-st"
+                                    className="text-gray-300 hover:text-white transition-colors"
+                                >
+                                    SC/ST Committee
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 

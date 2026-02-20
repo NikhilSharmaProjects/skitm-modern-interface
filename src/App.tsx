@@ -88,6 +88,9 @@ import Sports from "./pages/student-life/Sports";
 import NewsEvents from "./pages/NewsEvents";
 import Gallery from "./pages/Gallery";
 import Blogs from "./pages/Blogs"; // <-- Add this import
+import AntiRagging from "./pages/AntiRagging";
+import MandatoryDisclosure from "./pages/mandatory-disclosure";
+import SCST from "./pages/SCST";
 import NaacAGrade from "./pages/NaacAGrade";
 import Autonomous from "./pages/Autonomous";
 import BTech from "./pages/BTech";
@@ -334,6 +337,18 @@ const App = () => {
                                 <Route path="/sports" element={<Sports />} />
                                 {/* Other pages */}
                                 <Route path="/gallery" element={<Gallery />} />
+                                <Route
+                                    path="/anti-ragging"
+                                    element={<AntiRagging />}
+                                />
+                                <Route
+                                    path="/mandatory-disclosure"
+                                    element={<MandatoryDisclosure />}
+                                />
+                                <Route
+                                    path="/sc-st"
+                                    element={<SCST />}
+                                />
                                 <Route path="/blogs" element={<Blogs />} />{" "}
                                 {/* <-- Add Blogs */}
                                 {/* New SEO landing pages */}
